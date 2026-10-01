@@ -1,5 +1,5 @@
 import assert from 'node:assert'
-import * as pkg from 'package-name'
+import * as pkg from 'forges'
 
 // eslint-disable-next-line no-console
 console.log(pkg.welcome())

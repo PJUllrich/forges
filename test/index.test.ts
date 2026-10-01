@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { welcome } from '../src'
+import { welcome } from '../src/index.ts'
 
-describe('package-name', () => {
+describe('forges', () => {
   it('works', () => {
     expect(welcome()).toMatchInlineSnapshot('"hello world"')
   })

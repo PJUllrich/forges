@@ -1,11 +1,11 @@
 {
-  "name": "package-name",
+  "name": "forges",
   "type": "module",
   "version": "0.0.0",
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": "^24.0.0",
+      "version": "24.21.0",
       "onFail": "download"
     },
     "packageManager": {
@@ -14,12 +14,30 @@
       "onFail": "download"
     }
   },
-  "description": "",
+  "description": "One API for issues, pull requests, notifications and webhooks across GitHub, GitLab, Bitbucket, Forgejo, Gitea, Gitee, Azure DevOps, Cursor Origin, Tangled and pushin.eu",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielroe/package-name.git"
+    "url": "git+https://github.com/danielroe/forges.git"
   },
+  "keywords": [
+    "forge",
+    "git",
+    "github",
+    "gitlab",
+    "bitbucket",
+    "forgejo",
+    "codeberg",
+    "gitea",
+    "gitee",
+    "azure-devops",
+    "tangled",
+    "atproto",
+    "issues",
+    "pull-requests",
+    "notifications",
+    "webhooks"
+  ],
   "sideEffects": false,
   "exports": {
     ".": "./src/index.ts",
@@ -42,21 +60,27 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=22.18"
+  },
   "scripts": {
     "build": "tsdown",
     "dev": "vitest dev",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prepare": "simple-git-hooks",
-    "prepack": "pnpm lint && pnpm test && pnpm build",
+    "prepack": "pnpm build",
     "test": "pnpm test:unit && pnpm test:types && pnpm test:knip",
-    "test:unit": "vitest",
+    "test:unit": "vitest run",
     "test:knip": "knip",
     "test:versions": "installed-check -d --no-workspaces",
-    "test:types": "tsc --noEmit"
+    "test:types": "tsc --noEmit",
+    "dev:playground": "pnpm --filter playground dev"
   },
   "devDependencies": {
     "@antfu/eslint-config": "9.3.0",
     "@arethetypeswrong/core": "0.18.5",
+    "@types/node": "^24.0.0",
     "@vitest/coverage-v8": "5.0.1",
     "eslint": "10.11.0",
     "installed-check": "11.0.0",
@@ -73,7 +97,7 @@
     "pre-commit": "pnpm nano-staged"
   },
   "nano-staged": {
-    "*.{js,ts,mjs,cjs,json,.*rc}": [
+    "*.{js,ts,mjs,cjs,json,yml,yaml,md,.*rc}": [
       "pnpm eslint --fix"
     ]
   }

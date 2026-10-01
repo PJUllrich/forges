@@ -6,3 +6,9 @@ coverage
 .eslintcache
 *.log*
 *.env*
+.nuxt
+.output
+
+# Working notes, kept on disk only
+notes/
+test/.verbs/

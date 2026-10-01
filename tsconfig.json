@@ -2,11 +2,18 @@
   "compilerOptions": {
     "target": "es2022",
     "lib": [
-      "es2022"
+      "es2024",
+      "esnext.array",
+      "dom",
+      "dom.iterable"
     ],
     "moduleDetection": "force",
-    "module": "preserve",
+    "module": "nodenext",
     "resolveJsonModule": true,
+    "types": [
+      "node"
+    ],
+    "allowImportingTsExtensions": true,
     "allowJs": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -16,11 +23,12 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
     "skipLibCheck": true
   },
   "include": [
     "src",
     "test",
-    "playground"
+    "scripts"
   ]
 }
