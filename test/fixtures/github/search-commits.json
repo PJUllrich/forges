@@ -1,0 +1,35 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/search/commits?q=author%3Aoctocat&sort=committer-date&order=asc"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "total_count": 1,
+      "incomplete_results": false,
+      "items": [
+        {
+          "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+          "html_url": "https://github.com/acme/widgets/commit/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+          "commit": {
+            "message": "Fix all the bugs",
+            "author": { "name": "Mona", "email": "mona@example.com", "date": "2011-04-14T16:00:49Z" },
+            "committer": { "name": "Mona", "email": "mona@example.com", "date": "2011-04-14T16:00:49Z" }
+          },
+          "author": { "login": "octocat", "id": 1 },
+          "committer": { "login": "octocat", "id": 1 },
+          "parents": [{ "sha": "553c2077f0edc3d5dc5d17262f6aa498e69d6f8e" }],
+          "repository": {
+            "id": 1296269,
+            "name": "widgets",
+            "full_name": "acme/widgets",
+            "owner": { "login": "acme", "id": 2 }
+          }
+        }
+      ]
+    }
+  }
+}

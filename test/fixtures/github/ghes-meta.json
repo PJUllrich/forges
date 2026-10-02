@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://ghe.example.com/api/v3/meta"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "installed_version": "3.12.4",
+      "verifiable_password_authentication": true
+    }
+  }
+}

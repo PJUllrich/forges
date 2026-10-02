@@ -1,0 +1,33 @@
+import { describe, expect, it } from 'vitest'
+import { forgesFromEnv, providersFromEnv } from '../../src/env.ts'
+
+describe('providersFromEnv', () => {
+  it('reads one provider set per kind and suffix', () => {
+    const entries = providersFromEnv({
+      FORGES_GITHUB_TOKEN: 'a',
+      FORGES_GITHUB_TOKEN_WORK: 'b',
+      FORGES_GITHUB_BASE_URL_WORK: 'https://ghe.example.com/api/v3',
+      FORGES_GITLAB_INSTANCE_VERSION: '17.0',
+      UNRELATED: 'x',
+    })
+
+    expect(entries.map(({ kind, suffix, instance, skipped }) => ({ kind, suffix, instance, skipped }))).toEqual([
+      { kind: 'github', suffix: '', instance: 'github.com', skipped: undefined },
+      { kind: 'github', suffix: 'WORK', instance: 'ghe.example.com', skipped: undefined },
+      { kind: 'gitlab', suffix: '', instance: undefined, skipped: 'needs TOKEN, or ENABLED for anonymous reads' },
+    ])
+  })
+
+  it('skips a set whose ENABLED is off, whatever else it sets', () => {
+    const entries = providersFromEnv({ FORGES_TANGLED_ENABLED: 'false', FORGES_GITHUB_TOKEN: 'a', FORGES_GITHUB_ENABLED: '0' })
+
+    expect(entries.map(entry => [entry.kind, entry.skipped])).toEqual([['tangled', 'ENABLED is off'], ['github', 'ENABLED is off']])
+  })
+
+  it('builds anonymous providers from ENABLED or DEMO_REPO', () => {
+    const forges = forgesFromEnv({ FORGES_FORGEJO_ENABLED: '1', FORGES_FORGEJO_BASE_URL: 'https://codeberg.org', FORGES_GITLAB_DEMO_REPO: 'acme/platform/widgets' })
+
+    expect(forges.providers.map(provider => provider.instance)).toEqual(['codeberg.org', 'gitlab.com'])
+    expect(providersFromEnv({ FORGES_GITLAB_DEMO_REPO: 'acme/platform/widgets' })[0]!.demoRepo).toEqual({ owner: 'acme/platform', name: 'widgets' })
+  })
+})

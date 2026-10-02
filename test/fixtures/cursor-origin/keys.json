@@ -1,0 +1,25 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.cursor.com/v1/origin/keys"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "keys": [
+        {
+          "kty": "OKP",
+          "crv": "Ed25519",
+          "use": "sig",
+          "alg": "EdDSA",
+          "kid": "origin-test-key",
+          "x": "dBDwpSmKkgz_giulMz50kEXVisDfTsqHiOuADphj6sc"
+        }
+      ]
+    }
+  }
+}

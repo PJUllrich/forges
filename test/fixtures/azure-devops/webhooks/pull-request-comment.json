@@ -1,0 +1,97 @@
+{
+  "subscriptionId": "f0f0f0f0-0000-4000-8000-000000000001",
+  "notificationId": 3,
+  "id": "aaaa0000-0000-4000-8000-000000000009",
+  "eventType": "ms.vss-code.git-pullrequest-comment-event",
+  "publisherId": "tfs",
+  "message": {
+    "text": "Grace Hopper has commented on pull request 9"
+  },
+  "resource": {
+    "comment": {
+      "id": 2,
+      "parentCommentId": 1,
+      "author": {
+        "id": "c0a1a000-0000-4000-8000-0000000grace",
+        "displayName": "Grace Hopper",
+        "uniqueName": "grace@contoso.com"
+      },
+      "content": "Rebased onto main.",
+      "commentType": "text",
+      "publishedDate": "2026-09-20T10:00:00Z"
+    },
+    "pullRequest": {
+      "pullRequestId": 9,
+      "artifactId": "vstfs:///CodeReview/CodeReviewId/b1f9e0c4-0000-4000-8000-000000000001/9",
+      "status": "active",
+      "title": "Fix eviction",
+      "description": "Retries the upload once on a 5xx response.",
+      "isDraft": false,
+      "createdBy": {
+        "id": "c0a1a000-0000-4000-8000-000000000ada",
+        "displayName": "Ada Lovelace",
+        "uniqueName": "ada@contoso.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.ada"
+      },
+      "creationDate": "2026-09-18T09:00:00Z",
+      "sourceRefName": "refs/heads/retry",
+      "targetRefName": "refs/heads/main",
+      "mergeStatus": "succeeded",
+      "lastMergeSourceCommit": {
+        "commitId": "9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d"
+      },
+      "lastMergeTargetCommit": {
+        "commitId": "1a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d"
+      },
+      "reviewers": [
+        {
+          "id": "c0a1a000-0000-4000-8000-000000000ada",
+          "displayName": "Ada Lovelace",
+          "uniqueName": "ada@contoso.com",
+          "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.ada",
+          "vote": 10,
+          "isRequired": false
+        }
+      ],
+      "labels": [
+        {
+          "id": "lbl-1",
+          "name": "enhancement",
+          "active": true
+        }
+      ],
+      "repository": {
+        "id": "a4c8e7d2-0000-4000-8000-0000000000aa",
+        "name": "widgets",
+        "defaultBranch": "refs/heads/main",
+        "isDisabled": false,
+        "isFork": false,
+        "project": {
+          "id": "b1f9e0c4-0000-4000-8000-000000000001",
+          "name": "Widgets"
+        },
+        "remoteUrl": "https://acme@dev.azure.com/acme/Widgets/_git/widgets",
+        "sshUrl": "git@ssh.dev.azure.com:v3/acme/Widgets/widgets",
+        "webUrl": "https://dev.azure.com/acme/Widgets/_git/widgets"
+      },
+      "_links": {
+        "web": {
+          "href": "https://dev.azure.com/acme/Widgets/_git/widgets/pullrequest/9"
+        }
+      }
+    }
+  },
+  "resourceVersion": "2.0",
+  "resourceContainers": {
+    "collection": {
+      "id": "c1"
+    },
+    "account": {
+      "id": "a1"
+    },
+    "project": {
+      "id": "b1f9e0c4-0000-4000-8000-000000000001"
+    }
+  },
+  "createdDate": "2026-09-20T10:00:01Z"
+}

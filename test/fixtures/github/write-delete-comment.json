@@ -1,0 +1,11 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "DELETE",
+    "url": "https://api.github.com/repos/acme/widgets/issues/comments/770001"
+  },
+  "response": {
+    "status": 204,
+    "headers": {}
+  }
+}

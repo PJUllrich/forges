@@ -1,0 +1,45 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "type": "repository",
+      "uuid": "{8b1c2d3e-0000-4000-8000-0000000000aa}",
+      "name": "widgets",
+      "full_name": "acme/widgets",
+      "workspace": {
+        "slug": "acme",
+        "uuid": "{7a000000-0000-4000-8000-0000000000bb}"
+      },
+      "slug": "widgets",
+      "is_private": false,
+      "has_issues": true,
+      "mainbranch": {
+        "name": "main"
+      },
+      "description": "Widgets, normalised.",
+      "created_on": "2024-01-01T00:00:00.000000+00:00",
+      "updated_on": "2025-09-18T09:20:00.000000+00:00",
+      "links": {
+        "html": {
+          "href": "https://bitbucket.org/acme/widgets"
+        },
+        "clone": [
+          {
+            "name": "https",
+            "href": "https://bitbucket.org/acme/widgets.git"
+          },
+          {
+            "name": "ssh",
+            "href": "git@bitbucket.org:acme/widgets.git"
+          }
+        ]
+      }
+    }
+  }
+}

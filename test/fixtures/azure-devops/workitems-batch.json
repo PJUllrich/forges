@@ -1,0 +1,51 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://dev.azure.com/acme/Widgets/_apis/wit/workitemsbatch?api-version=7.1"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "count": 1,
+      "value": [
+        {
+          "id": 101,
+          "rev": 3,
+          "fields": {
+            "System.Id": 101,
+            "System.TeamProject": "Widgets",
+            "System.WorkItemType": "Issue",
+            "System.State": "To Do",
+            "System.Reason": "Added to backlog",
+            "System.Title": "Uploads fail on flaky networks",
+            "System.AssignedTo": {
+              "id": "c0a1a000-0000-4000-8000-000000000ada",
+              "displayName": "Ada Lovelace",
+              "uniqueName": "ada@contoso.com",
+              "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.ada"
+            },
+            "System.Tags": "bug; networking",
+            "System.CreatedBy": {
+              "id": "c0a1a000-0000-4000-8000-000000000ada",
+              "displayName": "Ada Lovelace",
+              "uniqueName": "ada@contoso.com",
+              "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.ada"
+            },
+            "System.CreatedDate": "2026-09-10T09:00:00Z",
+            "System.ChangedDate": "2026-09-12T09:00:00Z",
+            "System.CommentCount": 1
+          },
+          "_links": {
+            "html": {
+              "href": "https://dev.azure.com/acme/Widgets/_workitems/edit/101"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

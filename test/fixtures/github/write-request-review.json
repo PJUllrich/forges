@@ -1,0 +1,21 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/repos/acme/widgets/pulls/42/requested_reviewers"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "number": 42,
+      "requested_reviewers": [
+        {
+          "login": "hubot",
+          "id": 777,
+          "type": "User"
+        }
+      ]
+    }
+  }
+}

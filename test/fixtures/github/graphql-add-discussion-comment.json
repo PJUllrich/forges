@@ -1,0 +1,21 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "AddDiscussionComment"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "data": {
+        "addDiscussionComment": {
+          "comment": {
+            "id": "DC_kwDOAAB5ac4AQ8cc"
+          }
+        }
+      }
+    }
+  }
+}

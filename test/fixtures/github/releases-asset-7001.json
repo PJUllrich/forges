@@ -1,0 +1,14 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/releases/assets/7001"
+  },
+  "response": {
+    "status": 302,
+    "headers": {
+      "location": "https://objects.githubusercontent.com/acme/widgets/widgets-v1.2.0.tgz"
+    },
+    "body": null
+  }
+}

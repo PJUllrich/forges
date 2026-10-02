@@ -1,0 +1,5 @@
+{
+  "handAuthored": true,
+  "request": { "method": "PATCH", "url": "https://api.github.com/notifications/threads/901234567" },
+  "response": { "status": 205, "headers": {} }
+}

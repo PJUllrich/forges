@@ -1,0 +1,748 @@
+{
+  "repo": {
+    "ref": {
+      "forge": "tangled",
+      "instance": "tangled.org",
+      "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+      "name": "core",
+      "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+    },
+    "description": "Monorepo for Tangled",
+    "visibility": "public",
+    "isFork": false,
+    "isArchived": false,
+    "topics": [],
+    "url": "https://tangled.org/did:plc:wshs7t2adsemcrrd4snkeqli/core",
+    "cloneUrls": {
+      "https": "https://tangled.org/did:plc:wshs7t2adsemcrrd4snkeqli/core",
+      "ssh": "ssh://git@tangled.org/did:plc:wshs7t2adsemcrrd4snkeqli/core"
+    },
+    "createdAt": "2025-02-23T18:43:18.000Z"
+  },
+  "pull": {
+    "ref": {
+      "forge": "tangled",
+      "instance": "tangled.org",
+      "repo": {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+        "name": "core",
+        "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+      },
+      "kind": "pull_request",
+      "typeRaw": "sh.tangled.repo.pull",
+      "number": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22",
+      "externalId": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22"
+    },
+    "kind": "pull_request",
+    "title": "knot2: pack objects behind client shallow boundaries",
+    "body": "A fetch from a client that announced shallow boundaries treated the\nclient's haves as complete history: the send set excluded everything\nreachable from the haves, including ancestors the client does not\nhold. A want that peels to such an ancestor (an annotated tag on an\nolder commit) then produced a pack that failed the client's\nconnectivity check. This broke every GOPROXY=direct go get, since the\ngo tool fetches shallowly first.\n\nRoute client-side shallow boundaries into pack selection and stop the\nhave-closure ascent at them: the client has a shallow commit and its\ntree, but nothing above it. Server grafts already cut the ascent the\nsame way.\n\nFixes #769\n\nSigned-off-by: Mads R. Havmand <mads@v42.dk>",
+    "state": "open",
+    "stateRaw": "open",
+    "isDraft": false,
+    "author": {
+      "forge": "tangled",
+      "instance": "tangled.org",
+      "login": "mads.havmand.eu",
+      "id": "did:plc:pzywyr3ji56pinuglmm4t7xj",
+      "url": "https://tangled.org/mads.havmand.eu",
+      "isBotHint": false
+    },
+    "assignees": [],
+    "reviewers": [],
+    "createdAt": "2026-09-30T10:29:57.000Z",
+    "updatedAt": "2026-10-01T06:58:57.000Z",
+    "lastActivityAt": "2026-10-01T06:58:57.000Z",
+    "labels": [],
+    "commentCount": 2,
+    "branches": {
+      "head": {
+        "ref": "shallow-client-pack-fix"
+      },
+      "base": {
+        "ref": "master"
+      }
+    }
+  },
+  "pull getMany": [
+    {
+      "ok": true,
+      "ref": {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "kind": "pull_request",
+        "typeRaw": "sh.tangled.repo.pull",
+        "number": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22",
+        "externalId": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22"
+      },
+      "thread": {
+        "ref": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "pull_request",
+          "typeRaw": "sh.tangled.repo.pull",
+          "number": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22",
+          "externalId": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22"
+        },
+        "kind": "pull_request",
+        "title": "knot2: pack objects behind client shallow boundaries",
+        "body": "A fetch from a client that announced shallow boundaries treated the\nclient's haves as complete history: the send set excluded everything\nreachable from the haves, including ancestors the client does not\nhold. A want that peels to such an ancestor (an annotated tag on an\nolder commit) then produced a pack that failed the client's\nconnectivity check. This broke every GOPROXY=direct go get, since the\ngo tool fetches shallowly first.\n\nRoute client-side shallow boundaries into pack selection and stop the\nhave-closure ascent at them: the client has a shallow commit and its\ntree, but nothing above it. Server grafts already cut the ascent the\nsame way.\n\nFixes #769\n\nSigned-off-by: Mads R. Havmand <mads@v42.dk>",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "mads.havmand.eu",
+          "id": "did:plc:pzywyr3ji56pinuglmm4t7xj",
+          "url": "https://tangled.org/mads.havmand.eu",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "createdAt": "2026-09-30T10:29:57.000Z",
+        "updatedAt": "2026-10-01T06:58:57.000Z",
+        "lastActivityAt": "2026-10-01T06:58:57.000Z",
+        "labels": [],
+        "commentCount": 2,
+        "branches": {
+          "head": {
+            "ref": "shallow-client-pack-fix"
+          },
+          "base": {
+            "ref": "master"
+          }
+        }
+      }
+    }
+  ],
+  "pull events": {
+    "items": [
+      {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "id": "at://did:plc:3fwecdnvtcscjnrx2p4n7alz/sh.tangled.feed.comment/3mwq5hwtcox22",
+        "kind": "comment",
+        "kindRaw": "sh.tangled.feed.comment",
+        "action": "created",
+        "actionRaw": "create",
+        "summary": "oyster.cafe commented",
+        "occurredAt": "2026-09-30T10:35:31.000Z",
+        "actor": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "oyster.cafe",
+          "id": "did:plc:3fwecdnvtcscjnrx2p4n7alz",
+          "url": "https://tangled.org/oyster.cafe",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "thread": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "pull_request",
+          "typeRaw": "sh.tangled.repo.pull",
+          "number": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22",
+          "externalId": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22"
+        },
+        "source": "poll"
+      },
+      {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "id": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.feed.comment/3mwsbvdfbr422",
+        "kind": "comment",
+        "kindRaw": "sh.tangled.feed.comment",
+        "action": "created",
+        "actionRaw": "create",
+        "summary": "mads.havmand.eu commented",
+        "occurredAt": "2026-10-01T06:59:55.000Z",
+        "actor": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "mads.havmand.eu",
+          "id": "did:plc:pzywyr3ji56pinuglmm4t7xj",
+          "url": "https://tangled.org/mads.havmand.eu",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "thread": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "pull_request",
+          "typeRaw": "sh.tangled.repo.pull",
+          "number": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22",
+          "externalId": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22"
+        },
+        "source": "poll"
+      }
+    ]
+  },
+  "pull comments": {
+    "items": [
+      {
+        "ref": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "thread": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "repo": {
+              "forge": "tangled",
+              "instance": "tangled.org",
+              "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+              "name": "core",
+              "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+            },
+            "kind": "pull_request",
+            "typeRaw": "sh.tangled.repo.pull",
+            "number": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22",
+            "externalId": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22"
+          },
+          "id": "at://did:plc:3fwecdnvtcscjnrx2p4n7alz/sh.tangled.feed.comment/3mwq5hwtcox22"
+        },
+        "body": "thanks! I don't necessarily mind llm-generated code but could you please hand-write the comments? they're a bit of an eyesore :P",
+        "author": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "oyster.cafe",
+          "id": "did:plc:3fwecdnvtcscjnrx2p4n7alz",
+          "url": "https://tangled.org/oyster.cafe",
+          "isBotHint": false
+        },
+        "createdAt": "2026-09-30T10:35:31.000Z"
+      },
+      {
+        "ref": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "thread": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "repo": {
+              "forge": "tangled",
+              "instance": "tangled.org",
+              "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+              "name": "core",
+              "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+            },
+            "kind": "pull_request",
+            "typeRaw": "sh.tangled.repo.pull",
+            "number": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22",
+            "externalId": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22"
+          },
+          "id": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.feed.comment/3mwsbvdfbr422"
+        },
+        "body": "You're absolutely right! - Sorry, couldn't help myself :P\n\nI ended up removing the comments as they didn't really add anything other than up the slop-factor.",
+        "author": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "mads.havmand.eu",
+          "id": "did:plc:pzywyr3ji56pinuglmm4t7xj",
+          "url": "https://tangled.org/mads.havmand.eu",
+          "isBotHint": false
+        },
+        "createdAt": "2026-10-01T06:59:55.000Z"
+      }
+    ]
+  },
+  "issue": {
+    "ref": {
+      "forge": "tangled",
+      "instance": "tangled.org",
+      "repo": {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+        "name": "core",
+        "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+      },
+      "kind": "issue",
+      "typeRaw": "sh.tangled.repo.issue",
+      "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+      "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+    },
+    "kind": "issue",
+    "title": "New user: Profile page 404, git push fails",
+    "body": "I just created my account and created a repo. However, I found that my profile page 404, although it's accessible via did:\n\n- [Profile page (404)](https://tangled.org/superkenvery.tngl.sh)\n- [Profile via did (normal)](https://tangled.org/did:plc:cnx5rmsyvousaqjfbbzzllbi?tab=overview)\n\nWhat's more, I can't push to the repo, even though I (think I) correctly configured the ssh keys:\n\n```\ngit push -u tangle HEAD\nEnumerating objects: 170, done.\nknot: couldn't read the account records needed to check your ssh key, retry shortly\nsend-pack: unexpected disconnect while reading sideband packet\nCounting objects: 100% (170/170), done.\nDelta compression using up to 8 threads\nCompressing objects: 100% (154/154), done.\nfatal: the remote end hung up unexpectedly\n```\n\n(But I successfully pushed as of writing this. Profile page is still 404 though)",
+    "state": "closed",
+    "stateRaw": "closed",
+    "isDraft": false,
+    "author": {
+      "forge": "tangled",
+      "instance": "tangled.org",
+      "login": "superkenvery.tngl.sh",
+      "id": "did:plc:cnx5rmsyvousaqjfbbzzllbi",
+      "url": "https://tangled.org/superkenvery.tngl.sh",
+      "isBotHint": false
+    },
+    "assignees": [],
+    "reviewers": [],
+    "createdAt": "2026-09-30T13:43:38.000Z",
+    "updatedAt": "2026-09-30T14:24:37.828Z",
+    "closedAt": "2026-09-30T14:24:37.828Z",
+    "lastActivityAt": "2026-09-30T14:24:37.828Z",
+    "labels": [],
+    "commentCount": 3
+  },
+  "issue getMany": [
+    {
+      "ok": true,
+      "ref": {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "kind": "issue",
+        "typeRaw": "sh.tangled.repo.issue",
+        "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+        "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+      },
+      "thread": {
+        "ref": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "issue",
+          "typeRaw": "sh.tangled.repo.issue",
+          "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+          "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+        },
+        "kind": "issue",
+        "title": "New user: Profile page 404, git push fails",
+        "body": "I just created my account and created a repo. However, I found that my profile page 404, although it's accessible via did:\n\n- [Profile page (404)](https://tangled.org/superkenvery.tngl.sh)\n- [Profile via did (normal)](https://tangled.org/did:plc:cnx5rmsyvousaqjfbbzzllbi?tab=overview)\n\nWhat's more, I can't push to the repo, even though I (think I) correctly configured the ssh keys:\n\n```\ngit push -u tangle HEAD\nEnumerating objects: 170, done.\nknot: couldn't read the account records needed to check your ssh key, retry shortly\nsend-pack: unexpected disconnect while reading sideband packet\nCounting objects: 100% (170/170), done.\nDelta compression using up to 8 threads\nCompressing objects: 100% (154/154), done.\nfatal: the remote end hung up unexpectedly\n```\n\n(But I successfully pushed as of writing this. Profile page is still 404 though)",
+        "state": "closed",
+        "stateRaw": "closed",
+        "isDraft": false,
+        "author": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "superkenvery.tngl.sh",
+          "id": "did:plc:cnx5rmsyvousaqjfbbzzllbi",
+          "url": "https://tangled.org/superkenvery.tngl.sh",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "createdAt": "2026-09-30T13:43:38.000Z",
+        "updatedAt": "2026-09-30T14:24:37.828Z",
+        "closedAt": "2026-09-30T14:24:37.828Z",
+        "lastActivityAt": "2026-09-30T14:24:37.828Z",
+        "labels": [],
+        "commentCount": 3
+      }
+    }
+  ],
+  "issue events": {
+    "items": [
+      {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "id": "at://did:plc:3fwecdnvtcscjnrx2p4n7alz/sh.tangled.feed.reaction/3mwqic5wzhy22",
+        "kind": "reaction",
+        "kindRaw": "sh.tangled.feed.reaction",
+        "action": "created",
+        "actionRaw": "create",
+        "summary": "oyster.cafe reacted 👀",
+        "occurredAt": "2026-09-30T13:49:09.000Z",
+        "actor": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "oyster.cafe",
+          "id": "did:plc:3fwecdnvtcscjnrx2p4n7alz",
+          "url": "https://tangled.org/oyster.cafe",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "thread": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "issue",
+          "typeRaw": "sh.tangled.repo.issue",
+          "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+          "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+        },
+        "source": "poll"
+      },
+      {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "id": "at://did:plc:qfpnj4og54vl56wngdriaxug/sh.tangled.feed.reaction/3mwqidswet422",
+        "kind": "reaction",
+        "kindRaw": "sh.tangled.feed.reaction",
+        "action": "created",
+        "actionRaw": "create",
+        "summary": "oppi.li reacted 👀",
+        "occurredAt": "2026-09-30T13:50:04.000Z",
+        "actor": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "oppi.li",
+          "id": "did:plc:qfpnj4og54vl56wngdriaxug",
+          "url": "https://tangled.org/oppi.li",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "thread": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "issue",
+          "typeRaw": "sh.tangled.repo.issue",
+          "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+          "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+        },
+        "source": "poll"
+      },
+      {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "id": "at://did:plc:qfpnj4og54vl56wngdriaxug/sh.tangled.feed.comment/3mwqieyaxcr22",
+        "kind": "comment",
+        "kindRaw": "sh.tangled.feed.comment",
+        "action": "created",
+        "actionRaw": "create",
+        "summary": "oppi.li commented",
+        "occurredAt": "2026-09-30T13:50:43.000Z",
+        "actor": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "oppi.li",
+          "id": "did:plc:qfpnj4og54vl56wngdriaxug",
+          "url": "https://tangled.org/oppi.li",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "thread": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "issue",
+          "typeRaw": "sh.tangled.repo.issue",
+          "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+          "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+        },
+        "source": "poll"
+      },
+      {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "id": "at://did:plc:dfl62fgb7wtjj3fcbb72naae/sh.tangled.feed.comment/3mwqkblyj3522",
+        "kind": "comment",
+        "kindRaw": "sh.tangled.feed.comment",
+        "action": "created",
+        "actionRaw": "create",
+        "summary": "ptr.pet commented",
+        "occurredAt": "2026-09-30T14:24:37.000Z",
+        "actor": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "ptr.pet",
+          "id": "did:plc:dfl62fgb7wtjj3fcbb72naae",
+          "url": "https://tangled.org/ptr.pet",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "thread": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "issue",
+          "typeRaw": "sh.tangled.repo.issue",
+          "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+          "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+        },
+        "source": "poll"
+      },
+      {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "id": "at://did:plc:dfl62fgb7wtjj3fcbb72naae/sh.tangled.repo.issue.state/3mwqkbly7uh22",
+        "kind": "state_change",
+        "kindRaw": "sh.tangled.repo.issue.state",
+        "action": "closed",
+        "actionRaw": "create",
+        "detail": {
+          "type": "state_change",
+          "state": "closed"
+        },
+        "summary": "ptr.pet marked it closed",
+        "occurredAt": "2026-09-30T14:24:37.828Z",
+        "actor": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "ptr.pet",
+          "id": "did:plc:dfl62fgb7wtjj3fcbb72naae",
+          "url": "https://tangled.org/ptr.pet",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "thread": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "issue",
+          "typeRaw": "sh.tangled.repo.issue",
+          "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+          "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+        },
+        "source": "poll"
+      },
+      {
+        "forge": "tangled",
+        "instance": "tangled.org",
+        "id": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.feed.comment/3mwtb5xfbwf22",
+        "kind": "comment",
+        "kindRaw": "sh.tangled.feed.comment",
+        "action": "created",
+        "actionRaw": "create",
+        "summary": "superkenvery.tngl.sh commented",
+        "occurredAt": "2026-10-01T16:19:31.000Z",
+        "actor": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "superkenvery.tngl.sh",
+          "id": "did:plc:cnx5rmsyvousaqjfbbzzllbi",
+          "url": "https://tangled.org/superkenvery.tngl.sh",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+          "name": "core",
+          "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+        },
+        "thread": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "repo": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+            "name": "core",
+            "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+          },
+          "kind": "issue",
+          "typeRaw": "sh.tangled.repo.issue",
+          "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+          "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+        },
+        "source": "poll"
+      }
+    ]
+  },
+  "issue comments": {
+    "items": [
+      {
+        "ref": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "thread": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "repo": {
+              "forge": "tangled",
+              "instance": "tangled.org",
+              "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+              "name": "core",
+              "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+            },
+            "kind": "issue",
+            "typeRaw": "sh.tangled.repo.issue",
+            "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+            "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+          },
+          "id": "at://did:plc:qfpnj4og54vl56wngdriaxug/sh.tangled.feed.comment/3mwqieyaxcr22"
+        },
+        "body": "this definitely has to do with the recent migration we did: https://bsky.app/profile/tangled.org/post/3mwqh5pqeek2e , thanks for the report, we are investigating!",
+        "author": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "oppi.li",
+          "id": "did:plc:qfpnj4og54vl56wngdriaxug",
+          "url": "https://tangled.org/oppi.li",
+          "isBotHint": false
+        },
+        "createdAt": "2026-09-30T13:50:43.000Z"
+      },
+      {
+        "ref": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "thread": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "repo": {
+              "forge": "tangled",
+              "instance": "tangled.org",
+              "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+              "name": "core",
+              "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+            },
+            "kind": "issue",
+            "typeRaw": "sh.tangled.repo.issue",
+            "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+            "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+          },
+          "id": "at://did:plc:dfl62fgb7wtjj3fcbb72naae/sh.tangled.feed.comment/3mwqkblyj3522"
+        },
+        "body": "this should be fixed now!",
+        "author": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "ptr.pet",
+          "id": "did:plc:dfl62fgb7wtjj3fcbb72naae",
+          "url": "https://tangled.org/ptr.pet",
+          "isBotHint": false
+        },
+        "createdAt": "2026-09-30T14:24:37.000Z"
+      },
+      {
+        "ref": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "thread": {
+            "forge": "tangled",
+            "instance": "tangled.org",
+            "repo": {
+              "forge": "tangled",
+              "instance": "tangled.org",
+              "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+              "name": "core",
+              "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+            },
+            "kind": "issue",
+            "typeRaw": "sh.tangled.repo.issue",
+            "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+            "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+          },
+          "id": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.feed.comment/3mwtb5xfbwf22"
+        },
+        "body": "Thanks for your prompt reply&fix, I can confirm this is fixed for me now!",
+        "author": {
+          "forge": "tangled",
+          "instance": "tangled.org",
+          "login": "superkenvery.tngl.sh",
+          "id": "did:plc:cnx5rmsyvousaqjfbbzzllbi",
+          "url": "https://tangled.org/superkenvery.tngl.sh",
+          "isBotHint": false
+        },
+        "createdAt": "2026-10-01T16:19:31.000Z"
+      }
+    ]
+  }
+}

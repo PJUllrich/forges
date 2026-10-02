@@ -1,0 +1,16 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://objects.githubusercontent.com/acme/widgets/widgets-v1.2.0.tgz"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "bytes": "asset bytes"
+    }
+  }
+}

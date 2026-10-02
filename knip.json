@@ -1,18 +1,11 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
-  "ignoreWorkspaces": [
-    "playground"
-  ],
+  "ignoreWorkspaces": ["playground"],
   "workspaces": {
     ".": {
-      "entry": [
-        "test/**/*.test.ts"
-      ],
-      "project": [
-        "src/**/*.ts",
-        "test/**/*.ts"
-      ]
+      "entry": ["scripts/*.ts", "test/**/*.test.ts"],
+      "project": ["src/**/*.ts", "scripts/**/*.ts", "test/**/*.ts"]
     }
   }
 }

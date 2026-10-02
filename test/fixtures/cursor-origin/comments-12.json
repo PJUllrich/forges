@@ -1,0 +1,55 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.cursor.com/v1/origin/repos/acme/widgets/pulls/12/comments?pageSize=50"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "comments": [
+        {
+          "id": "cmt_01",
+          "thread": {
+            "id": "thr_01",
+            "createdAt": "2026-09-18T10:00:00Z"
+          },
+          "body": "Looks good overall.",
+          "author": {
+            "user": {
+              "id": "user_01k2ja2000ada000000000000a",
+              "email": "ada@acme.dev",
+              "displayName": "Ada Lovelace",
+              "handle": "ada"
+            }
+          },
+          "createdAt": "2026-09-18T10:00:00Z",
+          "updatedAt": "2026-09-18T10:00:00Z"
+        },
+        {
+          "id": "cmt_02",
+          "thread": {
+            "id": "thr_02",
+            "path": "src/telemetry.ts",
+            "side": "right",
+            "startLine": 12,
+            "createdAt": "2026-09-18T11:00:00Z"
+          },
+          "body": "Consider batching these.",
+          "author": {
+            "app": {
+              "id": "app_01k2ja2000e0080000000000a1",
+              "displayName": "CI Status Bot"
+            }
+          },
+          "createdAt": "2026-09-18T11:00:00Z",
+          "updatedAt": "2026-09-18T11:00:00Z"
+        }
+      ],
+      "nextPageToken": ""
+    }
+  }
+}

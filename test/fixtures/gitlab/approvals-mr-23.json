@@ -1,0 +1,18 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://gitlab.com/api/v4/projects/acme%2Fplatform%2Fwidgets/merge_requests/23/approvals"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "iid": 23,
+      "approved": true,
+      "approved_by": [
+        { "user": { "id": 11, "username": "ada", "name": "Ada Lovelace" } }
+      ]
+    }
+  }
+}

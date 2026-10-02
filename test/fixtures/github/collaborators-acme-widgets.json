@@ -1,0 +1,25 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/collaborators"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "login": "octocat",
+        "id": 1,
+        "type": "User",
+        "role_name": "maintain"
+      },
+      {
+        "login": "hubot",
+        "id": 2,
+        "type": "Bot",
+        "role_name": "read"
+      }
+    ]
+  }
+}

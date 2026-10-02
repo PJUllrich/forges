@@ -1,0 +1,31 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/pulls/42/reviews"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "id": 880097,
+        "node_id": "PRR_kwDOAAB5ac5abcde",
+        "user": { "login": "octocat", "id": 1 },
+        "body": "Looks good, one nit.",
+        "state": "CHANGES_REQUESTED",
+        "html_url": "https://github.com/acme/widgets/pull/42#pullrequestreview-880097",
+        "submitted_at": "2026-01-02T10:00:00Z",
+        "commit_id": "f00ba7"
+      },
+      {
+        "id": 880098,
+        "user": { "login": "hubot", "id": 2, "type": "Bot" },
+        "body": "",
+        "state": "APPROVED",
+        "html_url": "https://github.com/acme/widgets/pull/42#pullrequestreview-880098",
+        "submitted_at": "2026-01-02T11:00:00Z"
+      }
+    ]
+  }
+}

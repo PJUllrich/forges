@@ -1,0 +1,17 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/git/blobs/bb2"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "sha": "bb2",
+      "size": 4,
+      "encoding": "base64",
+      "content": "AAEC+g=="
+    }
+  }
+}

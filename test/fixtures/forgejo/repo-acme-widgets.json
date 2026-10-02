@@ -1,0 +1,44 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://codeberg.org/api/v1/repos/acme/widgets"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "id": 64021,
+      "name": "widgets",
+      "full_name": "acme/widgets",
+      "allow_merge_commits": false,
+      "allow_squash_merge": true,
+      "allow_rebase": false,
+      "allow_rebase_explicit": false,
+      "allow_fast_forward_only_merge": false,
+      "owner": {
+        "id": 4001,
+        "login": "acme"
+      },
+      "description": "Widgets, normalised.",
+      "default_branch": "main",
+      "private": false,
+      "internal": false,
+      "fork": false,
+      "archived": false,
+      "topics": [
+        "widgets"
+      ],
+      "html_url": "https://codeberg.org/acme/widgets",
+      "clone_url": "https://codeberg.org/acme/widgets.git",
+      "ssh_url": "git@codeberg.org:acme/widgets.git",
+      "open_issues_count": 4,
+      "open_pr_counter": 1,
+      "permissions": {
+        "admin": false,
+        "push": true,
+        "pull": true
+      }
+    }
+  }
+}

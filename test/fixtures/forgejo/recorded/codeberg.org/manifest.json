@@ -1,0 +1,71 @@
+{
+  "baseUrl": "https://codeberg.org/api/v1",
+  "repo": {
+    "forge": "forgejo",
+    "instance": "codeberg.org",
+    "owner": "forgejo",
+    "name": "forgejo"
+  },
+  "pull": {
+    "forge": "forgejo",
+    "instance": "codeberg.org",
+    "repo": {
+      "forge": "forgejo",
+      "instance": "codeberg.org",
+      "owner": "forgejo",
+      "name": "forgejo"
+    },
+    "kind": "pull_request",
+    "number": "5000"
+  },
+  "issue": {
+    "forge": "forgejo",
+    "instance": "codeberg.org",
+    "repo": {
+      "forge": "forgejo",
+      "instance": "codeberg.org",
+      "owner": "forgejo",
+      "name": "forgejo"
+    },
+    "kind": "issue",
+    "number": "14613"
+  },
+  "steps": [
+    "repo",
+    "labels",
+    "milestones",
+    "pull",
+    "pull list",
+    "pull getMany",
+    "pull events",
+    "pull comments",
+    "pull reactions",
+    "pull reviews",
+    "pull checks",
+    "pull files",
+    "pull commits",
+    "issue",
+    "issue list",
+    "issue getMany",
+    "issue events",
+    "issue comments",
+    "issue reactions",
+    "user",
+    "checks",
+    "readme",
+    "tree",
+    "branches",
+    "tags",
+    "resolve default branch",
+    "commits",
+    "commit",
+    "compare",
+    "releases",
+    "latest release",
+    "release",
+    "release by tag",
+    "search threads",
+    "search repos"
+  ],
+  "recordedAt": "2026-10-02T12:30:17.000Z"
+}

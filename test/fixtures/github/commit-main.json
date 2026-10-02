@@ -1,0 +1,18 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/commits/main"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+      "commit": {
+        "message": "fix: handle empty input"
+      },
+      "parents": []
+    }
+  }
+}

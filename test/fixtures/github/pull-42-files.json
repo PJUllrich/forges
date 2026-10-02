@@ -1,0 +1,22 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/pulls/42/files"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "filename": "src/index.ts",
+        "previous_filename": "src/old.ts",
+        "status": "renamed",
+        "additions": 4,
+        "deletions": 1,
+        "patch": "@@ -1 +1 @@",
+        "sha": "b1"
+      }
+    ]
+  }
+}

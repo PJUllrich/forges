@@ -1,0 +1,19 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/tags"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "name": "v1.0.0",
+        "commit": {
+          "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+        }
+      }
+    ]
+  }
+}

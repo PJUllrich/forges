@@ -1,0 +1,60 @@
+{
+  "hook_name": "note_hooks",
+  "action": "comment",
+  "timestamp": "1758358800000",
+  "noteable_type": "PullRequest",
+  "comment": {
+    "id": 5504,
+    "body": "Rebased.",
+    "created_at": "2026-09-20T10:00:00+08:00",
+    "user": {
+      "id": 4003,
+      "login": "grace",
+      "name": "Grace"
+    }
+  },
+  "pull_request": {
+    "id": 9009,
+    "number": 9,
+    "title": "Fix cache eviction",
+    "state": "open"
+  },
+  "repository": {
+    "id": 31001,
+    "full_name": "acme/widgets",
+    "human_name": "acme/widgets",
+    "path": "widgets",
+    "name": "widgets",
+    "namespace": {
+      "id": 21,
+      "type": "group",
+      "name": "acme",
+      "path": "acme"
+    },
+    "owner": {
+      "id": 4001,
+      "login": "ada",
+      "name": "Ada",
+      "avatar_url": "https://gitee.com/assets/no_portrait.png",
+      "html_url": "https://gitee.com/ada",
+      "type": "User"
+    },
+    "description": "Widgets",
+    "private": false,
+    "public": true,
+    "internal": false,
+    "fork": false,
+    "html_url": "https://gitee.com/acme/widgets",
+    "ssh_url": "git@gitee.com:acme/widgets.git",
+    "default_branch": "master",
+    "pushed_at": "2026-09-20T10:00:00+08:00",
+    "created_at": "2026-01-01T10:00:00+08:00",
+    "updated_at": "2026-09-20T10:00:00+08:00",
+    "open_issues_count": 4
+  },
+  "sender": {
+    "id": 4003,
+    "login": "grace",
+    "name": "Grace"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "PATCH",
+    "url": "https://codeberg.org/api/v1/repos/acme/widgets/issues/7"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "number": 7,
+      "state": "closed"
+    }
+  }
+}

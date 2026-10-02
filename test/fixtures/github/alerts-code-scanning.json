@@ -1,0 +1,31 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/code-scanning/alerts?state=open"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "number": 7,
+        "state": "open",
+        "rule": {
+          "id": "js/sql-injection",
+          "name": "js/sql-injection",
+          "description": "Database query built from user-controlled sources",
+          "severity": "error",
+          "security_severity_level": "critical"
+        },
+        "tool": {
+          "name": "CodeQL"
+        },
+        "html_url": "https://github.com/acme/widgets/security/code-scanning/7",
+        "created_at": "2025-09-02T08:00:00Z",
+        "updated_at": "2025-09-02T08:00:00Z",
+        "dismissed_at": null
+      }
+    ]
+  }
+}

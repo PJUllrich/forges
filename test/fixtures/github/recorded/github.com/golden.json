@@ -1,0 +1,4580 @@
+{
+  "repo": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "owner": "h3js",
+      "name": "h3",
+      "externalId": "313641207"
+    },
+    "description": "⚡️ Minimal H(TTP) framework built for high performance and portability ",
+    "defaultBranch": "main",
+    "visibility": "public",
+    "visibilityRaw": "public",
+    "isFork": false,
+    "isArchived": false,
+    "topics": [],
+    "url": "https://github.com/h3js/h3",
+    "cloneUrls": {
+      "https": "https://github.com/h3js/h3.git",
+      "ssh": "git@github.com:h3js/h3.git"
+    },
+    "createdAt": "2020-11-17T14:15:44.000Z",
+    "updatedAt": "2026-09-30T17:06:22.000Z",
+    "pushedAt": "2026-09-29T16:33:50.000Z",
+    "mergeMethods": [
+      "merge",
+      "squash",
+      "rebase"
+    ],
+    "features": {
+      "issues": true,
+      "pullRequests": true,
+      "discussions": true,
+      "wiki": false,
+      "projects": true,
+      "releases": true
+    },
+    "permissions": {
+      "admin": false,
+      "maintain": false,
+      "push": true,
+      "triage": true,
+      "pull": true
+    }
+  },
+  "labels": {
+    "items": [
+      {
+        "name": "breaking change",
+        "colour": "DF8359",
+        "description": ""
+      },
+      {
+        "name": "bug",
+        "colour": "d73a4a",
+        "description": "Something isn't working"
+      },
+      {
+        "name": "bun",
+        "colour": "abb080",
+        "description": ""
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/labels?per_page=3&page=2",
+      "etag": "W/\"b1c2106bb34735b57e34cabe18ef853b89882da2b4fcc81fdce96c98554f9cd0\""
+    },
+    "rateLimit": {
+      "remaining": 4811,
+      "resetAt": "<now>"
+    }
+  },
+  "milestones": {
+    "items": [],
+    "rateLimit": {
+      "remaining": 4810,
+      "resetAt": "<now>"
+    }
+  },
+  "collaborators": {
+    "items": [
+      {
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "role": "admin",
+        "roleRaw": "admin"
+      },
+      {
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "danielroe",
+          "id": "28706372",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/28706372?v=4",
+          "url": "https://github.com/danielroe",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "role": "write",
+        "roleRaw": "write"
+      },
+      {
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0x",
+          "id": "286783767",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/286783767?v=4",
+          "url": "https://github.com/pi0x",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "role": "maintain",
+        "roleRaw": "maintain"
+      }
+    ],
+    "rateLimit": {
+      "remaining": 4794,
+      "resetAt": "<now>"
+    }
+  },
+  "assignable users": {
+    "items": [
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "login": "danielroe",
+        "id": "28706372",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/28706372?v=4",
+        "url": "https://github.com/danielroe",
+        "typeRaw": "User",
+        "isBotHint": false
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "login": "pi0",
+        "id": "5158436",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+        "url": "https://github.com/pi0",
+        "typeRaw": "User",
+        "isBotHint": false
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "login": "pi0x",
+        "id": "286783767",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/286783767?v=4",
+        "url": "https://github.com/pi0x",
+        "typeRaw": "User",
+        "isBotHint": false
+      }
+    ],
+    "rateLimit": {
+      "remaining": 4808,
+      "resetAt": "<now>"
+    }
+  },
+  "pull": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "repo": {
+        "forge": "github",
+        "instance": "github.com",
+        "owner": "h3js",
+        "name": "h3"
+      },
+      "kind": "pull_request",
+      "number": "1000",
+      "externalId": "PR_kwDOErHI986Qx98s"
+    },
+    "kind": "pull_request",
+    "title": "chore: include `node_modules` in `.prettierignore`",
+    "body": "<!--\r\nPLEASE DO THIS BEFORE SUBMITTING A PR\r\n\r\n1) Make sure there is an issue covering the problem or idea first. If not, please create one. Reference it in the PR via \"resolves #12312312\" \r\n2) Please keep your changes minimal and split them if you need to.\r\n3) Ensure there is a minimal reproduction attached for bug fixes.\r\n\r\nThis will greatly help speed up the review process.\r\n\r\nThanks for your contribution ❤️\r\n-->\r\n",
+    "state": "closed",
+    "stateRaw": "closed",
+    "isDraft": false,
+    "author": {
+      "forge": "github",
+      "instance": "github.com",
+      "login": "iiio2",
+      "id": "47961062",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+      "url": "https://github.com/iiio2",
+      "typeRaw": "User",
+      "isBotHint": false
+    },
+    "assignees": [],
+    "reviewers": [
+      {
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "state": "pending",
+        "stateRaw": "requested"
+      }
+    ],
+    "labels": [],
+    "url": "https://github.com/h3js/h3/pull/1000",
+    "createdAt": "2025-03-31T13:49:12.000Z",
+    "updatedAt": "2025-04-05T04:37:13.000Z",
+    "closedAt": "2025-04-01T18:18:21.000Z",
+    "lastActivityAt": "2025-04-05T04:37:13.000Z",
+    "locked": false,
+    "commentCount": 3,
+    "branches": {
+      "head": {
+        "ref": "chore/update-prettierignore",
+        "sha": "adbc974043a83820a5ae388265b5ee1465926561",
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "iiio2",
+          "name": "h3",
+          "externalId": "812599578"
+        }
+      },
+      "base": {
+        "ref": "main",
+        "sha": "e5788bb16d62ac64e5fa13b14862ed719f768d04"
+      },
+      "mergeCommitSha": "ecb62300961be17e1f59cb23b4f2d083c83bcbf1"
+    },
+    "checks": {
+      "state": "unknown",
+      "total": 0,
+      "failed": 0,
+      "url": "https://github.com/h3js/h3/pull/1000/checks"
+    }
+  },
+  "pull list": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "pull_request",
+          "number": "1566",
+          "externalId": "PR_kwDOErHI988AAAABGC9Bdw"
+        },
+        "kind": "pull_request",
+        "title": "fix(mime): add .mjs and .cjs to COMMON_MIME_TYPES",
+        "body": "`.mjs` (ES module) and `.cjs` (CommonJS module) files are absent from `COMMON_MIME_TYPES`. When `serveStatic` serves a `.mjs` file, `getType` returns `undefined` and no `Content-Type` header is set.\n\nBrowsers enforce strict MIME checking for `<script type=\"module\">` — a missing content-type causes a network error and the module fails to load entirely.\n\nThe fix adds both extensions mapped to `\"text/javascript\"`, consistent with `.js` and with [RFC 9239](https://www.rfc-editor.org/rfc/rfc9239).\n\n<!-- This is an auto-generated comment: release notes by coderabbit.ai -->\n\n## Summary by CodeRabbit\n\n* **Bug Fixes**\n  * `.mjs` and `.cjs` files are now identified as JavaScript files.\n\n<!-- end of auto-generated comment: release notes by coderabbit.ai -->",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "okxint",
+          "id": "130782884",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/130782884?v=4",
+          "url": "https://github.com/okxint",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "labels": [],
+        "url": "https://github.com/h3js/h3/pull/1566",
+        "createdAt": "2026-10-01T07:33:21.000Z",
+        "updatedAt": "2026-10-01T07:37:43.000Z",
+        "lastActivityAt": "2026-10-01T07:37:43.000Z",
+        "locked": false,
+        "commentCount": 1,
+        "reactions": {
+          "total": 0,
+          "counts": {}
+        }
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "pull_request",
+          "number": "1565",
+          "externalId": "PR_kwDOErHI988AAAABF0wh2A"
+        },
+        "kind": "pull_request",
+        "title": "fix(cookie): size cookie chunks by their encoded length",
+        "body": "## Summary\n\n`setChunkedCookie` splits the raw value every `chunkMaxLength` (default 4000) characters. Each chunk is then percent-encoded by `setCookie` (`encodeURIComponent` by default), and that encoding makes it longer: `\"`, `{`, `:`, `,` and spaces become 3 bytes, and non-ASCII characters become 6–12 bytes. So the stored chunks can be far larger than the ~4KB the chunking is meant to stay under.\n\n```ts\nsetChunkedCookie(event, \"cart\", JSON.stringify(cart)); // 7501 characters\n// Set-Cookie: cart=__chunked__2\n// Set-Cookie: cart.1=… (9195 bytes)\n// Set-Cookie: cart.2=… (7932 bytes)\n```\n\nBrowsers drop cookies over 4096 bytes, so the chunks never come back. On the next request `getChunkedCookie` sees `__chunked__2` with the chunks missing and returns `undefined`. The data is lost without any error.\n\nA second failure in the same slicing: `value.slice()` cuts at UTF-16 indexes, so a chunk boundary can split a surrogate pair (an emoji, for example). `encodeURIComponent` then throws `URIError: URI malformed`, and the handler fails with a 500.\n\nSession cookies aren't affected: the sealed value is URL-safe ASCII. It hits apps that put JSON or user text into chunked cookies.\n\n## Fix\n\nA new internal helper, `splitCookieValue`, splits the value on code point boundaries, so a surrogate pair is never split. Each chunk is the longest run whose encoded form, using the same `encode` as `setCookie` (`options.encode` or `encodeURIComponent`), fits in `chunkMaxLength`. The helper measures whole candidate chunks (gallop, then bisect), so custom encoders like base64 whose length isn't additive per character are sized correctly too. A code point that can't fit even alone throws before any header is written. For values that don't grow when encoded (such as sealed sessions), the chunks are exactly the same as before, so all existing chunk snapshots are unchanged. The chunk-count cap still applies, and the helper stops as soon as it's exceeded.\n\n## Test plan\n\n- [x] New tests in `test/cookies.test.ts` (web and node, both setups):\n  - `keeps every encoded chunk within chunkMaxLength and readable`: a 2771-character JSON value (7453 bytes encoded). Every `Set-Cookie` value is ≤ 4000 bytes, and `getChunkedCookie` reads back the original.\n  - `does not split a surrogate pair across chunks`: `\"12345678901😀abc\"` with `chunkMaxLength: 12` round-trips.\n  - `sizes chunks for a custom encoder by the whole encoded chunk`: a `btoa` encoder with budget 40 gives 4 chunks of 30 characters, which round-trip.\n  - `throws when a single character cannot fit in chunkMaxLength`\n  - on `main` (62c2632): 16 failures (`expected 7453 to be less than or equal to 4000`, `URIError: URI malformed` → 500, …)\n  - with this change: `test/cookies.test.ts` and `test/session.test.ts` 192/192\n- [x] Full `vitest run` (node 24): 2872 passed, 66 skipped\n- [x] `oxlint .`, `oxfmt --check .`, `tsc --noEmit`, `obuild` and `git diff --check` are clean\n\nThis bug was found and fixed by an AI agent (breken-ai) and verified with the red/green tests above.\n\n\n<!-- This is an auto-generated comment: release notes by coderabbit.ai -->\n\n## Summary by CodeRabbit\n\n* **Bug Fixes**\n  * Chunked cookies now respect size limits based on their encoded representation, including when values contain multibyte characters.\n  * Character pairs remain intact across chunks, and chunk sizes account for the complete output of custom encoders.\n  * If a single character cannot fit within the encoded size limit, the operation returns an HTTP 500 error without writing response headers.\n  * The existing 100-chunk limit remains in place.\n\n<!-- end of auto-generated comment: release notes by coderabbit.ai -->",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "breken-ai",
+          "id": "312387581",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/312387581?v=4",
+          "url": "https://github.com/breken-ai",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "labels": [],
+        "url": "https://github.com/h3js/h3/pull/1565",
+        "createdAt": "2026-09-30T04:35:21.000Z",
+        "updatedAt": "2026-09-30T05:05:18.000Z",
+        "lastActivityAt": "2026-09-30T05:05:18.000Z",
+        "locked": false,
+        "commentCount": 1,
+        "reactions": {
+          "total": 0,
+          "counts": {}
+        }
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/issues?state=open&sort=created&direction=desc&per_page=3&after=Y3Vyc29yOnYyOpLPAAABoPCYfyjPAAAAAVA6X-A%3D&page=2",
+      "etag": "W/\"070663fbbeb052894909b5cf3f75fc94587b380194fbd27d5791a4a2bf0f7efb\""
+    },
+    "rateLimit": {
+      "remaining": 4789,
+      "resetAt": "<now>"
+    }
+  },
+  "pull getMany": [
+    {
+      "ok": false,
+      "ref": {
+        "forge": "github",
+        "instance": "github.com",
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "h3js",
+          "name": "h3"
+        },
+        "kind": "pull_request",
+        "number": "1000"
+      },
+      "warning": {
+        "code": "thread_unreadable",
+        "message": "Not found",
+        "subject": "1000"
+      }
+    }
+  ],
+  "pull events": {
+    "items": [
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "C_kwDOErHI99oAKGFkYmM5NzQwNDNhODM4MjBhNWFlMzg4MjY1YjVlZTE0NjU5MjY1NjE",
+        "kind": "commit",
+        "kindRaw": "committed",
+        "summary": "Mr. Robot committed adbc974",
+        "occurredAt": "2025-03-31T13:48:41.000Z",
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "h3js",
+          "name": "h3"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "pull_request",
+          "number": "1000"
+        },
+        "source": "poll",
+        "action": "other"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "RRE_lADOErHI986wdqKTzwAAAAP4t9WT",
+        "kind": "review",
+        "kindRaw": "review_requested",
+        "detail": {
+          "type": "review",
+          "state": "unknown"
+        },
+        "summary": "iiio2 reviewed (commented)",
+        "occurredAt": "2025-03-31T13:49:13.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "iiio2",
+          "id": "47961062",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+          "url": "https://github.com/iiio2",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "h3js",
+          "name": "h3"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "pull_request",
+          "number": "1000"
+        },
+        "source": "poll",
+        "action": "review_requested"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "IC_kwDOErHI986k4oEa",
+        "kind": "comment",
+        "kindRaw": "commented",
+        "detail": {
+          "type": "comment",
+          "comment": {
+            "forge": "github",
+            "instance": "github.com",
+            "thread": {
+              "forge": "github",
+              "instance": "github.com",
+              "repo": {
+                "forge": "github",
+                "instance": "github.com",
+                "owner": "h3js",
+                "name": "h3"
+              },
+              "kind": "pull_request",
+              "number": "1000"
+            },
+            "id": "2766307610"
+          },
+          "body": "## [Codecov](https://app.codecov.io/gh/unjs/h3/pull/1000?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs) Report\nAll modified and coverable lines are covered by tests :white_check_mark:\n> Project coverage is 82.80%. Comparing base [(`a58d7c9`)](https://app.codecov.io/gh/unjs/h3/commit/a58d7c977b30ef1782bb390a38fed3b28f8afca9?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs) to head [(`adbc974`)](https://app.codecov.io/gh/unjs/h3/commit/adbc974043a83820a5ae388265b5ee1465926561?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs).\n> Report is 234 commits behind head on main.\n\n<details><summary>Additional details and impacted files</summary>\n\n\n```diff\n@@            Coverage Diff             @@\n##             main    #1000      +/-   ##\n==========================================\n+ Coverage   77.83%   82.80%   +4.97%     \n==========================================\n  Files          47       35      -12     \n  Lines        4286     2623    -1663     \n  Branches      611      669      +58     \n==========================================\n- Hits         3336     2172    -1164     \n+ Misses        933      449     -484     \n+ Partials       17        2      -15     \n```\n\n</details>\n\n[:umbrella: View full report in Codecov by Sentry](https://app.codecov.io/gh/unjs/h3/pull/1000?dropdown=coverage&src=pr&el=continue&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs).   \n:loudspeaker: Have feedback on the report? [Share it here](https://about.codecov.io/codecov-pr-comment-feedback/?utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs).\n\n<details><summary> :rocket: New features to boost your workflow: </summary>\n\n- :snowflake: [Test Analytics](https://docs.codecov.com/docs/test-analytics): Detect flaky tests, report on failures, and find test suite problems.\n- :package: [JS Bundle Analysis](https://docs.codecov.com/docs/javascript-bundle-analysis): Save yourself from yourself by tracking and limiting bundle sizes in JS merges.\n</details>"
+        },
+        "summary": "codecov[bot] commented",
+        "occurredAt": "2025-03-31T13:50:31.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "codecov[bot]",
+          "id": "22429695",
+          "avatarUrl": "https://avatars.githubusercontent.com/in/254?v=4",
+          "url": "https://github.com/apps/codecov",
+          "typeRaw": "Bot",
+          "isBotHint": true,
+          "app": {
+            "slug": "codecov"
+          }
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "h3js",
+          "name": "h3"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "pull_request",
+          "number": "1000"
+        },
+        "source": "poll",
+        "action": "created"
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/issues/1000/timeline?per_page=3&page=2",
+      "etag": "W/\"d855b0969d840692e827c44090e823c51f8a832e5571670916b594499c74a85b\""
+    },
+    "rateLimit": {
+      "remaining": 4803,
+      "resetAt": "<now>"
+    }
+  },
+  "pull comments": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "h3js",
+              "name": "h3"
+            },
+            "kind": "pull_request",
+            "number": "1000"
+          },
+          "id": "2766307610"
+        },
+        "body": "## [Codecov](https://app.codecov.io/gh/unjs/h3/pull/1000?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs) Report\nAll modified and coverable lines are covered by tests :white_check_mark:\n> Project coverage is 82.80%. Comparing base [(`a58d7c9`)](https://app.codecov.io/gh/unjs/h3/commit/a58d7c977b30ef1782bb390a38fed3b28f8afca9?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs) to head [(`adbc974`)](https://app.codecov.io/gh/unjs/h3/commit/adbc974043a83820a5ae388265b5ee1465926561?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs).\n> Report is 234 commits behind head on main.\n\n<details><summary>Additional details and impacted files</summary>\n\n\n```diff\n@@            Coverage Diff             @@\n##             main    #1000      +/-   ##\n==========================================\n+ Coverage   77.83%   82.80%   +4.97%     \n==========================================\n  Files          47       35      -12     \n  Lines        4286     2623    -1663     \n  Branches      611      669      +58     \n==========================================\n- Hits         3336     2172    -1164     \n+ Misses        933      449     -484     \n+ Partials       17        2      -15     \n```\n\n</details>\n\n[:umbrella: View full report in Codecov by Sentry](https://app.codecov.io/gh/unjs/h3/pull/1000?dropdown=coverage&src=pr&el=continue&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs).   \n:loudspeaker: Have feedback on the report? [Share it here](https://about.codecov.io/codecov-pr-comment-feedback/?utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=unjs).\n\n<details><summary> :rocket: New features to boost your workflow: </summary>\n\n- :snowflake: [Test Analytics](https://docs.codecov.com/docs/test-analytics): Detect flaky tests, report on failures, and find test suite problems.\n- :package: [JS Bundle Analysis](https://docs.codecov.com/docs/javascript-bundle-analysis): Save yourself from yourself by tracking and limiting bundle sizes in JS merges.\n</details>",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "codecov[bot]",
+          "id": "22429695",
+          "avatarUrl": "https://avatars.githubusercontent.com/in/254?v=4",
+          "url": "https://github.com/apps/codecov",
+          "typeRaw": "Bot",
+          "isBotHint": true,
+          "app": {
+            "slug": "codecov"
+          }
+        },
+        "createdAt": "2025-03-31T13:50:31.000Z",
+        "updatedAt": "2025-04-01T18:18:31.000Z",
+        "url": "https://github.com/h3js/h3/pull/1000#issuecomment-2766307610",
+        "reactions": {
+          "total": 0,
+          "counts": {}
+        }
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "h3js",
+              "name": "h3"
+            },
+            "kind": "pull_request",
+            "number": "1000"
+          },
+          "id": "2770320484"
+        },
+        "body": "thanks for PR but i think even with `prettier -c .` `node_modules` is already ignored and it is not needed (if I'm wrong and there is a case please lmk to reopen)",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2025-04-01T18:18:21.000Z",
+        "updatedAt": "2025-04-01T18:18:21.000Z",
+        "url": "https://github.com/h3js/h3/pull/1000#issuecomment-2770320484",
+        "reactions": {
+          "total": 1,
+          "counts": {
+            "+1": 1
+          }
+        }
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "h3js",
+              "name": "h3"
+            },
+            "kind": "pull_request",
+            "number": "1000"
+          },
+          "id": "2774151897"
+        },
+        "body": "Oh, Ok @pi0 . Thank you. ",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "iiio2",
+          "id": "47961062",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+          "url": "https://github.com/iiio2",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2025-04-03T02:15:08.000Z",
+        "updatedAt": "2025-04-03T02:15:08.000Z",
+        "url": "https://github.com/h3js/h3/pull/1000#issuecomment-2774151897",
+        "reactions": {
+          "total": 0,
+          "counts": {}
+        }
+      }
+    ],
+    "rateLimit": {
+      "remaining": 4802,
+      "resetAt": "<now>"
+    }
+  },
+  "pull reactions": {
+    "items": [],
+    "rateLimit": {
+      "remaining": 4975,
+      "resetAt": "<now>"
+    }
+  },
+  "pull subscription": "none",
+  "pull reviews": {
+    "items": [],
+    "rateLimit": {
+      "remaining": 4801,
+      "resetAt": "<now>"
+    }
+  },
+  "pull checks": {
+    "items": [],
+    "warnings": []
+  },
+  "pull files": {
+    "items": [
+      {
+        "path": ".prettierignore",
+        "status": "modified",
+        "statusRaw": "modified",
+        "additions": 1,
+        "deletions": 0,
+        "patch": "@@ -3,3 +3,4 @@ lib\n .nuxt\n .output\n src/types/_headers.ts\n+node_modules\n\\ No newline at end of file",
+        "sha": "86167650d1b479a034773ee53ccb60428ce71427"
+      }
+    ],
+    "rateLimit": {
+      "remaining": 4796,
+      "resetAt": "<now>"
+    }
+  },
+  "pull commits": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "sha": "adbc974043a83820a5ae388265b5ee1465926561"
+        },
+        "sha": "adbc974043a83820a5ae388265b5ee1465926561",
+        "message": "chore: include `node_modules` in `.prettierignore`",
+        "author": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "iiio2",
+            "id": "47961062",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+            "url": "https://github.com/iiio2",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Mr. Robot",
+          "email": "redacted@example.invalid",
+          "date": "2025-03-31T13:48:41.000Z"
+        },
+        "committer": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "iiio2",
+            "id": "47961062",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+            "url": "https://github.com/iiio2",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Mr. Robot",
+          "email": "redacted@example.invalid",
+          "date": "2025-03-31T13:48:41.000Z"
+        },
+        "parents": [
+          "e5788bb16d62ac64e5fa13b14862ed719f768d04"
+        ],
+        "url": "https://github.com/h3js/h3/commit/adbc974043a83820a5ae388265b5ee1465926561"
+      }
+    ],
+    "rateLimit": {
+      "remaining": 4795,
+      "resetAt": "<now>"
+    }
+  },
+  "pull reviewer candidates": {
+    "items": [
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "login": "pi0",
+        "id": "5158436",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+        "url": "https://github.com/pi0",
+        "typeRaw": "User",
+        "isBotHint": false
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "login": "danielroe",
+        "id": "28706372",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/28706372?v=4",
+        "url": "https://github.com/danielroe",
+        "typeRaw": "User",
+        "isBotHint": false
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "login": "pi0x",
+        "id": "286783767",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/286783767?v=4",
+        "url": "https://github.com/pi0x",
+        "typeRaw": "User",
+        "isBotHint": false
+      }
+    ],
+    "rateLimit": {
+      "remaining": 4794,
+      "resetAt": "<now>"
+    }
+  },
+  "issue": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "repo": {
+        "forge": "github",
+        "instance": "github.com",
+        "owner": "h3js",
+        "name": "h3"
+      },
+      "kind": "issue",
+      "number": "1558",
+      "externalId": "I_kwDOErHI988AAAABTVvvng"
+    },
+    "kind": "issue",
+    "title": "rules: skip `redirect` when the request is already at the target (avoid `false` resets)",
+    "body": "When a `redirect` rule's target falls inside its own pattern, requests to the target redirect again. Today the only fix is a `false` reset, which is easy to forget and hard to get right:\n\n```ts\nrouteRules({\n  \"/docs/**\": { redirect: \"/docs/v2/**\" },\n});\n// GET /docs/intro    → 307 /docs/v2/intro\n// GET /docs/v2/intro → 307 /docs/v2/v2/intro  (and so on)\n```\n\nThe same happens with the new request conditions (#1557) when redirecting Markdown requests to `.md` files:\n\n```ts\n{\n  \"GET:MD /blog/**\": { redirect: \"/blog/**.md\" },\n  // Required today, and only covers one segment (`/blog/a/b.md` still loops):\n  \"GET:MD /blog/*.md\": { redirect: false },\n}\n```\n\n### Proposal\n\nA `redirect` rule never fires when the request path already has the shape of its target, meaning the request is already at a URL this rule could have sent it to.\n\n- `to: \"/blog/**.md\"`: skip when the path starts with `/blog/` and ends with `.md`, at any depth.\n- `to: \"/docs/v2/**\"`: skip when the path starts with `/docs/v2/`.\n- `to: \"/new\"` (no `**`): skip only an exact redirect to the current path.\n- Targets on another origin keep today's behavior. Only the path part of `to` is compared, not the query or fragment.\n\nThe earlier example then works without a reset:\n\n```ts\n{ \"GET:MD /blog/**\": { redirect: \"/blog/**.md\" } }\n```\n\nThe prefix and suffix around `**` can be worked out at startup. Each request then costs one `startsWith`/`endsWith` check, and only when a redirect rule matches.\n\n### Trade-off\n\nThis changes current behavior. A rule that deliberately redirects `/a/b/c` to `/a/b/b/c` would stop firing. That seems unlikely to be intended, but it should go in the changelog. `proxy` could get the same guard, but it doesn't loop on the client side, so it can wait.\n\n### Alternatives considered\n\n- **Path checks in conditions** (`MD: { headers, path: /(?<!\\.md)$/ }`): more general, but you'd need a negative regex to say \"doesn't end in `.md`\".\n- **Exclusion syntax in patterns** (`/blog/**` except `*.md`): rou3 has no negation, so this needs new pattern syntax.\n\n🤖 Generated with AI assistant\n",
+    "state": "closed",
+    "stateRaw": "closed",
+    "stateReason": "completed",
+    "isDraft": false,
+    "author": {
+      "forge": "github",
+      "instance": "github.com",
+      "login": "pi0x",
+      "id": "286783767",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/286783767?v=4",
+      "url": "https://github.com/pi0x",
+      "typeRaw": "User",
+      "isBotHint": false
+    },
+    "assignees": [],
+    "reviewers": [],
+    "labels": [],
+    "url": "https://github.com/h3js/h3/issues/1558",
+    "createdAt": "2026-09-26T09:14:12.000Z",
+    "updatedAt": "2026-09-28T22:20:48.000Z",
+    "closedAt": "2026-09-28T22:20:48.000Z",
+    "lastActivityAt": "2026-09-28T22:20:48.000Z",
+    "locked": false,
+    "commentCount": 0,
+    "reactions": {
+      "total": 0,
+      "counts": {}
+    }
+  },
+  "issue list": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "issue",
+          "number": "1567",
+          "externalId": "I_kwDOErHI988AAAABUYFmsg"
+        },
+        "kind": "issue",
+        "title": "getValidatedQuery should account for ambiguous data",
+        "body": "### Describe the feature\n\n## Premise\n\nreadQuery() as it is currently only works if you either\n\n1. have extremely simple data - basically exclusively strings.\n2. make a custom schema with coercing (assuming the validation library supports everything needed) for every API endpoint, not really being able to reuse existing schemas\n3. send all data as body payload (this wouldn't be a problem if GET and DELETE were allowed to have bodies)\n4. send all data as stringified JSON\n5. or (like me) make a shim that tries its best at adjusting the data to better fit a schema\n\nnone of these options are particularly enticing, so (imo) there should be a system to somehow fix this in h3.\n\n## My shim/workaround\n\nwithout posting code, I basically crawl through the zod type definition alongside the passed data and adjust the data where it can't be unambiguously represented by query parameters.\n\nI'm not sure how viable this is for h3 considering it's supposed to be somewhat validator-agnostic… But then again, having this feature for a limited amount of libraries would be better than having it for none at all.\n\n## Additional notes\n\nzod has already declined to implement a version of this on their side: https://github.com/colinhacks/zod/issues/2873\n\n### Additional information\n\n- [ ] Would you be willing to help implement this feature?",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "LMR-eitea",
+          "id": "332368094",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/332368094?v=4",
+          "url": "https://github.com/LMR-eitea",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "labels": [
+          {
+            "name": "enhancement",
+            "colour": "a2eeef",
+            "description": "New feature or request"
+          }
+        ],
+        "url": "https://github.com/h3js/h3/issues/1567",
+        "createdAt": "2026-10-01T12:48:44.000Z",
+        "updatedAt": "2026-10-01T12:48:44.000Z",
+        "lastActivityAt": "2026-10-01T12:48:44.000Z",
+        "locked": false,
+        "commentCount": 0,
+        "reactions": {
+          "total": 0,
+          "counts": {}
+        }
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/issues?state=open&sort=created&direction=desc&per_page=3&after=Y3Vyc29yOnYyOpLPAAABoPCYfyjPAAAAAVA6X-A%3D&page=2",
+      "etag": "W/\"070663fbbeb052894909b5cf3f75fc94587b380194fbd27d5791a4a2bf0f7efb\""
+    },
+    "rateLimit": {
+      "remaining": 4789,
+      "resetAt": "<now>"
+    }
+  },
+  "issue getMany": [
+    {
+      "ok": false,
+      "ref": {
+        "forge": "github",
+        "instance": "github.com",
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "h3js",
+          "name": "h3"
+        },
+        "kind": "issue",
+        "number": "1558"
+      },
+      "warning": {
+        "code": "thread_unreadable",
+        "message": "Not found",
+        "subject": "1558"
+      }
+    }
+  ],
+  "issue events": {
+    "items": [
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "1558-cross-referenced-2026-09-26T09:58:18Z",
+        "kind": "referenced",
+        "kindRaw": "cross-referenced",
+        "detail": {
+          "type": "referenced",
+          "from": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "h3js",
+              "name": "h3",
+              "externalId": "313641207"
+            },
+            "kind": "pull_request",
+            "number": "1559"
+          },
+          "fromRepo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3",
+            "externalId": "313641207"
+          }
+        },
+        "summary": "pi0x referenced this",
+        "occurredAt": "2026-09-26T09:58:18.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0x",
+          "id": "286783767",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/286783767?v=4",
+          "url": "https://github.com/pi0x",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "h3js",
+          "name": "h3"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "issue",
+          "number": "1558"
+        },
+        "source": "poll",
+        "action": "other"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "CE_lADOErHI988AAAABTVvvns8AAAAHdVMZGw",
+        "kind": "state_change",
+        "kindRaw": "closed",
+        "detail": {
+          "type": "state_change",
+          "state": "closed"
+        },
+        "summary": "pi0 closed",
+        "occurredAt": "2026-09-28T22:20:48.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "h3js",
+          "name": "h3"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "issue",
+          "number": "1558"
+        },
+        "source": "poll",
+        "action": "closed"
+      }
+    ],
+    "rateLimit": {
+      "remaining": 4788,
+      "resetAt": "<now>"
+    }
+  },
+  "issue comments": {
+    "items": [],
+    "rateLimit": {
+      "remaining": 4787,
+      "resetAt": "<now>"
+    }
+  },
+  "issue reactions": {
+    "items": [],
+    "rateLimit": {
+      "remaining": 4974,
+      "resetAt": "<now>"
+    }
+  },
+  "issue subscription": "none",
+  "discussion": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "repo": {
+        "forge": "github",
+        "instance": "github.com",
+        "owner": "nuxt",
+        "name": "nuxt"
+      },
+      "kind": "discussion",
+      "number": "9303",
+      "externalId": "MDEwOkRpc2N1c3Npb24zMzY5MjU2"
+    },
+    "kind": "discussion",
+    "title": "How to use Nuxt with newrelic node agent",
+    "body": "### What problem does this feature solve?\n\nNewrelic's node agent has a requirement that it's the first line of your main module in order to properly bootstrap. https://docs.newrelic.com/docs/agents/nodejs-agent/installation-configuration/install-nodejs-agent#installing\n\nCurrently there's no way to do this in Nuxt's setup.\n\nThere may also be other use-cases outside of analytics modules, but I can't think of any right now.\n\n### What does the proposed changes look like?\n\nSupport some way of requiring modules as the first line of the main js entrypoint, perhaps from a hook or something that will be injected in the build step? I would provide code examples but I'm not that familiar with Nuxt internals yet.\n\n<!--cmty--><!--cmty_prevent_hook-->\n<div align=\"right\"><sub><em>This feature request is available on <a href=\"https://cmty.app/nuxt\">Nuxt</a> community (<a href=\"https://cmty.app/nuxt/nuxt.js/issues/c9646\">#c9646</a>)</em></sub></div>",
+    "state": "open",
+    "stateRaw": "open",
+    "isDraft": false,
+    "author": {
+      "forge": "github",
+      "instance": "github.com",
+      "login": "theomjones",
+      "id": "11282659",
+      "name": "Theo M Jones",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/11282659?u=2c80e3884bfe507c247af6608f8320d42c2c4322&v=4",
+      "url": "https://github.com/theomjones",
+      "typeRaw": "User",
+      "isBotHint": false
+    },
+    "assignees": [],
+    "reviewers": [],
+    "lastActivityAt": "2024-08-19T14:19:08.000Z",
+    "url": "https://github.com/nuxt/nuxt/discussions/9303",
+    "createdAt": "2019-08-15T17:32:21.000Z",
+    "updatedAt": "2024-08-19T14:19:08.000Z",
+    "labels": [
+      {
+        "name": "2.x",
+        "colour": "d4c5f9",
+        "description": ""
+      }
+    ],
+    "locked": false,
+    "commentCount": 24
+  },
+  "discussion list": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "discussion",
+          "number": "1373",
+          "externalId": "D_kwDOErHI984Al4mI"
+        },
+        "kind": "discussion",
+        "title": "Idiomatic way to create a reusable auth middleware that supports both app.use() and per-route handler wrapping in H3 v2",
+        "body": "I'm building a reusable middleware library with H3 v2 and want to support two usage patterns from a single function:\r\n\r\n```ts\r\n// Pattern A: app-wide via app.use()\r\napp.use(withAuth({ role: 'user' }))\r\n\r\n// Pattern B: per-route handler wrapping (e.g. Nitro/Nuxt file routes)\r\nexport default withAuth({ role: 'user' }, async (event) => {\r\n  return event.context.authCtx\r\n})\r\n```\r\n\r\nMy current implementation returns `defineMiddleware(...)` for pattern A and `defineEventHandler({ middleware: [m], handler })` for pattern B.\r\n\r\nTwo questions:\r\n\r\n1. For pattern B, is `defineEventHandler({ middleware, handler })` the right approach, or is there a more idiomatic way to compose a pre-handler middleware with a route handler?\r\n\r\n2. For Nuxt's `server/middleware/` files, the convention is `export default defineEventHandler(...)` but pattern A returns a `Middleware` type. Is it safe/correct to export a `Middleware` directly from a Nitro server middleware file, or should it always be wrapped in `defineEventHandler`?\r\n\r\nThanks!",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "targetlucked69",
+          "id": "72330740",
+          "name": "Alfred Trask",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/72330740?u=50fa4d4b7b6cc08c5a815c56a1e1144249dfbeb7&v=4",
+          "url": "https://github.com/targetlucked69",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "lastActivityAt": "2026-04-23T06:47:56.000Z",
+        "url": "https://github.com/orgs/h3js/discussions/1373",
+        "createdAt": "2026-04-22T15:24:06.000Z",
+        "updatedAt": "2026-04-23T06:47:56.000Z",
+        "labels": [],
+        "locked": false,
+        "commentCount": 1
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "discussion",
+          "number": "1371",
+          "externalId": "D_kwDOErHI984Al2dq"
+        },
+        "kind": "discussion",
+        "title": "Shorthand for throwing HTTP errors",
+        "body": "Hi, not sure if this has been discussed before, but wanted to share an idea.\r\n\r\nRight now when I want to return a 404 from a handler I write:\r\n\r\n```ts\r\nthrow createError({ statusCode: 404 })\r\n```\r\n\r\nIt would be nice if h3 accepted a simpler shorthand like:\r\n\r\n```ts\r\nthrow 404\r\n```\r\n\r\nBasically: let the thrown value map to an HTTP error directly, without the `createError({ statusCode: ... })` wrapper.\r\n\r\n`createError` / `new HTTPError({ ... })` would still be there for the richer cases (custom `data`, headers, message, etc.).\r\n\r\nPR: #1372\r\n\r\n## Custom strings\r\n\r\nWe could also tried supporting a string form to carry a message:\r\n\r\n```ts\r\nthrow \"404 Lesson not found\"\r\n```\r\n\r\nBut parsing the status out of the string needs a regex and bumps the bundle size a bit, so I left it out of the PR. For messages, sticking with `new HTTPError({ status: 404, message: \"Lesson not found\" })` feels cleaner.",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "onmax",
+          "id": "22072217",
+          "name": "Max",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/22072217?u=5cd9a530f8cd1669cff4f085b71096f3372b6e1e&v=4",
+          "url": "https://github.com/onmax",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "lastActivityAt": "2026-04-21T18:49:23.000Z",
+        "url": "https://github.com/orgs/h3js/discussions/1371",
+        "createdAt": "2026-04-21T08:54:02.000Z",
+        "updatedAt": "2026-04-21T18:49:23.000Z",
+        "labels": [],
+        "locked": false,
+        "commentCount": 1
+      }
+    ],
+    "cursor": {
+      "token": "Y3Vyc29yOnYyOpK0MjAyNi0wNC0yMVQwODo1NDowMlrOAJdnag=="
+    }
+  },
+  "discussion getMany": [
+    {
+      "ok": true,
+      "ref": {
+        "forge": "github",
+        "instance": "github.com",
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "kind": "discussion",
+        "number": "9303"
+      },
+      "thread": {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303",
+          "externalId": "MDEwOkRpc2N1c3Npb24zMzY5MjU2"
+        },
+        "kind": "discussion",
+        "title": "How to use Nuxt with newrelic node agent",
+        "body": "### What problem does this feature solve?\n\nNewrelic's node agent has a requirement that it's the first line of your main module in order to properly bootstrap. https://docs.newrelic.com/docs/agents/nodejs-agent/installation-configuration/install-nodejs-agent#installing\n\nCurrently there's no way to do this in Nuxt's setup.\n\nThere may also be other use-cases outside of analytics modules, but I can't think of any right now.\n\n### What does the proposed changes look like?\n\nSupport some way of requiring modules as the first line of the main js entrypoint, perhaps from a hook or something that will be injected in the build step? I would provide code examples but I'm not that familiar with Nuxt internals yet.\n\n<!--cmty--><!--cmty_prevent_hook-->\n<div align=\"right\"><sub><em>This feature request is available on <a href=\"https://cmty.app/nuxt\">Nuxt</a> community (<a href=\"https://cmty.app/nuxt/nuxt.js/issues/c9646\">#c9646</a>)</em></sub></div>",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "theomjones",
+          "id": "11282659",
+          "name": "Theo M Jones",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11282659?u=2c80e3884bfe507c247af6608f8320d42c2c4322&v=4",
+          "url": "https://github.com/theomjones",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "lastActivityAt": "2024-08-19T14:19:08.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303",
+        "createdAt": "2019-08-15T17:32:21.000Z",
+        "updatedAt": "2024-08-19T14:19:08.000Z",
+        "labels": [
+          {
+            "name": "2.x",
+            "colour": "d4c5f9",
+            "description": ""
+          }
+        ],
+        "locked": false,
+        "commentCount": 24
+      }
+    }
+  ],
+  "discussion events": {
+    "items": [
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3ODk3",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "pi0 commented",
+        "occurredAt": "2019-08-15T17:39:22.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "name": "Pooya Parsa",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?u=3609b2822870b982f2b93c432569ee017e970148&v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3ODk4",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "kezek commented",
+        "occurredAt": "2019-12-18T16:59:26.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "kezek",
+          "id": "790391",
+          "name": "Andrei Mocanu",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/790391?v=4",
+          "url": "https://github.com/kezek",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3ODk5",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "theomjones commented",
+        "occurredAt": "2019-12-18T19:57:12.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "theomjones",
+          "id": "11282659",
+          "name": "Theo M Jones",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11282659?u=2c80e3884bfe507c247af6608f8320d42c2c4322&v=4",
+          "url": "https://github.com/theomjones",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTAw",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "kezek commented",
+        "occurredAt": "2019-12-18T20:12:10.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "kezek",
+          "id": "790391",
+          "name": "Andrei Mocanu",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/790391?v=4",
+          "url": "https://github.com/kezek",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTAx",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "theomjones commented",
+        "occurredAt": "2019-12-18T20:38:49.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "theomjones",
+          "id": "11282659",
+          "name": "Theo M Jones",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11282659?u=2c80e3884bfe507c247af6608f8320d42c2c4322&v=4",
+          "url": "https://github.com/theomjones",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTAy",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "nachogarcia commented",
+        "occurredAt": "2020-04-22T09:25:36.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTAz",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "nachogarcia commented",
+        "occurredAt": "2020-04-27T11:54:42.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA0",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "mchagas90 commented",
+        "occurredAt": "2020-05-11T21:30:10.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "mchagas90",
+          "id": "12899666",
+          "name": "Marcio Chagas",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12899666?u=f7c0020c33e17c4415fe35e2bcf90dd75eefa9ab&v=4",
+          "url": "https://github.com/mchagas90",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA1",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "nachogarcia commented",
+        "occurredAt": "2020-05-12T07:10:22.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA2",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "someone commented",
+        "occurredAt": "2020-05-26T18:05:57.000Z",
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA3",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "nachogarcia commented",
+        "occurredAt": "2020-05-26T19:22:30.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA4",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "someone commented",
+        "occurredAt": "2020-05-26T20:41:28.000Z",
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA5",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "nachogarcia commented",
+        "occurredAt": "2020-05-27T05:05:25.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTEw",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "someone commented",
+        "occurredAt": "2020-05-27T06:21:35.000Z",
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTEx",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "claudiolcastro commented",
+        "occurredAt": "2020-10-01T15:20:51.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "claudiolcastro",
+          "id": "20761700",
+          "name": "Cláudio Luiz Castro",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/20761700?u=e97cb76adef6e3effc55c3864f4f11aaf8521baa&v=4",
+          "url": "https://github.com/claudiolcastro",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTEy",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "nachogarcia commented",
+        "occurredAt": "2020-10-01T17:24:31.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTEz",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "claudiolcastro commented",
+        "occurredAt": "2020-10-01T17:40:50.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "claudiolcastro",
+          "id": "20761700",
+          "name": "Cláudio Luiz Castro",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/20761700?u=e97cb76adef6e3effc55c3864f4f11aaf8521baa&v=4",
+          "url": "https://github.com/claudiolcastro",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE0",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "atinux commented",
+        "occurredAt": "2020-11-10T11:28:13.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "atinux",
+          "id": "904724",
+          "name": "Sébastien Chopin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/904724?u=6c520432e20d5ed603246764658accea4b4043c3&v=4",
+          "url": "https://github.com/atinux",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE1",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "Sletheren commented",
+        "occurredAt": "2021-05-14T12:41:17.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "Sletheren",
+          "id": "12659402",
+          "name": "Abdo Rakhma",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12659402?u=ad2d075874cbd64e0a9d10e87a4b0b0b4b0563e4&v=4",
+          "url": "https://github.com/Sletheren",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE2",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "danielroe commented",
+        "occurredAt": "2021-05-17T08:18:52.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "danielroe",
+          "id": "28706372",
+          "name": "Daniel Roe",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/28706372?u=c4a5aa5232c09c3248533366d5c93a138d7e8987&v=4",
+          "url": "https://github.com/danielroe",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE3",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "Sletheren commented",
+        "occurredAt": "2021-05-17T12:28:25.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "Sletheren",
+          "id": "12659402",
+          "name": "Abdo Rakhma",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12659402?u=ad2d075874cbd64e0a9d10e87a4b0b0b4b0563e4&v=4",
+          "url": "https://github.com/Sletheren",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE4",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "nachogarcia commented",
+        "occurredAt": "2021-05-17T12:45:43.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzUxNDUw",
+        "kind": "comment",
+        "kindRaw": "DiscussionCommentReply",
+        "summary": "Sletheren replied",
+        "occurredAt": "2021-05-18T07:28:26.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "Sletheren",
+          "id": "12659402",
+          "name": "Abdo Rakhma",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12659402?u=ad2d075874cbd64e0a9d10e87a4b0b0b4b0563e4&v=4",
+          "url": "https://github.com/Sletheren",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "DC_kwDOBEqSIc4AJkzk",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "Christopher-Hayes commented",
+        "occurredAt": "2022-04-05T17:35:15.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "Christopher-Hayes",
+          "id": "6013871",
+          "name": "Chris​‌​‮ ‬Hayes‌​​​",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6013871?u=a98409a3a24cafb252259b37379d0393172e2bcc&v=4",
+          "url": "https://github.com/Christopher-Hayes",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "DC_kwDOBEqSIc4Am6tr",
+        "kind": "comment",
+        "kindRaw": "DiscussionComment",
+        "summary": "luksak commented",
+        "occurredAt": "2024-07-31T13:56:25.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "luksak",
+          "id": "503095",
+          "name": "Lukas von Blarer",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/503095?v=4",
+          "url": "https://github.com/luksak",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      },
+      {
+        "forge": "github",
+        "instance": "github.com",
+        "id": "DC_kwDOBEqSIc4AnnTl",
+        "kind": "comment",
+        "kindRaw": "DiscussionCommentReply",
+        "summary": "luksak replied",
+        "occurredAt": "2024-08-19T14:19:07.000Z",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "luksak",
+          "id": "503095",
+          "name": "Lukas von Blarer",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/503095?v=4",
+          "url": "https://github.com/luksak",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "repo": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "nuxt",
+          "name": "nuxt"
+        },
+        "thread": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "nuxt",
+            "name": "nuxt"
+          },
+          "kind": "discussion",
+          "number": "9303"
+        },
+        "source": "poll",
+        "action": "created"
+      }
+    ]
+  },
+  "discussion comments": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3ODk3"
+        },
+        "body": "Hi. I suggest 3 approaches to try:\r\n\r\n## 1. Config\r\n\r\nWe can try to add `import 'newrelic'` to the top of `nuxt.config.js`? This should partially work as this is almost the topmost entry-point. \r\n\r\n## 2. CLI Wrapper\r\n\r\nWe may create a custom cli wrapper in the root of the project:\r\n\r\n`~/nuxt.js`:\r\n\r\n```js\r\nrequire('newrelic')\r\nrequire('nuxt/bin/nuxt')\r\n````\r\n\r\nAnd then inside `package.json`:\r\n\r\n```diff\r\nscripts: {\r\n-- \"start\": \"nuxt start\",\r\n++ \"start\": \"node ./nuxt start\",\r\n}\r\n```\r\n\r\n## 3. Module (best)\r\n\r\nIf newrelic is similar to sentry, this is not **required** to be the first import, we can do this via a nuxt module and it globally should register itself to the entire process:\r\n\r\n`modules/newrelic.js`\r\n\r\n```js\r\nexport default async function() {\r\n  await import('newrelic')\r\n}\r\n```\r\n\r\n`nuxt.config.js`\r\n\r\n```js\r\nexport default {\r\n    modules: [\r\n        '~/modules/newrelic'\r\n    ]\r\n}\r\n```\r\n\r\n\r\n",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "name": "Pooya Parsa",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?u=3609b2822870b982f2b93c432569ee017e970148&v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2019-08-15T17:39:22.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747897"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3ODk4"
+        },
+        "body": "I'm interested in this as well, did you attempt anything @theomjones ?\r\n\r\nThanks",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "kezek",
+          "id": "790391",
+          "name": "Andrei Mocanu",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/790391?v=4",
+          "url": "https://github.com/kezek",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2019-12-18T16:59:26.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747898"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3ODk5"
+        },
+        "body": "Hi @kezek, yeah we went with the CLI wrapper as new relic has to be the first required module for full metrics.\n\n<!--cmty_prevent_hook-->",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "theomjones",
+          "id": "11282659",
+          "name": "Theo M Jones",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11282659?u=2c80e3884bfe507c247af6608f8320d42c2c4322&v=4",
+          "url": "https://github.com/theomjones",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2019-12-18T19:57:12.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747899"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTAw"
+        },
+        "body": "Thanks for the feedback. Do you also use PM2 by any chance ?",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "kezek",
+          "id": "790391",
+          "name": "Andrei Mocanu",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/790391?v=4",
+          "url": "https://github.com/kezek",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2019-12-18T20:12:10.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747900"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTAx"
+        },
+        "body": "Yeah we do, we went by these docs: https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/\n\n<!--cmty_prevent_hook-->",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "theomjones",
+          "id": "11282659",
+          "name": "Theo M Jones",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11282659?u=2c80e3884bfe507c247af6608f8320d42c2c4322&v=4",
+          "url": "https://github.com/theomjones",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2019-12-18T20:38:49.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747901"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTAy"
+        },
+        "body": "I used the CLI wrapper and it works properly.\r\nSadly, it's not integrating with the router and all the transactions are shown as /GET\r\nI was thinking of [binding the name with the router (in a middleware maybe)](https://docs.newrelic.com/docs/agents/nodejs-agent/api-guides/nodejs-agent-api#request-api) but dind't have time to get my hands into it.\r\n\r\nHas anyone faced that issue?",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-04-22T09:25:36.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747902"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTAz"
+        },
+        "body": "After some hassle, I managed to set it up.\r\n\r\nI added newrelic as an external webpack dependency in nuxt.config.js\r\n```javascript\r\n    extend (config, ctx) {\r\n      config.externals = [\r\n        { newrelic: 'newrelic' }\r\n      ]\r\n    }\r\n```\r\n\r\nAnd then in nuxtServerInit I set the transaction name with code split so the bundle doesn't break in client side\r\n\r\n```javascript\r\nasync nuxtServerInit ({ dispatch, commit }, context) {\r\n    const newrelic = await import('newrelic')\r\n    newrelic.setTransactionName(context.route.matched[0].path)\r\n}\r\n```",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-04-27T11:54:42.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747903"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA0"
+        },
+        "body": "@nachogarcia can you see the time cosuming at the external requests on newrelic site? I have the configuration just like yours, but can't see this info.",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "mchagas90",
+          "id": "12899666",
+          "name": "Marcio Chagas",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12899666?u=f7c0020c33e17c4415fe35e2bcf90dd75eefa9ab&v=4",
+          "url": "https://github.com/mchagas90",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-05-11T21:30:10.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747904"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA1"
+        },
+        "body": "Yeah, they show. Although for some reason I can only see the details of the calls to my PIM, not to my CMS (probably something related to the infra). It looks like this:\r\n![image](https://user-images.githubusercontent.com/9975630/81649244-4c707180-9430-11ea-8587-6d792e3e5881.png)\r\n",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-05-12T07:10:22.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747905"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA2"
+        },
+        "body": "@nachogarcia Hi, we tried your approach with implementing the two rows in 'nuxtServerInit' function to see the full path of Browser tracing names:\r\nconst newrelic = await import ('newrelic')\r\nnewrelic.SetTransactionName(context.route.matched[0].path)\r\n\r\nWe found out in our CI/CD process build, the script was broken every time when IIS physical path set to folder when we running the 'npm run build' script.\r\n\r\nWhen we removed the two mentioned rows everything was running as well.\r\n\r\nThe error we get is:\r\nERROR in ./node_modules/newrelic/lib/system-info.js\r\nModule not found: Error: Can't resolve 'child_process' in 'node_modules\\newrelic\\lib'\r\n\r\nCan you assists please?\r\nThank you,\r\nSP",
+        "createdAt": "2020-05-26T18:05:57.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747906"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA3"
+        },
+        "body": "No idea. Did you set the external webpack dependency?\r\n\r\nAlso, I improved this a bit. There were some routes without match so now the line looks like\r\n`newrelic.setTransactionName(context.route.matched[0] ? context.route.matched[0].path : context.route.name)`\r\n\r\nAnd the GETs that didn't get logged were the calls to my healthcheck serverMiddleware so I added the env variable `NEW_RELIC_IGNORING_RULES: '^/health'`",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-05-26T19:22:30.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747907"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA4"
+        },
+        "body": "1. We did set the external webpack dependency as you suggested. I would like to add that our NuxtJS app is running as a Windows service. We can't find a reason why the build fails to import newrelic in the nuxtServerInit. Do you have any other thoughts on that?\n\n2. Thanks you for sharing your improvements. We'll try it once the above issue will be resolved.\n\n<!--cmty_prevent_hook-->",
+        "createdAt": "2020-05-26T20:41:28.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747908"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTA5"
+        },
+        "body": "Doing a quick search it seems like it's a rather common issue with other libraries. People fix it with\r\n\r\n```\r\nmodule.exports.node = {\r\n  child_process: 'empty'\r\n}\r\n```\r\n\r\nMaybe you can go through that route, or you can open an issue in https://github.com/newrelic/node-newrelic",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-05-27T05:05:25.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747909"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTEw"
+        },
+        "body": "We tried child_process: 'false' and it didn't worked so I'm not sure if 'empty' will make a difference but I'll give it a shot.\n\nMuch appreciated.\n\n<!--cmty_prevent_hook-->",
+        "createdAt": "2020-05-27T06:21:35.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747910"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTEx"
+        },
+        "body": "@nachogarcia Hey! I've configured my newrelic as same as you did and its working fine, but on the client interactions, Im having this error:\r\n\r\n`logger.js?899e:6 Uncaught (in promise) TypeError: newrelic.noticeError is not a function`\r\n\r\nDo you have any idea of wahts possibly going on? thanks ;)",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "claudiolcastro",
+          "id": "20761700",
+          "name": "Cláudio Luiz Castro",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/20761700?u=e97cb76adef6e3effc55c3864f4f11aaf8521baa&v=4",
+          "url": "https://github.com/claudiolcastro",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-10-01T15:20:51.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747911"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTEy"
+        },
+        "body": "We're using it on nuxtServerInit with the dynamic import for using server side only :/",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-10-01T17:24:31.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747912"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTEz"
+        },
+        "body": "> We're using it on nuxtServerInit with the dynamic import for using server side only :/\r\n\r\nhumm I get it. Thanks!",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "claudiolcastro",
+          "id": "20761700",
+          "name": "Cláudio Luiz Castro",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/20761700?u=e97cb76adef6e3effc55c3864f4f11aaf8521baa&v=4",
+          "url": "https://github.com/claudiolcastro",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-10-01T17:40:50.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747913"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE0"
+        },
+        "body": "I would take a look at how we handle in the Sentry module as inspiration: https://github.com/nuxt-community/sentry-module/blob/master/lib/module.js#L60-L73\r\n\r\nTo test easily without having to write a module, you can directly use hooks directly in your `nuxt.config.js`, example:\r\n\r\n```js\r\nexport default {\r\n  hooks: {\r\n    'render:errorMiddleware'(app) {\r\n      app.use((err, req, res, next) => {\r\n        // Catch the error with you error reported\r\n        console.error(`An error occured while rendering ${req.url}\\n`, err)\r\n        // Let Nuxt show the error page\r\n        // You can customize the HTML error page for production by creating app/views/error.html\r\n        next(err)\r\n      })\r\n    }\r\n  }\r\n}\r\n```",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "atinux",
+          "id": "904724",
+          "name": "Sébastien Chopin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/904724?u=6c520432e20d5ed603246764658accea4b4043c3&v=4",
+          "url": "https://github.com/atinux",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2020-11-10T11:28:13.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747914"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE1"
+        },
+        "body": "@claudiolcastro I' try to add newRelic to my project as well, an SSR based application, what I did is:\r\n- Import `newRelic` in `store/nuxtServerInit`\r\n- Registering `newrelic` as an external in webpack (same as you did)\r\n\r\nBut I'm having an error in the browser saying: **`ReferenceError: newrelic is not defined`**\r\nAny idea? anyone?",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "Sletheren",
+          "id": "12659402",
+          "name": "Abdo Rakhma",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12659402?u=ad2d075874cbd64e0a9d10e87a4b0b0b4b0563e4&v=4",
+          "url": "https://github.com/Sletheren",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2021-05-14T12:41:17.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747915"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE2"
+        },
+        "body": "@Sletheren This might be relevant: https://github.com/nuxt/nuxt.js/issues/7960#issuecomment-832607715",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "danielroe",
+          "id": "28706372",
+          "name": "Daniel Roe",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/28706372?u=c4a5aa5232c09c3248533366d5c93a138d7e8987&v=4",
+          "url": "https://github.com/danielroe",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2021-05-17T08:18:52.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747916"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE3"
+        },
+        "body": "@danielroe I tried the same setup, but I still get the same error `ReferenceError: newrelic is not defined` and noticed that the content of the script is `NREUM L(1)`\r\n```\r\n{\r\n    hid: 'newrelic',\r\n    innerHTML: '<!-- NREUM: (1) -->',\r\n    type: 'text/javascript'\r\n  }\r\n```",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "Sletheren",
+          "id": "12659402",
+          "name": "Abdo Rakhma",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12659402?u=ad2d075874cbd64e0a9d10e87a4b0b0b4b0563e4&v=4",
+          "url": "https://github.com/Sletheren",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2021-05-17T12:28:25.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747917"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzQ3OTE4"
+        },
+        "body": "I didn't create a plugin because on further inspection it might not be neccesary to set the names on each request, though in my system I have the configuration that was quoted above.\r\n\r\nSince the change in configuration from some versions ago, you can just try to import newrelic in top of nuxt.config.js.\r\n\r\nAnd if you need further customization, use a hook like\r\n\r\n```\r\nhooks: {\r\n    'render:route' (url, result, context) {\r\n      try {\r\n        newrelic.setTransactionName(url)\r\n      } catch (error) {\r\n        // Ignore\r\n      }\r\n    }\r\n  }\r\n```\r\n\r\nPlease let me know what worked for you, so we can create a final and updated answer to anyone trying to setup newrelic with nuxt, and make a plugin if deemed neccesary :)",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "nachogarcia",
+          "id": "9975630",
+          "name": "Nacho García",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9975630?u=359c728ad0c9688d0408aacb8edd34823acd3223&v=4",
+          "url": "https://github.com/nachogarcia",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2021-05-17T12:45:43.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-747918"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "MDE3OkRpc2N1c3Npb25Db21tZW50NzUxNDUw"
+        },
+        "body": "@nachogarcia Thanks for your reply, I tried to do what you suggested, and here is a reproduction, https://github.com/Sletheren/nuxt-typescript-envs\r\nWhen you run `yarn build` you will see that the building phase is failing due to \"missing packages\", sounds like its coming from `@newrelic/Winston-enricher`",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "Sletheren",
+          "id": "12659402",
+          "name": "Abdo Rakhma",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12659402?u=ad2d075874cbd64e0a9d10e87a4b0b0b4b0563e4&v=4",
+          "url": "https://github.com/Sletheren",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2021-05-18T07:28:26.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-751450"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "DC_kwDOBEqSIc4AJkzk"
+        },
+        "body": "If it helps, here's what we did: https://gist.github.com/Christopher-Hayes/60d03f2c8d274be31caf1658a84d3153\r\n\r\nIt pulls from different answers here. (Thank you! 🙏) Combined all changes we made into a single gist to make it a little easier for others.",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "Christopher-Hayes",
+          "id": "6013871",
+          "name": "Chris​‌​‮ ‬Hayes‌​​​",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6013871?u=a98409a3a24cafb252259b37379d0393172e2bcc&v=4",
+          "url": "https://github.com/Christopher-Hayes",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2022-04-05T17:35:15.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-2510052"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "DC_kwDOBEqSIc4Am6tr"
+        },
+        "body": "Has anyone got a working solution for Nuxt 3?",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "luksak",
+          "id": "503095",
+          "name": "Lukas von Blarer",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/503095?v=4",
+          "url": "https://github.com/luksak",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2024-07-31T13:56:25.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-10201963"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "nuxt"
+            },
+            "kind": "discussion",
+            "number": "9303"
+          },
+          "id": "DC_kwDOBEqSIc4AnnTl"
+        },
+        "body": "I just published https://github.com/attributech/nuxt-newrelic that provides better integration between Nuxt and New Relic. This is my first Nuxt module and my first npm package. I'd be happy to receive some feedback on it 🫶",
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "luksak",
+          "id": "503095",
+          "name": "Lukas von Blarer",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/503095?v=4",
+          "url": "https://github.com/luksak",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2024-08-19T14:19:07.000Z",
+        "url": "https://github.com/nuxt/nuxt/discussions/9303#discussioncomment-10384613"
+      }
+    ]
+  },
+  "discussion reactions": {
+    "items": []
+  },
+  "discussion subscription": "subscribed",
+  "permission": "read",
+  "user": {
+    "forge": "github",
+    "instance": "github.com",
+    "login": "iiio2",
+    "id": "47961062",
+    "name": "abeer0",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+    "url": "https://github.com/iiio2",
+    "typeRaw": "User",
+    "isBotHint": false,
+    "createdAt": "2019-02-25T03:44:43.000Z",
+    "followers": 17,
+    "following": 0,
+    "publicRepos": 95
+  },
+  "own repos": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "43081j",
+          "name": "ai-policy",
+          "externalId": "1373043936"
+        },
+        "description": "A collection of AI contribution policies which can be copied into other projects.",
+        "defaultBranch": "main",
+        "visibility": "public",
+        "visibilityRaw": "public",
+        "isFork": false,
+        "isArchived": false,
+        "topics": [],
+        "url": "https://github.com/43081j/ai-policy",
+        "cloneUrls": {
+          "https": "https://github.com/43081j/ai-policy.git",
+          "ssh": "git@github.com:43081j/ai-policy.git"
+        },
+        "createdAt": "2026-09-16T13:01:04.000Z",
+        "updatedAt": "2026-10-02T08:30:10.000Z",
+        "pushedAt": "2026-10-02T08:30:07.000Z",
+        "features": {
+          "issues": true,
+          "pullRequests": true,
+          "discussions": false,
+          "wiki": false,
+          "projects": false,
+          "releases": true
+        },
+        "permissions": {
+          "admin": false,
+          "maintain": false,
+          "push": true,
+          "triage": true,
+          "pull": true
+        }
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/user/repos?per_page=3&page=2",
+      "etag": "W/\"334e6613740282a7ee730726e8338ce85a77e6fb8b15343c0741a43ed7367acf\""
+    },
+    "rateLimit": {
+      "remaining": 4784,
+      "resetAt": "<now>"
+    }
+  },
+  "notifications": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "id": "25865358891"
+        },
+        "subject": {
+          "type": "thread",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "fonts",
+              "externalId": "760091517"
+            },
+            "kind": "pull_request",
+            "typeRaw": "PullRequest",
+            "number": "922"
+          }
+        },
+        "subjectTypeRaw": "PullRequest",
+        "reason": "review_requested",
+        "reasonRaw": "review_requested",
+        "unread": true,
+        "title": "chore(deps): update all non-major dependencies",
+        "subjectState": "unknown",
+        "updatedAt": "<now>",
+        "lastReadAt": "2026-09-25T23:49:15.000Z",
+        "url": "https://api.github.com/repos/nuxt/fonts/pulls/922"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "id": "26028564251"
+        },
+        "subject": {
+          "type": "thread",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt",
+              "name": "cli",
+              "externalId": "601577889"
+            },
+            "kind": "pull_request",
+            "typeRaw": "PullRequest",
+            "number": "1586"
+          }
+        },
+        "subjectTypeRaw": "PullRequest",
+        "reason": "review_requested",
+        "reasonRaw": "review_requested",
+        "unread": true,
+        "title": "chore(deps): update dependency nuxt to v5.0.0-29847385.3fde4d62",
+        "subjectState": "unknown",
+        "updatedAt": "<now>",
+        "lastReadAt": "2026-10-02T08:10:50.000Z",
+        "url": "https://api.github.com/repos/nuxt/cli/pulls/1586"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "id": "25012345264"
+        },
+        "subject": {
+          "type": "thread",
+          "thread": {
+            "forge": "github",
+            "instance": "github.com",
+            "repo": {
+              "forge": "github",
+              "instance": "github.com",
+              "owner": "nuxt-modules",
+              "name": "sanity",
+              "externalId": "285893677"
+            },
+            "kind": "pull_request",
+            "typeRaw": "PullRequest",
+            "number": "1527"
+          }
+        },
+        "subjectTypeRaw": "PullRequest",
+        "reason": "review_requested",
+        "reasonRaw": "review_requested",
+        "unread": true,
+        "title": "chore(deps): update sanity monorepo to v6",
+        "subjectState": "unknown",
+        "updatedAt": "<now>",
+        "url": "https://api.github.com/repos/nuxt-modules/sanity/pulls/1527"
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/notifications?all=false&per_page=3&page=2",
+      "etag": "W/\"6abaa1de9dbdc96a764744d100576b3e5aee60e8ad1be18c70b66a21492bb566\""
+    },
+    "notModified": false
+  },
+  "checks": {
+    "items": [],
+    "warnings": []
+  },
+  "ci runs": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "id": "36831006454"
+        },
+        "name": "ci",
+        "state": "failure",
+        "stateRaw": "completed",
+        "number": "4707",
+        "eventRaw": "pull_request",
+        "branch": "fix/mime-mjs-cjs",
+        "sha": "b72d2ffb9c0d858115d3aebc4b38ee6740d2da26",
+        "url": "https://github.com/h3js/h3/actions/runs/36831006454",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "okxint",
+          "id": "130782884",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/130782884?v=4",
+          "url": "https://github.com/okxint",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2026-10-01T07:33:25.000Z",
+        "startedAt": "2026-10-01T07:33:25.000Z",
+        "completedAt": "2026-10-01T07:33:25.000Z"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "id": "36831006435"
+        },
+        "name": "autofix.ci",
+        "state": "failure",
+        "stateRaw": "completed",
+        "number": "4214",
+        "eventRaw": "pull_request",
+        "branch": "fix/mime-mjs-cjs",
+        "sha": "b72d2ffb9c0d858115d3aebc4b38ee6740d2da26",
+        "url": "https://github.com/h3js/h3/actions/runs/36831006435",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "okxint",
+          "id": "130782884",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/130782884?v=4",
+          "url": "https://github.com/okxint",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2026-10-01T07:33:25.000Z",
+        "startedAt": "2026-10-01T07:33:25.000Z",
+        "completedAt": "2026-10-01T07:33:25.000Z"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "id": "36671234388"
+        },
+        "name": "autofix.ci",
+        "state": "failure",
+        "stateRaw": "completed",
+        "number": "4213",
+        "eventRaw": "pull_request",
+        "branch": "fix/chunked-cookie-encoded-size",
+        "sha": "cd9c9735ec00babc221a6324deea65a165c84ee7",
+        "url": "https://github.com/h3js/h3/actions/runs/36671234388",
+        "actor": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "breken-ai",
+          "id": "312387581",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/312387581?v=4",
+          "url": "https://github.com/breken-ai",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2026-09-30T04:58:02.000Z",
+        "startedAt": "2026-09-30T04:58:02.000Z",
+        "completedAt": "2026-09-30T04:58:02.000Z"
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/actions/runs?per_page=3&page=2",
+      "etag": "W/\"1eb6aa5feb484a4c58ca333d127e9c12dc8f78bfb1957de76fe0e0479ac1ec93\""
+    },
+    "rateLimit": {
+      "remaining": 4780,
+      "resetAt": "<now>"
+    }
+  },
+  "ci run": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "repo": {
+        "forge": "github",
+        "instance": "github.com",
+        "owner": "h3js",
+        "name": "h3"
+      },
+      "id": "36831006454"
+    },
+    "name": "ci",
+    "state": "failure",
+    "stateRaw": "completed",
+    "number": "4707",
+    "eventRaw": "pull_request",
+    "branch": "fix/mime-mjs-cjs",
+    "sha": "b72d2ffb9c0d858115d3aebc4b38ee6740d2da26",
+    "url": "https://github.com/h3js/h3/actions/runs/36831006454",
+    "actor": {
+      "forge": "github",
+      "instance": "github.com",
+      "login": "okxint",
+      "id": "130782884",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/130782884?v=4",
+      "url": "https://github.com/okxint",
+      "typeRaw": "User",
+      "isBotHint": false
+    },
+    "createdAt": "2026-10-01T07:33:25.000Z",
+    "startedAt": "2026-10-01T07:33:25.000Z",
+    "completedAt": "2026-10-01T07:33:25.000Z"
+  },
+  "ci jobs": {
+    "items": [],
+    "rateLimit": {
+      "remaining": 4779,
+      "resetAt": "<now>"
+    }
+  },
+  "readme": {
+    "path": "README.md",
+    "sha": "d92f7989b1031b703fc52ecc132344ac8d8f44e5",
+    "size": 1390,
+    "url": "https://github.com/h3js/h3/blob/main/README.md",
+    "content": "# H3\n\n<!-- automd:badges -->\n\n[![npm version](https://img.shields.io/npm/v/h3)](https://npmjs.com/package/h3)\n[![npm downloads](https://img.shields.io/npm/dm/h3)](https://npm.chart.dev/h3)\n\n<!-- /automd -->\n\nH3 (pronounced as /eɪtʃθriː/, like h-3) is a minimal h(ttp) framework built for high performance and portability.\n\n> [!NOTE]\n> You are on the v2 active branch. Check out [tree/v1](https://github.com/h3js/h3/tree/v1) and [v1.h3.dev](https://v1.h3.dev/) for legacy v1.\n\n👉 [Documentation](https://h3.dev)\n\n## Contribution\n\n<details>\n  <summary>Local development</summary>\n\n- Clone this repository\n- Install the latest LTS version of [Node.js](https://nodejs.org/en/)\n- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`\n- Install dependencies using `pnpm install`\n- Run tests using `pnpm dev` or `pnpm test`\n\n</details>\n\n<!-- /automd -->\n\n## License\n\n<!-- automd:contributors license=MIT author=\"pi0\" -->\n\nPublished under the [MIT](https://github.com/h3js/h3/blob/main/LICENSE) license.\nMade by [@pi0](https://github.com/pi0) and [community](https://github.com/h3js/h3/graphs/contributors) 💛\n<br><br>\n<a href=\"https://github.com/h3js/h3/graphs/contributors\">\n<img src=\"https://contrib.rocks/image?repo=h3js/h3\" />\n</a>\n\n<!-- /automd -->\n\n<!-- automd:with-automd -->\n\n---\n\n_🤖 auto updated with [automd](https://automd.unjs.io)_\n\n<!-- /automd -->\n",
+    "encoding": "utf-8"
+  },
+  "tree": {
+    "items": [
+      {
+        "path": ".config",
+        "type": "directory",
+        "sha": "4025be9fc592042854727ed135f3878c26a118d7",
+        "mode": "040000"
+      },
+      {
+        "path": ".github",
+        "type": "directory",
+        "sha": "44886992d96d71a3b1da894ee41802769bd13247",
+        "mode": "040000"
+      },
+      {
+        "path": ".gitignore",
+        "type": "file",
+        "sha": "95e76db7fdd5be39f1a24621061caafa0f37b2a7",
+        "size": 142,
+        "mode": "100644"
+      },
+      {
+        "path": ".oxfmtrc.json",
+        "type": "file",
+        "sha": "e0b9a498ad983804da81fac923702ba3c38771e5",
+        "size": 66,
+        "mode": "100644"
+      },
+      {
+        "path": ".oxlintrc.json",
+        "type": "file",
+        "sha": "9ecdb5822f0d6dd0cee5d7376b5107b8f6c4b8ad",
+        "size": 587,
+        "mode": "100644"
+      },
+      {
+        "path": "AGENTS.md",
+        "type": "file",
+        "sha": "8e747ebd00a95cb487acdf0c9815abe34cb60ed4",
+        "size": 11788,
+        "mode": "100644"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "type": "file",
+        "sha": "6975a6281e2f4bb2b7e8abe046d86e4f25c5275a",
+        "size": 124321,
+        "mode": "100644"
+      },
+      {
+        "path": "CLAUDE.md",
+        "type": "file",
+        "sha": "43c994c2d3617f947bcb5adf1933e21dabe46bb5",
+        "size": 11,
+        "mode": "100644"
+      },
+      {
+        "path": "LICENSE",
+        "type": "file",
+        "sha": "e739abce461d8b2899aaec6529a4af24a417e0fc",
+        "size": 1078,
+        "mode": "100644"
+      },
+      {
+        "path": "MIGRATION.md",
+        "type": "file",
+        "sha": "b37c5fccc1c28577519a48450122840b567bf6e6",
+        "size": 10904,
+        "mode": "100644"
+      },
+      {
+        "path": "README.md",
+        "type": "file",
+        "sha": "d92f7989b1031b703fc52ecc132344ac8d8f44e5",
+        "size": 1390,
+        "mode": "100644"
+      },
+      {
+        "path": "bin",
+        "type": "directory",
+        "sha": "d9bfe1f2027ded134c11586b2d4fe8db180d2181",
+        "mode": "040000"
+      },
+      {
+        "path": "build.config.ts",
+        "type": "file",
+        "sha": "de2cc11c91678a1c9bd0065c7ee8a238d9ef2170",
+        "size": 1761,
+        "mode": "100644"
+      },
+      {
+        "path": "docs",
+        "type": "directory",
+        "sha": "387844f61bafccd31a64ab0360888690a68837a6",
+        "mode": "040000"
+      },
+      {
+        "path": "examples",
+        "type": "directory",
+        "sha": "0acf88b54ec999cbc63c67bf236094264b49cda4",
+        "mode": "040000"
+      },
+      {
+        "path": "package.json",
+        "type": "file",
+        "sha": "508e7e7cf1814ea9dd71c9443a559e7aa61bf034",
+        "size": 3708,
+        "mode": "100644"
+      },
+      {
+        "path": "playground",
+        "type": "directory",
+        "sha": "7c8cdc6fbe3a1155f761484a55f1f4ba5578c859",
+        "mode": "040000"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "type": "file",
+        "sha": "467388400d911beded3fdc0d0b20d4570f538190",
+        "size": 135533,
+        "mode": "100644"
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "type": "file",
+        "sha": "78269dd4f16523773c025bdd11060777dcc59e30",
+        "size": 242,
+        "mode": "100644"
+      },
+      {
+        "path": "renovate.json",
+        "type": "file",
+        "sha": "4a21dca6656268ab72b923c6e8deb0a59dfbaa74",
+        "size": 83,
+        "mode": "100644"
+      },
+      {
+        "path": "src",
+        "type": "directory",
+        "sha": "7891983fc1f671271aade2589cac063c5cfe4838",
+        "mode": "040000"
+      },
+      {
+        "path": "test",
+        "type": "directory",
+        "sha": "aaaf6e3cb5ef1e3e8dcdf043c9c470ba08aa274f",
+        "mode": "040000"
+      },
+      {
+        "path": "tsconfig.json",
+        "type": "file",
+        "sha": "fbdb441c8847590e276a0d55367c0b309e0c4765",
+        "size": 743,
+        "mode": "100644"
+      },
+      {
+        "path": "typos.toml",
+        "type": "file",
+        "sha": "d6be7ff59ebf356db734e70ea04dc3dcae6f1c5b",
+        "size": 181,
+        "mode": "100644"
+      },
+      {
+        "path": "vitest.config.mjs",
+        "type": "file",
+        "sha": "a01db407ec44902842fe8f5cdea71dfdcdecde20",
+        "size": 708,
+        "mode": "100644"
+      }
+    ],
+    "rateLimit": {
+      "remaining": 4776,
+      "resetAt": "<now>"
+    }
+  },
+  "branches": {
+    "items": [
+      {
+        "name": "build/compact",
+        "sha": "90936b21a372151098539e7deeec434f5f653058",
+        "isProtected": false
+      },
+      {
+        "name": "chore/bench",
+        "sha": "694bdc7f29fe5541d39b6efcc4f7c95370425316",
+        "isProtected": false
+      },
+      {
+        "name": "chore/playground",
+        "sha": "1e54e809d3cf7fd60f0a338883da65dd69033326",
+        "isProtected": false
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/branches?per_page=3&page=2",
+      "etag": "W/\"3b0dbe11bcf890ff6f497010b00e784c5012f79151d47f67af5b1d1c8ba44b69\""
+    },
+    "rateLimit": {
+      "remaining": 4775,
+      "resetAt": "<now>"
+    }
+  },
+  "tags": {
+    "items": [
+      {
+        "name": "v2.0.1-rc.32",
+        "sha": "bce4ae8dbe41dfae14e96aeed4255c060f19f46b"
+      },
+      {
+        "name": "v2.0.1-rc.31",
+        "sha": "51db6d9cf61cfdbd54ec809bd793cfa11d0b7921"
+      },
+      {
+        "name": "v2.0.1-rc.30",
+        "sha": "d78281bc7f48c7a6622ffd5f0434c1632c4afd7c"
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/tags?per_page=3&page=2",
+      "etag": "W/\"9f7fafd9256878cb01f4cf4fd3e772c9aec3d4fbb376ca45a6b8b9c607c42491\""
+    },
+    "rateLimit": {
+      "remaining": 4774,
+      "resetAt": "<now>"
+    }
+  },
+  "resolve default branch": "62c263298b41881759fe5bc38da4dd879856180c",
+  "commits": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "sha": "62c263298b41881759fe5bc38da4dd879856180c"
+        },
+        "sha": "62c263298b41881759fe5bc38da4dd879856180c",
+        "message": "chore(deps): update rou3 to v0.11\n\n- rules: drop per-method materialization of agnostic rules (rou3 now pools a node's `\"\"` and method-scoped registrations; the copies duplicated layers)\n- rules/compiler: use `compileRouterToString` options object\n- test: `:name` no longer matches an empty segment",
+        "author": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "pi0",
+            "id": "5158436",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+            "url": "https://github.com/pi0",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Pooya Parsa",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-29T16:33:27.000Z"
+        },
+        "committer": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "pi0",
+            "id": "5158436",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+            "url": "https://github.com/pi0",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Pooya Parsa",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-29T16:33:27.000Z"
+        },
+        "parents": [
+          "a546b4c1c6df4670e348f15d218465dd351b9b37"
+        ],
+        "url": "https://github.com/h3js/h3/commit/62c263298b41881759fe5bc38da4dd879856180c"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "sha": "a546b4c1c6df4670e348f15d218465dd351b9b37"
+        },
+        "sha": "a546b4c1c6df4670e348f15d218465dd351b9b37",
+        "message": "chore(deps): update rou3 to v0.10.2",
+        "author": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "pi0",
+            "id": "5158436",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+            "url": "https://github.com/pi0",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Pooya Parsa",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-28T23:24:28.000Z"
+        },
+        "committer": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "pi0",
+            "id": "5158436",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+            "url": "https://github.com/pi0",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Pooya Parsa",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-28T23:25:13.000Z"
+        },
+        "parents": [
+          "26bac524c80be279187bfa68cb8bf41f164813b1"
+        ],
+        "url": "https://github.com/h3js/h3/commit/a546b4c1c6df4670e348f15d218465dd351b9b37"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "sha": "26bac524c80be279187bfa68cb8bf41f164813b1"
+        },
+        "sha": "26bac524c80be279187bfa68cb8bf41f164813b1",
+        "message": "fix(static): honor q-values and case in accept-encoding (#1560)",
+        "author": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "pi0x",
+            "id": "286783767",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/286783767?v=4",
+            "url": "https://github.com/pi0x",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "pi0x",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-28T23:21:03.000Z"
+        },
+        "committer": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "web-flow",
+            "id": "19864447",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/19864447?v=4",
+            "url": "https://github.com/web-flow",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "GitHub",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-28T23:21:03.000Z"
+        },
+        "parents": [
+          "3cfd7491f91c794402e13506253e8d04cd36317d"
+        ],
+        "url": "https://github.com/h3js/h3/commit/26bac524c80be279187bfa68cb8bf41f164813b1"
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/commits?per_page=3&page=2",
+      "etag": "W/\"a23bbe0b69ee9adbbbd9b78eb11071ea0e8b3e7d0ab84701cac070df51b773f1\""
+    },
+    "rateLimit": {
+      "remaining": 4772,
+      "resetAt": "<now>"
+    }
+  },
+  "commit": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "repo": {
+        "forge": "github",
+        "instance": "github.com",
+        "owner": "h3js",
+        "name": "h3"
+      },
+      "sha": "adbc974043a83820a5ae388265b5ee1465926561"
+    },
+    "sha": "adbc974043a83820a5ae388265b5ee1465926561",
+    "message": "chore: include `node_modules` in `.prettierignore`",
+    "author": {
+      "actor": {
+        "forge": "github",
+        "instance": "github.com",
+        "login": "iiio2",
+        "id": "47961062",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+        "url": "https://github.com/iiio2",
+        "typeRaw": "User",
+        "isBotHint": false
+      },
+      "name": "Mr. Robot",
+      "email": "redacted@example.invalid",
+      "date": "2025-03-31T13:48:41.000Z"
+    },
+    "committer": {
+      "actor": {
+        "forge": "github",
+        "instance": "github.com",
+        "login": "iiio2",
+        "id": "47961062",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+        "url": "https://github.com/iiio2",
+        "typeRaw": "User",
+        "isBotHint": false
+      },
+      "name": "Mr. Robot",
+      "email": "redacted@example.invalid",
+      "date": "2025-03-31T13:48:41.000Z"
+    },
+    "parents": [
+      "e5788bb16d62ac64e5fa13b14862ed719f768d04"
+    ],
+    "url": "https://github.com/h3js/h3/commit/adbc974043a83820a5ae388265b5ee1465926561",
+    "stats": {
+      "additions": 1,
+      "deletions": 0,
+      "total": 1
+    },
+    "files": [
+      {
+        "path": ".prettierignore",
+        "status": "modified",
+        "statusRaw": "modified",
+        "additions": 1,
+        "deletions": 0,
+        "patch": "@@ -3,3 +3,4 @@ lib\n .nuxt\n .output\n src/types/_headers.ts\n+node_modules\n\\ No newline at end of file",
+        "sha": "86167650d1b479a034773ee53ccb60428ce71427"
+      }
+    ]
+  },
+  "compare": {
+    "base": "main",
+    "head": "adbc974043a83820a5ae388265b5ee1465926561",
+    "aheadBy": 1,
+    "behindBy": 658,
+    "mergeBaseSha": "e5788bb16d62ac64e5fa13b14862ed719f768d04",
+    "commits": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "sha": "adbc974043a83820a5ae388265b5ee1465926561"
+        },
+        "sha": "adbc974043a83820a5ae388265b5ee1465926561",
+        "message": "chore: include `node_modules` in `.prettierignore`",
+        "author": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "iiio2",
+            "id": "47961062",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+            "url": "https://github.com/iiio2",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Mr. Robot",
+          "email": "redacted@example.invalid",
+          "date": "2025-03-31T13:48:41.000Z"
+        },
+        "committer": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "iiio2",
+            "id": "47961062",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47961062?v=4",
+            "url": "https://github.com/iiio2",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Mr. Robot",
+          "email": "redacted@example.invalid",
+          "date": "2025-03-31T13:48:41.000Z"
+        },
+        "parents": [
+          "e5788bb16d62ac64e5fa13b14862ed719f768d04"
+        ],
+        "url": "https://github.com/h3js/h3/commit/adbc974043a83820a5ae388265b5ee1465926561"
+      }
+    ],
+    "files": [
+      {
+        "path": ".prettierignore",
+        "status": "modified",
+        "statusRaw": "modified",
+        "additions": 1,
+        "deletions": 0,
+        "patch": "@@ -3,3 +3,4 @@ lib\n .nuxt\n .output\n src/types/_headers.ts\n+node_modules\n\\ No newline at end of file",
+        "sha": "86167650d1b479a034773ee53ccb60428ce71427"
+      }
+    ]
+  },
+  "releases": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "id": "388631582",
+          "tag": "v2.0.1-rc.32"
+        },
+        "name": "",
+        "tag": "v2.0.1-rc.32",
+        "body": "[compare changes](https://github.com/h3js/h3/compare/df811cd872015ced1cb21e30d42ec20c9f79cbc3...v2.0.1-rc.32)\r\n\r\n### 🚀 Enhancements\r\n\r\n- Export `normalizeRoute` as a public path utility ([#1549](https://github.com/h3js/h3/pull/1549))\r\n\r\n### 🩹 Fixes\r\n\r\n- **route-rules:** Pass uncacheable requests through the cache rule ([b6c7d08](https://github.com/h3js/h3/commit/b6c7d08))\r\n- Handle srvx body limit errors as 413 ([b5d20d5](https://github.com/h3js/h3/commit/b5d20d5))\r\n- **error:** Require status in HTTPError.isError ([e6b726b](https://github.com/h3js/h3/commit/e6b726b))\r\n\r\n### 🌊 Types\r\n\r\n- **handler:** Infer route handler request type instead of any ([#1546](https://github.com/h3js/h3/pull/1546))\r\n- **handler:** Use request header names for req.headers ([ae529f1](https://github.com/h3js/h3/commit/ae529f1))\r\n- Export `TypedHeaders` type ([#1547](https://github.com/h3js/h3/pull/1547))\r\n\r\n### ❤️ Contributors\r\n\r\n- Pooya Parsa (@pi0)\r\n- Rith Banerjee (@Rithb898)\r\n- Lazizbek Ergashev (@lazerg)",
+        "isDraft": false,
+        "isPrerelease": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "publishedAt": "2026-09-14T18:46:42.000Z",
+        "createdAt": "2026-09-14T18:44:15.000Z",
+        "url": "https://github.com/h3js/h3/releases/tag/v2.0.1-rc.32",
+        "assets": []
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "id": "382372940",
+          "tag": "v2.0.1-rc.31"
+        },
+        "name": "",
+        "tag": "v2.0.1-rc.31",
+        "body": "[compare changes](https://github.com/h3js/h3/compare/v2.0.1-rc.30...v2.0.1-rc.31)\r\n\r\n### 🚀 Enhancements\r\n\r\n- **rules:** Support non-trailing `**` in redirect/proxy targets ([228bca3](https://github.com/h3js/h3/commit/228bca3))\r\n\r\n### 🔥 Performance\r\n\r\n- **rules:** Evict memoized matches with SIEVE instead of FIFO ([#1543](https://github.com/h3js/h3/pull/1543))\r\n\r\n### 🤖 CI\r\n\r\n- Replace setup-node and corepack with setup-jup ([#1544](https://github.com/h3js/h3/pull/1544))",
+        "isDraft": false,
+        "isPrerelease": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "publishedAt": "2026-09-03T22:43:46.000Z",
+        "createdAt": "2026-09-03T22:38:38.000Z",
+        "url": "https://github.com/h3js/h3/releases/tag/v2.0.1-rc.31",
+        "assets": []
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "id": "381282224",
+          "tag": "v2.0.1-rc.30"
+        },
+        "name": "v2.0.1-rc.30",
+        "tag": "v2.0.1-rc.30",
+        "body": "[compare changes](https://github.com/h3js/h3/compare/v2.0.1-rc.29...v2.0.1-rc.30)\r\n\r\n### 🩹 Fixes\r\n\r\n- **session:** Do not persist a session that is only read ([#1541](https://github.com/h3js/h3/pull/1541))\r\n- **cli:** Resolve docs directory to file system path with fileURLToPath ([#1540](https://github.com/h3js/h3/pull/1540), [04a78a0](https://github.com/h3js/h3/commit/04a78a0))\r\n\r\n### 💅 Refactors\r\n\r\n- **core:** Compose route middleware in the dispatcher ([#1533](https://github.com/h3js/h3/pull/1533))\r\n\r\n### 🌊 Types\r\n\r\n- **handler:** Expose validated query/headers on validated hander type ([#1538](https://github.com/h3js/h3/pull/1538))\r\n\r\n### 🏡 Chore\r\n\r\n- Update srvx to v1 ([81440ec](https://github.com/h3js/h3/commit/81440ec))\r\n\r\n### ✅ Tests\r\n\r\n- **cli:** Assert docs command spawns without a shell ([07273db](https://github.com/h3js/h3/commit/07273db))\r\n\r\n### ❤️ Contributors\r\n\r\n- Pooya Parsa (@pi0)\r\n- Dương Ngọc Anh (@koding88)\r\n- Liang Xu (@lx3133584)\r\n- Daniel Roe (@danielroe)\r\n",
+        "isDraft": false,
+        "isPrerelease": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "pi0",
+          "id": "5158436",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+          "url": "https://github.com/pi0",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "publishedAt": "2026-09-02T13:25:51.000Z",
+        "createdAt": "2026-09-02T13:23:44.000Z",
+        "url": "https://github.com/h3js/h3/releases/tag/v2.0.1-rc.30",
+        "assets": []
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/repositories/313641207/releases?per_page=3&page=2",
+      "etag": "W/\"7204918f799fdd24cc796dbf23841cf69284d4dea4711abf7849de8aaeadd4de\""
+    },
+    "rateLimit": {
+      "remaining": 4769,
+      "resetAt": "<now>"
+    }
+  },
+  "latest release": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "repo": {
+        "forge": "github",
+        "instance": "github.com",
+        "owner": "h3js",
+        "name": "h3"
+      },
+      "id": "388631582",
+      "tag": "v2.0.1-rc.32"
+    },
+    "name": "",
+    "tag": "v2.0.1-rc.32",
+    "body": "[compare changes](https://github.com/h3js/h3/compare/df811cd872015ced1cb21e30d42ec20c9f79cbc3...v2.0.1-rc.32)\r\n\r\n### 🚀 Enhancements\r\n\r\n- Export `normalizeRoute` as a public path utility ([#1549](https://github.com/h3js/h3/pull/1549))\r\n\r\n### 🩹 Fixes\r\n\r\n- **route-rules:** Pass uncacheable requests through the cache rule ([b6c7d08](https://github.com/h3js/h3/commit/b6c7d08))\r\n- Handle srvx body limit errors as 413 ([b5d20d5](https://github.com/h3js/h3/commit/b5d20d5))\r\n- **error:** Require status in HTTPError.isError ([e6b726b](https://github.com/h3js/h3/commit/e6b726b))\r\n\r\n### 🌊 Types\r\n\r\n- **handler:** Infer route handler request type instead of any ([#1546](https://github.com/h3js/h3/pull/1546))\r\n- **handler:** Use request header names for req.headers ([ae529f1](https://github.com/h3js/h3/commit/ae529f1))\r\n- Export `TypedHeaders` type ([#1547](https://github.com/h3js/h3/pull/1547))\r\n\r\n### ❤️ Contributors\r\n\r\n- Pooya Parsa (@pi0)\r\n- Rith Banerjee (@Rithb898)\r\n- Lazizbek Ergashev (@lazerg)",
+    "isDraft": false,
+    "isPrerelease": false,
+    "author": {
+      "forge": "github",
+      "instance": "github.com",
+      "login": "pi0",
+      "id": "5158436",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+      "url": "https://github.com/pi0",
+      "typeRaw": "User",
+      "isBotHint": false
+    },
+    "publishedAt": "2026-09-14T18:46:42.000Z",
+    "createdAt": "2026-09-14T18:44:15.000Z",
+    "url": "https://github.com/h3js/h3/releases/tag/v2.0.1-rc.32",
+    "assets": []
+  },
+  "release": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "repo": {
+        "forge": "github",
+        "instance": "github.com",
+        "owner": "h3js",
+        "name": "h3"
+      },
+      "id": "388631582",
+      "tag": "v2.0.1-rc.32"
+    },
+    "name": "",
+    "tag": "v2.0.1-rc.32",
+    "body": "[compare changes](https://github.com/h3js/h3/compare/df811cd872015ced1cb21e30d42ec20c9f79cbc3...v2.0.1-rc.32)\r\n\r\n### 🚀 Enhancements\r\n\r\n- Export `normalizeRoute` as a public path utility ([#1549](https://github.com/h3js/h3/pull/1549))\r\n\r\n### 🩹 Fixes\r\n\r\n- **route-rules:** Pass uncacheable requests through the cache rule ([b6c7d08](https://github.com/h3js/h3/commit/b6c7d08))\r\n- Handle srvx body limit errors as 413 ([b5d20d5](https://github.com/h3js/h3/commit/b5d20d5))\r\n- **error:** Require status in HTTPError.isError ([e6b726b](https://github.com/h3js/h3/commit/e6b726b))\r\n\r\n### 🌊 Types\r\n\r\n- **handler:** Infer route handler request type instead of any ([#1546](https://github.com/h3js/h3/pull/1546))\r\n- **handler:** Use request header names for req.headers ([ae529f1](https://github.com/h3js/h3/commit/ae529f1))\r\n- Export `TypedHeaders` type ([#1547](https://github.com/h3js/h3/pull/1547))\r\n\r\n### ❤️ Contributors\r\n\r\n- Pooya Parsa (@pi0)\r\n- Rith Banerjee (@Rithb898)\r\n- Lazizbek Ergashev (@lazerg)",
+    "isDraft": false,
+    "isPrerelease": false,
+    "author": {
+      "forge": "github",
+      "instance": "github.com",
+      "login": "pi0",
+      "id": "5158436",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+      "url": "https://github.com/pi0",
+      "typeRaw": "User",
+      "isBotHint": false
+    },
+    "publishedAt": "2026-09-14T18:46:42.000Z",
+    "createdAt": "2026-09-14T18:44:15.000Z",
+    "url": "https://github.com/h3js/h3/releases/tag/v2.0.1-rc.32",
+    "assets": []
+  },
+  "release by tag": {
+    "ref": {
+      "forge": "github",
+      "instance": "github.com",
+      "repo": {
+        "forge": "github",
+        "instance": "github.com",
+        "owner": "h3js",
+        "name": "h3"
+      },
+      "id": "388631582",
+      "tag": "v2.0.1-rc.32"
+    },
+    "name": "",
+    "tag": "v2.0.1-rc.32",
+    "body": "[compare changes](https://github.com/h3js/h3/compare/df811cd872015ced1cb21e30d42ec20c9f79cbc3...v2.0.1-rc.32)\r\n\r\n### 🚀 Enhancements\r\n\r\n- Export `normalizeRoute` as a public path utility ([#1549](https://github.com/h3js/h3/pull/1549))\r\n\r\n### 🩹 Fixes\r\n\r\n- **route-rules:** Pass uncacheable requests through the cache rule ([b6c7d08](https://github.com/h3js/h3/commit/b6c7d08))\r\n- Handle srvx body limit errors as 413 ([b5d20d5](https://github.com/h3js/h3/commit/b5d20d5))\r\n- **error:** Require status in HTTPError.isError ([e6b726b](https://github.com/h3js/h3/commit/e6b726b))\r\n\r\n### 🌊 Types\r\n\r\n- **handler:** Infer route handler request type instead of any ([#1546](https://github.com/h3js/h3/pull/1546))\r\n- **handler:** Use request header names for req.headers ([ae529f1](https://github.com/h3js/h3/commit/ae529f1))\r\n- Export `TypedHeaders` type ([#1547](https://github.com/h3js/h3/pull/1547))\r\n\r\n### ❤️ Contributors\r\n\r\n- Pooya Parsa (@pi0)\r\n- Rith Banerjee (@Rithb898)\r\n- Lazizbek Ergashev (@lazerg)",
+    "isDraft": false,
+    "isPrerelease": false,
+    "author": {
+      "forge": "github",
+      "instance": "github.com",
+      "login": "pi0",
+      "id": "5158436",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/5158436?v=4",
+      "url": "https://github.com/pi0",
+      "typeRaw": "User",
+      "isBotHint": false
+    },
+    "publishedAt": "2026-09-14T18:46:42.000Z",
+    "createdAt": "2026-09-14T18:44:15.000Z",
+    "url": "https://github.com/h3js/h3/releases/tag/v2.0.1-rc.32",
+    "assets": []
+  },
+  "search threads": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "pull_request",
+          "number": "1562",
+          "externalId": "PR_kwDOErHI988AAAABFrIAAw"
+        },
+        "kind": "pull_request",
+        "title": "fix(validate): preserve repeated query values in defineValidatedHandler",
+        "body": "## Summary\n\n- `defineValidatedHandler` built its query validation input with `Object.fromEntries(url.searchParams.entries())`, which keeps only the **last** value for repeated keys (`?tag=a&tag=b` → `{ tag: \"b\" }`).\n- Feed validators through the existing `parseQuery` helper (same shape as `getQuery`) and write array results back as repeated `URLSearchParams` entries.\n\n## Reproduction\n\n```ts\ndefineValidatedHandler({\n  validate: { query: z.object({ tag: z.array(z.string()) }) },\n  handler: (event) => event.url.searchParams.getAll(\"tag\"),\n});\n// GET /?tag=a&tag=b\n// before: validation fails / sees only \"b\"\n// after: validator input `{ tag: [\"a\", \"b\"] }`, handler returns `[\"a\", \"b\"]`\n```\n\n## Test plan\n\n- [x] `pnpm exec vitest run test/handler.test.ts` (23 passed)\n- [ ] CI\n\n<!-- This is an auto-generated comment: release notes by coderabbit.ai -->\n\n## Summary by CodeRabbit\n\n* **Bug Fixes**\n  * Repeated query parameters are now preserved when validated, so handlers can receive and return all values instead of only the last one.\n\n<!-- end of auto-generated comment: release notes by coderabbit.ai -->",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "00200200",
+          "id": "83299832",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/83299832?v=4",
+          "url": "https://github.com/00200200",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "labels": [],
+        "url": "https://github.com/h3js/h3/pull/1562",
+        "createdAt": "2026-09-29T10:13:03.000Z",
+        "updatedAt": "2026-09-29T10:19:21.000Z",
+        "lastActivityAt": "2026-09-29T10:19:21.000Z",
+        "locked": false,
+        "commentCount": 1,
+        "reactions": {
+          "total": 0,
+          "counts": {}
+        }
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "pull_request",
+          "number": "1565",
+          "externalId": "PR_kwDOErHI988AAAABF0wh2A"
+        },
+        "kind": "pull_request",
+        "title": "fix(cookie): size cookie chunks by their encoded length",
+        "body": "## Summary\n\n`setChunkedCookie` splits the raw value every `chunkMaxLength` (default 4000) characters. Each chunk is then percent-encoded by `setCookie` (`encodeURIComponent` by default), and that encoding makes it longer: `\"`, `{`, `:`, `,` and spaces become 3 bytes, and non-ASCII characters become 6–12 bytes. So the stored chunks can be far larger than the ~4KB the chunking is meant to stay under.\n\n```ts\nsetChunkedCookie(event, \"cart\", JSON.stringify(cart)); // 7501 characters\n// Set-Cookie: cart=__chunked__2\n// Set-Cookie: cart.1=… (9195 bytes)\n// Set-Cookie: cart.2=… (7932 bytes)\n```\n\nBrowsers drop cookies over 4096 bytes, so the chunks never come back. On the next request `getChunkedCookie` sees `__chunked__2` with the chunks missing and returns `undefined`. The data is lost without any error.\n\nA second failure in the same slicing: `value.slice()` cuts at UTF-16 indexes, so a chunk boundary can split a surrogate pair (an emoji, for example). `encodeURIComponent` then throws `URIError: URI malformed`, and the handler fails with a 500.\n\nSession cookies aren't affected: the sealed value is URL-safe ASCII. It hits apps that put JSON or user text into chunked cookies.\n\n## Fix\n\nA new internal helper, `splitCookieValue`, splits the value on code point boundaries, so a surrogate pair is never split. Each chunk is the longest run whose encoded form, using the same `encode` as `setCookie` (`options.encode` or `encodeURIComponent`), fits in `chunkMaxLength`. The helper measures whole candidate chunks (gallop, then bisect), so custom encoders like base64 whose length isn't additive per character are sized correctly too. A code point that can't fit even alone throws before any header is written. For values that don't grow when encoded (such as sealed sessions), the chunks are exactly the same as before, so all existing chunk snapshots are unchanged. The chunk-count cap still applies, and the helper stops as soon as it's exceeded.\n\n## Test plan\n\n- [x] New tests in `test/cookies.test.ts` (web and node, both setups):\n  - `keeps every encoded chunk within chunkMaxLength and readable`: a 2771-character JSON value (7453 bytes encoded). Every `Set-Cookie` value is ≤ 4000 bytes, and `getChunkedCookie` reads back the original.\n  - `does not split a surrogate pair across chunks`: `\"12345678901😀abc\"` with `chunkMaxLength: 12` round-trips.\n  - `sizes chunks for a custom encoder by the whole encoded chunk`: a `btoa` encoder with budget 40 gives 4 chunks of 30 characters, which round-trip.\n  - `throws when a single character cannot fit in chunkMaxLength`\n  - on `main` (62c2632): 16 failures (`expected 7453 to be less than or equal to 4000`, `URIError: URI malformed` → 500, …)\n  - with this change: `test/cookies.test.ts` and `test/session.test.ts` 192/192\n- [x] Full `vitest run` (node 24): 2872 passed, 66 skipped\n- [x] `oxlint .`, `oxfmt --check .`, `tsc --noEmit`, `obuild` and `git diff --check` are clean\n\nThis bug was found and fixed by an AI agent (breken-ai) and verified with the red/green tests above.\n\n\n<!-- This is an auto-generated comment: release notes by coderabbit.ai -->\n\n## Summary by CodeRabbit\n\n* **Bug Fixes**\n  * Chunked cookies now respect size limits based on their encoded representation, including when values contain multibyte characters.\n  * Character pairs remain intact across chunks, and chunk sizes account for the complete output of custom encoders.\n  * If a single character cannot fit within the encoded size limit, the operation returns an HTTP 500 error without writing response headers.\n  * The existing 100-chunk limit remains in place.\n\n<!-- end of auto-generated comment: release notes by coderabbit.ai -->",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "breken-ai",
+          "id": "312387581",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/312387581?v=4",
+          "url": "https://github.com/breken-ai",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "labels": [],
+        "url": "https://github.com/h3js/h3/pull/1565",
+        "createdAt": "2026-09-30T04:35:21.000Z",
+        "updatedAt": "2026-09-30T05:05:18.000Z",
+        "lastActivityAt": "2026-09-30T05:05:18.000Z",
+        "locked": false,
+        "commentCount": 1,
+        "reactions": {
+          "total": 0,
+          "counts": {}
+        }
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "kind": "pull_request",
+          "number": "1566",
+          "externalId": "PR_kwDOErHI988AAAABGC9Bdw"
+        },
+        "kind": "pull_request",
+        "title": "fix(mime): add .mjs and .cjs to COMMON_MIME_TYPES",
+        "body": "`.mjs` (ES module) and `.cjs` (CommonJS module) files are absent from `COMMON_MIME_TYPES`. When `serveStatic` serves a `.mjs` file, `getType` returns `undefined` and no `Content-Type` header is set.\n\nBrowsers enforce strict MIME checking for `<script type=\"module\">` — a missing content-type causes a network error and the module fails to load entirely.\n\nThe fix adds both extensions mapped to `\"text/javascript\"`, consistent with `.js` and with [RFC 9239](https://www.rfc-editor.org/rfc/rfc9239).\n\n<!-- This is an auto-generated comment: release notes by coderabbit.ai -->\n\n## Summary by CodeRabbit\n\n* **Bug Fixes**\n  * `.mjs` and `.cjs` files are now identified as JavaScript files.\n\n<!-- end of auto-generated comment: release notes by coderabbit.ai -->",
+        "state": "open",
+        "stateRaw": "open",
+        "isDraft": false,
+        "author": {
+          "forge": "github",
+          "instance": "github.com",
+          "login": "okxint",
+          "id": "130782884",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/130782884?v=4",
+          "url": "https://github.com/okxint",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "assignees": [],
+        "reviewers": [],
+        "labels": [],
+        "url": "https://github.com/h3js/h3/pull/1566",
+        "createdAt": "2026-10-01T07:33:21.000Z",
+        "updatedAt": "2026-10-01T07:37:43.000Z",
+        "lastActivityAt": "2026-10-01T07:37:43.000Z",
+        "locked": false,
+        "commentCount": 1,
+        "reactions": {
+          "total": 0,
+          "counts": {}
+        }
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/search/issues?q=fix+repo%3Ah3js%2Fh3&per_page=3&page=2"
+    },
+    "rateLimit": {
+      "remaining": 29,
+      "resetAt": "<now>"
+    }
+  },
+  "search repos": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "uber",
+          "name": "h3",
+          "externalId": "114948816"
+        },
+        "description": "Hexagonal hierarchical geospatial indexing system",
+        "defaultBranch": "master",
+        "visibility": "public",
+        "visibilityRaw": "public",
+        "isFork": false,
+        "isArchived": false,
+        "topics": [
+          "geospatial",
+          "h3",
+          "hexagon",
+          "spatial-indexing",
+          "uber"
+        ],
+        "url": "https://github.com/uber/h3",
+        "cloneUrls": {
+          "https": "https://github.com/uber/h3.git",
+          "ssh": "git@github.com:uber/h3.git"
+        },
+        "createdAt": "2017-12-21T01:38:35.000Z",
+        "updatedAt": "2026-10-02T08:18:32.000Z",
+        "pushedAt": "2026-10-02T01:00:28.000Z",
+        "features": {
+          "issues": true,
+          "pullRequests": true,
+          "discussions": true,
+          "wiki": false,
+          "projects": true,
+          "releases": true
+        },
+        "permissions": {
+          "admin": false,
+          "maintain": false,
+          "push": false,
+          "triage": false,
+          "pull": true
+        }
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "h3js",
+          "name": "h3",
+          "externalId": "313641207"
+        },
+        "description": "⚡️ Minimal H(TTP) framework built for high performance and portability ",
+        "defaultBranch": "main",
+        "visibility": "public",
+        "visibilityRaw": "public",
+        "isFork": false,
+        "isArchived": false,
+        "topics": [],
+        "url": "https://github.com/h3js/h3",
+        "cloneUrls": {
+          "https": "https://github.com/h3js/h3.git",
+          "ssh": "git@github.com:h3js/h3.git"
+        },
+        "createdAt": "2020-11-17T14:15:44.000Z",
+        "updatedAt": "2026-09-30T17:06:22.000Z",
+        "pushedAt": "2026-09-29T16:33:50.000Z",
+        "features": {
+          "issues": true,
+          "pullRequests": true,
+          "discussions": true,
+          "wiki": false,
+          "projects": true,
+          "releases": true
+        },
+        "permissions": {
+          "admin": false,
+          "maintain": false,
+          "push": true,
+          "triage": true,
+          "pull": true
+        }
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "owner": "AIMixer",
+          "name": "ComfyUI_MiniMaxH3_Director",
+          "externalId": "1322502505"
+        },
+        "description": "Multi-segment MiniMax H3 Director for official ComfyUI MiniMax-H3",
+        "defaultBranch": "main",
+        "visibility": "public",
+        "visibilityRaw": "public",
+        "isFork": false,
+        "isArchived": false,
+        "topics": [],
+        "url": "https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director",
+        "cloneUrls": {
+          "https": "https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director.git",
+          "ssh": "git@github.com:AIMixer/ComfyUI_MiniMaxH3_Director.git"
+        },
+        "createdAt": "2026-08-04T04:20:36.000Z",
+        "updatedAt": "<now>",
+        "pushedAt": "2026-09-30T10:23:49.000Z",
+        "features": {
+          "issues": true,
+          "pullRequests": true,
+          "discussions": false,
+          "wiki": true,
+          "projects": true,
+          "releases": true
+        },
+        "permissions": {
+          "admin": false,
+          "maintain": false,
+          "push": false,
+          "triage": false,
+          "pull": true
+        }
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/search/repositories?q=h3&per_page=3&page=2"
+    },
+    "rateLimit": {
+      "remaining": 28,
+      "resetAt": "<now>"
+    }
+  },
+  "search commits": {
+    "items": [
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "sha": "26bac524c80be279187bfa68cb8bf41f164813b1"
+        },
+        "sha": "26bac524c80be279187bfa68cb8bf41f164813b1",
+        "message": "fix(static): honor q-values and case in accept-encoding (#1560)",
+        "author": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "pi0x",
+            "id": "286783767",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/286783767?v=4",
+            "url": "https://github.com/pi0x",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "pi0x",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-28T23:21:03.000Z"
+        },
+        "committer": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "web-flow",
+            "id": "19864447",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/19864447?v=4",
+            "url": "https://github.com/web-flow",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "GitHub",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-28T23:21:03.000Z"
+        },
+        "parents": [
+          "3cfd7491f91c794402e13506253e8d04cd36317d"
+        ],
+        "url": "https://github.com/h3js/h3/commit/26bac524c80be279187bfa68cb8bf41f164813b1"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "sha": "492783be78452d1f45eb5bfbb6b47caa2f45de51"
+        },
+        "sha": "492783be78452d1f45eb5bfbb6b47caa2f45de51",
+        "message": "fix(static): set vary header when a single encoding is accepted (#1556)",
+        "author": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "kwy404",
+            "id": "64209066",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/64209066?v=4",
+            "url": "https://github.com/kwy404",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Alexandre Kohler",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-28T22:33:34.000Z"
+        },
+        "committer": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "web-flow",
+            "id": "19864447",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/19864447?v=4",
+            "url": "https://github.com/web-flow",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "GitHub",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-28T22:33:34.000Z"
+        },
+        "parents": [
+          "f5b33e4e3170e3d1941163930f1693495be9834b"
+        ],
+        "url": "https://github.com/h3js/h3/commit/492783be78452d1f45eb5bfbb6b47caa2f45de51"
+      },
+      {
+        "ref": {
+          "forge": "github",
+          "instance": "github.com",
+          "repo": {
+            "forge": "github",
+            "instance": "github.com",
+            "owner": "h3js",
+            "name": "h3"
+          },
+          "sha": "75c68e2200d56f5d8c05ecd9bd38ac7ca31df17f"
+        },
+        "sha": "75c68e2200d56f5d8c05ecd9bd38ac7ca31df17f",
+        "message": "fix(sse): preserve buffered events during overlapping flushes (#1555)",
+        "author": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "maximilliangrand",
+            "id": "214999687",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/214999687?v=4",
+            "url": "https://github.com/maximilliangrand",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "Maxim Gagiev",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-23T08:40:48.000Z"
+        },
+        "committer": {
+          "actor": {
+            "forge": "github",
+            "instance": "github.com",
+            "login": "web-flow",
+            "id": "19864447",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/19864447?v=4",
+            "url": "https://github.com/web-flow",
+            "typeRaw": "User",
+            "isBotHint": false
+          },
+          "name": "GitHub",
+          "email": "redacted@example.invalid",
+          "date": "2026-09-23T08:40:48.000Z"
+        },
+        "parents": [
+          "b31898362a111c526271989682aef54b2a15077f"
+        ],
+        "url": "https://github.com/h3js/h3/commit/75c68e2200d56f5d8c05ecd9bd38ac7ca31df17f"
+      }
+    ],
+    "cursor": {
+      "nextUrl": "https://api.github.com/search/commits?q=fix+repo%3Ah3js%2Fh3&per_page=3&page=2"
+    },
+    "rateLimit": {
+      "remaining": 27,
+      "resetAt": "<now>"
+    }
+  }
+}

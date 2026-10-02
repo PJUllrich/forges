@@ -1,0 +1,19 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/collaborators/octocat/permission"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "permission": "write",
+      "role_name": "maintain",
+      "user": {
+        "login": "octocat",
+        "id": 1
+      }
+    }
+  }
+}

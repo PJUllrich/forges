@@ -1,0 +1,125 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.cursor.com/v1/origin/repos/acme/widgets/pulls?direction=desc&pageSize=50&sortBy=created&state=open"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "pullRequests": [
+        {
+          "id": "pr_01k2ja2000pull00120000000",
+          "number": "12",
+          "state": "open",
+          "draft": false,
+          "merged": false,
+          "title": "Add launch telemetry",
+          "body": "Adds structured launch telemetry to the ignition path.",
+          "head": {
+            "ref": "telemetry",
+            "sha": "c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe"
+          },
+          "base": {
+            "ref": "ignition",
+            "sha": "ba5eba11ba5eba11ba5eba11ba5eba11ba5eba11"
+          },
+          "author": {
+            "user": {
+              "id": "user_01k2ja2000ada000000000000a",
+              "email": "ada@acme.dev",
+              "displayName": "Ada Lovelace",
+              "handle": "ada"
+            }
+          },
+          "createdAt": "2026-09-18T09:00:00Z",
+          "updatedAt": "2026-09-19T12:00:00Z",
+          "additions": 40,
+          "deletions": 2,
+          "changedFiles": 3,
+          "labels": [
+            {
+              "id": "lbl_01",
+              "name": "enhancement",
+              "color": "a2eeef",
+              "description": "New feature"
+            }
+          ],
+          "stack": {
+            "id": "stk_01k2ja2000stack0000000000a",
+            "parentPullRequest": {
+              "id": "pr_01k2ja2000pull00110000000",
+              "number": "11",
+              "repository": {
+                "id": "repo_01k2ja2000widgets000000000",
+                "name": "widgets",
+                "owner": {
+                  "slug": "acme",
+                  "id": "ns_01k2ja2000acme00000000000a",
+                  "type": "team"
+                }
+              }
+            }
+          },
+          "version": {
+            "number": "2",
+            "headSha": "c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe",
+            "baseSha": "ba5eba11ba5eba11ba5eba11ba5eba11ba5eba11",
+            "createdAt": "2026-09-19T12:00:00Z"
+          }
+        },
+        {
+          "id": "pr_01k2ja2000pull00110000000",
+          "number": "11",
+          "state": "open",
+          "draft": false,
+          "merged": false,
+          "title": "Split ignition module",
+          "body": "Adds structured launch telemetry to the ignition path.",
+          "head": {
+            "ref": "telemetry",
+            "sha": "c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe"
+          },
+          "base": {
+            "ref": "ignition",
+            "sha": "ba5eba11ba5eba11ba5eba11ba5eba11ba5eba11"
+          },
+          "author": {
+            "user": {
+              "id": "user_01k2ja2000ada000000000000a",
+              "email": "ada@acme.dev",
+              "displayName": "Ada Lovelace",
+              "handle": "ada"
+            }
+          },
+          "createdAt": "2026-09-18T09:00:00Z",
+          "updatedAt": "2026-09-19T12:00:00Z",
+          "additions": 40,
+          "deletions": 2,
+          "changedFiles": 3,
+          "labels": [
+            {
+              "id": "lbl_01",
+              "name": "enhancement",
+              "color": "a2eeef",
+              "description": "New feature"
+            }
+          ],
+          "stack": {
+            "id": "stk_01k2ja2000stack0000000000a"
+          },
+          "version": {
+            "number": "2",
+            "headSha": "c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe",
+            "baseSha": "ba5eba11ba5eba11ba5eba11ba5eba11ba5eba11",
+            "createdAt": "2026-09-19T12:00:00Z"
+          }
+        }
+      ],
+      "nextPageToken": ""
+    }
+  }
+}

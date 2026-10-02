@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://pushin.eu/api/v1/repos/pjullrich/pushin/labels?per_page=3"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "default": false,
+        "id": "lab_034MPnNCl9jhodaCWwhgPO",
+        "name": "Future",
+        "description": null,
+        "color": "purple"
+      }
+    ]
+  }
+}

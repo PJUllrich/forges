@@ -1,0 +1,8 @@
+{
+  "handAuthored": true,
+  "request": { "method": "PATCH", "url": "https://codeberg.org/api/v1/notifications/threads/5512?to-status=read" },
+  "response": {
+    "status": 205,
+    "headers": {}
+  }
+}

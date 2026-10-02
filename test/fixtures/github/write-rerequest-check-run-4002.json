@@ -1,0 +1,8 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/repos/acme/widgets/check-runs/4002/rerequest"
+  },
+  "response": { "status": 201, "headers": {}, "body": {} }
+}

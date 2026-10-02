@@ -1,0 +1,12 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/repos/acme/widgets/hooks/12345678/deliveries/55001/attempts"
+  },
+  "response": {
+    "status": 202,
+    "headers": {},
+    "body": {}
+  }
+}

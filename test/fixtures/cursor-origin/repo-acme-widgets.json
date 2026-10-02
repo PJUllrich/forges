@@ -1,0 +1,32 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.cursor.com/v1/origin/repos/acme/widgets"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "id": "repo_01k2ja2000widgets000000000",
+      "name": "widgets",
+      "fullName": "acme/widgets",
+      "owner": {
+        "slug": "acme",
+        "id": "ns_01k2ja2000acme00000000000a",
+        "type": "team"
+      },
+      "defaultBranch": "main",
+      "createdAt": "2026-08-01T09:00:00Z",
+      "updatedAt": "2026-09-20T10:00:00Z",
+      "pushedAt": "2026-09-20T10:00:00Z",
+      "cloneUrl": "https://origin.cursor.com/acme/widgets.git",
+      "visibility": "private",
+      "allowMergeCommit": false,
+      "allowSquashMerge": true,
+      "deleteBranchOnMerge": true
+    }
+  }
+}

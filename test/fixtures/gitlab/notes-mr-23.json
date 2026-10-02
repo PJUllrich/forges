@@ -1,0 +1,63 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://gitlab.com/api/v4/projects/acme%2Fplatform%2Fwidgets/merge_requests/23/notes?order_by=created_at&sort=asc"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "id": 5550001,
+        "type": null,
+        "body": "Should the hash include the compiler version?",
+        "system": false,
+        "author": {
+          "id": 4102,
+          "username": "grace",
+          "name": "Grace",
+          "avatar_url": null,
+          "web_url": "https://gitlab.com/grace",
+          "state": "active"
+        },
+        "created_at": "2025-09-16T09:00:00.000Z",
+        "noteable_type": "MergeRequest",
+        "noteable_iid": 23
+      },
+      {
+        "id": 5550002,
+        "type": null,
+        "body": "added ~12 label",
+        "system": true,
+        "author": {
+          "id": 4102,
+          "username": "grace",
+          "name": "Grace",
+          "avatar_url": null,
+          "web_url": "https://gitlab.com/grace",
+          "state": "active"
+        },
+        "created_at": "2025-09-16T09:01:00.000Z",
+        "noteable_type": "MergeRequest",
+        "noteable_iid": 23
+      },
+      {
+        "id": 5550003,
+        "type": null,
+        "body": "approved this merge request",
+        "system": true,
+        "author": {
+          "id": 4199,
+          "username": "project_278964_bot_ab12cd",
+          "name": "ci bot",
+          "web_url": "https://gitlab.com/project_278964_bot_ab12cd",
+          "state": "active"
+        },
+        "created_at": "2025-09-18T09:20:00.000Z",
+        "noteable_type": "MergeRequest",
+        "noteable_iid": 23
+      }
+    ]
+  }
+}

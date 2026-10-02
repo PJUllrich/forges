@@ -1,0 +1,21 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/contents/package.json?ref=main"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "type": "file",
+      "name": "package.json",
+      "path": "package.json",
+      "sha": "aa1",
+      "size": 42,
+      "encoding": "base64",
+      "content": "eyJuYW1lIjoid2lkZ2V0cyJ9Cg==",
+      "html_url": "https://github.com/acme/widgets/blob/main/package.json"
+    }
+  }
+}

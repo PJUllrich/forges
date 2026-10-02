@@ -1,0 +1,30 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.cursor.com/v1/origin/repos/acme/widgets/pulls/12/comments"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "id": "cmt_03",
+      "thread": {
+        "id": "thr_03"
+      },
+      "body": "Thanks!",
+      "author": {
+        "user": {
+          "id": "user_01k2ja2000ada000000000000a",
+          "email": "ada@acme.dev",
+          "displayName": "Ada Lovelace",
+          "handle": "ada"
+        }
+      },
+      "createdAt": "2026-09-20T09:00:00Z",
+      "updatedAt": "2026-09-20T09:00:00Z"
+    }
+  }
+}

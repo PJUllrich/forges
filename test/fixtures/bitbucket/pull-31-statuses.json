@@ -1,0 +1,36 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/statuses?pagelen=50"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "pagelen": 50,
+      "size": 2,
+      "page": 1,
+      "values": [
+        {
+          "uuid": "{b1a7c000-0000-4000-8000-000000000001}",
+          "key": "pipelines-test",
+          "name": "Pipeline #120 test",
+          "state": "SUCCESSFUL",
+          "url": "https://bitbucket.org/acme/widgets/pipelines/results/120",
+          "created_on": "2025-09-18T09:00:00Z",
+          "updated_on": "2025-09-18T09:05:00Z"
+        },
+        {
+          "uuid": "{b1a7c000-0000-4000-8000-000000000002}",
+          "key": "pipelines-deploy",
+          "name": "Pipeline #120 deploy",
+          "state": "INPROGRESS",
+          "url": "https://bitbucket.org/acme/widgets/pipelines/results/120",
+          "created_on": "2025-09-18T09:05:00Z",
+          "updated_on": "2025-09-18T09:06:00Z"
+        }
+      ]
+    }
+  }
+}

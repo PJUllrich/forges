@@ -1,0 +1,50 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/activity?pagelen=50"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "pagelen": 2,
+      "next": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/activity?pagelen=50&ctx=page2",
+      "values": [
+        {
+          "approval": {
+            "date": "2025-09-18T09:20:00.000000+00:00",
+            "user": {
+              "type": "app_user",
+              "uuid": "{33333333-0000-4000-8000-000000000003}",
+              "nickname": "pipelines-bot",
+              "display_name": "Pipelines"
+            }
+          },
+          "pull_request": {
+            "id": 31
+          }
+        },
+        {
+          "comment": {
+            "id": 440001,
+            "content": {
+              "raw": "Should the hash include the compiler version?"
+            },
+            "user": {
+              "type": "user",
+              "uuid": "{22222222-0000-4000-8000-000000000002}",
+              "account_id": "557058:grace",
+              "nickname": "grace",
+              "display_name": "Grace"
+            },
+            "created_on": "2025-09-16T09:00:00.000000+00:00"
+          },
+          "pull_request": {
+            "id": 31
+          }
+        }
+      ]
+    }
+  }
+}

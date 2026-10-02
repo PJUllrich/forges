@@ -1,0 +1,12 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/repos/acme/widgets/pulls/42/reviews/880099/events"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": { "id": 880099, "state": "APPROVED", "submitted_at": "2026-01-02T12:00:00Z" }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/dependabot/alerts?state=open"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "number": 3,
+        "state": "open",
+        "dependency": {
+          "package": {
+            "ecosystem": "npm",
+            "name": "lodash"
+          },
+          "manifest_path": "package-lock.json"
+        },
+        "security_advisory": {
+          "ghsa_id": "GHSA-jf85-cpcp-j695",
+          "summary": "Prototype pollution in lodash",
+          "severity": "high"
+        },
+        "security_vulnerability": {
+          "severity": "high",
+          "vulnerable_version_range": "< 4.17.12",
+          "first_patched_version": {
+            "identifier": "4.17.12"
+          }
+        },
+        "html_url": "https://github.com/acme/widgets/security/dependabot/3",
+        "created_at": "2025-09-01T08:00:00Z",
+        "updated_at": "2025-09-01T08:00:00Z",
+        "dismissed_at": null
+      }
+    ]
+  }
+}

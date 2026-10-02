@@ -1,0 +1,182 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://gitea.com/api/v1/repos/gitea/tea/issues?state=open&type=pulls&limit=3"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "link": "<https://gitea.com/api/v1/repos/gitea/tea/issues?limit=3&page=2&state=open&type=pulls>; rel=\"next\",<https://gitea.com/api/v1/repos/gitea/tea/issues?limit=3&page=11&state=open&type=pulls>; rel=\"last\""
+    },
+    "body": [
+      {
+        "id": 502317,
+        "url": "https://gitea.com/api/v1/repos/gitea/tea/issues/1117",
+        "html_url": "https://gitea.com/gitea/tea/pulls/1117",
+        "number": 1117,
+        "user": {
+          "id": 71724,
+          "login": "mcepl",
+          "source_id": 0,
+          "full_name": "Matěj Cepl",
+          "email": "redacted@example.invalid",
+          "avatar_url": "https://seccdn.libravatar.org/avatar/89a46e16e83773e5c0b272d834d6401f208b4f2cce88b17b5e7e719c210b6c59?d=identicon",
+          "html_url": "https://gitea.com/mcepl",
+          "active": false,
+          "location": "",
+          "website": "",
+          "description": "",
+          "followers_count": 1,
+          "following_count": 0,
+          "starred_repos_count": 0,
+          "username": "mcepl"
+        },
+        "original_author": "",
+        "original_author_id": 0,
+        "title": "WIP: feat(pulls): add global pull request listing and review",
+        "body": "Add a global PR scope that searches pull requests across all readable\r\nrepositories on the selected Gitea instance without requiring local Git\r\ndiscovery. Support repository owner/name fields, efficient\r\nissue-search-backed rendering, optional detail loading, CI status\r\nlookup, pagination, and graceful handling of inaccessible repositories.\r\n\r\nExtend interactive review to select an open PR globally, including\r\npagination and selection of the target repository. Guard global-only\r\nflags and invalid combinations, update CLI documentation and examples,\r\nand add coverage for global listing, review selection, degraded results,\r\nvalidation, and repository-aware CI output.\r\n\r\nFixes: https://gitea.com/gitea/tea/issues/1116",
+        "ref": "",
+        "assets": [],
+        "labels": [],
+        "milestone": null,
+        "projects": null,
+        "assignee": null,
+        "assignees": null,
+        "state": "open",
+        "is_locked": false,
+        "comments": 0,
+        "created_at": "2026-09-14T21:44:15Z",
+        "updated_at": "2026-09-14T21:44:55Z",
+        "closed_at": null,
+        "due_date": null,
+        "time_estimate": 0,
+        "pull_request": {
+          "merged": false,
+          "merged_at": null,
+          "draft": true,
+          "html_url": "https://gitea.com/gitea/tea/pulls/1117"
+        },
+        "repository": {
+          "id": 550,
+          "name": "tea",
+          "owner": "gitea",
+          "full_name": "gitea/tea"
+        },
+        "pin_order": 0,
+        "content_version": 0
+      },
+      {
+        "id": 497648,
+        "url": "https://gitea.com/api/v1/repos/gitea/tea/issues/1113",
+        "html_url": "https://gitea.com/gitea/tea/pulls/1113",
+        "number": 1113,
+        "user": {
+          "id": 63659,
+          "login": "rossigee",
+          "source_id": 0,
+          "full_name": "Ross Golder",
+          "email": "redacted@example.invalid",
+          "avatar_url": "https://seccdn.libravatar.org/avatar/54ab923e7e2d098252b40e930fac8b013ecda04a7908c51601ecfdbfc3ea2a8d?d=identicon",
+          "html_url": "https://gitea.com/rossigee",
+          "active": false,
+          "location": "",
+          "website": "",
+          "description": "",
+          "followers_count": 1,
+          "following_count": 1,
+          "starred_repos_count": 0,
+          "username": "rossigee"
+        },
+        "original_author": "",
+        "original_author_id": 0,
+        "title": "feat: Add tea deploy-tokens command for repository deploy token management",
+        "body": "This PR adds support for deploy tokens (HTTPS deploy keys) to the tea CLI, following up on the SDK changes in gitea/go-sdk#846.\n\nDeploy tokens are an alternative to SSH deploy keys - they are HTTPS-based tokens that provide the same functionality but work over HTTPS instead of SSH.\n\nChanges:\n- Add `tea deploy-tokens` command with `list`, `create`, `delete` subcommands\n- Add print helpers for deploy token display (token shown only at creation time)\n- Add unit tests for all commands\n\nRelates to gitea/go-sdk#846",
+        "ref": "",
+        "assets": [],
+        "labels": [],
+        "milestone": null,
+        "projects": null,
+        "assignee": null,
+        "assignees": null,
+        "state": "open",
+        "is_locked": false,
+        "comments": 1,
+        "created_at": "2026-09-08T04:22:29Z",
+        "updated_at": "2026-09-21T19:26:08Z",
+        "closed_at": null,
+        "due_date": null,
+        "time_estimate": 0,
+        "pull_request": {
+          "merged": false,
+          "merged_at": null,
+          "draft": false,
+          "html_url": "https://gitea.com/gitea/tea/pulls/1113"
+        },
+        "repository": {
+          "id": 550,
+          "name": "tea",
+          "owner": "gitea",
+          "full_name": "gitea/tea"
+        },
+        "pin_order": 0,
+        "content_version": 1
+      },
+      {
+        "id": 495221,
+        "url": "https://gitea.com/api/v1/repos/gitea/tea/issues/1112",
+        "html_url": "https://gitea.com/gitea/tea/pulls/1112",
+        "number": 1112,
+        "user": {
+          "id": 239137,
+          "login": "suhaib",
+          "source_id": 0,
+          "full_name": "",
+          "email": "redacted@example.invalid",
+          "avatar_url": "https://seccdn.libravatar.org/avatar/396eb00c42583f505a61420237cdc60c32b3d24ff642752aed2f802986347027?d=identicon",
+          "html_url": "https://gitea.com/suhaib",
+          "active": false,
+          "location": "",
+          "website": "",
+          "description": "",
+          "followers_count": 0,
+          "following_count": 0,
+          "starred_repos_count": 0,
+          "username": "suhaib"
+        },
+        "original_author": "",
+        "original_author_id": 0,
+        "title": "feat(login): support TLS client certificates for mutual TLS servers",
+        "body": "Gitea instances behind a reverse proxy that requires mutual TLS (nginx'\nssl_verify_client, or the equivalent in Traefik or HAProxy) reject every\ntea request at the proxy, before it reaches Gitea. The user sees an opaque\n403/400 from the proxy rather than an authentication error, and there was\nno way to make tea present a certificate: only full verification and\n--insecure were configurable.\n\nAdd an optional client certificate to a login, stored as client_cert and\nclient_key next to the existing insecure flag:\n\n    tea login add --url https://git.example.com --token ... \\\n        --client-cert ~/.certs/client.crt \\\n        --client-key ~/.certs/client.key\n\nThe pair is loaded by Login.TLSConfig(), which now builds the TLS config\nfor every outgoing connection: SDK API calls, the OAuth authorization and\ntoken refresh flows, and the raw 'tea api' client. Because the certificate\nlives on the login, all commands using it present it automatically. Paths\nsupport ~ expansion so they can be written into the config file by hand,\nand clones pass the same material to git as http.sslCert/http.sslKey.\n\nBoth fields must be set together; setting only one, or pointing at a\ncertificate that cannot be loaded, is a hard error rather than a silent\nfallback to a plain connection, which would fail at the proxy with the\nsame opaque error the certificate is meant to avoid.\n\nRequests without either setting keep Go's default TLS behaviour: the\nconfig is only overridden when the login asks for it.\n\nFixes #451",
+        "ref": "",
+        "assets": [],
+        "labels": [],
+        "milestone": null,
+        "projects": null,
+        "assignee": null,
+        "assignees": null,
+        "state": "open",
+        "is_locked": false,
+        "comments": 2,
+        "created_at": "2026-09-05T04:30:42Z",
+        "updated_at": "2026-09-26T20:04:46Z",
+        "closed_at": null,
+        "due_date": null,
+        "time_estimate": 0,
+        "pull_request": {
+          "merged": false,
+          "merged_at": null,
+          "draft": false,
+          "html_url": "https://gitea.com/gitea/tea/pulls/1112"
+        },
+        "repository": {
+          "id": 550,
+          "name": "tea",
+          "owner": "gitea",
+          "full_name": "gitea/tea"
+        },
+        "pin_order": 0,
+        "content_version": 1
+      }
+    ]
+  }
+}

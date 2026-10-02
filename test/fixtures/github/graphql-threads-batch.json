@@ -1,0 +1,110 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "ThreadsBatch"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "data": {
+        "t0": {
+          "issueOrPullRequest": {
+            "__typename": "PullRequest",
+            "id": "PR_kwDOAAB5ac6abcdef",
+            "number": 42,
+            "title": "Add retry handling to the uploader",
+            "body": "Retries the upload once on a 5xx response.",
+            "state": "OPEN",
+            "isDraft": false,
+            "createdAt": "2025-09-15T10:00:00Z",
+            "updatedAt": "2025-09-18T09:12:44Z",
+            "closedAt": null,
+            "mergedAt": null,
+            "url": "https://github.com/acme/widgets/pull/42",
+            "locked": false,
+            "author": {
+              "__typename": "User",
+              "login": "octocat",
+              "databaseId": 583231,
+              "avatarUrl": "https://avatars.example/u/583231",
+              "url": "https://github.com/octocat"
+            },
+            "assignees": {
+              "nodes": []
+            },
+            "labels": {
+              "nodes": [
+                {
+                  "name": "enhancement",
+                  "color": "a2eeef",
+                  "description": "New feature or request"
+                }
+              ]
+            },
+            "comments": {
+              "totalCount": 3
+            },
+            "headRefName": "retry-uploader",
+            "headRefOid": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "baseRefName": "main",
+            "baseRefOid": "c04ddf64eddc90e4e2a9846ba3b43e67a0e2865e",
+            "headRepository": {
+              "databaseId": 31337,
+              "name": "widgets",
+              "owner": {
+                "login": "acme"
+              }
+            },
+            "mergeCommit": null,
+            "reviewRequests": {
+              "nodes": [
+                {
+                  "requestedReviewer": {
+                    "__typename": "User",
+                    "login": "hubot",
+                    "databaseId": 777,
+                    "avatarUrl": "https://avatars.example/u/777",
+                    "url": "https://github.com/hubot"
+                  }
+                }
+              ]
+            },
+            "commits": {
+              "nodes": [
+                {
+                  "commit": {
+                    "statusCheckRollup": {
+                      "state": "FAILURE",
+                      "contexts": {
+                        "totalCount": 3,
+                        "checkRunCountsByState": [
+                          {
+                            "state": "SUCCESS",
+                            "count": 1
+                          },
+                          {
+                            "state": "FAILURE",
+                            "count": 1
+                          }
+                        ],
+                        "statusContextCountsByState": [
+                          {
+                            "state": "SUCCESS",
+                            "count": 1
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "baseUrl": "https://gitea.com/api/v1",
+  "repo": {
+    "forge": "gitea",
+    "instance": "gitea.com",
+    "owner": "gitea",
+    "name": "tea"
+  },
+  "pull": {
+    "forge": "gitea",
+    "instance": "gitea.com",
+    "repo": {
+      "forge": "gitea",
+      "instance": "gitea.com",
+      "owner": "gitea",
+      "name": "tea"
+    },
+    "kind": "pull_request",
+    "number": "1"
+  },
+  "issue": {
+    "forge": "gitea",
+    "instance": "gitea.com",
+    "repo": {
+      "forge": "gitea",
+      "instance": "gitea.com",
+      "owner": "gitea",
+      "name": "tea"
+    },
+    "kind": "issue",
+    "number": "1095"
+  },
+  "steps": [
+    "repo",
+    "labels",
+    "milestones",
+    "collaborators",
+    "assignable users",
+    "pull",
+    "pull list",
+    "pull getMany",
+    "pull events",
+    "pull comments",
+    "pull reactions",
+    "pull subscription",
+    "pull reviews",
+    "pull checks",
+    "pull files",
+    "pull commits",
+    "issue",
+    "issue list",
+    "issue getMany",
+    "issue events",
+    "issue comments",
+    "issue reactions",
+    "issue subscription",
+    "user",
+    "own repos",
+    "notifications",
+    "unread count",
+    "checks",
+    "readme",
+    "tree",
+    "branches",
+    "tags",
+    "resolve default branch",
+    "commits",
+    "commit",
+    "releases",
+    "latest release",
+    "release",
+    "release by tag",
+    "search threads",
+    "search repos"
+  ],
+  "recordedAt": "2026-10-02T12:30:17.000Z"
+}

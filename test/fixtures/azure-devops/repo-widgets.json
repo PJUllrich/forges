@@ -1,0 +1,27 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://dev.azure.com/acme/Widgets/_apis/git/repositories/widgets?api-version=7.1"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "id": "a4c8e7d2-0000-4000-8000-0000000000aa",
+      "name": "widgets",
+      "defaultBranch": "refs/heads/main",
+      "isDisabled": false,
+      "isFork": false,
+      "project": {
+        "id": "b1f9e0c4-0000-4000-8000-000000000001",
+        "name": "Widgets"
+      },
+      "remoteUrl": "https://acme@dev.azure.com/acme/Widgets/_git/widgets",
+      "sshUrl": "git@ssh.dev.azure.com:v3/acme/Widgets/widgets",
+      "webUrl": "https://dev.azure.com/acme/Widgets/_git/widgets"
+    }
+  }
+}

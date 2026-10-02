@@ -1,0 +1,35 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://codeberg.org/api/v1/repos/acme/widgets/commits/7b320e5cbee2734071e4310c1d9ae401d8f6cab5/status"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "state": "failure",
+      "total_count": 2,
+      "statuses": [
+        {
+          "id": 33001,
+          "context": "ci/woodpecker/push/test",
+          "status": "success",
+          "target_url": "https://ci.codeberg.org/repos/1/pipeline/9",
+          "description": "Pipeline was successful",
+          "created_at": "2025-09-18T09:00:00Z",
+          "updated_at": "2025-09-18T09:04:00Z"
+        },
+        {
+          "id": 33002,
+          "context": "ci/woodpecker/push/lint",
+          "status": "failure",
+          "target_url": "https://ci.codeberg.org/repos/1/pipeline/9",
+          "description": "Pipeline failed",
+          "created_at": "2025-09-18T09:00:00Z",
+          "updated_at": "2025-09-18T09:01:00Z"
+        }
+      ]
+    }
+  }
+}

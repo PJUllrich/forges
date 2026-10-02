@@ -1,4 +1,4 @@
-import type { CommentRef, ForgeOrigin, ReleaseRef, RepoRef, ResolvedThreadRef, ThreadRef } from './model.ts'
+import type { CommentRef, ForgeOrigin, ReleaseRef, RepoRef, ResolvedThreadRef, ThreadKind, ThreadRef } from './model.ts'
 import { isResolvedThread } from './model.ts'
 
 /** Something with a web page. */
@@ -46,6 +46,10 @@ export interface WebLinks {
 export function sameRepo(a: RepoRef, b: RepoRef | undefined): boolean {
   return Boolean(b) && a.forge === b!.forge && a.instance === b!.instance
     && a.owner.toLowerCase() === b!.owner.toLowerCase() && a.name.toLowerCase() === b!.name.toLowerCase()
+}
+
+function encodePath(path: string): string {
+  return path.split('/').map(encodeURIComponent).join('/')
 }
 
 export function webUrlFor(web: WebLinks, target: UrlTarget): string | undefined {
@@ -97,6 +101,59 @@ export function referenceFor(web: WebLinks | undefined, ref: ThreadRef, options:
     return undefined
   }
   return web.reference?.(ref, sameRepo(ref.repo, options.from), options.expand ?? false) ?? webUrlFor(web, { thread: ref })
+}
+
+interface GitHubShape {
+  pull: string
+  discussions?: boolean
+  /** Fragment for a comment id, for example `issuecomment-` or `note_`. */
+  commentFragment: string
+  file: (at: string) => string
+  lineFragment: (line: number) => string
+  /** Reference prefix for pulls when it differs from issues. */
+  pullPrefix?: string
+}
+
+/** Web links for forges laid out like GitHub: `/{owner}/{name}/issues/{n}` and friends. */
+export function githubShapedWeb(origin: string, shape: GitHubShape): WebLinks {
+  const repoPath = (repo: RepoRef) => `/${encodePath(repo.owner)}/${encodeURIComponent(repo.name)}`
+  const kindPath: Partial<Record<ThreadKind, string>> = { issue: 'issues', pull_request: shape.pull, commit: 'commit', ...shape.discussions ? { discussion: 'discussions' } : {} }
+  const kindOf = new Map<string, ThreadKind>(Object.entries(kindPath).map(([kind, path]) => [path, kind as ThreadKind]))
+  return {
+    origin,
+    repo: repoPath,
+    thread: ref => kindPath[ref.kind] && `${repoPath(ref.repo)}/${kindPath[ref.kind]}/${encodeURIComponent(ref.number)}`,
+    comment: ref => ref.thread.kind === 'commit' || !kindPath[ref.thread.kind]
+      ? undefined
+      : `${repoPath(ref.thread.repo)}/${kindPath[ref.thread.kind]}/${encodeURIComponent(ref.thread.number)}#${shape.commentFragment}${ref.id}`,
+    release: ref => ref.tag ? `${repoPath(ref.repo)}/releases/tag/${encodeURIComponent(ref.tag)}` : undefined,
+    file: (repo, path, at, line) => `${repoPath(repo)}${shape.file(at)}/${encodePath(path)}${line ? `#${shape.lineFragment(line)}` : ''}`,
+    compare: (repo, base, head) => `${repoPath(repo)}/compare/${encodeURIComponent(base)}...${encodeURIComponent(head)}`,
+    parse: (segments, url, from) => {
+      const [owner, name, section, id] = segments
+      if (!owner || !name) {
+        return undefined
+      }
+      const repo: RepoRef = { ...from, owner, name: name.replace(/\.git$/, '') }
+      const kind = section ? kindOf.get(section) : undefined
+      if (section === 'releases' && id === 'tag' && segments[4]) {
+        return { repo, release: { ...from, repo, id: segments[4], tag: segments[4] } }
+      }
+      if (!kind || !id) {
+        return { repo }
+      }
+      const thread: ThreadRef = { ...from, repo, kind, number: id }
+      const comment = url.hash.startsWith(`#${shape.commentFragment}`) ? url.hash.slice(shape.commentFragment.length + 1) : undefined
+      return { repo, thread, ...comment ? { comment: { ...from, thread, id: comment } } : {} }
+    },
+    reference: (ref, same) => {
+      if (ref.kind === 'commit') {
+        return same ? ref.number.slice(0, 7) : `${ref.repo.owner}/${ref.repo.name}@${ref.number.slice(0, 7)}`
+      }
+      const prefix = ref.kind === 'pull_request' && shape.pullPrefix ? shape.pullPrefix : '#'
+      return `${same ? '' : `${ref.repo.owner}/${ref.repo.name}`}${prefix}${ref.number}`
+    },
+  }
 }
 
 /** Reads `url` with whichever of `providers` serves it. */

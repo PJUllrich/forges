@@ -1,0 +1,11 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "PUT",
+    "url": "https://api.github.com/repos/acme/widgets/notifications"
+  },
+  "response": {
+    "status": 205,
+    "headers": {}
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "DiscussionComments"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "data": {
+        "repository": {
+          "discussion": {
+            "comments": {
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "Y3Vyc29yOnYyOpK5"
+              },
+              "nodes": [
+                {
+                  "id": "DC_kwDOAAB5ac4AQ8aa",
+                  "databaseId": 990001,
+                  "body": "Retries landed.",
+                  "createdAt": "2025-09-11T09:00:00Z",
+                  "url": "https://github.com/acme/widgets/discussions/31#discussioncomment-990001",
+                  "author": {
+                    "__typename": "User",
+                    "login": "octocat",
+                    "databaseId": 583231,
+                    "avatarUrl": "https://avatars.example/u/583231",
+                    "url": "https://github.com/octocat"
+                  },
+                  "replies": {
+                    "nodes": [
+                      {
+                        "id": "DC_kwDOAAB5ac4AQ8bb",
+                        "databaseId": 990002,
+                        "body": "Release notes generated.",
+                        "createdAt": "2025-09-11T09:05:00Z",
+                        "url": "https://github.com/acme/widgets/discussions/31#discussioncomment-990002",
+                        "author": {
+                          "__typename": "Bot",
+                          "login": "github-actions",
+                          "databaseId": 41898282,
+                          "avatarUrl": "https://avatars.example/b/41898282",
+                          "url": "https://github.com/apps/github-actions"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

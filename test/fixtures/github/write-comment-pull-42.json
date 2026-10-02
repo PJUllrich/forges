@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/repos/acme/widgets/issues/42/comments"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "id": 770010,
+      "body": "Thanks!"
+    }
+  }
+}

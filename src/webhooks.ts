@@ -1,4 +1,4 @@
-import type { ForgeEventInput, PushCommit } from './model.ts'
+import type { EventKind, ForgeEventInput, PushCommit } from './model.ts'
 import type { WebhookDelivery } from './provider.ts'
 import { headerValue, hmacSha256Hex, timingSafeEqual } from './crypto.ts'
 
@@ -70,4 +70,29 @@ export function refEvent(who: string, change: RefChange): Pick<ForgeEventInput, 
     detail: { type: 'push', ref: change.ref, before: change.before, after: change.after, commitCount: count, forced: change.forced ?? false, commits },
     summary: `${who} pushed ${count} commit(s) to ${name}`,
   }
+}
+
+/** Native event names per normalised kind, as a forge names them in a hook subscription. */
+export type NativeEventMap = Partial<Record<EventKind, readonly string[]>>
+
+/** The forge's own event names for `events`, plus any `nativeEvents` passed through unchanged. */
+export function nativeEventsFor(map: NativeEventMap, events: EventKind[] | undefined, nativeEvents: string[] | undefined): string[] {
+  const names = new Set<string>(nativeEvents ?? [])
+  for (const kind of events ?? []) {
+    for (const name of map[kind] ?? []) {
+      names.add(name)
+    }
+  }
+  return [...names]
+}
+
+/** The normalised kinds a subscription to `nativeEvents` covers. */
+export function eventKindsOf(map: NativeEventMap, nativeEvents: readonly string[]): EventKind[] {
+  const kinds = new Set<EventKind>()
+  for (const [kind, names] of Object.entries(map) as Array<[EventKind, readonly string[]]>) {
+    if (nativeEvents.includes('*') || names.some(name => nativeEvents.includes(name))) {
+      kinds.add(kind)
+    }
+  }
+  return [...kinds]
 }

@@ -1,0 +1,5 @@
+{
+  "handAuthored": true,
+  "request": { "method": "DELETE", "url": "https://codeberg.org/api/v1/repos/acme/widgets/issues/7/subscriptions/testuser" },
+  "response": { "status": 204, "headers": {} }
+}

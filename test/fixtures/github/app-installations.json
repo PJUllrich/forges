@@ -1,0 +1,33 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/app/installations"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "id": 55123,
+        "account": {
+          "login": "acme",
+          "id": 5150,
+          "type": "Organization"
+        },
+        "target_type": "Organization",
+        "repository_selection": "selected"
+      },
+      {
+        "id": 55124,
+        "account": {
+          "login": "octocat",
+          "id": 583231,
+          "type": "User"
+        },
+        "target_type": "User",
+        "repository_selection": "all"
+      }
+    ]
+  }
+}

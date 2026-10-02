@@ -1,0 +1,20 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/contents/assets/large.bin"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "type": "file",
+      "name": "large.bin",
+      "path": "assets/large.bin",
+      "sha": "bb2",
+      "size": 2000000,
+      "encoding": "none",
+      "content": ""
+    }
+  }
+}

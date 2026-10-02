@@ -1,0 +1,87 @@
+{
+  "handAuthored": true,
+  "messages": [
+    {
+      "did": "did:plc:strangerdid2222222222222",
+      "time_us": 1758000000000000,
+      "kind": "identity",
+      "identity": {
+        "did": "did:plc:strangerdid2222222222222",
+        "handle": "stranger.example.com",
+        "seq": 1,
+        "time": "2025-09-16T05:20:00.000Z"
+      }
+    },
+    {
+      "did": "did:plc:gracecomment222222222222",
+      "time_us": 1758000000000001,
+      "kind": "commit",
+      "commit": {
+        "rev": "3mwqrev122222",
+        "operation": "create",
+        "collection": "sh.tangled.feed.comment",
+        "rkey": "3mwqcomment22",
+        "record": {
+          "$type": "sh.tangled.feed.comment",
+          "body": {
+            "$type": "sh.tangled.markup.markdown",
+            "text": "Should the hash include the compiler version?"
+          },
+          "subject": {
+            "uri": "at://did:plc:adaauthor222222222222222/sh.tangled.repo.pull/3mwqpull22222",
+            "cid": "bafyreipullcid"
+          },
+          "createdAt": "2025-09-16T09:00:00Z"
+        },
+        "cid": "bafyreijet1"
+      }
+    },
+    {
+      "did": "did:plc:strangerdid2222222222222",
+      "time_us": 1758000000000002,
+      "kind": "account",
+      "account": {
+        "active": false,
+        "did": "did:plc:strangerdid2222222222222",
+        "seq": 2,
+        "status": "deleted",
+        "time": "2025-09-16T05:20:01.000Z"
+      }
+    },
+    {
+      "did": "did:plc:acmeowner222222222222222",
+      "time_us": 1758000000000003,
+      "kind": "commit",
+      "commit": {
+        "rev": "3mwqrev322222",
+        "operation": "create",
+        "collection": "sh.tangled.label.op",
+        "rkey": "3mwqlabel2222",
+        "record": {
+          "$type": "sh.tangled.label.op",
+          "subject": "at://did:plc:adaauthor222222222222222/sh.tangled.repo.pull/3mwqpull22222",
+          "add": [
+            {
+              "key": "at://did:plc:acmeowner222222222222222/sh.tangled.label.definition/enhancement",
+              "value": "null"
+            }
+          ],
+          "delete": [],
+          "performedAt": "2025-09-16T09:01:00Z"
+        },
+        "cid": "bafyreijet3"
+      }
+    },
+    {
+      "did": "did:plc:gracecomment222222222222",
+      "time_us": 1758000000000004,
+      "kind": "commit",
+      "commit": {
+        "rev": "3mwqrev422222",
+        "operation": "delete",
+        "collection": "sh.tangled.feed.comment",
+        "rkey": "3mwqgone22222"
+      }
+    }
+  ]
+}

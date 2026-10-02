@@ -1,0 +1,34 @@
+{
+  "action": "created",
+  "pull_request": {
+    "number": 4,
+    "title": "Cache compiled templates",
+    "body": "Stores compiled templates keyed by content hash.",
+    "state": "open",
+    "target_branch": "main",
+    "source": {
+      "branch": "cache-templates",
+      "sha": "7b320e5cbee2734071e4310c1d9ae401d8f6cab5"
+    },
+    "round_number": 0,
+    "owner": {
+      "did": "did:plc:adaauthor222222222222222"
+    },
+    "html_url": "https://tangled.org/did:plc:acmeowner222222222222222/widgets/pulls/4",
+    "patch_url": "https://tangled.org/did:plc:acmeowner222222222222222/widgets/pulls/4/round/0.patch",
+    "created_at": "2025-09-15T08:00:00Z"
+  },
+  "repository": {
+    "name": "widgets",
+    "full_name": "did:plc:acmeowner222222222222222/widgets",
+    "owner": {
+      "did": "did:plc:acmeowner222222222222222"
+    },
+    "html_url": "https://tangled.org/did:plc:acmeowner222222222222222/widgets",
+    "created_at": "2025-09-01T00:00:00Z",
+    "updated_at": "2025-09-15T08:00:00Z"
+  },
+  "sender": {
+    "did": "did:plc:adaauthor222222222222222"
+  }
+}

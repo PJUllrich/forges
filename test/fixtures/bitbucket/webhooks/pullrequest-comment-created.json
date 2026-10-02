@@ -1,0 +1,39 @@
+{
+  "actor": {
+    "type": "user",
+    "uuid": "{22222222-0000-4000-8000-000000000002}",
+    "account_id": "557058:grace",
+    "nickname": "grace",
+    "display_name": "Grace"
+  },
+  "repository": {
+    "type": "repository",
+    "uuid": "{8b1c2d3e-0000-4000-8000-0000000000aa}",
+    "name": "widgets",
+    "full_name": "acme/widgets",
+    "workspace": {
+      "slug": "acme",
+      "uuid": "{7a000000-0000-4000-8000-0000000000bb}"
+    }
+  },
+  "pullrequest": {
+    "id": 31,
+    "title": "Cache compiled templates",
+    "state": "OPEN",
+    "updated_on": "2025-09-18T10:00:00.000000+00:00"
+  },
+  "comment": {
+    "id": 440011,
+    "content": {
+      "raw": "Reproduced on main."
+    },
+    "user": {
+      "type": "user",
+      "uuid": "{22222222-0000-4000-8000-000000000002}",
+      "account_id": "557058:grace",
+      "nickname": "grace",
+      "display_name": "Grace"
+    },
+    "created_on": "2025-09-18T10:00:00.000000+00:00"
+  }
+}

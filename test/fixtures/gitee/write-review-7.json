@@ -1,0 +1,14 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://gitee.com/api/v5/repos/acme/widgets/pulls/7/review"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {}
+  }
+}

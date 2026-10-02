@@ -1,0 +1,30 @@
+{
+  "handAuthored": true,
+  "request": { "method": "GET", "url": "https://codeberg.org/api/v1/notifications?all=false&page=2" },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "id": 5513,
+        "unread": false,
+        "pinned": false,
+        "updated_at": "2025-09-17T16:10:00Z",
+        "url": "https://codeberg.org/api/v1/notifications/threads/5513",
+        "subject": {
+          "title": "Docs typo in README",
+          "url": "https://codeberg.org/api/v1/repos/acme/widgets/issues/9",
+          "latest_comment_url": "https://codeberg.org/api/v1/repos/acme/widgets/issues/comments/880002",
+          "type": "Issue",
+          "state": "closed"
+        },
+        "repository": {
+          "id": 64021,
+          "name": "widgets",
+          "full_name": "acme/widgets",
+          "owner": { "id": 4001, "login": "acme" }
+        }
+      }
+    ]
+  }
+}

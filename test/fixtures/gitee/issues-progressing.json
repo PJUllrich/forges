@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://gitee.com/api/v5/repos/acme/widgets/issues?direction=desc&page=1&per_page=50&sort=created&state=progressing"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json",
+      "total_page": "1"
+    },
+    "body": []
+  }
+}

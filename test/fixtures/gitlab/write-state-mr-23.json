@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "PUT",
+    "url": "https://gitlab.com/api/v4/projects/acme%2Fplatform%2Fwidgets/merge_requests/23"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "iid": 23,
+      "state": "closed"
+    }
+  }
+}

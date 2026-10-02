@@ -1,0 +1,30 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/git/trees/main?recursive=1"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "sha": "tree1",
+      "truncated": true,
+      "tree": [
+        {
+          "path": "src",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "t1"
+        },
+        {
+          "path": "src/index.ts",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "b1",
+          "size": 120
+        }
+      ]
+    }
+  }
+}

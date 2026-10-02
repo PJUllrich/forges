@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://gitlab.com/api/v4/todos/102938401/mark_as_done"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "id": 102938401,
+      "state": "done"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/h3js/h3/milestones?state=open&per_page=3"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "etag": "\"86d9b57d743ef8eeca8bbb98f67c1697328ed712a85bdbf7e3322cf1a8fca126\"",
+      "x-ratelimit-remaining": "4810",
+      "x-ratelimit-reset": "1790944607"
+    },
+    "body": []
+  }
+}

@@ -1,6 +1,16 @@
 import type { FileContent, FileOptions } from './model.ts'
 import { ContentNotTextError } from './errors.ts'
 
+/** Decodes base64, tolerating the newlines GitHub and Gitea wrap it in. */
+export function fromBase64(value: string): Uint8Array {
+  const binary = atob(value.replaceAll(/\s/g, ''))
+  const bytes = new Uint8Array(binary.length)
+  for (let index = 0; index < binary.length; index++) {
+    bytes[index] = binary.charCodeAt(index)
+  }
+  return bytes
+}
+
 /**
  * Shapes bytes as the caller asked: UTF-8 text for `as: 'text'`, bytes
  * otherwise. Rejects with {@link ContentNotTextError} when text was asked for

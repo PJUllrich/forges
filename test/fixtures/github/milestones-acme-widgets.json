@@ -1,0 +1,21 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/milestones?state=open"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "number": 3,
+        "title": "v2",
+        "state": "open",
+        "description": "Second major",
+        "due_on": "2025-01-31T00:00:00Z",
+        "html_url": "https://github.com/acme/widgets/milestone/3"
+      }
+    ]
+  }
+}

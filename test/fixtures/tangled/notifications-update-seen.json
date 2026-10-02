@@ -1,0 +1,12 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://notifs.example.com/xrpc/org.tangled.temp.notification.updateSeen"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {}
+  }
+}

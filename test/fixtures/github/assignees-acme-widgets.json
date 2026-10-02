@@ -1,0 +1,18 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/assignees"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "login": "octocat",
+        "id": 1,
+        "type": "User"
+      }
+    ]
+  }
+}

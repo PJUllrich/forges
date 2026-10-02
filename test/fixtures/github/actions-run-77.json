@@ -1,0 +1,22 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/actions/runs/77"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "id": 77,
+      "name": "ci",
+      "run_number": 120,
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_branch": "main",
+      "head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+      "html_url": "https://github.com/acme/widgets/actions/runs/77"
+    }
+  }
+}

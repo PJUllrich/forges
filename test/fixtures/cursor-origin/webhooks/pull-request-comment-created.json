@@ -1,0 +1,97 @@
+{
+  "deliveryId": "whd_01k2ja2000delivery00000000a",
+  "appId": "app_01k2ja2000e0080000000000a1",
+  "installationId": "i_01k2ja2000install0000000000a",
+  "event": {
+    "id": "evt_01k2ja2000event000000000000a",
+    "type": "pull_request.comment.created",
+    "eventTime": "2026-09-20T09:30:00Z",
+    "payload": {
+      "pullRequest": {
+        "id": "pr_01k2ja2000pull00090000000",
+        "number": "9",
+        "state": "open",
+        "draft": false,
+        "merged": false,
+        "title": "Fix ignition retry",
+        "body": "Adds structured launch telemetry to the ignition path.",
+        "head": {
+          "ref": "telemetry",
+          "sha": "c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe"
+        },
+        "base": {
+          "ref": "ignition",
+          "sha": "ba5eba11ba5eba11ba5eba11ba5eba11ba5eba11"
+        },
+        "author": {
+          "user": {
+            "id": "user_01k2ja2000ada000000000000a",
+            "email": "ada@acme.dev",
+            "displayName": "Ada Lovelace",
+            "handle": "ada"
+          }
+        },
+        "createdAt": "2026-09-18T09:00:00Z",
+        "updatedAt": "2026-09-19T12:00:00Z",
+        "additions": 40,
+        "deletions": 2,
+        "changedFiles": 3,
+        "labels": [
+          {
+            "id": "lbl_01",
+            "name": "enhancement",
+            "color": "a2eeef",
+            "description": "New feature"
+          }
+        ],
+        "stack": {
+          "id": "stk_01k2ja2000stack0000000000a",
+          "parentPullRequest": {
+            "id": "pr_01k2ja2000pull00110000000",
+            "number": "11",
+            "repository": {
+              "id": "repo_01k2ja2000widgets000000000",
+              "name": "widgets",
+              "owner": {
+                "slug": "acme",
+                "id": "ns_01k2ja2000acme00000000000a",
+                "type": "team"
+              }
+            }
+          }
+        },
+        "version": {
+          "number": "2",
+          "headSha": "c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe",
+          "baseSha": "ba5eba11ba5eba11ba5eba11ba5eba11ba5eba11",
+          "createdAt": "2026-09-19T12:00:00Z"
+        }
+      },
+      "repository": {
+        "id": "repo_01k2ja2000widgets000000000",
+        "name": "widgets",
+        "owner": {
+          "slug": "acme",
+          "id": "ns_01k2ja2000acme00000000000a",
+          "type": "team"
+        }
+      },
+      "comment": {
+        "id": "cmt_09",
+        "thread": {
+          "id": "thr_09"
+        },
+        "body": "Rebased onto main.",
+        "author": {
+          "user": {
+            "id": "user_01k2ja2000grace0000000000a",
+            "displayName": "Grace Hopper",
+            "handle": "grace"
+          }
+        },
+        "createdAt": "2026-09-20T09:30:00Z",
+        "updatedAt": "2026-09-20T09:30:00Z"
+      }
+    }
+  }
+}

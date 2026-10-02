@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "SubscriptionState",
+    "variables": {
+      "owner": "nuxt",
+      "name": "nuxt",
+      "number": 9303,
+      "discussion": true
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "x-ratelimit-remaining": "4664",
+      "x-ratelimit-reset": "1790946663"
+    },
+    "body": {
+      "data": {
+        "repository": {
+          "discussion": {
+            "id": "MDEwOkRpc2N1c3Npb24zMzY5MjU2",
+            "viewerSubscription": "SUBSCRIBED"
+          }
+        }
+      }
+    }
+  }
+}

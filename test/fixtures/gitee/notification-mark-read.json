@@ -1,0 +1,10 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "PATCH",
+    "url": "https://gitee.com/api/v5/notifications/threads/880001"
+  },
+  "response": {
+    "status": 205
+  }
+}

@@ -1,8 +1,8 @@
 import type { ForgeErrorContext } from './errors.ts'
-import type { FetchResult } from './fetch.ts'
-import type { ChecksSummary, CheckState, Cursor, ForgeWarning, GetManyResult, ListOptions, Page, RateLimit, ResolvedThreadRef, Thread, ThreadRef } from './model.ts'
+import type { Fetcher, FetchResult, PaginateOptions } from './fetch.ts'
+import type { Actor, ChecksSummary, CheckState, Cursor, FileStatus, ForgeWarning, GetManyResult, ListOptions, Page, PageOptions, RateLimit, ResolvedThreadRef, Review, ReviewState, Thread, ThreadRef } from './model.ts'
 import type { ForgeIterable } from './provider.ts'
-import { ForgeApiError, UnresolvedThreadError } from './errors.ts'
+import { ForgeApiError, UnresolvedThreadError, UnsupportedOperationError } from './errors.ts'
 import { rateLimitOf } from './fetch.ts'
 import { isResolvedThread } from './model.ts'
 
@@ -114,6 +114,23 @@ export function requireThread(ref: ThreadRef, context?: ForgeErrorContext): Reso
   return ref
 }
 
+/**
+ * Narrows a ref to an issue or pull request, or throws
+ * {@link UnsupportedOperationError} naming the verb that needs one.
+ */
+export function requireIssueOrPull(ref: ThreadRef, context: ForgeErrorContext, verb: string): ResolvedThreadRef & { kind: 'issue' | 'pull_request' } {
+  const thread = requireThread(ref, context)
+  if (thread.kind !== 'issue' && thread.kind !== 'pull_request') {
+    throw new UnsupportedOperationError(`${context.forge ?? 'This forge'} cannot ${verb} a ${thread.kind}`, context)
+  }
+  return thread as ResolvedThreadRef & { kind: 'issue' | 'pull_request' }
+}
+
+/** A login from either a login string or an actor. */
+export function actorLogin(actor: string | Actor): string {
+  return typeof actor === 'string' ? actor : actor.login
+}
+
 /** Maps one fetched page into a {@link Page}. The cursor is kept only when there is a next page. */
 export function toPage<R, T>(result: FetchResult<R[]>, map: (raw: R) => T | undefined, warnings?: ForgeWarning[]): Page<T> {
   return {
@@ -126,6 +143,22 @@ export function toPage<R, T>(result: FetchResult<R[]>, map: (raw: R) => T | unde
     ...warnings?.length ? { warnings } : {},
     ...rateLimitPart(result.response),
   }
+}
+
+export interface ListingExtras extends Pick<PaginateOptions, 'query' | 'select' | 'mapError'> {
+  warnings?: ForgeWarning[]
+}
+
+/** One page of `path` as the model, with `options` mapped onto the forge's page-size parameter. */
+export type Listing = <R, T>(path: string, options: PageOptions, map: (raw: R) => T | undefined, extras?: ListingExtras) => Promise<Page<T>>
+
+/** Builds a {@link Listing} for a forge that names its page-size parameter `pageParam`. */
+export function createListing(fetcher: Fetcher, pageParam: string, defaultPerPage?: number): Listing {
+  return async <R, T>(path: string, options: PageOptions, map: (raw: R) => T | undefined, { warnings, query, ...extras }: ListingExtras = {}) => toPage(
+    await fetcher.page<R>(path, { ...extras, query: { ...query, [pageParam]: options.perPage ?? defaultPerPage }, cursor: options.cursor, signal: options.signal }),
+    map,
+    warnings,
+  )
 }
 
 function rateLimitPart(response: Response | undefined): { rateLimit?: RateLimit } {
@@ -157,4 +190,99 @@ export function summariseChecks(states: CheckState[], url?: string): ChecksSumma
       ? 'pending'
       : states.length ? 'success' : 'unknown'
   return { state, total: states.length, failed, ...url ? { url } : {} }
+}
+
+const FAILED_CONCLUSIONS = new Set(['failure', 'timed_out', 'cancelled', 'action_required', 'startup_failure'])
+
+/**
+ * State of a check run reported as a status plus a conclusion once completed.
+ * Cancelled, timed-out, action-required and startup failures count as
+ * failures; skipped and neutral runs as neutral.
+ */
+export function checkRunState(status: string, conclusion?: string | null): CheckState {
+  if (status !== 'completed') {
+    return 'pending'
+  }
+  if (conclusion === 'success') {
+    return 'success'
+  }
+  if (conclusion && FAILED_CONCLUSIONS.has(conclusion)) {
+    return 'failure'
+  }
+  return conclusion === 'neutral' || conclusion === 'skipped' ? 'neutral' : 'unknown'
+}
+
+/** Maps a forge's own file-change word onto {@link FileStatus}; unknown words become `'changed'`. */
+export function toFileStatus(raw: string | undefined | null): FileStatus {
+  switch (raw?.toLowerCase()) {
+    case 'added':
+    case 'new':
+    case 'add':
+      return 'added'
+    case 'removed':
+    case 'deleted':
+    case 'remove':
+      return 'removed'
+    case 'renamed':
+    case 'rename':
+      return 'renamed'
+    case 'copied':
+    case 'copy':
+      return 'copied'
+    case 'modified':
+    case 'edit':
+    case 'change':
+      return 'modified'
+    default:
+      return 'changed'
+  }
+}
+
+/**
+ * Caches the result of `load` after its first call. A rejected load is
+ * forgotten so the next call retries; with `ttl` (milliseconds) a resolved
+ * value is reloaded once it is older than that.
+ */
+export function memo<T>(load: () => Promise<T>, ttl?: number): () => Promise<T> {
+  let cached: { promise: Promise<T>, at: number } | undefined
+  return () => {
+    if (!cached || (ttl !== undefined && Date.now() - cached.at > ttl)) {
+      const promise = load()
+      cached = { promise, at: Date.now() }
+      promise.catch(() => {
+        if (cached?.promise === promise) {
+          cached = undefined
+        }
+      })
+    }
+    return cached.promise
+  }
+}
+
+/** {@link memo} per key. */
+export function memoBy<K, T>(load: (key: K) => Promise<T>): (key: K) => Promise<T> {
+  const cache = new Map<K, () => Promise<T>>()
+  return (key) => {
+    let entry = cache.get(key)
+    if (!entry) {
+      entry = memo(() => load(key))
+      cache.set(key, entry)
+    }
+    return entry()
+  }
+}
+
+/**
+ * A review standing in for an approval, vote or participant state on a forge
+ * that has no review objects. `comments` is `false` because there is nothing
+ * to hang inline comments on.
+ */
+export function syntheticReview(thread: ResolvedThreadRef, id: string, state: ReviewState, extras: { author?: Actor, stateRaw?: string, submittedAt?: Date, raw: unknown }): Review {
+  const { author, stateRaw, submittedAt, raw } = extras
+  return { ref: { forge: thread.forge, instance: thread.instance, thread, id }, author, state, stateRaw, submittedAt, comments: false, raw }
+}
+
+/** A label colour as six hex digits, with the `#` prefix the forge expects. `ededed` when none is given. */
+export function hexColour(colour: string | undefined, prefix: '#' | '' = ''): string {
+  return `${prefix}${(colour ?? 'ededed').replace(/^#/, '')}`
 }

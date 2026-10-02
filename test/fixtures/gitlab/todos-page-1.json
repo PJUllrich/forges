@@ -1,0 +1,77 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://gitlab.com/api/v4/todos?state=pending"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "link": "<https://gitlab.com/api/v4/todos?page=2&per_page=20&state=pending>; rel=\"next\", <https://gitlab.com/api/v4/todos?page=1&per_page=20&state=pending>; rel=\"first\"",
+      "ratelimit-remaining": "1998"
+    },
+    "body": [
+      {
+        "id": 102938401,
+        "project": {
+          "id": 278964,
+          "name": "widgets",
+          "path": "widgets",
+          "path_with_namespace": "acme/platform/widgets"
+        },
+        "author": {
+          "id": 4101,
+          "username": "ada",
+          "name": "Ada",
+          "avatar_url": "https://gitlab.example/avatar/4101",
+          "web_url": "https://gitlab.com/ada",
+          "state": "active"
+        },
+        "action_name": "review_requested",
+        "target_type": "MergeRequest",
+        "target": {
+          "id": 9900123,
+          "iid": 23,
+          "title": "Cache compiled templates",
+          "state": "opened",
+          "draft": false
+        },
+        "target_url": "https://gitlab.com/acme/platform/widgets/-/merge_requests/23",
+        "body": "Cache compiled templates",
+        "state": "pending",
+        "created_at": "2025-09-18T09:00:00.000Z",
+        "updated_at": "2025-09-18T09:20:00.000Z"
+      },
+      {
+        "id": 102938402,
+        "project": {
+          "id": 278964,
+          "name": "widgets",
+          "path": "widgets",
+          "path_with_namespace": "acme/platform/widgets"
+        },
+        "author": {
+          "id": 4102,
+          "username": "grace",
+          "name": "Grace",
+          "avatar_url": null,
+          "web_url": "https://gitlab.com/grace",
+          "state": "active"
+        },
+        "action_name": "directly_addressed",
+        "target_type": "Issue",
+        "target": {
+          "id": 9900456,
+          "iid": 11,
+          "title": "Template cache never expires",
+          "state": "opened"
+        },
+        "target_url": "https://gitlab.com/acme/platform/widgets/-/issues/11#note_5550009",
+        "body": "@testuser can you take a look?",
+        "state": "pending",
+        "created_at": "2025-09-17T15:00:00.000Z",
+        "updated_at": "2025-09-17T15:00:00.000Z"
+      }
+    ]
+  }
+}

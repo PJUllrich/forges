@@ -1,0 +1,32 @@
+{
+  "handAuthored": true,
+  "request": { "method": "GET", "url": "https://codeberg.org/api/v1/notifications?all=false" },
+  "response": {
+    "status": 200,
+    "headers": {
+      "link": "<https://codeberg.org/api/v1/notifications?all=false&page=2>; rel=\"next\""
+    },
+    "body": [
+      {
+        "id": 5512,
+        "unread": true,
+        "pinned": false,
+        "updated_at": "2025-09-18T09:30:00Z",
+        "url": "https://codeberg.org/api/v1/notifications/threads/5512",
+        "subject": {
+          "title": "Support custom cache directory",
+          "url": "https://codeberg.org/api/v1/repos/acme/widgets/pulls/7",
+          "latest_comment_url": "https://codeberg.org/api/v1/repos/acme/widgets/issues/comments/880001",
+          "type": "Pull",
+          "state": "open"
+        },
+        "repository": {
+          "id": 64021,
+          "name": "widgets",
+          "full_name": "acme/widgets",
+          "owner": { "id": 4001, "login": "acme" }
+        }
+      }
+    ]
+  }
+}

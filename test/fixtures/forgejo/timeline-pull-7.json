@@ -1,0 +1,31 @@
+{
+  "handAuthored": true,
+  "request": { "method": "GET", "url": "https://codeberg.org/api/v1/repos/acme/widgets/issues/7/timeline" },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "id": 770101,
+        "type": "comment",
+        "body": "Looks good, one nit below.",
+        "created_at": "2025-09-15T08:30:00Z",
+        "user": { "id": 4003, "login": "grace", "is_bot": false }
+      },
+      {
+        "id": 770102,
+        "type": "label",
+        "created_at": "2025-09-15T08:31:00Z",
+        "label": { "name": "enhancement" },
+        "user": { "id": 4003, "login": "grace", "is_bot": false }
+      },
+      {
+        "id": 770103,
+        "type": "review",
+        "review_id": 9901,
+        "created_at": "2025-09-18T09:30:00Z",
+        "user": { "id": 4004, "login": "ci-runner", "is_bot": true }
+      }
+    ]
+  }
+}

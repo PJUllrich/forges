@@ -1,0 +1,20 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/app/installations/55123/access_tokens"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "token": "ghs_fixtureinstallationtoken",
+      "expires_at": "2099-01-01T00:00:00Z",
+      "permissions": {
+        "issues": "write",
+        "pull_requests": "write"
+      },
+      "repository_selection": "selected"
+    }
+  }
+}

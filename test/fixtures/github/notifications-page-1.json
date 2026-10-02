@@ -1,0 +1,67 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/notifications?all=false"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "link": "<https://api.github.com/notifications?all=false&page=2>; rel=\"next\", <https://api.github.com/notifications?all=false&page=2>; rel=\"last\"",
+      "etag": "W/\"e1a7c5f0c0de4f0b9d6b5d2b0a1f3c21\"",
+      "x-ratelimit-remaining": "4998"
+    },
+    "body": [
+      {
+        "id": "901234567",
+        "unread": true,
+        "reason": "review_requested",
+        "updated_at": "2025-09-18T09:12:44Z",
+        "last_read_at": null,
+        "url": "https://api.github.com/notifications/threads/901234567",
+        "subject": {
+          "title": "Add retry handling to the uploader",
+          "url": "https://api.github.com/repos/acme/widgets/pulls/42",
+          "latest_comment_url": "https://api.github.com/repos/acme/widgets/issues/comments/770001",
+          "type": "PullRequest"
+        },
+        "repository": {
+          "id": 31337,
+          "node_id": "R_kgDOAAB5aQ",
+          "name": "widgets",
+          "full_name": "acme/widgets",
+          "owner": {
+            "login": "acme",
+            "id": 5150,
+            "type": "Organization"
+          }
+        }
+      },
+      {
+        "id": "901234568",
+        "unread": true,
+        "reason": "mention",
+        "updated_at": "2025-09-18T08:02:10Z",
+        "last_read_at": "2025-09-17T22:00:00Z",
+        "url": "https://api.github.com/notifications/threads/901234568",
+        "subject": {
+          "title": "Crash on empty config",
+          "url": "https://api.github.com/repos/acme/widgets/issues/17",
+          "latest_comment_url": "https://api.github.com/repos/acme/widgets/issues/comments/770002",
+          "type": "Issue"
+        },
+        "repository": {
+          "id": 31337,
+          "node_id": "R_kgDOAAB5aQ",
+          "name": "widgets",
+          "full_name": "acme/widgets",
+          "owner": {
+            "login": "acme",
+            "id": 5150,
+            "type": "Organization"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/repos/acme/widgets/issues/42/reactions"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "id": 77,
+      "content": "+1",
+      "user": {
+        "login": "octocat",
+        "id": 1
+      }
+    }
+  }
+}

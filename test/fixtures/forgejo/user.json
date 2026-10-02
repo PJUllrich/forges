@@ -1,0 +1,9 @@
+{
+  "handAuthored": true,
+  "request": { "method": "GET", "url": "https://codeberg.org/api/v1/user" },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": { "id": 4005, "login": "testuser", "full_name": "Test User", "is_bot": false }
+  }
+}

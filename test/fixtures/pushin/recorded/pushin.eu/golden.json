@@ -1,0 +1,157 @@
+{
+  "repo": {
+    "ref": {
+      "forge": "pushin",
+      "instance": "pushin.eu",
+      "owner": "pjullrich",
+      "name": "pushin",
+      "externalId": "repo_033njmWmzIFsMhzbVEe4Kh"
+    },
+    "description": "Leave your comments and feedback for Pushin.eu in this repo!",
+    "defaultBranch": "main",
+    "visibility": "public",
+    "visibilityRaw": "public",
+    "isFork": false,
+    "isArchived": false,
+    "topics": [],
+    "url": "https://pushin.eu/pjullrich/pushin",
+    "cloneUrls": {
+      "https": "https://git.pushin.eu/pjullrich/pushin.git"
+    },
+    "createdAt": "2026-07-11T17:16:01.893Z",
+    "updatedAt": "2026-09-29T11:06:56.004Z"
+  },
+  "labels": {
+    "items": [
+      {
+        "name": "Future"
+      }
+    ]
+  },
+  "issue getMany": [
+    {
+      "ok": false,
+      "ref": {
+        "forge": "pushin",
+        "instance": "pushin.eu",
+        "repo": {
+          "forge": "pushin",
+          "instance": "pushin.eu",
+          "owner": "pjullrich",
+          "name": "pushin"
+        },
+        "kind": "issue",
+        "number": "31"
+      },
+      "warning": {
+        "code": "thread_unreadable",
+        "message": "pushin.eu has no API to read an issue",
+        "subject": "31",
+        "cause": {
+          "name": "UnsupportedOperationError",
+          "message": "pushin.eu has no API to read an issue"
+        }
+      }
+    }
+  ],
+  "issue comments": {
+    "items": [
+      {
+        "ref": {
+          "forge": "pushin",
+          "instance": "pushin.eu",
+          "thread": {
+            "forge": "pushin",
+            "instance": "pushin.eu",
+            "repo": {
+              "forge": "pushin",
+              "instance": "pushin.eu",
+              "owner": "pjullrich",
+              "name": "pushin"
+            },
+            "kind": "issue",
+            "number": "31"
+          },
+          "id": "com_034MYshdfLIStFvBci89ad"
+        },
+        "body": "Uh that’s would be very interesting but there are so many languages and package managers I’d need to monitor 🤔 which language support would you need?",
+        "author": {
+          "forge": "pushin",
+          "instance": "pushin.eu",
+          "login": "pjullrich",
+          "id": "u_033jgKZKCNGC2kCrD0IBBG",
+          "avatarUrl": "https://cdn.pushin.eu/-/avatars/u_033jgKZKCNGC2kCrD0IBBG/72d51f75",
+          "url": "https://pushin.eu/pjullrich",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2026-09-10T19:35:19.796Z",
+        "updatedAt": "2026-09-11T08:48:49.232Z"
+      },
+      {
+        "ref": {
+          "forge": "pushin",
+          "instance": "pushin.eu",
+          "thread": {
+            "forge": "pushin",
+            "instance": "pushin.eu",
+            "repo": {
+              "forge": "pushin",
+              "instance": "pushin.eu",
+              "owner": "pjullrich",
+              "name": "pushin"
+            },
+            "kind": "issue",
+            "number": "31"
+          },
+          "id": "com_034Mtxxbwc3yWMgib1YSC1"
+        },
+        "body": "Yes, I understand it's a longshot. Currently my stack is based on Python (uv) and Docker, with some golang on the side. I've also seen alternatives like https://www.mend.io/renovate/. I'll have a look into those soon.",
+        "author": {
+          "forge": "pushin",
+          "instance": "pushin.eu",
+          "login": "woutor",
+          "id": "u_034JlTWNDVWjH6SVRWjBXp",
+          "avatarUrl": "https://cdn.pushin.eu/-/avatars/u_034JlTWNDVWjH6SVRWjBXp/b4c80fd1",
+          "url": "https://pushin.eu/woutor",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2026-09-11T09:54:29.783Z",
+        "updatedAt": "2026-09-11T10:08:47.760Z"
+      },
+      {
+        "ref": {
+          "forge": "pushin",
+          "instance": "pushin.eu",
+          "thread": {
+            "forge": "pushin",
+            "instance": "pushin.eu",
+            "repo": {
+              "forge": "pushin",
+              "instance": "pushin.eu",
+              "owner": "pjullrich",
+              "name": "pushin"
+            },
+            "kind": "issue",
+            "number": "31"
+          },
+          "id": "com_034SZrprBqvZTfuO869bVT"
+        },
+        "body": "The most likely candidate in my view would be Renovate, this one supports a large number of package managers and already has support for Forgejo / Gitea in addition to GitHub.",
+        "author": {
+          "forge": "pushin",
+          "instance": "pushin.eu",
+          "login": "asgeirn",
+          "id": "u_034L7K1lsejurUtw96HCS7",
+          "avatarUrl": "https://cdn.pushin.eu/-/avatars/u_034L7K1lsejurUtw96HCS7",
+          "url": "https://pushin.eu/asgeirn",
+          "typeRaw": "User",
+          "isBotHint": false
+        },
+        "createdAt": "2026-09-21T08:53:49.022Z",
+        "updatedAt": "2026-09-25T20:51:38.356Z"
+      }
+    ]
+  }
+}

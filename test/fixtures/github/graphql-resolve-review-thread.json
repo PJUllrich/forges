@@ -1,0 +1,13 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "ResolveReviewThread"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": { "data": { "resolveReviewThread": { "thread": { "isResolved": true } } } }
+  }
+}

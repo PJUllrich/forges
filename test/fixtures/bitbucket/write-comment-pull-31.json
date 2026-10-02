@@ -1,0 +1,17 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/comments"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "id": 440010,
+      "content": {
+        "raw": "Thanks!"
+      }
+    }
+  }
+}

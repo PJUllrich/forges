@@ -1,0 +1,32 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.cursor.com/v1/origin/repos/acme/widgets/pulls/12/reviews?pageSize=50"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "reviews": [
+        {
+          "id": "rev_01",
+          "author": {
+            "user": {
+              "id": "user_01k2ja2000ada000000000000a",
+              "email": "ada@acme.dev",
+              "displayName": "Ada Lovelace",
+              "handle": "ada"
+            }
+          },
+          "verdict": "approve",
+          "body": "",
+          "submittedAt": "2026-09-19T13:00:00Z"
+        }
+      ],
+      "nextPageToken": ""
+    }
+  }
+}

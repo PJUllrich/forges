@@ -1,0 +1,43 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://gitlab.com/api/v4/projects/acme%2Fplatform%2Fwidgets/pipelines/610001/jobs?per_page=100"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "id": 720001,
+        "name": "test",
+        "stage": "test",
+        "status": "success",
+        "allow_failure": false,
+        "web_url": "https://gitlab.com/acme/platform/widgets/-/jobs/720001",
+        "started_at": "2025-09-18T09:00:00Z",
+        "finished_at": "2025-09-18T09:03:00Z"
+      },
+      {
+        "id": 720002,
+        "name": "lint",
+        "stage": "test",
+        "status": "failed",
+        "allow_failure": false,
+        "web_url": "https://gitlab.com/acme/platform/widgets/-/jobs/720002",
+        "started_at": "2025-09-18T09:00:00Z",
+        "finished_at": "2025-09-18T09:01:00Z"
+      },
+      {
+        "id": 720003,
+        "name": "deploy",
+        "stage": "deploy",
+        "status": "manual",
+        "allow_failure": true,
+        "web_url": "https://gitlab.com/acme/platform/widgets/-/jobs/720003",
+        "started_at": null,
+        "finished_at": null
+      }
+    ]
+  }
+}

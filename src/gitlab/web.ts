@@ -1,0 +1,50 @@
+import type { RepoRef, ThreadKind, ThreadRef } from '../model.ts'
+import type { WebLinks } from '../web.ts'
+
+const SECTIONS: Partial<Record<ThreadKind, string>> = { issue: 'issues', pull_request: 'merge_requests', commit: 'commit' }
+const KINDS = new Map(Object.entries(SECTIONS).map(([kind, section]) => [section, kind as ThreadKind]))
+const PREFIXES: Partial<Record<ThreadKind, string>> = { issue: '#', pull_request: '!' }
+
+const encode = (path: string) => path.split('/').map(encodeURIComponent).join('/')
+const projectPath = (repo: RepoRef) => `/${encode(repo.owner)}/${encodeURIComponent(repo.name)}`
+
+export function gitlabWeb(origin: string): WebLinks {
+  return {
+    origin,
+    repo: repo => repo.kind === 'namespace' ? `/${encode(repo.owner)}` : projectPath(repo),
+    thread: ref => ref.repo.kind === 'namespace' || !SECTIONS[ref.kind] ? undefined : `${projectPath(ref.repo)}/-/${SECTIONS[ref.kind]}/${encodeURIComponent(ref.number)}`,
+    comment: ref => ref.thread.repo.kind === 'namespace' || !SECTIONS[ref.thread.kind] ? undefined : `${projectPath(ref.thread.repo)}/-/${SECTIONS[ref.thread.kind]}/${encodeURIComponent(ref.thread.number)}#note_${ref.id}`,
+    release: ref => ref.tag ? `${projectPath(ref.repo)}/-/releases/${encodeURIComponent(ref.tag)}` : undefined,
+    file: (repo, path, at, line) => `${projectPath(repo)}/-/blob/${encodeURIComponent(at)}/${encode(path)}${line ? `#L${line}` : ''}`,
+    compare: (repo, base, head) => `${projectPath(repo)}/-/compare/${encodeURIComponent(base)}...${encodeURIComponent(head)}`,
+    parse: (segments, url, from) => {
+      const separator = segments.indexOf('-')
+      const path = separator < 0 ? segments : segments.slice(0, separator)
+      if (path.length < 2) {
+        return undefined
+      }
+      const repo: RepoRef = { ...from, owner: path.slice(0, -1).join('/'), name: path.at(-1)!.replace(/\.git$/, '') }
+      const [section, id] = separator < 0 ? [] : segments.slice(separator + 1)
+      if (section === 'releases' && id) {
+        return { repo, release: { ...from, repo, id, tag: id } }
+      }
+      const kind = section ? KINDS.get(section) : undefined
+      if (!kind || !id) {
+        return { repo }
+      }
+      const thread: ThreadRef = { ...from, repo, kind, number: id }
+      const note = url.hash.startsWith('#note_') ? url.hash.slice('#note_'.length) : undefined
+      return { repo, thread, ...note ? { comment: { ...from, thread, id: note } } : {} }
+    },
+    reference: (ref, same, expand) => {
+      if (ref.kind === 'commit') {
+        return `${same ? '' : `${ref.repo.owner}/${ref.repo.name}@`}${ref.number.slice(0, 8)}`
+      }
+      const prefix = PREFIXES[ref.kind]
+      if (!prefix || ref.repo.kind === 'namespace') {
+        return undefined
+      }
+      return `${same ? '' : `${ref.repo.owner}/${ref.repo.name}`}${prefix}${ref.number}${expand ? '+' : ''}`
+    },
+  }
+}

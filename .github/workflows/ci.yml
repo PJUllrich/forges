@@ -54,8 +54,14 @@ jobs:
       - name: 💪 Test types
         run: pnpm test:types
 
+      - name: 📏 Test bundle size
+        run: pnpm test:size
+
       - name: 🧪 Test project
         run: pnpm test:unit -- --coverage
+
+      - name: Check every capability against the tests
+        run: pnpm test:capabilities
 
       - name: 🟩 Coverage
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7

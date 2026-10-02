@@ -1,0 +1,50 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://gitlab.com/api/graphql",
+    "operationName": "ProjectVulnerabilities"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "data": {
+        "project": {
+          "vulnerabilities": {
+            "pageInfo": {
+              "hasNextPage": false,
+              "endCursor": null
+            },
+            "nodes": [
+              {
+                "id": "gid://gitlab/Vulnerability/880001",
+                "title": "Prototype pollution in lodash",
+                "severity": "HIGH",
+                "state": "DETECTED",
+                "reportType": "DEPENDENCY_SCANNING",
+                "detectedAt": "2025-09-01T08:00:00Z",
+                "updatedAt": "2025-09-01T08:00:00Z",
+                "dismissedAt": null,
+                "resolvedAt": null,
+                "webUrl": "https://gitlab.com/acme/platform/widgets/-/security/vulnerabilities/880001"
+              },
+              {
+                "id": "gid://gitlab/Vulnerability/880002",
+                "title": "SQL injection",
+                "severity": "CRITICAL",
+                "state": "CONFIRMED",
+                "reportType": "SAST",
+                "detectedAt": "2025-09-02T08:00:00Z",
+                "updatedAt": "2025-09-02T08:00:00Z",
+                "dismissedAt": null,
+                "resolvedAt": null,
+                "webUrl": "https://gitlab.com/acme/platform/widgets/-/security/vulnerabilities/880002"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

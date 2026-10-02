@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/decline"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "id": 31,
+      "state": "DECLINED"
+    }
+  }
+}

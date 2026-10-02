@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "SubscriptionState",
+    "variables": {
+      "owner": "h3js",
+      "name": "h3",
+      "number": 1000,
+      "discussion": false
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "x-ratelimit-remaining": "4676",
+      "x-ratelimit-reset": "1790946663"
+    },
+    "body": {
+      "data": {
+        "repository": {
+          "issueOrPullRequest": {
+            "id": "PR_kwDOErHI986Qx98s",
+            "viewerSubscription": "UNSUBSCRIBED"
+          }
+        }
+      }
+    }
+  }
+}

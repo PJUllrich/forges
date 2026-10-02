@@ -1,0 +1,18 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "PUT",
+    "url": "https://gitee.com/api/v5/repos/acme/widgets/pulls/7/merge"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "sha": "feedfacefeedfacefeedfacefeedfacefeedface",
+      "merged": true,
+      "message": "Pull Request 已成功合并"
+    }
+  }
+}

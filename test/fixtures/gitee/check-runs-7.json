@@ -1,0 +1,35 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://gitee.com/api/v5/repos/acme/widgets/commits/5f2c1d0e9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d/check-runs"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": [
+      {
+        "id": 801,
+        "head_sha": "5f2c1d0e9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d",
+        "html_url": "https://gitee.com/acme/widgets/checks/801",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-19T12:01:00+08:00",
+        "completed_at": "2026-09-19T12:04:00+08:00",
+        "name": "test"
+      },
+      {
+        "id": 802,
+        "head_sha": "5f2c1d0e9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d",
+        "html_url": "https://gitee.com/acme/widgets/checks/802",
+        "status": "in_progress",
+        "conclusion": null,
+        "started_at": "2026-09-19T12:01:00+08:00",
+        "completed_at": null,
+        "name": "build"
+      }
+    ]
+  }
+}

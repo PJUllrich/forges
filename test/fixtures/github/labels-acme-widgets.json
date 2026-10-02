@@ -1,0 +1,22 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/labels"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "name": "bug",
+        "color": "d73a4a",
+        "description": "Something is broken"
+      },
+      {
+        "name": "good first issue",
+        "color": "7057ff"
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/releases/tags/v1.2.0"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "id": 9001,
+      "tag_name": "v1.2.0",
+      "name": "Widgets v1.2.0",
+      "body": "Release notes for v1.2.0",
+      "draft": false,
+      "prerelease": false,
+      "author": {
+        "login": "octocat",
+        "id": 583231,
+        "type": "User",
+        "avatar_url": "https://avatars.example/u/583231",
+        "html_url": "https://github.com/octocat"
+      },
+      "created_at": "2025-09-10T12:00:00Z",
+      "published_at": "2025-09-10T12:05:00Z",
+      "html_url": "https://github.com/acme/widgets/releases/tag/v1.2.0",
+      "assets": [
+        {
+          "name": "widgets-v1.2.0.tgz",
+          "browser_download_url": "https://github.com/acme/widgets/releases/download/v1.2.0/widgets-v1.2.0.tgz",
+          "size": 20480,
+          "download_count": 12,
+          "id": 7001,
+          "content_type": "application/gzip"
+        }
+      ]
+    }
+  }
+}

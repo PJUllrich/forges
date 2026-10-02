@@ -1,0 +1,62 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://gitee.com/api/v5/repos/acme/widgets/releases?page=1&per_page=50"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json",
+      "total_page": "1"
+    },
+    "body": [
+      {
+        "id": 41002,
+        "tag_name": "v0.5.0-beta",
+        "target_commitish": "master",
+        "prerelease": true,
+        "name": "Widgets v0.5.0-beta",
+        "body": "Notes for v0.5.0-beta",
+        "author": {
+          "id": 4001,
+          "login": "ada",
+          "name": "Ada",
+          "avatar_url": "https://gitee.com/assets/no_portrait.png",
+          "html_url": "https://gitee.com/ada",
+          "type": "User"
+        },
+        "created_at": "2026-09-10T12:00:00+08:00",
+        "assets": [
+          {
+            "browser_download_url": "https://gitee.com/acme/widgets/releases/download/v0.5.0-beta/widgets.zip",
+            "name": "widgets.zip"
+          }
+        ]
+      },
+      {
+        "id": 41001,
+        "tag_name": "v0.4.0",
+        "target_commitish": "master",
+        "prerelease": false,
+        "name": "Widgets v0.4.0",
+        "body": "Notes for v0.4.0",
+        "author": {
+          "id": 4001,
+          "login": "ada",
+          "name": "Ada",
+          "avatar_url": "https://gitee.com/assets/no_portrait.png",
+          "html_url": "https://gitee.com/ada",
+          "type": "User"
+        },
+        "created_at": "2026-09-10T12:00:00+08:00",
+        "assets": [
+          {
+            "browser_download_url": "https://gitee.com/acme/widgets/releases/download/v0.4.0/widgets.zip",
+            "name": "widgets.zip"
+          }
+        ]
+      }
+    ]
+  }
+}

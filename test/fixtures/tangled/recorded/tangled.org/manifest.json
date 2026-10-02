@@ -1,0 +1,52 @@
+{
+  "baseUrl": "https://tangled.org",
+  "repo": {
+    "forge": "tangled",
+    "instance": "tangled.org",
+    "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+    "name": "core",
+    "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+  },
+  "pull": {
+    "forge": "tangled",
+    "instance": "tangled.org",
+    "repo": {
+      "forge": "tangled",
+      "instance": "tangled.org",
+      "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+      "name": "core",
+      "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+    },
+    "kind": "pull_request",
+    "typeRaw": "sh.tangled.repo.pull",
+    "number": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22",
+    "externalId": "at://did:plc:pzywyr3ji56pinuglmm4t7xj/sh.tangled.repo.pull/3mwq55xakxq22"
+  },
+  "issue": {
+    "forge": "tangled",
+    "instance": "tangled.org",
+    "repo": {
+      "forge": "tangled",
+      "instance": "tangled.org",
+      "owner": "did:plc:wshs7t2adsemcrrd4snkeqli",
+      "name": "core",
+      "externalId": "did:plc:j5hmlfdrwkvtxm7cjmu7j2is"
+    },
+    "kind": "issue",
+    "typeRaw": "sh.tangled.repo.issue",
+    "number": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22",
+    "externalId": "at://did:plc:cnx5rmsyvousaqjfbbzzllbi/sh.tangled.repo.issue/3mwqhyckjiz22"
+  },
+  "steps": [
+    "repo",
+    "pull",
+    "pull getMany",
+    "pull events",
+    "pull comments",
+    "issue",
+    "issue getMany",
+    "issue events",
+    "issue comments"
+  ],
+  "recordedAt": "2026-10-02T12:30:17.000Z"
+}

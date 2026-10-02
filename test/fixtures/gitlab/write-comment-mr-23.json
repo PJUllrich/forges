@@ -1,0 +1,16 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://gitlab.com/api/v4/projects/acme%2Fplatform%2Fwidgets/merge_requests/23/notes"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "id": 5550010,
+      "body": "Thanks!",
+      "system": false
+    }
+  }
+}

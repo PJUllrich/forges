@@ -1,0 +1,91 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://dev.azure.com/acme/Widgets/_apis/git/repositories/widgets/pullRequests/42/threads?api-version=7.1"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "value": [
+        {
+          "id": 11,
+          "publishedDate": "2026-09-18T10:00:00Z",
+          "status": "active",
+          "comments": [
+            {
+              "id": 1,
+              "parentCommentId": 0,
+              "author": {
+                "id": "c0a1a000-0000-4000-8000-000000000ada",
+                "displayName": "Ada Lovelace",
+                "uniqueName": "ada@contoso.com",
+                "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.ada"
+              },
+              "content": "Looks good to me.",
+              "commentType": "text",
+              "publishedDate": "2026-09-18T10:00:00Z",
+              "lastUpdatedDate": "2026-09-18T10:00:00Z"
+            }
+          ],
+          "threadContext": null,
+          "properties": {}
+        },
+        {
+          "id": 12,
+          "publishedDate": "2026-09-18T11:00:00Z",
+          "status": "active",
+          "comments": [
+            {
+              "id": 1,
+              "parentCommentId": 0,
+              "author": {
+                "id": "b0b0b000-0000-4000-8000-0000000b0b0b",
+                "displayName": "Project Collection Build Service (acme)",
+                "uniqueName": "Build\\b0b0b000-0000-4000-8000-0000000b0b0b"
+              },
+              "content": "Lint: unused import.",
+              "commentType": "text",
+              "publishedDate": "2026-09-18T11:00:00Z"
+            }
+          ],
+          "threadContext": {
+            "filePath": "/src/upload.ts"
+          },
+          "properties": {}
+        },
+        {
+          "id": 13,
+          "publishedDate": "2026-09-18T12:00:00Z",
+          "status": "closed",
+          "comments": [
+            {
+              "id": 1,
+              "parentCommentId": 0,
+              "author": {
+                "id": "c0a1a000-0000-4000-8000-000000000ada",
+                "displayName": "Ada Lovelace",
+                "uniqueName": "ada@contoso.com",
+                "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.ada"
+              },
+              "content": "Ada Lovelace voted 10",
+              "commentType": "system",
+              "publishedDate": "2026-09-18T12:00:00Z"
+            }
+          ],
+          "threadContext": null,
+          "properties": {
+            "CodeReviewThreadType": {
+              "$type": "System.String",
+              "$value": "VoteUpdate"
+            }
+          }
+        }
+      ],
+      "count": 3
+    }
+  }
+}

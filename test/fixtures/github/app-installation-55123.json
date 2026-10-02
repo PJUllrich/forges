@@ -1,0 +1,21 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/app/installations/55123"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "id": 55123,
+      "account": {
+        "login": "acme",
+        "id": 5150,
+        "type": "Organization"
+      },
+      "target_type": "Organization",
+      "repository_selection": "selected"
+    }
+  }
+}

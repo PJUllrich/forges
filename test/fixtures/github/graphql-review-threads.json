@@ -1,0 +1,29 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "ReviewThreads"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "data": {
+        "repository": {
+          "pullRequest": {
+            "reviewThreads": {
+              "nodes": [
+                {
+                  "id": "PRRT_kwDOAAB5ac5abcde",
+                  "isResolved": false,
+                  "comments": { "nodes": [{ "databaseId": 55001 }] }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

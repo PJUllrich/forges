@@ -1,0 +1,5 @@
+{
+  "handAuthored": true,
+  "request": { "method": "DELETE", "url": "https://api.github.com/notifications/threads/901234567" },
+  "response": { "status": 204, "headers": {} }
+}

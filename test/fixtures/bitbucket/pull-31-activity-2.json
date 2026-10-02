@@ -1,0 +1,38 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/activity?pagelen=50&ctx=page2"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "pagelen": 2,
+      "values": [
+        {
+          "update": {
+            "date": "2025-09-15T08:00:00.000000+00:00",
+            "state": "OPEN",
+            "title": "Cache compiled templates",
+            "author": {
+              "type": "user",
+              "uuid": "{11111111-0000-4000-8000-000000000001}",
+              "account_id": "557058:ada",
+              "nickname": "ada",
+              "display_name": "Ada",
+              "links": {
+                "avatar": {
+                  "href": "https://avatar.example/ada"
+                }
+              }
+            }
+          },
+          "pull_request": {
+            "id": 31
+          }
+        }
+      ]
+    }
+  }
+}

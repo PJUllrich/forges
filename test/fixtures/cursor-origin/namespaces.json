@@ -1,0 +1,22 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.cursor.com/v1/origin/namespaces?pageSize=50"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "namespaces": [
+        {
+          "slug": "acme",
+          "id": "ns_01k2ja2000acme00000000000a"
+        }
+      ],
+      "nextPageToken": ""
+    }
+  }
+}

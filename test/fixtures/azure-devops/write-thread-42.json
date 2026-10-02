@@ -1,0 +1,33 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://dev.azure.com/acme/Widgets/_apis/git/repositories/widgets/pullRequests/42/threads?api-version=7.1"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "id": 14,
+      "publishedDate": "2026-09-20T09:00:00Z",
+      "status": "active",
+      "comments": [
+        {
+          "id": 1,
+          "parentCommentId": 0,
+          "author": {
+            "id": "c0a1a000-0000-4000-8000-000000000ada",
+            "displayName": "Ada Lovelace",
+            "uniqueName": "ada@contoso.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.ada"
+          },
+          "content": "Thanks!",
+          "commentType": "text",
+          "publishedDate": "2026-09-20T09:00:00Z"
+        }
+      ]
+    }
+  }
+}

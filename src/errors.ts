@@ -168,6 +168,21 @@ export class UnknownForgeError extends ForgeError {
   override name = 'UnknownForgeError'
 }
 
+/** Maps a generic merge-endpoint failure onto {@link MergeBlockedError} or {@link MergeConflictError}. */
+export function toMergeError(error: unknown): unknown {
+  if (!(error instanceof ForgeApiError) || error.constructor !== ForgeApiError) {
+    return error
+  }
+  const context = { forge: error.forge, instance: error.instance, url: error.url, method: error.method }
+  if (error.status === 405) {
+    return new MergeBlockedError('Pull request is not mergeable yet', 405, error.body, context)
+  }
+  if (error.status === 406 || error.status === 409) {
+    return new MergeConflictError('Pull request conflicts with its base or the head has moved', 409, error.body, context)
+  }
+  return error
+}
+
 /** The thread ref has no number, or is a kind the provider cannot address. */
 export class UnresolvedThreadError extends ForgeError {
   override name = 'UnresolvedThreadError'
@@ -182,4 +197,13 @@ export class MergeMethodRequiredError extends ForgeError {
     super(`Repository allows ${allowed.length ? allowed.join(', ') : 'no merge methods'}; pass \`method\` explicitly`, context)
     this.allowed = allowed
   }
+}
+
+/** Picks the only allowed merge method, or throws {@link MergeMethodRequiredError}. */
+export function soleMergeMethod(allowed: Partial<Record<MergeMethod, boolean | undefined>>, context?: ForgeErrorContext): MergeMethod {
+  const methods = (Object.keys(allowed) as MergeMethod[]).filter(method => allowed[method])
+  if (methods.length !== 1) {
+    throw new MergeMethodRequiredError(methods, context)
+  }
+  return methods[0]!
 }

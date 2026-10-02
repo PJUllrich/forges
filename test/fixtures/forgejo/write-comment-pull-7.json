@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://codeberg.org/api/v1/repos/acme/widgets/issues/7/comments"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "id": 880010,
+      "body": "Thanks!"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "baseUrl": "https://pushin.eu/api/v1",
+  "repo": {
+    "forge": "pushin",
+    "instance": "pushin.eu",
+    "owner": "pjullrich",
+    "name": "pushin"
+  },
+  "issue": {
+    "forge": "pushin",
+    "instance": "pushin.eu",
+    "repo": {
+      "forge": "pushin",
+      "instance": "pushin.eu",
+      "owner": "pjullrich",
+      "name": "pushin"
+    },
+    "kind": "issue",
+    "number": "31"
+  },
+  "steps": [
+    "repo",
+    "labels",
+    "issue getMany",
+    "issue comments"
+  ],
+  "recordedAt": "2026-10-02T12:30:17.000Z"
+}

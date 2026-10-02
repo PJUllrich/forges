@@ -1,0 +1,52 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "id": 31337,
+      "node_id": "R_kgDOAAB5aQ",
+      "name": "widgets",
+      "full_name": "acme/widgets",
+      "owner": {
+        "login": "acme",
+        "id": 5150,
+        "type": "Organization"
+      },
+      "description": "Widgets, normalised.",
+      "default_branch": "main",
+      "visibility": "public",
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "topics": [
+        "widgets",
+        "forges"
+      ],
+      "html_url": "https://github.com/acme/widgets",
+      "clone_url": "https://github.com/acme/widgets.git",
+      "ssh_url": "git@github.com:acme/widgets.git",
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2025-09-18T09:00:00Z",
+      "pushed_at": "2025-09-18T08:59:00Z",
+      "permissions": {
+        "admin": false,
+        "maintain": false,
+        "push": true,
+        "triage": true,
+        "pull": true
+      },
+      "allow_merge_commit": false,
+      "allow_squash_merge": true,
+      "allow_rebase_merge": false,
+      "has_issues": true,
+      "has_discussions": true,
+      "has_wiki": false,
+      "has_projects": false
+    }
+  }
+}

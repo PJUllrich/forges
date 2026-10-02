@@ -1,0 +1,383 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://gitlab.com/api/v4/projects/gitlab-org%2Fcli/merge_requests?state=opened&order_by=created_at&sort=desc&per_page=3"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "link": "<https://gitlab.com/api/v4/projects/gitlab-org%2Fcli/merge_requests?id=gitlab-org%2Fcli&order_by=created_at&page=2&per_page=3&sort=desc&state=opened&with_labels_details=false&with_merge_status_recheck=false>; rel=\"next\", <https://gitlab.com/api/v4/projects/gitlab-org%2Fcli/merge_requests?id=gitlab-org%2Fcli&order_by=created_at&page=1&per_page=3&sort=desc&state=opened&with_labels_details=false&with_merge_status_recheck=false>; rel=\"first\", <https://gitlab.com/api/v4/projects/gitlab-org%2Fcli/merge_requests?id=gitlab-org%2Fcli&order_by=created_at&page=19&per_page=3&sort=desc&state=opened&with_labels_details=false&with_merge_status_recheck=false>; rel=\"last\"",
+      "etag": "W/\"e22c70b3d62ae3e5d71a00cbcfb6feff\"",
+      "ratelimit-remaining": "1993",
+      "ratelimit-reset": "1790944320",
+      "x-total": "57",
+      "x-total-pages": "19",
+      "x-next-page": "2",
+      "x-page": "1",
+      "x-per-page": "3"
+    },
+    "body": [
+      {
+        "id": 542136460,
+        "iid": 3992,
+        "project_id": 34675721,
+        "title": "feat(auth): set default host on login to a self-managed instance",
+        "description": "## Description\n\nAfter `glab auth login` succeeds for an instance other than gitlab.com, glab updates the global `host` key. Commands run outside a Git repository, such as `glab repo clone`, then reach that instance instead of gitlab.com.\n\n- If the default is still `gitlab.com` and gitlab.com has no stored credentials, glab sets `host` and prints `Default instance set to <host>`.\n- If gitlab.com has credentials, or a different default has been set, glab asks first in interactive mode. In scripted mode, it prints `glab config set --global host <host>` instead.\n- Skipped in CI and when `GITLAB_HOST`, `GITLAB_URI`, or `GL_HOST` is set. Skipped for `--job-token` logins.\n\n## Related Issues\n\nResolves #310\n\n## How has this been tested?\n\n- `go test ./internal/commands/auth/login/...` passes.\n- New `Test_tokenLogin_updatesDefaultHost` covers every case through the `--token` path.",
+        "state": "opened",
+        "created_at": "2026-10-02T11:42:57.436Z",
+        "updated_at": "2026-10-02T11:53:38.342Z",
+        "merged_by": null,
+        "merge_user": null,
+        "merged_at": null,
+        "closed_by": null,
+        "closed_at": null,
+        "target_branch": "main",
+        "source_branch": "310-config-uri",
+        "user_notes_count": 8,
+        "upvotes": 0,
+        "downvotes": 0,
+        "author": {
+          "id": 5958906,
+          "username": "gkepas",
+          "public_email": "redacted@example.invalid",
+          "name": "Giannis Kepas",
+          "state": "active",
+          "locked": false,
+          "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/5958906/avatar.png?v=1790939392",
+          "web_url": "https://gitlab.com/gkepas",
+          "bot": false
+        },
+        "assignees": [
+          {
+            "id": 5958906,
+            "username": "gkepas",
+            "public_email": "redacted@example.invalid",
+            "name": "Giannis Kepas",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/5958906/avatar.png?v=1790939392",
+            "web_url": "https://gitlab.com/gkepas"
+          }
+        ],
+        "assignee": {
+          "id": 5958906,
+          "username": "gkepas",
+          "public_email": "redacted@example.invalid",
+          "name": "Giannis Kepas",
+          "state": "active",
+          "locked": false,
+          "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/5958906/avatar.png?v=1790939392",
+          "web_url": "https://gitlab.com/gkepas"
+        },
+        "reviewers": [
+          {
+            "id": 13169945,
+            "username": "rkumar555",
+            "public_email": "",
+            "name": "Ravi Kumar",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/13169945/avatar.png?v=1790944213",
+            "web_url": "https://gitlab.com/rkumar555"
+          },
+          {
+            "id": 21826781,
+            "username": "GitLabDuo",
+            "public_email": null,
+            "name": "GitLab Duo",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/21826781/duo-bot.png?v=1781708173",
+            "web_url": "https://gitlab.com/GitLabDuo"
+          }
+        ],
+        "source_project_id": 45049979,
+        "target_project_id": 34675721,
+        "labels": [
+          "Community contribution",
+          "documentation",
+          "linked-issue",
+          "tw::triaged",
+          "workflow::ready for review"
+        ],
+        "draft": false,
+        "imported": false,
+        "imported_from": "none",
+        "work_in_progress": false,
+        "milestone": null,
+        "merge_when_pipeline_succeeds": false,
+        "merge_status": "can_be_merged",
+        "detailed_merge_status": "discussions_not_resolved",
+        "merge_after": null,
+        "sha": "62f5f235e7de907e3f969ec284b22c80860f2516",
+        "merge_commit_sha": null,
+        "squash_commit_sha": null,
+        "discussion_locked": null,
+        "should_remove_source_branch": null,
+        "force_remove_source_branch": true,
+        "prepared_at": "2026-10-02T11:43:00.726Z",
+        "allow_collaboration": true,
+        "allow_maintainer_to_push": true,
+        "reference": "!3992",
+        "references": {
+          "short": "!3992",
+          "relative": "!3992",
+          "full": "gitlab-org/cli!3992"
+        },
+        "web_url": "https://gitlab.com/gitlab-org/cli/-/merge_requests/3992",
+        "time_stats": {
+          "time_estimate": 0,
+          "total_time_spent": 0,
+          "human_time_estimate": null,
+          "human_total_time_spent": null
+        },
+        "squash": true,
+        "squash_on_merge": true,
+        "task_completion_status": {
+          "count": 0,
+          "completed_count": 0
+        },
+        "has_conflicts": false,
+        "blocking_discussions_resolved": false,
+        "approvals_before_merge": null
+      },
+      {
+        "id": 541969695,
+        "iid": 3991,
+        "project_id": 34675721,
+        "title": "fix(label): show the real total in the list header",
+        "description": "## Description\n\n`glab label list` passed `len(labels)` as both the count and the total in its\nheader, so the total was always the size of the current page. A project with 33\nlabels showed `Showing label 30 of 30` with the default page size, and\n`3 of 3` on page 2.\n\nThis keeps the `*gitlab.Response` returned by `ListLabels` and\n`ListGroupLabels`, and prints `resp.TotalItems` as the total. When the\nresponse carries no total (GitLab omits `X-Total` for very large result sets,\nand the existing tests mock a `nil` response), it falls back to the page count,\nwhich is the current behavior.\n\nThe table body and the JSON output are unchanged.\n\n## Related Issues\n\nResolves #8573\n\nRelated to #1165, which covers list commands that print no total at all.\n\n## How has this been tested?\n\n- Added a project case and a group case to\n  `internal/commands/label/list/label_list_test.go` that mock a response with\n  `TotalItems: 33`. Both fail on `main` with `2 of 2` / `1 of 1` and pass with\n  this change. The existing cases, which mock a `nil` response, still pass.\n- `go test ./internal/commands/label/...` passes.\n- `golangci-lint run ./internal/commands/label/...` (v2.14.0, as pinned in\n  `.tool-versions`) reports 0 issues, and `golangci-lint fmt --diff` reports no\n  changes.\n- `go run ./scripts/comment-overlap` reports 0 findings on the changed files.\n- Ran a build of this branch against a self-managed GitLab 19.3.3-ee project\n  with 33 labels:\n\n  | Command | `main` | This branch |\n  |---|---|---|\n  | `glab label list` | `30 of 30` | `30 of 33` |\n  | `glab label list -p 2` | `3 of 3` | `3 of 33` |\n  | `glab label list -P 10` | `10 of 10` | `10 of 33` |\n  | `glab label list -g GROUP` | `30 of 30` | `30 of 33` |\n\n  The table body and `-F json` output are byte-identical to `main`.",
+        "state": "opened",
+        "created_at": "2026-10-02T06:51:05.707Z",
+        "updated_at": "2026-10-02T12:06:58.915Z",
+        "merged_by": null,
+        "merge_user": null,
+        "merged_at": null,
+        "closed_by": null,
+        "closed_at": null,
+        "target_branch": "main",
+        "source_branch": "fix/label-list-total",
+        "user_notes_count": 6,
+        "upvotes": 0,
+        "downvotes": 0,
+        "author": {
+          "id": 33478343,
+          "username": "unstable-code",
+          "public_email": "",
+          "name": "unstable-code",
+          "state": "active",
+          "locked": false,
+          "avatar_url": "https://secure.gravatar.com/avatar/6c3a3abe3d13ba47a851063d0f411d5a864d8686a0f478065e83fe7b1f4a21a7?s=80&d=identicon",
+          "web_url": "https://gitlab.com/unstable-code",
+          "bot": false
+        },
+        "assignees": [
+          {
+            "id": 33478343,
+            "username": "unstable-code",
+            "public_email": "",
+            "name": "unstable-code",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://secure.gravatar.com/avatar/6c3a3abe3d13ba47a851063d0f411d5a864d8686a0f478065e83fe7b1f4a21a7?s=80&d=identicon",
+            "web_url": "https://gitlab.com/unstable-code"
+          }
+        ],
+        "assignee": {
+          "id": 33478343,
+          "username": "unstable-code",
+          "public_email": "",
+          "name": "unstable-code",
+          "state": "active",
+          "locked": false,
+          "avatar_url": "https://secure.gravatar.com/avatar/6c3a3abe3d13ba47a851063d0f411d5a864d8686a0f478065e83fe7b1f4a21a7?s=80&d=identicon",
+          "web_url": "https://gitlab.com/unstable-code"
+        },
+        "reviewers": [
+          {
+            "id": 13169945,
+            "username": "rkumar555",
+            "public_email": "",
+            "name": "Ravi Kumar",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/13169945/avatar.png?v=1790944213",
+            "web_url": "https://gitlab.com/rkumar555"
+          },
+          {
+            "id": 21826781,
+            "username": "GitLabDuo",
+            "public_email": null,
+            "name": "GitLab Duo",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/21826781/duo-bot.png?v=1781708173",
+            "web_url": "https://gitlab.com/GitLabDuo"
+          }
+        ],
+        "source_project_id": 87151983,
+        "target_project_id": 34675721,
+        "labels": [
+          "1st contribution",
+          "Community contribution",
+          "bug::functional",
+          "devops::ai coding",
+          "group::code review",
+          "linked-issue",
+          "section::ai",
+          "type::bug",
+          "workflow::ready for review"
+        ],
+        "draft": false,
+        "imported": false,
+        "imported_from": "none",
+        "work_in_progress": false,
+        "milestone": null,
+        "merge_when_pipeline_succeeds": false,
+        "merge_status": "can_be_merged",
+        "detailed_merge_status": "discussions_not_resolved",
+        "merge_after": null,
+        "sha": "a3a7ae7cadbe3fef1f83cefd04dc7e8dce7e7282",
+        "merge_commit_sha": null,
+        "squash_commit_sha": null,
+        "discussion_locked": null,
+        "should_remove_source_branch": null,
+        "force_remove_source_branch": true,
+        "prepared_at": "2026-10-02T06:51:09.477Z",
+        "allow_collaboration": false,
+        "allow_maintainer_to_push": false,
+        "reference": "!3991",
+        "references": {
+          "short": "!3991",
+          "relative": "!3991",
+          "full": "gitlab-org/cli!3991"
+        },
+        "web_url": "https://gitlab.com/gitlab-org/cli/-/merge_requests/3991",
+        "time_stats": {
+          "time_estimate": 0,
+          "total_time_spent": 0,
+          "human_time_estimate": null,
+          "human_total_time_spent": null
+        },
+        "squash": true,
+        "squash_on_merge": true,
+        "task_completion_status": {
+          "count": 0,
+          "completed_count": 0
+        },
+        "has_conflicts": false,
+        "blocking_discussions_resolved": false,
+        "approvals_before_merge": null
+      },
+      {
+        "id": 541959514,
+        "iid": 3990,
+        "project_id": 34675721,
+        "title": "ci(release): render Slack release notes as markdown",
+        "description": "## What\n\nImproves the release announcement goreleaser posts to Slack, and tidies the release notes it generates.\n\n### Slack post\n\n- Release notes go in a Slack `markdown` block, so headings, bold text and links render instead of showing raw `##`/`###` markdown.\n- The extra `## Changelog` heading is dropped.\n- Each line ends with an emoji for the commit author type:\n  - 🤖 for `gitlab-bot@gitlab.com`\n  - `:tanuki:` for other `@gitlab.com` authors\n  - `:community:` for everyone else\n- Notes are cut at 10,000 characters and end with `…`, which keeps them under Slack's 12,000-character limit for a markdown block.\n- `message_template` is now a short plain-text fallback for notification previews.\n- `icon_emoji` is `:glab:` to match the bot's existing avatar.\n- The pre-release warning and `release.prerelease: auto` are removed. goreleaser ignores that setting for GitLab releases, and the last pre-release tag was `v1.20.0-pre1`.\n\n### Changelog lines (Slack and GitLab release page)\n\n- Author emails are dropped, and each commit SHA links to the commit.\n- The `type(scope):` prefix is bold. Messages whose prefix contains a space, such as `Revert \"…\"`, are left alone.\n- Maintenance is listed above Dependencies. The Dependencies group stays first in the config so it still claims the `chore(deps)` commits.\n- Author-type markers are written as HTML comments (`<!--team-->` etc.). GitLab doesn't display them, so the release page has no author emojis. The Slack template swaps them for the emojis.\n\nExample line:\n\n```\n* **feat(df):** add package command to check a single PURL ([c81a40c8](https://gitlab.com/gitlab-org/cli/-/commit/c81a40c8)) by Michael Eddington :tanuki:\n```\n\n## Why\n\nThe current post sends markdown as plain Slack text, so headings show up literally and every line includes an email address. This is based on the gitlab-lsp release post.\n\n## Testing\n\n- `goreleaser check` passes.\n- Rendered the changelog format and Slack block templates against the v1.120.0 commits with a local copy of goreleaser's template functions. Also tested a `Revert \"…\"` message, a message with a second `: `, and the 10,000-character cut-off.\n- Checked with GitLab's markdown API that the HTML comment markers aren't displayed.\n- Previewed the Slack block in Block Kit Builder. Not posted to a real webhook, so the first release after merge is the end-to-end check.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+        "state": "opened",
+        "created_at": "2026-10-02T06:27:53.002Z",
+        "updated_at": "2026-10-02T07:42:54.569Z",
+        "merged_by": null,
+        "merge_user": null,
+        "merged_at": null,
+        "closed_by": null,
+        "closed_at": null,
+        "target_branch": "main",
+        "source_branch": "jmc-slack-release-formatting",
+        "user_notes_count": 4,
+        "upvotes": 0,
+        "downvotes": 0,
+        "author": {
+          "id": 11809982,
+          "username": "jay_mccure",
+          "public_email": "",
+          "name": "Jay McCure",
+          "state": "active",
+          "locked": false,
+          "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/11809982/avatar.png?v=1790925516",
+          "web_url": "https://gitlab.com/jay_mccure",
+          "bot": false
+        },
+        "assignees": [
+          {
+            "id": 11809982,
+            "username": "jay_mccure",
+            "public_email": "",
+            "name": "Jay McCure",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/11809982/avatar.png?v=1790925516",
+            "web_url": "https://gitlab.com/jay_mccure"
+          }
+        ],
+        "assignee": {
+          "id": 11809982,
+          "username": "jay_mccure",
+          "public_email": "",
+          "name": "Jay McCure",
+          "state": "active",
+          "locked": false,
+          "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/11809982/avatar.png?v=1790925516",
+          "web_url": "https://gitlab.com/jay_mccure"
+        },
+        "reviewers": [
+          {
+            "id": 21826781,
+            "username": "GitLabDuo",
+            "public_email": null,
+            "name": "GitLab Duo",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/21826781/duo-bot.png?v=1781708173",
+            "web_url": "https://gitlab.com/GitLabDuo"
+          }
+        ],
+        "source_project_id": 34675721,
+        "target_project_id": 34675721,
+        "labels": [
+          "devops::ai clients",
+          "section::ai"
+        ],
+        "draft": false,
+        "imported": false,
+        "imported_from": "none",
+        "work_in_progress": false,
+        "milestone": null,
+        "merge_when_pipeline_succeeds": false,
+        "merge_status": "can_be_merged",
+        "detailed_merge_status": "discussions_not_resolved",
+        "merge_after": null,
+        "sha": "9061a1d04547426f8ccd597da4018e4f6f97585d",
+        "merge_commit_sha": null,
+        "squash_commit_sha": null,
+        "discussion_locked": null,
+        "should_remove_source_branch": null,
+        "force_remove_source_branch": true,
+        "prepared_at": "2026-10-02T06:28:00.820Z",
+        "reference": "!3990",
+        "references": {
+          "short": "!3990",
+          "relative": "!3990",
+          "full": "gitlab-org/cli!3990"
+        },
+        "web_url": "https://gitlab.com/gitlab-org/cli/-/merge_requests/3990",
+        "time_stats": {
+          "time_estimate": 0,
+          "total_time_spent": 0,
+          "human_time_estimate": null,
+          "human_total_time_spent": null
+        },
+        "squash": true,
+        "squash_on_merge": true,
+        "task_completion_status": {
+          "count": 0,
+          "completed_count": 0
+        },
+        "has_conflicts": false,
+        "blocking_discussions_resolved": false,
+        "approvals_before_merge": null
+      }
+    ]
+  }
+}

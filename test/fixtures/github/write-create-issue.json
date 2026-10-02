@@ -1,0 +1,29 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/repos/acme/widgets/issues"
+  },
+  "response": {
+    "status": 201,
+    "headers": {},
+    "body": {
+      "number": 18,
+      "node_id": "I_kwDOAAB5ac5abc018",
+      "title": "New issue",
+      "state": "open",
+      "user": {
+        "login": "octocat",
+        "id": 583231,
+        "type": "User",
+        "avatar_url": "https://avatars.example/u/583231"
+      },
+      "labels": [],
+      "assignees": [],
+      "comments": 0,
+      "created_at": "2025-09-14T10:00:00Z",
+      "updated_at": "2025-09-18T08:02:10Z",
+      "html_url": "https://github.com/acme/widgets/issues/17"
+    }
+  }
+}

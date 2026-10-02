@@ -1,0 +1,28 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/comments?pagelen=50"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "pagelen": 50,
+      "values": [
+        {
+          "id": 440001,
+          "content": {
+            "raw": "Should the hash include the compiler version?"
+          },
+          "user": {
+            "type": "user",
+            "uuid": "{22222222-0000-4000-8000-000000000002}",
+            "nickname": "grace"
+          },
+          "created_on": "2025-09-16T09:00:00.000000+00:00"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/commits/6dcb09b5b57875f334f61aebed695e2e4193db5e/check-runs?per_page=100"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "total_count": 2,
+      "check_runs": [
+        {
+          "id": 4001,
+          "name": "test (ubuntu-latest)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/acme/widgets/runs/4001",
+          "details_url": "https://github.com/acme/widgets/actions/runs/77/job/4001",
+          "started_at": "2025-09-18T09:00:00Z",
+          "completed_at": "2025-09-18T09:04:30Z"
+        },
+        {
+          "id": 4002,
+          "name": "lint",
+          "status": "completed",
+          "conclusion": "failure",
+          "html_url": "https://github.com/acme/widgets/runs/4002",
+          "details_url": "https://github.com/acme/widgets/actions/runs/77/job/4002",
+          "started_at": "2025-09-18T09:00:00Z",
+          "completed_at": "2025-09-18T09:01:10Z"
+        }
+      ]
+    }
+  }
+}

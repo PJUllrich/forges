@@ -1,0 +1,16 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/user"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "login": "octocat",
+      "id": 1,
+      "type": "User"
+    }
+  }
+}

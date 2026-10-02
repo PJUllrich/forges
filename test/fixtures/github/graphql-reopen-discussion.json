@@ -1,0 +1,21 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "ReopenDiscussion"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "data": {
+        "reopenDiscussion": {
+          "discussion": {
+            "id": "D_kwDOAAB5ac4AAQ1f"
+          }
+        }
+      }
+    }
+  }
+}

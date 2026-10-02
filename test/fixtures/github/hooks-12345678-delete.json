@@ -1,0 +1,11 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "DELETE",
+    "url": "https://api.github.com/repos/acme/widgets/hooks/12345678"
+  },
+  "response": {
+    "status": 204,
+    "headers": {}
+  }
+}

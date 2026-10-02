@@ -1,0 +1,26 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/approve"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "approved": true,
+      "user": {
+        "type": "user",
+        "uuid": "{11111111-0000-4000-8000-000000000001}",
+        "account_id": "557058:ada",
+        "nickname": "ada",
+        "display_name": "Ada",
+        "links": {
+          "avatar": {
+            "href": "https://avatar.example/ada"
+          }
+        }
+      }
+    }
+  }
+}

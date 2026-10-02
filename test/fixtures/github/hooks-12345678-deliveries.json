@@ -1,0 +1,24 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.github.com/repos/acme/widgets/hooks/12345678/deliveries"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "id": 55001,
+        "guid": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+        "delivered_at": "2025-09-20T10:00:00Z",
+        "duration": 123,
+        "status": "OK",
+        "status_code": 200,
+        "event": "issues",
+        "action": "opened",
+        "redelivery": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/pullrequests/31/merge"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "id": 31,
+      "state": "MERGED"
+    }
+  }
+}

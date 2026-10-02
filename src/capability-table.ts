@@ -130,6 +130,9 @@ type VerbsOf<R> = R extends { verbs: readonly (infer V extends string)[] } ? V :
 /** A provider verb, named by its path on `ForgeProvider`. */
 export type ForgeVerb = VerbsOf<(typeof TABLE)[number]>
 
+/** Every `ProviderSpec` path the table declares. */
+export type TableSpecPath = SpecOf<(typeof TABLE)[number]>
+
 export const CAPABILITY_TABLE: readonly CapabilityEntry[] = (TABLE as readonly CapabilityEntry[]).map((row) => {
   const spec = row.spec ?? (row.derived ? undefined : row.capability)
   const verbs = row.verbs ?? (spec?.endsWith('Page') ? [spec.slice(0, -4), spec] : spec ? [spec] : undefined)

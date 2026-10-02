@@ -306,6 +306,14 @@ export interface LabelInput {
  */
 export type ReactionContent = '+1' | '-1' | 'laugh' | 'confused' | 'heart' | 'hooray' | 'rocket' | 'eyes'
 
+/** Every name {@link ReactionContent} covers. */
+export const REACTION_CONTENTS: ReactionContent[] = ['+1', '-1', 'laugh', 'confused', 'heart', 'hooray', 'rocket', 'eyes']
+
+/** The normalised name for a forge-native reaction name, or `'other'` where there is none. */
+export function reactionContent(raw: string): ReactionContent | 'other' {
+  return (REACTION_CONTENTS as string[]).includes(raw) ? raw as ReactionContent : 'other'
+}
+
 /** One reaction left on a thread or a comment, as `threads.reactions()` lists them. */
 export interface Reaction {
   /** `'other'` where the forge's name has no entry in {@link ReactionContent}. */
@@ -1197,6 +1205,11 @@ export function namesAreCaseInsensitive(forge: ForgeKind): boolean {
 /** `repo` with `owner` and `name` lowercased where the forge ignores case, so equal repositories compare equal. */
 export function normaliseRepoName(repo: RepoRef): RepoRef {
   return namesAreCaseInsensitive(repo.forge) ? { ...repo, owner: repo.owner.toLowerCase(), name: repo.name.toLowerCase() } : repo
+}
+
+/** Whether `ref` addresses an organisation, group or workspace rather than a repository. */
+export function isNamespaceRef(ref: RepoRef): boolean {
+  return ref.kind === 'namespace' || !ref.name
 }
 
 /**

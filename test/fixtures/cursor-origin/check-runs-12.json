@@ -1,0 +1,40 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.cursor.com/v1/origin/repos/acme/widgets/commits/c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe/check-runs?pageSize=50"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "checkRuns": [
+        {
+          "id": "cr_01",
+          "sha": "c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe",
+          "key": "test",
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success",
+          "detailsUrl": "https://ci.acme.dev/runs/1",
+          "startedAt": "2026-09-19T12:01:00Z",
+          "completedAt": "2026-09-19T12:04:00Z"
+        },
+        {
+          "id": "cr_02",
+          "sha": "c0ffee5c0ffee5c0ffee5c0ffee5c0ffee5c0ffe",
+          "key": "lint",
+          "name": "lint",
+          "status": "completed",
+          "conclusion": "failure",
+          "detailsUrl": "https://ci.acme.dev/runs/2",
+          "startedAt": "2026-09-19T12:01:00Z",
+          "completedAt": "2026-09-19T12:02:00Z"
+        }
+      ],
+      "nextPageToken": ""
+    }
+  }
+}

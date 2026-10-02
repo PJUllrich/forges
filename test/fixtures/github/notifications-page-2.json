@@ -1,0 +1,31 @@
+{
+  "handAuthored": true,
+  "request": { "method": "GET", "url": "https://api.github.com/notifications?all=false&page=2" },
+  "response": {
+    "status": 200,
+    "headers": { "x-ratelimit-remaining": "4997" },
+    "body": [
+      {
+        "id": "901234569",
+        "unread": false,
+        "reason": "author",
+        "updated_at": "2025-09-17T11:45:00Z",
+        "last_read_at": "2025-09-17T12:00:00Z",
+        "url": "https://api.github.com/notifications/threads/901234569",
+        "subject": {
+          "title": "Weekly digest discussion",
+          "url": null,
+          "latest_comment_url": null,
+          "type": "Discussion"
+        },
+        "repository": {
+          "id": 31337,
+          "node_id": "R_kgDOAAB5aQ",
+          "name": "widgets",
+          "full_name": "acme/widgets",
+          "owner": { "login": "acme", "id": 5150, "type": "Organization" }
+        }
+      }
+    ]
+  }
+}

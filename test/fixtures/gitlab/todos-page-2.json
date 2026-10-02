@@ -1,0 +1,44 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://gitlab.com/api/v4/todos?page=2&per_page=20&state=pending"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": [
+      {
+        "id": 102938403,
+        "project": null,
+        "group": {
+          "id": 7781,
+          "name": "platform",
+          "path": "platform",
+          "full_path": "acme/platform"
+        },
+        "author": {
+          "id": 4101,
+          "username": "ada",
+          "name": "Ada",
+          "avatar_url": "https://gitlab.example/avatar/4101",
+          "web_url": "https://gitlab.com/ada",
+          "state": "active"
+        },
+        "action_name": "assigned",
+        "target_type": "Epic",
+        "target": {
+          "id": 66012,
+          "iid": 4,
+          "title": "Q4 performance",
+          "state": "opened"
+        },
+        "target_url": "https://gitlab.com/groups/acme/platform/-/epics/4",
+        "body": "Q4 performance",
+        "state": "pending",
+        "created_at": "2025-09-16T10:00:00.000Z",
+        "updated_at": "2025-09-16T10:00:00.000Z"
+      }
+    ]
+  }
+}

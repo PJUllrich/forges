@@ -1,0 +1,18 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "GET",
+    "url": "https://api.bitbucket.org/2.0/repositories/acme/widgets/refs/branches/main"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "name": "main",
+      "default_merge_strategy": "squash",
+      "merge_strategies": [
+        "squash"
+      ]
+    }
+  }
+}

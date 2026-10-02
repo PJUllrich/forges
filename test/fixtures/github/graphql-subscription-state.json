@@ -1,0 +1,22 @@
+{
+  "handAuthored": true,
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/graphql",
+    "operationName": "SubscriptionState"
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": {
+      "data": {
+        "repository": {
+          "issueOrPullRequest": {
+            "id": "PR_kwDOAAB5ac6abcdef",
+            "viewerSubscription": "SUBSCRIBED"
+          }
+        }
+      }
+    }
+  }
+}
