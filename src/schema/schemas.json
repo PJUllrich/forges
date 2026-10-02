@@ -1,0 +1,3520 @@
+{
+  "Actor": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "login": {
+        "type": "string"
+      },
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "avatarUrl": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "typeRaw": {
+        "type": "string"
+      },
+      "isBotHint": {
+        "type": "boolean"
+      },
+      "app": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "isBotHint",
+      "login"
+    ],
+    "x-forges-type": "Actor"
+  },
+  "AlertSupport": {
+    "type": "object",
+    "properties": {
+      "dependency": {
+        "$ref": "#/components/schemas/Support"
+      },
+      "code_scanning": {
+        "$ref": "#/components/schemas/Support"
+      },
+      "secret": {
+        "$ref": "#/components/schemas/Support"
+      },
+      "advisory": {
+        "$ref": "#/components/schemas/Support"
+      }
+    },
+    "required": [
+      "dependency",
+      "code_scanning",
+      "secret",
+      "advisory"
+    ],
+    "x-forges-type": "AlertSupport"
+  },
+  "AuthKind": {
+    "type": "string",
+    "enum": [
+      "token",
+      "basic",
+      "app",
+      "app-password",
+      "oauth",
+      "anonymous"
+    ],
+    "x-forges-type": "AuthKind"
+  },
+  "Branch": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "sha": {
+        "type": "string"
+      },
+      "isDefault": {
+        "type": "boolean"
+      },
+      "isProtected": {
+        "type": "boolean"
+      },
+      "url": {
+        "type": "string"
+      },
+      "raw": {}
+    },
+    "required": [
+      "name",
+      "sha",
+      "raw"
+    ],
+    "x-forges-type": "Branch"
+  },
+  "ChangedFile": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "previousPath": {
+        "type": "string"
+      },
+      "status": {
+        "$ref": "#/components/schemas/FileStatus"
+      },
+      "statusRaw": {
+        "type": "string"
+      },
+      "additions": {
+        "type": "number"
+      },
+      "deletions": {
+        "type": "number"
+      },
+      "patch": {
+        "type": "string"
+      },
+      "sha": {
+        "type": "string"
+      },
+      "isBinary": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "path",
+      "status"
+    ],
+    "x-forges-type": "ChangedFile"
+  },
+  "Check": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/CheckRef"
+      },
+      "name": {
+        "type": "string"
+      },
+      "state": {
+        "$ref": "#/components/schemas/CheckState"
+      },
+      "stateRaw": {
+        "type": "string"
+      },
+      "conclusionRaw": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "startedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "completedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "name",
+      "state",
+      "stateRaw",
+      "raw"
+    ],
+    "x-forges-type": "Check"
+  },
+  "CheckRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "id": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "check_run",
+          "status",
+          "job",
+          "policy"
+        ]
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "repo",
+      "type"
+    ],
+    "x-forges-type": "CheckRef"
+  },
+  "CheckState": {
+    "type": "string",
+    "enum": [
+      "pending",
+      "success",
+      "failure",
+      "neutral",
+      "unknown"
+    ],
+    "x-forges-type": "CheckState"
+  },
+  "ChecksSummary": {
+    "type": "object",
+    "properties": {
+      "state": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "success",
+          "failure",
+          "unknown"
+        ]
+      },
+      "stateRaw": {
+        "type": "string"
+      },
+      "total": {
+        "type": "number"
+      },
+      "failed": {
+        "type": "number"
+      },
+      "url": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "state"
+    ],
+    "x-forges-type": "ChecksSummary"
+  },
+  "CiJob": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/CiJobRef"
+      },
+      "name": {
+        "type": "string"
+      },
+      "state": {
+        "$ref": "#/components/schemas/CheckState"
+      },
+      "stateRaw": {
+        "type": "string"
+      },
+      "stage": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "startedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "completedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "name",
+      "state",
+      "stateRaw",
+      "raw"
+    ],
+    "x-forges-type": "CiJob"
+  },
+  "CiJobRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "id": {
+        "type": "string"
+      },
+      "run": {
+        "$ref": "#/components/schemas/CiRunRef"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "repo"
+    ],
+    "x-forges-type": "CiJobRef"
+  },
+  "CiRun": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/CiRunRef"
+      },
+      "name": {
+        "type": "string"
+      },
+      "state": {
+        "$ref": "#/components/schemas/CheckState"
+      },
+      "stateRaw": {
+        "type": "string"
+      },
+      "number": {
+        "type": "string"
+      },
+      "eventRaw": {
+        "type": "string"
+      },
+      "branch": {
+        "type": "string"
+      },
+      "sha": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "actor": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "startedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "completedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "name",
+      "state",
+      "stateRaw",
+      "raw"
+    ],
+    "x-forges-type": "CiRun"
+  },
+  "CiRunRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "repo"
+    ],
+    "x-forges-type": "CiRunRef"
+  },
+  "Collaborator": {
+    "type": "object",
+    "properties": {
+      "actor": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "role": {
+        "$ref": "#/components/schemas/RepoRole"
+      },
+      "roleRaw": {
+        "type": "string"
+      },
+      "permissions": {
+        "$ref": "#/components/schemas/RepoPermissions"
+      },
+      "raw": {}
+    },
+    "required": [
+      "actor",
+      "role",
+      "raw"
+    ],
+    "x-forges-type": "Collaborator"
+  },
+  "Comment": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/CommentRef"
+      },
+      "body": {
+        "type": "string"
+      },
+      "author": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "url": {
+        "type": "string"
+      },
+      "reactions": {
+        "$ref": "#/components/schemas/ReactionSummary"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "body",
+      "raw"
+    ],
+    "x-forges-type": "Comment"
+  },
+  "CommentRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "thread": {
+        "$ref": "#/components/schemas/ThreadRef"
+      },
+      "id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "thread"
+    ],
+    "x-forges-type": "CommentRef"
+  },
+  "Commit": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/CommitRef"
+      },
+      "sha": {
+        "type": "string"
+      },
+      "message": {
+        "type": "string"
+      },
+      "author": {
+        "$ref": "#/components/schemas/CommitSignature"
+      },
+      "committer": {
+        "$ref": "#/components/schemas/CommitSignature"
+      },
+      "parents": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "url": {
+        "type": "string"
+      },
+      "stats": {
+        "type": "object",
+        "properties": {
+          "additions": {
+            "type": "number"
+          },
+          "deletions": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "additions",
+          "deletions"
+        ]
+      },
+      "files": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ChangedFile"
+        }
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "sha",
+      "message",
+      "parents",
+      "raw"
+    ],
+    "x-forges-type": "Commit"
+  },
+  "CommitRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "sha": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "instance",
+      "repo",
+      "sha"
+    ],
+    "x-forges-type": "CommitRef"
+  },
+  "CommitSignature": {
+    "type": "object",
+    "properties": {
+      "actor": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "name": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "date": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "x-forges-type": "CommitSignature"
+  },
+  "Comparison": {
+    "type": "object",
+    "properties": {
+      "base": {
+        "type": "string"
+      },
+      "head": {
+        "type": "string"
+      },
+      "aheadBy": {
+        "type": "number"
+      },
+      "behindBy": {
+        "type": "number"
+      },
+      "commits": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Commit"
+        }
+      },
+      "files": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ChangedFile"
+        }
+      },
+      "mergeBaseSha": {
+        "type": "string"
+      },
+      "raw": {}
+    },
+    "required": [
+      "base",
+      "head",
+      "commits",
+      "files",
+      "raw"
+    ],
+    "x-forges-type": "Comparison"
+  },
+  "EventAction": {
+    "type": "string",
+    "enum": [
+      "opened",
+      "closed",
+      "reopened",
+      "merged",
+      "edited",
+      "created",
+      "deleted",
+      "submitted",
+      "labeled",
+      "unlabeled",
+      "assigned",
+      "unassigned",
+      "review_requested",
+      "synchronized",
+      "ready_for_review",
+      "converted_to_draft",
+      "other"
+    ],
+    "x-forges-type": "EventAction"
+  },
+  "EventDetail": {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "comment"
+          },
+          "comment": {
+            "$ref": "#/components/schemas/CommentRef"
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "review_comment"
+          },
+          "comment": {
+            "$ref": "#/components/schemas/CommentRef"
+          },
+          "body": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "line": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "review"
+          },
+          "state": {
+            "$ref": "#/components/schemas/ReviewState"
+          },
+          "stateRaw": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "state"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "state_change"
+          },
+          "state": {
+            "$ref": "#/components/schemas/ThreadState"
+          },
+          "draft": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "label"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "assignment"
+          },
+          "assignee": {
+            "$ref": "#/components/schemas/Actor"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "push"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "before": {
+            "type": "string"
+          },
+          "after": {
+            "type": "string"
+          },
+          "commitCount": {
+            "type": "number"
+          },
+          "forced": {
+            "type": "boolean"
+          },
+          "commits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PushCommit"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "ref",
+          "commitCount",
+          "forced",
+          "commits"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "ref"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "refType": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "ref",
+          "refType"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "repo_renamed"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "from",
+          "to"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "repo_transferred"
+          },
+          "fromOwner": {
+            "type": "string"
+          },
+          "toOwner": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "repo_archived"
+          },
+          "archived": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "archived"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "installation"
+          },
+          "actionRaw": {
+            "type": "string"
+          },
+          "installationId": {
+            "type": "string"
+          },
+          "added": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepoRef"
+            }
+          },
+          "removed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepoRef"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "actionRaw",
+          "added",
+          "removed"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "membership"
+          },
+          "actionRaw": {
+            "type": "string"
+          },
+          "member": {
+            "$ref": "#/components/schemas/Actor"
+          }
+        },
+        "required": [
+          "type",
+          "actionRaw"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "release"
+          },
+          "release": {
+            "$ref": "#/components/schemas/ReleaseRef"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "release"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "referenced"
+          },
+          "from": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ThreadRef"
+              },
+              {
+                "$ref": "#/components/schemas/CommitRef"
+              }
+            ]
+          },
+          "fromRepo": {
+            "$ref": "#/components/schemas/RepoRef"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    ],
+    "x-forges-type": "EventDetail"
+  },
+  "EventKind": {
+    "type": "string",
+    "enum": [
+      "comment",
+      "review",
+      "review_comment",
+      "commit",
+      "label",
+      "state_change",
+      "assignment",
+      "mention",
+      "referenced",
+      "reaction",
+      "push",
+      "ref_created",
+      "ref_deleted",
+      "repo_renamed",
+      "repo_transferred",
+      "repo_archived",
+      "installation_changed",
+      "membership_changed",
+      "release_published",
+      "other"
+    ],
+    "x-forges-type": "EventKind"
+  },
+  "FileContent": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "content": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "BYTES_PER_ELEMENT": {
+                "type": "number"
+              },
+              "buffer": {
+                "type": "object",
+                "properties": {
+                  "byteLength": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "byteLength"
+                ]
+              },
+              "byteLength": {
+                "type": "number"
+              },
+              "byteOffset": {
+                "type": "number"
+              },
+              "length": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "BYTES_PER_ELEMENT",
+              "buffer",
+              "byteLength",
+              "byteOffset",
+              "length"
+            ],
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "encoding": {
+        "$ref": "#/components/schemas/FileEncoding"
+      },
+      "sha": {
+        "type": "string"
+      },
+      "size": {
+        "type": "number"
+      },
+      "url": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "path",
+      "content",
+      "encoding"
+    ],
+    "x-forges-type": "FileContent"
+  },
+  "FileEncoding": {
+    "type": "string",
+    "enum": [
+      "utf-8",
+      "binary"
+    ],
+    "x-forges-type": "FileEncoding"
+  },
+  "FileStatus": {
+    "type": "string",
+    "enum": [
+      "added",
+      "modified",
+      "removed",
+      "renamed",
+      "copied",
+      "changed"
+    ],
+    "x-forges-type": "FileStatus"
+  },
+  "ForgeCapabilities": {
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "experimental": {
+        "type": "boolean",
+        "const": true
+      },
+      "sources": {
+        "type": "object",
+        "properties": {
+          "poll": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "webhook": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "subscribe": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "poll",
+          "webhook",
+          "subscribe"
+        ]
+      },
+      "repos": {
+        "type": "object",
+        "properties": {
+          "get": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "list": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "labels": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "createLabel": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "milestones": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "collaborators": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "permissionFor": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "addCollaborator": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "assignableUsers": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "reviewerCandidates": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "get",
+          "list",
+          "labels",
+          "createLabel",
+          "milestones",
+          "collaborators",
+          "permissionFor",
+          "addCollaborator",
+          "assignableUsers",
+          "reviewerCandidates"
+        ]
+      },
+      "users": {
+        "type": "object",
+        "properties": {
+          "get": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "get"
+        ]
+      },
+      "threads": {
+        "type": "object",
+        "properties": {
+          "get": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "list": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "getMany": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "get",
+          "list",
+          "getMany"
+        ]
+      },
+      "comments": {
+        "type": "object",
+        "properties": {
+          "list": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "edit": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "delete": {
+            "$ref": "#/components/schemas/PerKind"
+          }
+        },
+        "required": [
+          "list",
+          "edit",
+          "delete"
+        ]
+      },
+      "reactions": {
+        "type": "object",
+        "properties": {
+          "list": {
+            "$ref": "#/components/schemas/PerKind"
+          }
+        },
+        "required": [
+          "list"
+        ]
+      },
+      "notifications": {
+        "type": "object",
+        "properties": {
+          "list": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "markRead": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "markDone": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "unsubscribe": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "markAllRead": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "markAllDone": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "unreadCount": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "list",
+          "markRead",
+          "markDone",
+          "unsubscribe",
+          "markAllRead",
+          "markAllDone",
+          "unreadCount"
+        ]
+      },
+      "writes": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "upsertComment": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "close": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "reopen": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "create": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "update": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "setLabels": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "addLabels": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "removeLabels": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "setMilestone": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "react": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "assign": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "requestReview": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "approveAndMerge": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "transfer": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "markDuplicate": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "comment",
+          "upsertComment",
+          "close",
+          "reopen",
+          "create",
+          "update",
+          "setLabels",
+          "addLabels",
+          "removeLabels",
+          "setMilestone",
+          "react",
+          "assign",
+          "requestReview",
+          "approveAndMerge",
+          "transfer",
+          "markDuplicate"
+        ]
+      },
+      "subscriptions": {
+        "type": "object",
+        "properties": {
+          "get": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "set": {
+            "$ref": "#/components/schemas/PerKind"
+          }
+        },
+        "required": [
+          "get",
+          "set"
+        ]
+      },
+      "checks": {
+        "type": "object",
+        "properties": {
+          "thread": {
+            "$ref": "#/components/schemas/PerKind"
+          },
+          "list": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "report": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "rerun": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "thread",
+          "list",
+          "report",
+          "rerun"
+        ]
+      },
+      "ci": {
+        "type": "object",
+        "properties": {
+          "runs": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "run": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "jobs": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "log": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "runs",
+          "run",
+          "jobs",
+          "log"
+        ]
+      },
+      "reviews": {
+        "type": "object",
+        "properties": {
+          "list": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "create": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "submit": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "approve": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "resolveThread": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "list",
+          "create",
+          "submit",
+          "approve",
+          "resolveThread"
+        ]
+      },
+      "contents": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "tree": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "branches": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "resolveRef": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "commits": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "commit": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "compare": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "threadFiles": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "threadCommits": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "file",
+          "tree",
+          "branches",
+          "tags",
+          "resolveRef",
+          "commits",
+          "commit",
+          "compare",
+          "threadFiles",
+          "threadCommits"
+        ]
+      },
+      "webhooks": {
+        "type": "object",
+        "properties": {
+          "list": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "create": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "update": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "delete": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "rotateSecret": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "deliveries": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "redeliver": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "list",
+          "create",
+          "update",
+          "delete",
+          "rotateSecret",
+          "deliveries",
+          "redeliver"
+        ]
+      },
+      "releases": {
+        "type": "object",
+        "properties": {
+          "list": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "get": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "latest": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "getByTag": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "downloadAsset": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "list",
+          "get",
+          "latest",
+          "getByTag",
+          "downloadAsset"
+        ]
+      },
+      "search": {
+        "type": "object",
+        "properties": {
+          "threads": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "repos": {
+            "$ref": "#/components/schemas/Support"
+          },
+          "commits": {
+            "$ref": "#/components/schemas/Support"
+          }
+        },
+        "required": [
+          "threads",
+          "repos",
+          "commits"
+        ]
+      },
+      "securityAlerts": {
+        "$ref": "#/components/schemas/AlertSupport"
+      },
+      "installations": {
+        "$ref": "#/components/schemas/Support"
+      },
+      "eventKinds": {
+        "type": "string",
+        "enum": [
+          "native",
+          "heuristic"
+        ]
+      },
+      "auth": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/AuthKind"
+        }
+      },
+      "limits": {
+        "$ref": "#/components/schemas/TextLimits"
+      }
+    },
+    "required": [
+      "sources",
+      "repos",
+      "users",
+      "threads",
+      "comments",
+      "reactions",
+      "notifications",
+      "writes",
+      "subscriptions",
+      "checks",
+      "ci",
+      "reviews",
+      "contents",
+      "webhooks",
+      "releases",
+      "search",
+      "securityAlerts",
+      "installations",
+      "eventKinds",
+      "auth"
+    ],
+    "x-forges-type": "ForgeCapabilities"
+  },
+  "ForgeEvent": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "id": {
+        "type": "string"
+      },
+      "kind": {
+        "$ref": "#/components/schemas/EventKind"
+      },
+      "kindRaw": {
+        "type": "string"
+      },
+      "action": {
+        "$ref": "#/components/schemas/EventAction"
+      },
+      "actionRaw": {
+        "type": "string"
+      },
+      "summary": {
+        "type": "string"
+      },
+      "occurredAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "actor": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "thread": {
+        "$ref": "#/components/schemas/ThreadRef"
+      },
+      "detail": {
+        "$ref": "#/components/schemas/EventDetail"
+      },
+      "installationId": {
+        "type": "string"
+      },
+      "source": {
+        "$ref": "#/components/schemas/SourceKind"
+      },
+      "payload": {}
+    },
+    "required": [
+      "action",
+      "forge",
+      "id",
+      "instance",
+      "kind",
+      "occurredAt",
+      "payload",
+      "source",
+      "summary"
+    ],
+    "x-forges-type": "ForgeEvent"
+  },
+  "ForgeInstance": {
+    "type": "string",
+    "x-forges-type": "ForgeInstance"
+  },
+  "ForgeKind": {
+    "anyOf": [
+      {
+        "$ref": "#/components/schemas/KnownForgeKind"
+      },
+      {
+        "type": "string"
+      }
+    ],
+    "x-forges-type": "ForgeKind"
+  },
+  "ForgeWarning": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "$ref": "#/components/schemas/ForgeWarningCode"
+      },
+      "message": {
+        "type": "string"
+      },
+      "subject": {
+        "type": "string"
+      },
+      "cause": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "status": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "message"
+        ]
+      }
+    },
+    "required": [
+      "code",
+      "message"
+    ],
+    "x-forges-type": "ForgeWarning"
+  },
+  "ForgeWarningCode": {
+    "type": "string",
+    "x-forges-type": "ForgeWarningCode"
+  },
+  "GetManyResult": {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true
+          },
+          "ref": {
+            "$ref": "#/components/schemas/ThreadRef"
+          },
+          "thread": {
+            "$ref": "#/components/schemas/Thread"
+          }
+        },
+        "required": [
+          "ok",
+          "ref",
+          "thread"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": false
+          },
+          "ref": {
+            "$ref": "#/components/schemas/ThreadRef"
+          },
+          "warning": {
+            "$ref": "#/components/schemas/ForgeWarning"
+          }
+        },
+        "required": [
+          "ok",
+          "ref",
+          "warning"
+        ]
+      }
+    ],
+    "x-forges-type": "GetManyResult"
+  },
+  "Installation": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "id": {
+        "type": "string"
+      },
+      "account": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "targetTypeRaw": {
+        "type": "string"
+      },
+      "repositorySelectionRaw": {
+        "type": "string"
+      },
+      "raw": {}
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "raw"
+    ],
+    "x-forges-type": "Installation"
+  },
+  "InstallationToken": {
+    "type": "object",
+    "properties": {
+      "token": {
+        "type": "string"
+      },
+      "expiresAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "permissions": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "repositorySelection": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "token",
+      "expiresAt",
+      "permissions"
+    ],
+    "x-forges-type": "InstallationToken"
+  },
+  "KnownForgeKind": {
+    "type": "string",
+    "enum": [
+      "github",
+      "gitlab",
+      "bitbucket",
+      "forgejo",
+      "gitea",
+      "tangled",
+      "gitee",
+      "azure-devops",
+      "cursor-origin",
+      "pushin"
+    ],
+    "x-forges-type": "KnownForgeKind"
+  },
+  "Label": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "colour": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "name"
+    ],
+    "x-forges-type": "Label"
+  },
+  "MergeMethod": {
+    "type": "string",
+    "enum": [
+      "merge",
+      "squash",
+      "rebase",
+      "rebase-merge",
+      "fast-forward-only"
+    ],
+    "x-forges-type": "MergeMethod"
+  },
+  "Milestone": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "open",
+          "closed"
+        ]
+      },
+      "description": {
+        "type": "string"
+      },
+      "dueOn": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "url": {
+        "type": "string"
+      },
+      "raw": {}
+    },
+    "required": [
+      "id",
+      "title",
+      "state",
+      "raw"
+    ],
+    "x-forges-type": "Milestone"
+  },
+  "Notification": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/NotificationRef"
+      },
+      "subject": {
+        "$ref": "#/components/schemas/NotificationSubject"
+      },
+      "reason": {
+        "$ref": "#/components/schemas/NotificationReason"
+      },
+      "reasonRaw": {
+        "type": "string"
+      },
+      "subjectTypeRaw": {
+        "type": "string"
+      },
+      "unread": {
+        "type": "boolean"
+      },
+      "title": {
+        "type": "string"
+      },
+      "subjectState": {
+        "$ref": "#/components/schemas/ThreadState"
+      },
+      "subjectStateRaw": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "lastReadAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "url": {
+        "type": "string"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "subject",
+      "reason",
+      "unread",
+      "title",
+      "subjectState",
+      "updatedAt",
+      "raw"
+    ],
+    "x-forges-type": "Notification"
+  },
+  "NotificationReason": {
+    "type": "string",
+    "enum": [
+      "access_requested",
+      "approval_requested",
+      "assigned",
+      "author",
+      "ci_activity",
+      "comment",
+      "followed",
+      "invitation",
+      "manual",
+      "mention",
+      "merge_blocked",
+      "review_requested",
+      "review_submitted",
+      "security_alert",
+      "starred",
+      "state_change",
+      "subscribed",
+      "team_mention",
+      "unknown"
+    ],
+    "x-forges-type": "NotificationReason"
+  },
+  "NotificationRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance"
+    ],
+    "x-forges-type": "NotificationRef"
+  },
+  "NotificationSubject": {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "thread"
+          },
+          "thread": {
+            "$ref": "#/components/schemas/ThreadRef"
+          }
+        },
+        "required": [
+          "type",
+          "thread"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "repo"
+          },
+          "repo": {
+            "$ref": "#/components/schemas/RepoRef"
+          }
+        },
+        "required": [
+          "type",
+          "repo"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "actor"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/Actor"
+          }
+        },
+        "required": [
+          "type",
+          "actor"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "release"
+          },
+          "release": {
+            "$ref": "#/components/schemas/ReleaseRef"
+          }
+        },
+        "required": [
+          "type",
+          "release"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "security_alert"
+          },
+          "alert": {
+            "$ref": "#/components/schemas/SecurityAlertRef"
+          }
+        },
+        "required": [
+          "type",
+          "alert"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "other"
+          },
+          "typeRaw": {
+            "type": "string"
+          },
+          "repo": {
+            "$ref": "#/components/schemas/RepoRef"
+          },
+          "id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "typeRaw"
+        ]
+      }
+    ],
+    "x-forges-type": "NotificationSubject"
+  },
+  "PerKind": {
+    "type": "object",
+    "properties": {
+      "issue": {
+        "$ref": "#/components/schemas/Support"
+      },
+      "pull_request": {
+        "$ref": "#/components/schemas/Support"
+      },
+      "discussion": {
+        "$ref": "#/components/schemas/Support"
+      },
+      "commit": {
+        "$ref": "#/components/schemas/Support"
+      }
+    },
+    "required": [
+      "issue",
+      "pull_request",
+      "discussion",
+      "commit"
+    ],
+    "x-forges-type": "PerKind"
+  },
+  "PullBranches": {
+    "type": "object",
+    "properties": {
+      "head": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "sha": {
+            "type": "string"
+          },
+          "repo": {
+            "$ref": "#/components/schemas/RepoRef"
+          }
+        },
+        "required": [
+          "ref"
+        ]
+      },
+      "base": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "sha": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ref"
+        ]
+      },
+      "mergeCommitSha": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "head",
+      "base"
+    ],
+    "x-forges-type": "PullBranches"
+  },
+  "PushCommit": {
+    "type": "object",
+    "properties": {
+      "sha": {
+        "type": "string"
+      },
+      "message": {
+        "type": "string"
+      },
+      "author": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "sha"
+    ],
+    "x-forges-type": "PushCommit"
+  },
+  "Reaction": {
+    "type": "object",
+    "properties": {
+      "content": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ReactionContent"
+          },
+          {
+            "type": "string",
+            "const": "other"
+          }
+        ]
+      },
+      "contentRaw": {
+        "type": "string"
+      },
+      "actor": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "raw": {}
+    },
+    "required": [
+      "content",
+      "contentRaw",
+      "actor",
+      "raw"
+    ],
+    "x-forges-type": "Reaction"
+  },
+  "ReactionContent": {
+    "type": "string",
+    "enum": [
+      "+1",
+      "-1",
+      "laugh",
+      "confused",
+      "heart",
+      "hooray",
+      "rocket",
+      "eyes"
+    ],
+    "x-forges-type": "ReactionContent"
+  },
+  "ReactionSummary": {
+    "type": "object",
+    "properties": {
+      "total": {
+        "type": "number"
+      },
+      "counts": {
+        "type": "object",
+        "properties": {
+          "+1": {
+            "type": "number"
+          },
+          "-1": {
+            "type": "number"
+          },
+          "laugh": {
+            "type": "number"
+          },
+          "confused": {
+            "type": "number"
+          },
+          "heart": {
+            "type": "number"
+          },
+          "hooray": {
+            "type": "number"
+          },
+          "rocket": {
+            "type": "number"
+          },
+          "eyes": {
+            "type": "number"
+          }
+        }
+      },
+      "viewerReacted": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ReactionContent"
+        }
+      }
+    },
+    "required": [
+      "total",
+      "counts"
+    ],
+    "x-forges-type": "ReactionSummary"
+  },
+  "Release": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/ReleaseRef"
+      },
+      "name": {
+        "type": "string"
+      },
+      "tag": {
+        "type": "string"
+      },
+      "body": {
+        "type": "string"
+      },
+      "isDraft": {
+        "type": "boolean"
+      },
+      "isPrerelease": {
+        "type": "boolean"
+      },
+      "author": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "publishedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "url": {
+        "type": "string"
+      },
+      "assets": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ReleaseAsset"
+        }
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "tag",
+      "isDraft",
+      "isPrerelease",
+      "raw"
+    ],
+    "x-forges-type": "Release"
+  },
+  "ReleaseAsset": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/ReleaseAssetRef"
+      },
+      "name": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "size": {
+        "type": "number"
+      },
+      "downloadCount": {
+        "type": "number"
+      },
+      "contentType": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "url"
+    ],
+    "x-forges-type": "ReleaseAsset"
+  },
+  "ReleaseAssetRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "release": {
+        "$ref": "#/components/schemas/ReleaseRef"
+      },
+      "id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "release",
+      "repo"
+    ],
+    "x-forges-type": "ReleaseAssetRef"
+  },
+  "ReleaseRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "id": {
+        "type": "string"
+      },
+      "tag": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "repo"
+    ],
+    "x-forges-type": "ReleaseRef"
+  },
+  "Repo": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "description": {
+        "type": "string"
+      },
+      "defaultBranch": {
+        "type": "string"
+      },
+      "visibility": {
+        "$ref": "#/components/schemas/RepoVisibility"
+      },
+      "visibilityRaw": {
+        "type": "string"
+      },
+      "isFork": {
+        "type": "boolean"
+      },
+      "isArchived": {
+        "type": "boolean"
+      },
+      "parent": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "topics": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "url": {
+        "type": "string"
+      },
+      "cloneUrls": {
+        "type": "object",
+        "properties": {
+          "https": {
+            "type": "string"
+          },
+          "ssh": {
+            "type": "string"
+          }
+        }
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "pushedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "openIssueCount": {
+        "type": "number"
+      },
+      "openPullCount": {
+        "type": "number"
+      },
+      "permissions": {
+        "$ref": "#/components/schemas/RepoPermissions"
+      },
+      "mergeMethods": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/MergeMethod"
+        }
+      },
+      "features": {
+        "$ref": "#/components/schemas/RepoFeatures"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "visibility",
+      "isFork",
+      "isArchived",
+      "topics",
+      "raw"
+    ],
+    "x-forges-type": "Repo"
+  },
+  "RepoFeatures": {
+    "type": "object",
+    "properties": {
+      "issues": {
+        "type": "boolean"
+      },
+      "pullRequests": {
+        "type": "boolean"
+      },
+      "discussions": {
+        "type": "boolean"
+      },
+      "wiki": {
+        "type": "boolean"
+      },
+      "projects": {
+        "type": "boolean"
+      },
+      "releases": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "issues",
+      "pullRequests",
+      "discussions",
+      "wiki",
+      "projects",
+      "releases"
+    ],
+    "x-forges-type": "RepoFeatures"
+  },
+  "RepoPermissions": {
+    "type": "object",
+    "properties": {
+      "admin": {
+        "type": "boolean"
+      },
+      "maintain": {
+        "type": "boolean"
+      },
+      "push": {
+        "type": "boolean"
+      },
+      "triage": {
+        "type": "boolean"
+      },
+      "pull": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "admin",
+      "maintain",
+      "push",
+      "triage",
+      "pull"
+    ],
+    "x-forges-type": "RepoPermissions"
+  },
+  "RepoRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "owner": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "repo",
+          "namespace"
+        ]
+      },
+      "externalId": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "instance",
+      "name",
+      "owner"
+    ],
+    "x-forges-type": "RepoRef"
+  },
+  "RepoRole": {
+    "type": "string",
+    "enum": [
+      "admin",
+      "maintain",
+      "write",
+      "triage",
+      "read",
+      "none"
+    ],
+    "x-forges-type": "RepoRole"
+  },
+  "RepoVisibility": {
+    "type": "string",
+    "enum": [
+      "public",
+      "private",
+      "internal"
+    ],
+    "x-forges-type": "RepoVisibility"
+  },
+  "Review": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/ReviewRef"
+      },
+      "author": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "state": {
+        "$ref": "#/components/schemas/ReviewState"
+      },
+      "stateRaw": {
+        "type": "string"
+      },
+      "body": {
+        "type": "string"
+      },
+      "submittedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "comments": {
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewComment"
+            }
+          },
+          {
+            "type": "boolean",
+            "const": false
+          }
+        ]
+      },
+      "url": {
+        "type": "string"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "state",
+      "comments",
+      "raw"
+    ],
+    "x-forges-type": "Review"
+  },
+  "ReviewComment": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/CommentRef"
+      },
+      "body": {
+        "type": "string"
+      },
+      "author": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "path": {
+        "type": "string"
+      },
+      "line": {
+        "type": "number"
+      },
+      "side": {
+        "type": "string",
+        "enum": [
+          "left",
+          "right"
+        ]
+      },
+      "inReplyTo": {
+        "type": "string"
+      },
+      "thread": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "resolved": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "resolved"
+        ]
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "url": {
+        "type": "string"
+      },
+      "raw": {}
+    },
+    "required": [
+      "body",
+      "raw"
+    ],
+    "x-forges-type": "ReviewComment"
+  },
+  "ReviewCommentInput": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "line": {
+        "type": "number"
+      },
+      "side": {
+        "type": "string",
+        "enum": [
+          "left",
+          "right"
+        ]
+      },
+      "startLine": {
+        "type": "number"
+      },
+      "body": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "x-forges-type": "ReviewCommentInput"
+  },
+  "ReviewRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "thread": {
+        "$ref": "#/components/schemas/ThreadRef"
+      },
+      "id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "thread"
+    ],
+    "x-forges-type": "ReviewRef"
+  },
+  "ReviewState": {
+    "type": "string",
+    "enum": [
+      "approved",
+      "changes_requested",
+      "commented",
+      "pending",
+      "dismissed",
+      "unknown"
+    ],
+    "x-forges-type": "ReviewState"
+  },
+  "Reviewer": {
+    "type": "object",
+    "properties": {
+      "actor": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "state": {
+        "$ref": "#/components/schemas/ReviewState"
+      },
+      "stateRaw": {
+        "type": "string"
+      },
+      "isTeam": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "actor",
+      "state"
+    ],
+    "x-forges-type": "Reviewer"
+  },
+  "SecurityAlert": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/SecurityAlertRef"
+      },
+      "kind": {
+        "$ref": "#/components/schemas/SecurityAlertKind"
+      },
+      "kindRaw": {
+        "type": "string"
+      },
+      "severity": {
+        "$ref": "#/components/schemas/SecuritySeverity"
+      },
+      "severityRaw": {
+        "type": "string"
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "open",
+          "fixed",
+          "dismissed",
+          "unknown"
+        ]
+      },
+      "stateRaw": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "package": {
+        "type": "object",
+        "properties": {
+          "ecosystem": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "vulnerableRange": {
+            "type": "string"
+          },
+          "fixedIn": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "url": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "dismissedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "kind",
+      "kindRaw",
+      "severity",
+      "state",
+      "stateRaw",
+      "title",
+      "raw"
+    ],
+    "x-forges-type": "SecurityAlert"
+  },
+  "SecurityAlertKind": {
+    "type": "string",
+    "enum": [
+      "dependency",
+      "code_scanning",
+      "secret",
+      "advisory",
+      "other"
+    ],
+    "x-forges-type": "SecurityAlertKind"
+  },
+  "SecurityAlertRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "id": {
+        "type": "string"
+      },
+      "kind": {
+        "$ref": "#/components/schemas/SecurityAlertKind"
+      },
+      "severityRaw": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "repo"
+    ],
+    "x-forges-type": "SecurityAlertRef"
+  },
+  "SecuritySeverity": {
+    "type": "string",
+    "enum": [
+      "critical",
+      "high",
+      "medium",
+      "low",
+      "unknown"
+    ],
+    "x-forges-type": "SecuritySeverity"
+  },
+  "SourceKind": {
+    "type": "string",
+    "enum": [
+      "poll",
+      "webhook",
+      "subscribe"
+    ],
+    "x-forges-type": "SourceKind"
+  },
+  "SubscriptionState": {
+    "type": "string",
+    "enum": [
+      "subscribed",
+      "ignored",
+      "none"
+    ],
+    "x-forges-type": "SubscriptionState"
+  },
+  "Support": {
+    "anyOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "string",
+        "const": "emulated"
+      },
+      {
+        "type": "string",
+        "const": "experimental"
+      }
+    ],
+    "x-forges-type": "Support"
+  },
+  "Tag": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "sha": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "raw": {}
+    },
+    "required": [
+      "name",
+      "sha",
+      "raw"
+    ],
+    "x-forges-type": "Tag"
+  },
+  "TextLimits": {
+    "type": "object",
+    "properties": {
+      "bodyLength": {
+        "type": "number"
+      },
+      "commentLength": {
+        "type": "number"
+      },
+      "labelLength": {
+        "type": "number"
+      }
+    },
+    "x-forges-type": "TextLimits"
+  },
+  "Thread": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/ThreadRef"
+      },
+      "kind": {
+        "$ref": "#/components/schemas/ThreadKind"
+      },
+      "title": {
+        "type": "string"
+      },
+      "body": {
+        "type": "string"
+      },
+      "state": {
+        "$ref": "#/components/schemas/ThreadState"
+      },
+      "stateRaw": {
+        "type": "string"
+      },
+      "stateReason": {
+        "type": "string"
+      },
+      "isDraft": {
+        "type": "boolean"
+      },
+      "author": {
+        "$ref": "#/components/schemas/Actor"
+      },
+      "assignees": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Actor"
+        }
+      },
+      "reviewers": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Reviewer"
+        }
+      },
+      "labels": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Label"
+        }
+      },
+      "url": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "closedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "lastActivityAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "locked": {
+        "type": "boolean"
+      },
+      "commentCount": {
+        "type": "number"
+      },
+      "participants": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Actor"
+        }
+      },
+      "readState": {
+        "type": "string",
+        "enum": [
+          "read",
+          "unread"
+        ]
+      },
+      "subscription": {
+        "$ref": "#/components/schemas/SubscriptionState"
+      },
+      "milestone": {
+        "$ref": "#/components/schemas/Milestone"
+      },
+      "reactions": {
+        "$ref": "#/components/schemas/ReactionSummary"
+      },
+      "branches": {
+        "$ref": "#/components/schemas/PullBranches"
+      },
+      "checks": {
+        "$ref": "#/components/schemas/ChecksSummary"
+      },
+      "stack": {
+        "$ref": "#/components/schemas/ThreadStack"
+      },
+      "warnings": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ForgeWarning"
+        }
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "kind",
+      "title",
+      "state",
+      "isDraft",
+      "assignees",
+      "reviewers",
+      "labels",
+      "raw"
+    ],
+    "x-forges-type": "Thread"
+  },
+  "ThreadKind": {
+    "type": "string",
+    "enum": [
+      "issue",
+      "pull_request",
+      "discussion",
+      "commit",
+      "other"
+    ],
+    "x-forges-type": "ThreadKind"
+  },
+  "ThreadRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "repo": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "kind": {
+        "$ref": "#/components/schemas/ThreadKind"
+      },
+      "typeRaw": {
+        "type": "string"
+      },
+      "number": {
+        "type": "string"
+      },
+      "displayNumber": {
+        "type": "string"
+      },
+      "externalId": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "instance",
+      "kind",
+      "repo"
+    ],
+    "x-forges-type": "ThreadRef"
+  },
+  "ThreadStack": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "parent": {
+        "$ref": "#/components/schemas/ThreadRef"
+      }
+    },
+    "x-forges-type": "ThreadStack"
+  },
+  "ThreadState": {
+    "type": "string",
+    "enum": [
+      "open",
+      "closed",
+      "merged",
+      "unknown"
+    ],
+    "x-forges-type": "ThreadState"
+  },
+  "TreeEntry": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "type": {
+        "$ref": "#/components/schemas/TreeEntryType"
+      },
+      "sha": {
+        "type": "string"
+      },
+      "size": {
+        "type": "number"
+      },
+      "mode": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "path",
+      "type"
+    ],
+    "x-forges-type": "TreeEntry"
+  },
+  "TreeEntryType": {
+    "type": "string",
+    "enum": [
+      "file",
+      "directory",
+      "symlink",
+      "submodule"
+    ],
+    "x-forges-type": "TreeEntryType"
+  },
+  "UpsertCommentResult": {
+    "type": "object",
+    "properties": {
+      "comment": {
+        "$ref": "#/components/schemas/Comment"
+      },
+      "created": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "comment",
+      "created"
+    ],
+    "x-forges-type": "UpsertCommentResult"
+  },
+  "User": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "login": {
+        "type": "string"
+      },
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "avatarUrl": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "typeRaw": {
+        "type": "string"
+      },
+      "isBotHint": {
+        "type": "boolean"
+      },
+      "app": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "bio": {
+        "type": "string"
+      },
+      "company": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "websiteUrl": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "followers": {
+        "type": "number"
+      },
+      "following": {
+        "type": "number"
+      },
+      "publicRepos": {
+        "type": "number"
+      },
+      "raw": {}
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "isBotHint",
+      "login",
+      "raw"
+    ],
+    "x-forges-type": "User"
+  },
+  "Webhook": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/WebhookRef"
+      },
+      "url": {
+        "type": "string"
+      },
+      "events": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/EventKind"
+        }
+      },
+      "nativeEvents": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "contentType": {
+        "type": "string",
+        "enum": [
+          "json",
+          "form"
+        ]
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "url",
+      "events",
+      "nativeEvents",
+      "active",
+      "raw"
+    ],
+    "x-forges-type": "Webhook"
+  },
+  "WebhookDeliveryRecord": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "$ref": "#/components/schemas/WebhookDeliveryRef"
+      },
+      "event": {
+        "type": "string"
+      },
+      "status": {
+        "type": "number"
+      },
+      "ok": {
+        "type": "boolean"
+      },
+      "deliveredAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "duration": {
+        "type": "number"
+      },
+      "raw": {}
+    },
+    "required": [
+      "ref",
+      "event",
+      "status",
+      "ok",
+      "raw"
+    ],
+    "x-forges-type": "WebhookDeliveryRecord"
+  },
+  "WebhookDeliveryRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "hook": {
+        "$ref": "#/components/schemas/WebhookRef"
+      },
+      "id": {
+        "type": "string"
+      },
+      "guid": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "hook",
+      "id",
+      "instance"
+    ],
+    "x-forges-type": "WebhookDeliveryRef"
+  },
+  "WebhookRef": {
+    "type": "object",
+    "properties": {
+      "forge": {
+        "$ref": "#/components/schemas/ForgeKind"
+      },
+      "instance": {
+        "$ref": "#/components/schemas/ForgeInstance"
+      },
+      "target": {
+        "$ref": "#/components/schemas/RepoRef"
+      },
+      "id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "forge",
+      "id",
+      "instance",
+      "target"
+    ],
+    "x-forges-type": "WebhookRef"
+  }
+}

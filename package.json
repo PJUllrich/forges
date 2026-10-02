@@ -52,9 +52,11 @@
     "./github": "./src/github/index.ts",
     "./gitlab": "./src/gitlab/index.ts",
     "./pushin": "./src/pushin/index.ts",
+    "./schema": "./src/schema/index.ts",
     "./tangled": "./src/tangled/index.ts",
     "./testing": "./src/testing/index.ts",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./schema/*.json": "./dist/schema/*.json"
   },
   "types": "./dist/index.d.mts",
   "publishConfig": {
@@ -71,16 +73,11 @@
       "./github": "./dist/github/index.mjs",
       "./gitlab": "./dist/gitlab/index.mjs",
       "./pushin": "./dist/pushin/index.mjs",
+      "./schema": "./dist/schema/index.mjs",
       "./tangled": "./dist/tangled/index.mjs",
       "./testing": "./dist/testing/index.mjs",
-      "./package.json": "./package.json"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/index.d.mts"
-      ]
+      "./package.json": "./package.json",
+      "./schema/*.json": "./dist/schema/*.json"
     }
   },
   "files": [
@@ -90,7 +87,7 @@
     "node": ">=22.18"
   },
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown && node scripts/generate-schemas.ts --dist",
     "dev": "vitest dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -122,6 +119,7 @@
     "publint": "0.3.24",
     "rolldown": "1.2.11",
     "simple-git-hooks": "2.14.0",
+    "ts-json-schema-generator": "2.9.0",
     "tsdown": "0.22.14",
     "typescript": "6.0.3",
     "vitest": "5.0.1"
