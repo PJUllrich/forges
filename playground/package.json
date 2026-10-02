@@ -3,9 +3,17 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "node index.js"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "prepare": "nuxt prepare",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "forges": "workspace:*"
+    "forges": "workspace:*",
+    "nuxt": "npm:nuxt-nightly@5x"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3",
+    "vue-tsc": "^3.3.11"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "name": "@forges-examples/fixture-fetch",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "forges": "workspace:*"
+  }
+}

@@ -1,0 +1,30 @@
+# `release-digest`
+
+Prints the latest release of each repository you pass, and its open pull requests with failing checks. The repositories can be on any number of forges.
+
+The digest reads the checks of each open pull request once, with `threads.checks()`. The result has the names of the failing checks and the failed and total counts. When a forge doesn't support an operation, such as listing releases on Bitbucket, the digest prints a warning to stderr and continues.
+
+## Run it
+
+```sh
+FORGES_GITHUB_TOKEN=ghp_... FORGES_GITLAB_TOKEN=glpat-... \
+pnpm --filter @forges-examples/release-digest start \
+  github:acme/widgets gitlab:acme/platform/widgets
+```
+
+```
+github  acme/widgets  v1.2.0 (2025-09-10)
+  #42  Add retry handling to the uploader 1/3 failed  [lint]
+gitlab  acme/platform/widgets  v2.0.0 (2025-09-10)
+  #23  Cache compiled templates 1/3 failed  [test: lint]
+```
+
+Each argument is `<forge>:<owner>/<name>`. A GitLab owner can contain slashes, as in `gitlab:acme/platform/widgets`.
+
+## Run the tests
+
+```sh
+pnpm --filter @forges-examples/release-digest test
+```
+
+The tests run the GitHub, GitLab, Forgejo, and Bitbucket providers against the fixtures in `test/fixtures/`, without a network connection.
