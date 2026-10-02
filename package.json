@@ -41,12 +41,16 @@
   "sideEffects": false,
   "exports": {
     ".": "./src/index.ts",
+    "./fake": "./src/fake/index.ts",
+    "./testing": "./src/testing/index.ts",
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.mts",
   "publishConfig": {
     "exports": {
       ".": "./dist/index.mjs",
+      "./fake": "./dist/fake/index.mjs",
+      "./testing": "./dist/testing/index.mjs",
       "./package.json": "./package.json"
     }
   },
