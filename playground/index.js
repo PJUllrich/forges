@@ -1,7 +1,9 @@
 import assert from 'node:assert'
-import * as pkg from 'forges'
+import { createForges } from 'forges'
+
+const forges = createForges([])
 
 // eslint-disable-next-line no-console
-console.log(pkg.welcome())
+console.log(forges.providers)
 
-assert.strictEqual(pkg.welcome(), 'hello world')
+assert.deepStrictEqual(forges.providers, [])

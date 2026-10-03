@@ -1,0 +1,185 @@
+import type { ForgeInstance, ForgeKind, MergeMethod } from './model.ts'
+
+export interface ForgeErrorContext {
+  forge?: ForgeKind
+  instance?: ForgeInstance
+  url?: string
+  method?: string
+}
+
+export class ForgeError extends Error {
+  override name = 'ForgeError'
+  readonly forge?: ForgeKind
+  readonly instance?: ForgeInstance
+  readonly url?: string
+  readonly method?: string
+
+  constructor(message: string, context: ForgeErrorContext = {}, options?: ErrorOptions) {
+    super(message, options)
+    this.forge = context.forge
+    this.instance = context.instance
+    this.url = context.url
+    this.method = context.method
+  }
+}
+
+export class ForgeApiError extends ForgeError {
+  override name = 'ForgeApiError'
+  readonly status: number
+  /** Truncated response body, for diagnostics. */
+  readonly body: string
+
+  constructor(message: string, status: number, body: string, context?: ForgeErrorContext) {
+    super(message, context)
+    this.status = status
+    this.body = body
+  }
+}
+
+export class RateLimitedError extends ForgeApiError {
+  override name = 'RateLimitedError'
+  readonly resetAt?: Date
+  /** A secondary (abuse) limit, which has no remaining-request counter. */
+  readonly secondary: boolean
+
+  constructor(
+    message: string,
+    status: number,
+    body: string,
+    options: { resetAt?: Date, secondary?: boolean } & ForgeErrorContext = {},
+  ) {
+    super(message, status, body, options)
+    this.resetAt = options.resetAt
+    this.secondary = options.secondary ?? false
+  }
+}
+
+export class TokenRevokedError extends ForgeApiError {
+  override name = 'TokenRevokedError'
+}
+
+/** The credential is valid but lacks the scope or permission for this call. */
+export class InsufficientScopeError extends ForgeApiError {
+  override name = 'InsufficientScopeError'
+}
+
+/**
+ * Why the forge refused a request the credential is otherwise valid for.
+ * `unknown` is a 403 whose body matched nothing recognised.
+ */
+export type ForbiddenReason = 'org_restriction' | 'sso_required' | 'rate_limit_abuse' | 'resource_protected' | 'unknown'
+
+/**
+ * The forge refused the request for a reason other than a missing scope: an
+ * organisation policy, an SSO requirement, an abuse limit, or a protected
+ * resource. A missing scope is {@link InsufficientScopeError}.
+ */
+export class ForbiddenError extends ForgeApiError {
+  override name = 'ForbiddenError'
+  readonly reason: ForbiddenReason
+  /** The forge's own wording, for diagnostics and for reasons not yet mapped. */
+  readonly reasonRaw?: string
+
+  constructor(message: string, status: number, body: string, reason: ForbiddenReason, context?: ForgeErrorContext & { reasonRaw?: string }) {
+    super(message, status, body, context)
+    this.reason = reason
+    this.reasonRaw = context?.reasonRaw
+  }
+}
+
+/** Body patterns that identify a 403 reason, most specific first. */
+const FORBIDDEN_PATTERNS: Array<[ForbiddenReason, RegExp]> = [
+  ['org_restriction', /third[- ]party application|OAuth App access restrictions|organization has enabled OAuth|not authorized by the organization|blocked by the organization/i],
+  ['sso_required', /SAML|single sign[- ]on|SSO|must be granted .* organization/i],
+  ['rate_limit_abuse', /abuse detection|secondary rate limit/i],
+  ['resource_protected', /archived|read[- ]only|protected branch|repository has been disabled|is disabled/i],
+]
+
+/**
+ * Classifies a 403 body. Returns `undefined` for a body that names no policy
+ * the caller could act on, which stays {@link InsufficientScopeError}.
+ */
+export function forbiddenReason(body: string): { reason: ForbiddenReason, reasonRaw?: string } | undefined {
+  for (const [reason, pattern] of FORBIDDEN_PATTERNS) {
+    const match = body.match(pattern)
+    if (match) {
+      return { reason, reasonRaw: match[0] }
+    }
+  }
+  return undefined
+}
+
+/** The pull request cannot be merged yet, typically because of failing or pending checks or branch protection. */
+export class MergeBlockedError extends ForgeApiError {
+  override name = 'MergeBlockedError'
+}
+
+/** The merge conflicts with the base branch, or the head moved since `sha` was read. */
+export class MergeConflictError extends ForgeApiError {
+  override name = 'MergeConflictError'
+}
+
+export class ForgeTimeoutError extends ForgeError {
+  override name = 'ForgeTimeoutError'
+  readonly timeout: number
+
+  constructor(message: string, timeout: number, context?: ForgeErrorContext, options?: ErrorOptions) {
+    super(message, context, options)
+    this.timeout = timeout
+  }
+}
+
+/** A subscription connection closed or failed. Resume from `cursor`. */
+export class SubscriptionClosedError extends ForgeError {
+  override name = 'SubscriptionClosedError'
+  readonly cursor?: string
+
+  constructor(message: string, cursor: string | undefined, context?: ForgeErrorContext, options?: ErrorOptions) {
+    super(message, context, options)
+    this.cursor = cursor
+  }
+}
+
+/** The request never got a response: DNS, TLS, connection refused or a proxy refusal. */
+export class ForgeNetworkError extends ForgeError {
+  override name = 'ForgeNetworkError'
+}
+
+export class WebhookVerificationError extends ForgeError {
+  override name = 'WebhookVerificationError'
+}
+
+export class UnsupportedOperationError extends ForgeError {
+  override name = 'UnsupportedOperationError'
+}
+
+/** A write was called on a provider constructed with `readOnly: true`. */
+export class ReadOnlyError extends UnsupportedOperationError {
+  override name = 'ReadOnlyError'
+}
+
+/** `contents.file` was asked for text and the file's bytes are not valid UTF-8. */
+export class ContentNotTextError extends ForgeError {
+  override name = 'ContentNotTextError'
+}
+
+/** A ref names a forge instance no registered provider serves. */
+export class UnknownForgeError extends ForgeError {
+  override name = 'UnknownForgeError'
+}
+
+/** The thread ref has no number, or is a kind the provider cannot address. */
+export class UnresolvedThreadError extends ForgeError {
+  override name = 'UnresolvedThreadError'
+}
+
+/** No merge method was given and the repository allows more than one. */
+export class MergeMethodRequiredError extends ForgeError {
+  override name = 'MergeMethodRequiredError'
+  readonly allowed: MergeMethod[]
+
+  constructor(allowed: MergeMethod[], context?: ForgeErrorContext) {
+    super(`Repository allows ${allowed.length ? allowed.join(', ') : 'no merge methods'}; pass \`method\` explicitly`, context)
+    this.allowed = allowed
+  }
+}
