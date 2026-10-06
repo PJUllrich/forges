@@ -6,9 +6,16 @@ const url = previewUrl ?? 'https://forges.link'
 
 export default defineNuxtConfig({
   extends: ['docus'],
+  modules: ['@nuxtjs/critters'],
   docus: {
     assistant: {
       enabled: false,
+    },
+  },
+  critters: {
+    config: {
+      // The color mode script adds `.dark` to `<html>` before first paint, so the dark theme stays inlined.
+      allowRules: [/\.dark\b/],
     },
   },
   site: {
