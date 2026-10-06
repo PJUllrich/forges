@@ -65,3 +65,22 @@ jobs:
 
       - name: 🟩 Coverage
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
+
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3
+        with:
+          cache: true
+          install: false
+
+      - name: 📦 Install dependencies
+        run: pnpm install
+
+      - name: 🛠 Build docs
+        run: pnpm --filter forges-docs build
+
+      - name: 🧪 Test docs
+        run: pnpm test:docs

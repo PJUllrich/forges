@@ -12,6 +12,15 @@ export default defineNuxtConfig({
       enabled: false,
     },
   },
+  agentDiscovery: {
+    // Narrower than the default `/_`, so a missing `/__*` page still gets a markdown 404.
+    excludePrefixes: {
+      replace: ['/_nuxt/', '/__nuxt', '/_og', '/_ipx/', '/_fonts/', '/_vercel/', '/__sitemap__/', '/api/', '/mcp', '/.well-known/'],
+    },
+  },
+  mcp: {
+    name: 'forges',
+  },
   critters: {
     config: {
       // The color mode script adds `.dark` to `<html>` before first paint, so the dark theme stays inlined.
