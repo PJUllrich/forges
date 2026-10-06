@@ -118,6 +118,30 @@ describe('github provider', () => {
     expect(event.occurredAt.toISOString()).toBe('2025-03-31T13:49:12.000Z')
     expect(event.summary).toBe('Ada Lovelace committed adbc974')
   })
+
+  it('ends the notification listing on the last page and reports the etag on the page', async () => {
+    const conditions: Array<string | null> = []
+    const provider = github({
+      auth: { type: 'token', token: 't' },
+      fetch: async (_url, init) => {
+        conditions.push((init!.headers as Headers).get('if-none-match'))
+        return conditions.length === 1
+          ? new Response('[]', { status: 200, headers: { 'content-type': 'application/json', 'etag': 'W/"first"' } })
+          : new Response(null, { status: 304, headers: { etag: 'W/"first"' } })
+      },
+    }).create()
+
+    const page = await provider.notifications.listPage()
+
+    expect(page.cursor).toBeUndefined()
+    expect(page.etag).toBe('W/"first"')
+
+    const again = await provider.notifications.listPage({ cursor: { etag: page.etag } })
+
+    expect(again.notModified).toBe(true)
+    expect(again.etag).toBe('W/"first"')
+    expect(conditions).toEqual([null, 'W/"first"'])
+  })
 })
 
 describe('github discussions', () => {

@@ -262,7 +262,14 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     })
     const items = (result.data ?? []).map(raw => toNotification(instance, raw))
     const warnings = await resolveDiscussionNumbers(items)
-    return { items, cursor: result.cursor, notModified: result.notModified, warnings: warnings.length ? warnings : undefined }
+    const etag = listOptions.cursor?.nextUrl ? undefined : result.cursor?.etag ?? listOptions.cursor?.etag
+    return {
+      items,
+      cursor: result.cursor?.nextUrl ? result.cursor : undefined,
+      ...etag ? { etag } : {},
+      notModified: result.notModified,
+      warnings: warnings.length ? warnings : undefined,
+    }
   }
 
   async function discussionId(ref: ResolvedThreadRef): Promise<string> {

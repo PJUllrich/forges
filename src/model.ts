@@ -1005,6 +1005,11 @@ export interface Page<T> {
   rateLimit?: RateLimit
   /** Absent when the listing is exhausted. */
   cursor?: Cursor
+  /**
+   * Validator of the first page, where the forge supports conditional
+   * requests. Pass it back as `cursor: { etag }` to read the first page again.
+   */
+  etag?: string
   /** True when the forge reported no change since `cursor.etag`. */
   notModified?: boolean
   warnings?: ForgeWarning[]

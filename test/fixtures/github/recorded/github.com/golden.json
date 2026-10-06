@@ -3252,6 +3252,7 @@
       "nextUrl": "https://api.github.com/notifications?all=false&per_page=3&page=2",
       "etag": "W/\"6abaa1de9dbdc96a764744d100576b3e5aee60e8ad1be18c70b66a21492bb566\""
     },
+    "etag": "W/\"6abaa1de9dbdc96a764744d100576b3e5aee60e8ad1be18c70b66a21492bb566\"",
     "notModified": false
   },
   "checks": {
