@@ -8,7 +8,7 @@ const mark = '<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" vie
   <div class="w-full h-full flex flex-col justify-between bg-neutral-950 px-20 py-16">
     <!-- Corner glows matching the hero. -->
     <div class="absolute top-0 left-0 w-225 h-160 bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.38)_0%,rgba(249,115,22,0.12)_40%,transparent_70%)]" />
-    <div class="absolute top-0 right-0 w-175 h-125 bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.28)_0%,rgba(244,63,94,0.08)_40%,transparent_70%)]" />
+    <div class="absolute top-0 right-0 w-175 h-150 bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.28)_0%,rgba(244,63,94,0.08)_40%,transparent_70%)]" />
 
     <div class="flex items-center">
       <!-- eslint-disable-next-line vue/no-v-html -->

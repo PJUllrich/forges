@@ -7,7 +7,7 @@ const mark = '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" vie
 <template>
   <div class="w-full h-full flex flex-col items-center justify-center bg-neutral-950 px-20 py-16">
     <div class="absolute top-0 left-0 w-250 h-160 bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.42)_0%,rgba(249,115,22,0.14)_40%,transparent_70%)]" />
-    <div class="absolute top-0 right-0 w-200 h-125 bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.30)_0%,rgba(244,63,94,0.09)_40%,transparent_70%)]" />
+    <div class="absolute top-0 right-0 w-200 h-150 bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.30)_0%,rgba(244,63,94,0.09)_40%,transparent_70%)]" />
 
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div
