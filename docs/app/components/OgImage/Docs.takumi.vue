@@ -36,7 +36,7 @@ const mark = '<svg width="72" height="72" viewBox="0 0 800 800" fill="none" xmln
         style="font-family: Fraenkisch"
         class="m-0 mb-6 text-[68px] text-white leading-[1.1] w-full max-w-240 wrap-break-word"
       >
-        {{ title?.slice(0, 60) }}
+        {{ title?.slice(0, 60).toLowerCase() }}
       </h1>
       <p
         v-if="description"
