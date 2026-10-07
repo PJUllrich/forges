@@ -4,7 +4,7 @@ import type { AnonymousAuth, ForgeOptionsBase, TokenAuth, VerbScopes } from '../
 import type { ForgeVerb } from '../supports.ts'
 import type { PushinCollaborator, PushinComment, PushinLabel, PushinNotification, PushinRepository, PushinThread } from './types.ts'
 import { defineForgeProvider, perKind, verb } from '../define.ts'
-import { createListing, getManyConcurrently, requireIssueOrPull, toPage } from '../utils.ts'
+import { createListing, getManyConcurrently, requireIssueOrPull, resolveToken, toPage } from '../utils.ts'
 import { githubShapedWeb } from '../web.ts'
 import { FORGE, toActor, toCollaborator, toComment, toLabel, toNotification, toRepo, toThread } from './normalise.ts'
 
@@ -84,7 +84,7 @@ function setupPushin({ instance, origin: context, fetcher, baseUrl }: ProviderCo
     traits: {
       poll: false,
       eventKinds: 'native',
-      auth: ['token', 'anonymous'],
+      authKinds: ['token', 'anonymous'],
     },
     repos: {
       get: verb(true, async repo => toRepo({ forge: FORGE, instance }, (await fetcher.json<PushinRepository>(repoPath(repo))).data)),
@@ -116,13 +116,13 @@ function setupPushin({ instance, origin: context, fetcher, baseUrl }: ProviderCo
 }
 
 const PUSHIN: ProviderDefinition<PushinOptions> = {
-  kind: FORGE,
+  forge: FORGE,
   experimental: true,
   anonymous: true,
   baseUrl: 'https://pushin.eu',
   apiPath: '/api/v1',
   headers: { accept: 'application/vnd.github+json' },
-  authHeaders: ({ options: { auth } }) => auth?.type === 'token' ? () => ({ authorization: `Bearer ${auth.token}` }) : undefined,
+  authHeaders: ({ options: { auth } }) => auth?.type === 'token' ? async () => ({ authorization: `Bearer ${await resolveToken(auth)}` }) : undefined,
   setup: setupPushin,
 }
 

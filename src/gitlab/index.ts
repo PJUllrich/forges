@@ -74,7 +74,7 @@ import { fromBase64, toFileContent } from '../contents.ts'
 import { defineForgeProvider, perKind, verb } from '../define.ts'
 import { InsufficientScopeError, NotFoundError, soleMergeMethod, TokenRevokedError, toMergeError, UnresolvedThreadError, UnsupportedOperationError } from '../errors.ts'
 import { isNamespaceRef, reactionContent } from '../model.ts'
-import { createListing, getManyConcurrently, hexColour, memo, memoBy, phased, requireIssueOrPull, requireThread, syntheticReview, toDate, toPage, toWarning, versionAtLeast } from '../utils.ts'
+import { createListing, getManyConcurrently, hexColour, memo, memoBy, phased, requireIssueOrPull, requireThread, resolveToken, syntheticReview, toDate, toPage, toWarning, versionAtLeast } from '../utils.ts'
 import { nativeEventsFor } from '../webhooks.ts'
 import {
   FORGE,
@@ -173,12 +173,12 @@ function threadPath(ref: ResolvedThreadRef): string {
 }
 
 const GITLAB: ProviderDefinition<GitLabOptions> = {
-  kind: FORGE,
+  forge: FORGE,
   baseUrl: 'https://gitlab.com',
   anonymous: true,
   apiPath: '/api/v4',
   headers: { accept: 'application/json' },
-  authHeaders: ({ options: { auth } }) => auth?.type === 'token' ? () => ({ authorization: `Bearer ${auth.token}` }) : undefined,
+  authHeaders: ({ options: { auth } }) => auth?.type === 'token' ? async () => ({ authorization: `Bearer ${await resolveToken(auth)}` }) : undefined,
   setup({ instance, baseUrl, origin: context, fetcher }) {
     /**
      * GitLab lists pending and done to-dos separately. With `all`, pending
@@ -520,7 +520,7 @@ const GITLAB: ProviderDefinition<GitLabOptions> = {
     }
 
     return {
-      traits: { poll: true, eventKinds: 'heuristic', auth: ['token', 'anonymous'], limits: { bodyLength: 1_048_576, commentLength: 1_000_000, labelLength: 255 } },
+      traits: { poll: true, eventKinds: 'heuristic', authKinds: ['token', 'anonymous'], limits: { bodyLength: 1_048_576, commentLength: 1_000_000, labelLength: 255 } },
       probeVersion: async () => (await fetcher.json<{ version?: string }>('/version')).data.version,
       web: gitlabWeb(baseUrl.replace(/\/api\/v4$/, '')),
       webhooks: {

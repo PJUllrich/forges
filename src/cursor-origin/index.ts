@@ -7,7 +7,7 @@ import { fromBase64, toFileContent } from '../contents.ts'
 import { defineForgeProvider, perKind, verb } from '../define.ts'
 import { ForgeError, soleMergeMethod, toMergeError, UnsupportedOperationError } from '../errors.ts'
 import { createFetcher as createFetcherBase } from '../fetch.ts'
-import { forgeIterable, getManyConcurrently, iteratePages, phased, requireThread, summariseChecks, toWarning } from '../utils.ts'
+import { forgeIterable, getManyConcurrently, iteratePages, phased, requireThread, resolveToken, summariseChecks, toWarning } from '../utils.ts'
 import { createOriginAppCredentials } from './auth.ts'
 import { FORGE, isConversationComment, toBranch, toChangedFile, toCheck, toComment, toCommentEvent, toCommit, toRepo, toReview, toReviewEvent, toTag, toThread, toTreeEntry } from './normalise.ts'
 import { cursorOriginWebhooks } from './webhooks.ts'
@@ -264,7 +264,7 @@ function setupOrigin({ options, baseUrl, instance, origin: context, fetcher, cre
         }
       }),
     },
-    traits: { poll: false, eventKinds: 'native', auth: ['token', 'app'] },
+    traits: { poll: false, eventKinds: 'native', authKinds: ['token', 'app'] },
     repos: {
       get: verb(true, async ref => toRepo(instance, (await fetcher.json<OriginRepo>(repoPath(ref))).data)),
       listPage: verb(repoAccess && 'experimental', async (listOptions = {}) => {
@@ -377,7 +377,7 @@ function setupOrigin({ options, baseUrl, instance, origin: context, fetcher, cre
 }
 
 const ORIGIN: ProviderDefinition<CursorOriginOptions, OriginAppCredentials | undefined> = {
-  kind: FORGE,
+  forge: FORGE,
   experimental: true,
   baseUrl: 'https://api.cursor.com',
   apiPath: '/v1/origin',
@@ -389,7 +389,7 @@ const ORIGIN: ProviderDefinition<CursorOriginOptions, OriginAppCredentials | und
   authHeaders: ({ options, state }) => {
     const auth = options.auth
     if (auth.type === 'token') {
-      return () => ({ authorization: `Bearer ${auth.token}` })
+      return async () => ({ authorization: `Bearer ${await resolveToken(auth)}` })
     }
     const app = state!
     return auth.installationId === undefined

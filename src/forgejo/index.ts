@@ -64,7 +64,7 @@ import { fromBase64, toFileContent } from '../contents.ts'
 import { defineForgeProvider, perKind, verb } from '../define.ts'
 import { ForgeError, NotFoundError, soleMergeMethod, toMergeError, UnsupportedOperationError } from '../errors.ts'
 import { isNamespaceRef, reactionContent } from '../model.ts'
-import { actorLogin, createListing, getManyConcurrently, hasEveryLabel, hexColour, memo, memoBy, requireIssueOrPull, requireThread, summariseChecks, toDate, toPage, toWarning } from '../utils.ts'
+import { actorLogin, createListing, getManyConcurrently, hasEveryLabel, hexColour, memo, memoBy, requireIssueOrPull, requireThread, resolveToken, summariseChecks, toDate, toPage, toWarning } from '../utils.ts'
 import { githubShapedWeb } from '../web.ts'
 import { nativeEventsFor } from '../webhooks.ts'
 import { numberFromUrl, toActor, toBranch, toChangedFile, toComment, toCommit, toEvent, toLabel, toMilestone, toNotification, toRelease, toRepo, toReview, toReviewComment, toRole, toStatusCheck, toStatusChecks, toTag, toThread, toThreadKind, toTreeEntry, toWebhook } from './normalise.ts'
@@ -101,12 +101,12 @@ const FORGEJO_RESERVED_PATHS = ['-', '.well-known', 'admin', 'api', 'assets', 'a
 /** The Forgejo implementation for one deployment family. Shared by `forgejo()` and `gitea()`. */
 export function forgejoDefinition(profile: ForgejoProfile): ProviderDefinition<ForgejoOptions> {
   return {
-    kind: profile.forge,
+    forge: profile.forge,
     baseUrl: profile.defaultBaseUrl,
     anonymous: true,
     apiPath: '/api/v1',
     headers: { accept: 'application/json' },
-    authHeaders: ({ options: { auth } }) => auth?.type === 'token' ? () => ({ authorization: `token ${auth.token}` }) : undefined,
+    authHeaders: ({ options: { auth } }) => auth?.type === 'token' ? async () => ({ authorization: `token ${await resolveToken(auth)}` }) : undefined,
     setup: ctx => setupForgejo(ctx, profile),
   }
 }
@@ -415,7 +415,7 @@ function setupForgejo({ origin, fetcher, baseUrl }: ProviderContext<ForgejoOptio
   }
 
   return {
-    traits: { poll: true, eventKinds: 'native', auth: ['token', 'anonymous'] },
+    traits: { poll: true, eventKinds: 'native', authKinds: ['token', 'anonymous'] },
     search: {
       threadsPage: verb(true, searchThreadsPage),
       reposPage: verb(true, searchReposPage),

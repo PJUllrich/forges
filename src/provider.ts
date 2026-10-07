@@ -92,8 +92,11 @@ export interface AnonymousAuth {
 
 export interface TokenAuth {
   type: 'token'
-  /** Personal access token or OAuth access token. */
-  token: string
+  /**
+   * Personal access token or OAuth access token. A function is called before
+   * every request, so a refreshed token applies without a new provider.
+   */
+  token: string | (() => string | Promise<string>)
 }
 
 /** HTTP Basic credentials, for example a Bitbucket app password or Atlassian API token. */
@@ -253,7 +256,8 @@ export interface ForgeCapabilities {
    * wrong for unrecognised wording; `kindRaw` and `payload` stay exact.
    */
   eventKinds: 'native' | 'heuristic'
-  auth: readonly AuthKind[]
+  /** Auth types the provider accepts. The type this provider was created with is `ForgeProvider.authKind`. */
+  authKinds: readonly AuthKind[]
   limits?: TextLimits
 }
 
@@ -584,9 +588,12 @@ export interface ForgeProvider {
    * Other origins omit default headers and provider credentials; explicit headers apply.
    */
   readonly request: ForgeRequest
-  readonly kind: ForgeKind
+  /** The forge this provider sends requests to; matches `forge` on every ref it returns. */
+  readonly forge: ForgeKind
   readonly instance: ForgeInstance
   readonly baseUrl: string
+  /** The `auth.type` the provider was created with; `'anonymous'` when it sends no credentials. */
+  readonly authKind: AuthKind
   /** Static, no-network capabilities until `refreshCapabilities()` resolves. */
   readonly capabilities: ForgeCapabilities
   /**
@@ -617,6 +624,13 @@ export interface ForgeProvider {
    * question, the method is the action.
    */
   can: (verb: ForgeVerb, kind?: ThreadKind | SecurityAlertKind) => boolean
+  /**
+   * How well `verb` is supported: `true`, `'experimental'`, `'emulated'` or
+   * `false`, for `kind` where support differs by kind. `can()` is `true` for
+   * every level but `false`. Without `kind`, a per-kind verb reports its
+   * strongest level across kinds.
+   */
+  support: (verb: ForgeVerb, kind?: ThreadKind | SecurityAlertKind) => Support
   /** The web page for `target`, built without a request; `undefined` when the forge has no such page. */
   urlFor: (target: UrlTarget) => string | undefined
   /**
@@ -640,7 +654,7 @@ export interface ForgeProvider {
  * touches the network before that.
  */
 export interface ForgeProviderFactory<T extends ForgeProvider = ForgeProvider> {
-  readonly kind: ForgeKind
+  readonly forge: ForgeKind
   /** The provider has not reached parity; see `ForgeCapabilities.experimental`. */
   readonly experimental?: true
   create: () => T
@@ -648,9 +662,9 @@ export interface ForgeProviderFactory<T extends ForgeProvider = ForgeProvider> {
 
 export interface Forges {
   readonly providers: ForgeProvider[]
-  /** First provider of `kind`, optionally narrowed to a single instance host. */
-  get: (kind: ForgeKind, instance?: ForgeInstance) => ForgeProvider | undefined
-  all: (kind: ForgeKind) => ForgeProvider[]
+  /** First provider for `forge`, optionally narrowed to a single instance host. */
+  get: (forge: ForgeKind, instance?: ForgeInstance) => ForgeProvider | undefined
+  all: (forge: ForgeKind) => ForgeProvider[]
   /** The provider a ref belongs to, by `forge` and `instance`. */
   for: (ref: ForgeOrigin) => ForgeProvider | undefined
   /** The provider whose instance serves `url`. */
@@ -703,7 +717,7 @@ function fanOut<T extends { updatedAt?: Date }>(
           return page.items
         }
         catch (error) {
-          warnings.push(toWarning('search_failed', error, `${provider.kind}:${provider.instance}`))
+          warnings.push(toWarning('search_failed', error, `${provider.forge}:${provider.instance}`))
           return []
         }
       }))
@@ -716,13 +730,13 @@ export function createForges(factories: Array<ForgeProviderFactory | ForgeProvid
   const providers = factories.map(factory => 'create' in factory ? factory.create() : factory)
   const seen = new Set<string>()
   for (const provider of providers) {
-    const key = `${provider.kind}:${provider.instance}`
+    const key = `${provider.forge}:${provider.instance}`
     if (seen.has(key)) {
-      throw new TypeError(`Two providers are registered for ${provider.kind} on ${provider.instance}; pass \`instance\` to tell them apart`)
+      throw new TypeError(`Two providers are registered for ${provider.forge} on ${provider.instance}; pass \`instance\` to tell them apart`)
     }
     seen.add(key)
   }
-  const find = (ref: ForgeOrigin) => providers.find(provider => provider.kind === ref.forge && provider.instance === ref.instance)
+  const find = (ref: ForgeOrigin) => providers.find(provider => provider.forge === ref.forge && provider.instance === ref.instance)
   const route = (ref: ForgeOrigin): ForgeProvider => {
     const provider = find(ref)
     if (!provider) {
@@ -778,10 +792,10 @@ export function createForges(factories: Array<ForgeProviderFactory | ForgeProvid
       threads: (query = {}) => fanOut(providers, 'search.threads', provider => provider.search.threadsPage(query)),
       repos: (query = {}) => fanOut(providers, 'search.repos', provider => provider.search.reposPage(query)),
     },
-    get: (kind, instance) => providers.find(
-      provider => provider.kind === kind && (!instance || provider.instance === instance),
+    get: (forge, instance) => providers.find(
+      provider => provider.forge === forge && (!instance || provider.instance === instance),
     ),
-    all: kind => providers.filter(provider => provider.kind === kind),
+    all: forge => providers.filter(provider => provider.forge === forge),
     notifications: {
       list(options) {
         const warnings: ForgeWarning[] = []
@@ -797,7 +811,7 @@ export function createForges(factories: Array<ForgeProviderFactory | ForgeProvid
                 yield* iterable
               }
               catch (error) {
-                warnings.push({ ...toWarning('notifications_failed', error), subject: `${provider.kind}:${provider.instance}` })
+                warnings.push({ ...toWarning('notifications_failed', error), subject: `${provider.forge}:${provider.instance}` })
               }
               finally {
                 warnings.push(...iterable.warnings)

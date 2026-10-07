@@ -6,7 +6,7 @@ import type { GiteeBranch, GiteeCheckRun, GiteeComment, GiteeCommit, GiteeCommit
 import { fromBase64, toFileContent } from '../contents.ts'
 import { defineForgeProvider, perKind, verb } from '../define.ts'
 import { ForgeError, MergeMethodRequiredError, NotFoundError, toMergeError, UnsupportedOperationError } from '../errors.ts'
-import { actorLogin, getManyConcurrently, hasEveryLabel, hexColour, iteratePages, phased, requireIssueOrPull, requireThread, summariseChecks, toDate, toWarning } from '../utils.ts'
+import { actorLogin, getManyConcurrently, hasEveryLabel, hexColour, iteratePages, phased, requireIssueOrPull, requireThread, resolveToken, summariseChecks, toDate, toWarning } from '../utils.ts'
 import { githubShapedWeb } from '../web.ts'
 import { nativeEventsFor } from '../webhooks.ts'
 import { FORGE, isConversationComment, toActor, toBranch, toChangedFile, toCheck, toComment, toCommentEvent, toCommit, toIssueThread, toLogEvent, toNotification, toPullThread, toRelease, toRepo, toRepoRef, toTag, toTreeEntry, toWebhook } from './normalise.ts'
@@ -262,7 +262,7 @@ function setupGitee({ instance, origin: context, fetcher, baseUrl }: ProviderCon
     checks: {
       list: verb('experimental', async (repo, sha) => ({ items: await headChecks(repo, sha) })),
     },
-    traits: { poll: true, eventKinds: 'native', auth: ['token', 'anonymous'] },
+    traits: { poll: true, eventKinds: 'native', authKinds: ['token', 'anonymous'] },
     users: {
       get: verb('experimental', async (login) => {
         const { data } = await fetcher.json<GiteeUser & { bio?: string | null, company?: string | null, blog?: string | null, created_at?: string, followers?: number, following?: number, public_repos?: number }>(`/users/${encodeURIComponent(login)}`)
@@ -518,13 +518,13 @@ function setupGitee({ instance, origin: context, fetcher, baseUrl }: ProviderCon
 }
 
 const GITEE: ProviderDefinition<GiteeOptions> = {
-  kind: FORGE,
+  forge: FORGE,
   experimental: true,
   baseUrl: 'https://gitee.com',
   anonymous: true,
   apiPath: '/api/v5',
   headers: { accept: 'application/json' },
-  authHeaders: ({ options: { auth } }) => auth?.type === 'token' ? () => ({ authorization: `token ${auth.token}` }) : undefined,
+  authHeaders: ({ options: { auth } }) => auth?.type === 'token' ? async () => ({ authorization: `token ${await resolveToken(auth)}` }) : undefined,
   setup: setupGitee,
 }
 
