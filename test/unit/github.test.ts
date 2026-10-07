@@ -1,7 +1,7 @@
 import type { GitHubNotification } from '../../src/github/types.ts'
 import type { ThreadRef } from '../../src/model.ts'
 import { generateKeyPairSync } from 'node:crypto'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { ContentNotTextError, ForbiddenError, InsufficientScopeError, UnresolvedThreadError, UnsupportedOperationError } from '../../src/errors.ts'
 import { graphqlUrl } from '../../src/github/graphql-client.ts'
 import { github } from '../../src/github/index.ts'
@@ -372,6 +372,41 @@ describe('github reviews', () => {
     ])
   })
 
+  it('reads review comments once across the pages of reviews', async () => {
+    const reviewsUrl = 'https://api.github.com/repos/acme/widgets/pulls/42/reviews'
+    const { fetch, calls } = fixtureFetch('github', {
+      [`GET ${reviewsUrl}?per_page=1`]: { status: 200, headers: { link: `<${reviewsUrl}?per_page=1&page=2>; rel="next"` }, body: [{ id: 1, state: 'APPROVED', user: { login: 'a' } }] },
+      [`GET ${reviewsUrl}?per_page=1&page=2`]: { status: 200, body: [{ id: 2, state: 'COMMENTED', user: { login: 'b' } }] },
+    })
+    const provider = github({ auth: { type: 'token', token: 't' }, fetch }).create()
+
+    const reviews = await Array.fromAsync(provider.threads.reviews(pull, { perPage: 1 }))
+
+    expect(reviews.map(review => review.ref.id)).toEqual(['1', '2'])
+    expect(calls.filter(call => new URL(call.url).pathname.endsWith('/comments'))).toHaveLength(1)
+    expect(calls.filter(call => call.operationName === 'ReviewThreads')).toHaveLength(1)
+  })
+
+  it('reads review comments again for a page resumed after they expire', async () => {
+    const reviewsUrl = 'https://api.github.com/repos/acme/widgets/pulls/42/reviews'
+    const { fetch, calls } = fixtureFetch('github', {
+      [`GET ${reviewsUrl}?per_page=1`]: { status: 200, headers: { link: `<${reviewsUrl}?per_page=1&page=2>; rel="next"` }, body: [{ id: 1, state: 'APPROVED', user: { login: 'a' } }] },
+      [`GET ${reviewsUrl}?per_page=1&page=2`]: { status: 200, body: [{ id: 2, state: 'COMMENTED', user: { login: 'b' } }] },
+    })
+    const provider = github({ auth: { type: 'token', token: 't' }, fetch }).create()
+    vi.useFakeTimers({ now: 0, toFake: ['Date'] })
+    try {
+      const first = await provider.threads.reviewsPage(pull, { perPage: 1 })
+      vi.setSystemTime(10 * 60_000)
+      await provider.threads.reviewsPage(pull, { perPage: 1, cursor: first.cursor })
+    }
+    finally {
+      vi.useRealTimers()
+    }
+
+    expect(calls.filter(call => new URL(call.url).pathname.endsWith('/comments'))).toHaveLength(2)
+  })
+
   it('creates a pending review and submits it', async () => {
     const { provider, calls } = tokenProvider()
 
@@ -470,6 +505,17 @@ describe('github contents', () => {
       { path: 'src/index.ts', type: 'file', sha: 'b1', size: 120, mode: '100644' },
     ])
     expect(page.warnings?.[0]?.code).toBe('tree_truncated')
+  })
+
+  it('lists the default branch tree without reading the repository', async () => {
+    const { fetch, calls } = fixtureFetch('github', {
+      'GET https://api.github.com/repos/acme/widgets/git/trees/HEAD%3Asrc': { status: 200, body: { sha: 't1', tree: [], truncated: false } },
+    })
+    const provider = github({ auth: { type: 'token', token: 't' }, fetch }).create()
+
+    await provider.contents.treePage(repo, { path: 'src' })
+
+    expect(calls.map(call => call.url)).toEqual(['https://api.github.com/repos/acme/widgets/git/trees/HEAD%3Asrc'])
   })
 
   it('reads branches, tags, commits and a comparison', async () => {
