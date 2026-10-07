@@ -37,6 +37,10 @@ function taskLevel(capabilities: string[]): Level {
   return (['experimental', 'emulated'] as const).find(level => levels.includes(level)) ?? 'native'
 }
 
+function selectableTasks(selection: string[]) {
+  return selection.filter(id => tasks.some(task => task.id === id && taskLevel(task.capabilities) !== 'none'))
+}
+
 const selectedTasks = computed(() => tasks.filter(task => selected.value.includes(task.id)))
 const capabilities = computed(() => selectedTasks.value.flatMap(task => task.capabilities))
 
@@ -115,6 +119,7 @@ const ready = ref(false)
 
 watch(slug, () => {
   chosen.value = undefined
+  selected.value = selectableTasks(selected.value)
 })
 
 watch([slug, selected, chosen], () => {
@@ -140,7 +145,7 @@ onMounted(async () => {
     slug.value = forgeQuery
   }
   if (typeof tasksQuery === 'string') {
-    selected.value = tasksQuery.split(',').filter(task => tasks.some(({ id }) => id === task))
+    selected.value = selectableTasks(tasksQuery.split(','))
   }
   await nextTick()
   if (typeof auth === 'string') {
@@ -210,13 +215,14 @@ const { copied, copy, message: copyMessage } = useCopyToClipboard(() => `${doten
               <label
                 v-for="task of group.tasks"
                 :key="task.id"
-                class="inline-flex cursor-pointer items-center gap-2 rounded-md border px-2 py-1 text-xs transition has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary"
-                :class="selected.includes(task.id) ? 'border-primary bg-primary/10 text-highlighted' : 'border-default text-default hover:border-accented hover:text-highlighted'"
+                class="inline-flex items-center gap-2 rounded-md border px-2 py-1 text-xs transition has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary"
+                :class="taskLevel(task.capabilities) === 'none' ? 'cursor-not-allowed border-default text-muted opacity-50' : selected.includes(task.id) ? 'cursor-pointer border-primary bg-primary/10 text-highlighted' : 'cursor-pointer border-default text-default hover:border-accented hover:text-highlighted'"
               >
                 <input
                   v-model="selected"
                   type="checkbox"
                   :value="task.id"
+                  :disabled="taskLevel(task.capabilities) === 'none'"
                   class="sr-only"
                 >
                 <span
