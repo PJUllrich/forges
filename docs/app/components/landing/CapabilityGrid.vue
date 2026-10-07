@@ -8,7 +8,7 @@ const rows = groups.flatMap(group => group.rows).filter(row => featured.includes
 <template>
   <div>
     <div
-      class="overflow-x-auto"
+      class="relative overflow-x-auto"
       tabindex="0"
       role="region"
       aria-label="Capability support"
