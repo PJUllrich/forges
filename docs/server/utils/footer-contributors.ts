@@ -1,15 +1,5 @@
-interface GitHubContributor {
-  login: string
-  type: string
-  contributions: number
-}
-
-interface GitHubProfile {
-  html_url: string
-  blog: string | null
-}
-
-type GitHubFetch = <T>(path: string) => Promise<T>
+import type { ForgeProvider } from 'forges'
+import type { getContributors } from './contributors.ts'
 
 export function contributorHomepage(blog: string | null, profileUrl: string): string {
   const website = blog?.trim()
@@ -26,16 +16,14 @@ export function contributorHomepage(blog: string | null, profileUrl: string): st
   }
 }
 
-export async function getFooterContributors(fetchGitHub: GitHubFetch) {
-  const list = await fetchGitHub<GitHubContributor[]>('/repos/danielroe/forges/contributors?per_page=100').catch(() => [])
-  const topContributors = list
-    .filter(contributor => contributor.type === 'User' && contributor.login.toLowerCase() !== 'danielroe' && !contributor.login.endsWith('[bot]'))
-    .sort((a, b) => b.contributions - a.contributions)
+export async function getFooterContributors(forge: Pick<ForgeProvider, 'users'>, contributors: Awaited<ReturnType<typeof getContributors>>) {
+  const topContributors = contributors
+    .filter(contributor => contributor.login.toLowerCase() !== 'danielroe')
     .slice(0, 3)
 
   return Promise.all(['danielroe', ...topContributors.map(contributor => contributor.login)].map(async (login) => {
     const fallback = `https://github.com/${login}`
-    const profile = await fetchGitHub<GitHubProfile>(`/users/${login}`).catch(() => null)
-    return { login, to: profile ? contributorHomepage(profile.blog, profile.html_url) : fallback }
+    const profile = await forge.users.get(login).catch(() => null)
+    return { login, to: profile ? contributorHomepage(profile.websiteUrl ?? null, profile.url ?? fallback) : fallback }
   }))
 }

@@ -30,12 +30,16 @@ const links = [
         <ULink
           to="https://github.com/danielroe/forges/blob/main/LICENCE"
           class="hover:text-highlighted transition-colors"
-        >MIT</ULink>
+        >
+          MIT
+        </ULink>
         <span aria-hidden="true">·</span>
         <ULink
           to="https://github.com/danielroe/forges"
           class="hover:text-highlighted transition-colors"
-        >source</ULink>
+        >
+          source
+        </ULink>
       </p>
     </template>
 

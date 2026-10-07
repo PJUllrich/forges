@@ -1,28 +1,6 @@
 <script setup lang="ts">
-interface Contributor {
-  login: string
-  avatar_url: string
-  html_url: string
-  contributions: number
-  type: string
-}
-
 const repository = 'danielroe/forges'
-
-// Fetched at build time. A private repository needs a GITHUB_TOKEN with read access.
-const { data: contributors } = await useAsyncData('contributors', async () => {
-  const token = import.meta.server ? useRuntimeConfig().githubToken : ''
-  try {
-    const list = await $fetch<Contributor[]>(`https://api.github.com/repos/${repository}/contributors`, {
-      query: { per_page: 100 },
-      headers: { Accept: 'application/vnd.github+json', ...token ? { Authorization: `Bearer ${token}` } : {} },
-    })
-    return list.filter(contributor => contributor.type === 'User')
-  }
-  catch {
-    return []
-  }
-})
+const { data: contributors } = await useFetch('/api/contributors', { default: () => [] })
 </script>
 
 <template>
@@ -35,13 +13,13 @@ const { data: contributors } = await useAsyncData('contributors', async () => {
       :key="contributor.login"
     >
       <a
-        :href="contributor.html_url"
+        :href="contributor.url"
         target="_blank"
         rel="noopener"
         class="group flex items-center gap-3 rounded-lg border border-default p-3 transition hover:border-accented hover:bg-elevated/50"
       >
         <img
-          :src="`${contributor.avatar_url}&s=96`"
+          :src="`${contributor.avatarUrl}&s=96`"
           alt=""
           width="40"
           height="40"
