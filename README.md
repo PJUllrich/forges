@@ -11,7 +11,7 @@ One API for every code forge.
 
 Read the documentation at [forges.link](https://forges.link).
 
-## Install
+## install
 
 ```sh
 pnpm add forges
@@ -19,7 +19,7 @@ pnpm add forges
 
 `forges` requires Node.js 22.18 or later.
 
-## Usage
+## usage
 
 ```ts
 import { createForges, forgejo, github } from 'forges'
@@ -36,7 +36,7 @@ for await (const notification of forges.notifications.list()) {
 
 The [quick start](https://forges.link/getting-started/quick-start) walks through reading a thread, writing a comment and checking what a forge supports.
 
-## Documentation
+## documentation
 
 - [Getting started](https://forges.link/getting-started/introduction): installation, import paths and a first call.
 - [Guides](https://forges.link/guides/authentication): authentication, several forges, environment variables, webhooks, capabilities, errors, pagination, browser bundles and testing.
@@ -45,11 +45,11 @@ The [quick start](https://forges.link/getting-started/quick-start) walks through
 - [Reference](https://forges.link/reference/provider-api): the provider API, the capability matrix, errors and JSON schemas.
 - [Examples](https://forges.link/examples): small, tested projects that use `forges`.
 
-## Contributing
+## contributing
 
 Read the [contribution guide](./CONTRIBUTING.md) to set up the repository and run the checks.
 
-## Licence
+## licence
 
 Made with ❤️
 
