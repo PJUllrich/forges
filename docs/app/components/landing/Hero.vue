@@ -38,7 +38,7 @@ const { copied, copy, message } = useCopyToClipboard(() => command)
         class="group inline-flex items-center gap-2 rounded-full border border-default bg-default/60 px-3 py-1 font-mono text-xs text-muted backdrop-blur transition hover:text-highlighted"
       >
         <span class="size-1.5 bg-primary" />
-        Ten forges, one API
+        See supported forges
         <UIcon
           name="i-lucide-arrow-right"
           class="size-3 transition group-hover:translate-x-0.5"
@@ -46,7 +46,7 @@ const { copied, copy, message } = useCopyToClipboard(() => command)
       </NuxtLink>
 
       <h1 class="mt-6 text-balance text-4xl font-semibold tracking-tight text-highlighted sm:text-6xl">
-        One API for every
+        one API for every
         <span class="text-primary">code forge</span>
       </h1>
 
