@@ -1,4 +1,4 @@
-import type { MergeHooks, ProviderContext, ProviderDefinition, ProviderSpec } from '../define.ts'
+import type { MergeHooks, ProviderContext, ProviderDefinition, ProviderFactoryFunction, ProviderSpec } from '../define.ts'
 import type {
   Check,
   CheckReportInput,
@@ -52,7 +52,6 @@ import type {
   CloseReason,
   ForgeOptionsBase,
   ForgeProvider,
-  ForgeProviderFactory,
   InstallationsApi,
   VerbScopes,
 } from '../provider.ts'
@@ -101,17 +100,7 @@ import type {
 } from './types.ts'
 import { fromBase64, toFileContent } from '../contents.ts'
 import { defineForgeProvider, perKind, verb } from '../define.ts'
-import {
-  ForbiddenError,
-  ForgeApiError,
-  ForgeError,
-  ForgeTimeoutError,
-  InsufficientScopeError,
-  MergeBlockedError,
-  soleMergeMethod,
-  toMergeError,
-  UnsupportedOperationError,
-} from '../errors.ts'
+import { ForbiddenError, ForgeApiError, ForgeError, ForgeTimeoutError, InsufficientScopeError, MergeBlockedError, NotFoundError, soleMergeMethod, toMergeError, UnsupportedOperationError } from '../errors.ts'
 import { sleep } from '../fetch.ts'
 import { isNamespaceRef, isResolvedThread, reactionContent } from '../model.ts'
 import { actorLogin, createListing, forgeIterable, getManyConcurrently, hostOf, iteratePages, memo, phased, requireIssueOrPull, requireThread, summariseChecks, toDate, toPage, toWarning, versionAtLeast } from '../utils.ts'
@@ -287,7 +276,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     })
     const discussion = data.repository?.discussion
     if (!discussion) {
-      throw new ForgeApiError(`Discussion ${ref.number} not found`, 404, '', context)
+      throw new NotFoundError(`Discussion ${ref.number} not found`, 404, '', context)
     }
     return (await import('./graphql.ts')).toDiscussionThread(ref, discussion)
   }
@@ -580,7 +569,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
         if (budget.signal.aborted) {
           throw error
         }
-        if (enterprise && isPlainApiError(error, 404)) {
+        if (enterprise && error instanceof NotFoundError) {
           url = fetcher.resolve(path)
           await fetcher.raw(path, { method: 'PUT', json: body, mapError: toMergeError, signal: budget.signal })
           return
@@ -627,7 +616,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
       throw error
     }
     if (isPlainApiError(error, 400)) {
-      throw new MergeBlockedError('Pull request cannot be merged in its current state', 400, error.body, { ...context, url: error.url, method: error.method })
+      throw new MergeBlockedError('Pull request cannot be merged in its current state', 400, error.body, { ...context, url: error.url, method: error.method }, { cause: error })
     }
     if (!isPlainApiError(error, 409)) {
       throw toMergeError(error)
@@ -642,7 +631,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
       throw toMergeError(error)
     }
     if (message !== undefined || details.merge_action !== 'direct_merge' || details.merge_method !== method || details.bypass_rules || (sha !== undefined && details.expected_head_sha !== sha)) {
-      throw new MergeBlockedError('Another merge request is pending whose options do not match or cannot be verified', 409, error.body, { ...context, url: error.url, method: error.method })
+      throw new MergeBlockedError('Another merge request is pending whose options do not match or cannot be verified', 409, error.body, { ...context, url: error.url, method: error.method }, { cause: error })
     }
     return { status: 'pending', details }
   }
@@ -739,7 +728,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     })
     const node = ref.kind === 'discussion' ? data.repository?.discussion : data.repository?.issueOrPullRequest
     if (!node) {
-      throw new ForgeApiError(`Thread ${ref.number} not found`, 404, '', context)
+      throw new NotFoundError(`Thread ${ref.number} not found`, 404, '', context)
     }
     return { id: node.id, state: node.viewerSubscription }
   }
@@ -779,13 +768,14 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
    * `admin:repo_hook` or `admin:org_hook`, so the status alone is misleading.
    */
   function scopeIs404(error: unknown): unknown {
-    if (error instanceof ForgeApiError && error.constructor === ForgeApiError && error.status === 404) {
+    if (error instanceof NotFoundError) {
       return new ForbiddenError(
-        'GitHub answered 404 for a webhook endpoint, which it also does when the credential lacks admin:repo_hook or admin:org_hook',
+        'GitHub responded with 404 for a webhook endpoint, which it also does when the credential lacks admin:repo_hook or admin:org_hook',
         404,
         error.body,
         'resource_protected',
         { forge: error.forge, instance: error.instance, url: error.url, method: error.method, reasonRaw: 'hook_scope_404' },
+        { cause: error },
       )
     }
     return error
@@ -1006,7 +996,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
         return toPage(result, raw => source.map(repo, raw))
       }
       catch (error) {
-        if (!listOptions.kind && (error instanceof InsufficientScopeError || (error instanceof ForgeApiError && error.status === 404))) {
+        if (!listOptions.kind && (error instanceof InsufficientScopeError || error instanceof NotFoundError)) {
           return { items: [], warnings: [toWarning(error instanceof InsufficientScopeError ? 'insufficient_scope' : 'alerts_unavailable', error, kind)] }
         }
         throw error
@@ -1188,7 +1178,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
           return toRelease(repo, (await fetcher.json<GitHubRelease>(`${repoPath(repo)}/releases/latest`)).data)
         }
         catch (error) {
-          if (error instanceof ForgeApiError && error.status === 404) {
+          if (error instanceof NotFoundError) {
             return undefined
           }
           throw error
@@ -1437,7 +1427,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
         }
         const target = await graphql<{ repository: { id: string } | null }>('REPOSITORY_ID', { owner: repo.owner, name: repo.name })
         if (!target.repository) {
-          throw new ForgeApiError(`Repository ${repo.owner}/${repo.name} not found`, 404, '', context)
+          throw new NotFoundError(`Repository ${repo.owner}/${repo.name} not found`, 404, '', context)
         }
         const data = await graphql<{ transferIssue: { issue: { id: string, number: number } } }>('TRANSFER_ISSUE', { issue: await nodeId(ref), repo: target.repository.id })
         return { forge: FORGE, instance, repo, kind: 'issue', number: String(data.transferIssue.issue.number), externalId: data.transferIssue.issue.id }
@@ -1494,10 +1484,10 @@ const GITHUB: ProviderDefinition<GitHubOptions, AppCredentials | undefined> = {
 }
 
 /** Creates a GitHub provider for github.com or a GitHub Enterprise Server instance. */
-export const github: (options: GitHubOptions) => ForgeProviderFactory<ForgeProvider> = /* @__PURE__ */ defineForgeProvider({ ...GITHUB, webhooks: githubWebhooks })
+export const github: ProviderFactoryFunction<GitHubOptions> = /* @__PURE__ */ defineForgeProvider({ ...GITHUB, webhooks: githubWebhooks })
 
 /** `github()` without webhook ingestion, for bundles that never receive a delivery. */
-export const githubLite: (options: GitHubOptions) => ForgeProviderFactory<ForgeProvider> = /* @__PURE__ */ defineForgeProvider(GITHUB)
+export const githubLite: ProviderFactoryFunction<GitHubOptions> = /* @__PURE__ */ defineForgeProvider(GITHUB)
 
 /**
  * Token scopes and fine-grained permissions GitHub documents per endpoint
