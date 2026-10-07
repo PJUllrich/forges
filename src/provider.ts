@@ -347,7 +347,7 @@ export interface ThreadsApi {
   addLabels: (ref: ThreadRef, labels: string[]) => Promise<void>
   /** Removes labels, leaving the rest in place. Labels the thread does not carry are ignored. */
   removeLabels: (ref: ThreadRef, labels: string[]) => Promise<void>
-  /** Sets the thread's milestone, or clears it with `undefined`. */
+  /** Sets the thread's milestone, by milestone, id or title, or clears it with `undefined`. */
   setMilestone: (ref: ThreadRef, milestone: Milestone | string | undefined) => Promise<void>
   /** Reactions left on the thread or on one of its comments. */
   reactions: (target: ThreadRef | CommentRef, options?: ListOptions) => ForgeIterable<Reaction>
@@ -641,7 +641,7 @@ export interface ForgeProvider {
    * an unmapped verb returns `{}`.
    */
   scopesFor: (verb: ForgeVerb) => VerbScopes
-  /** Reads a web URL on this provider's instance into refs; `undefined` for anything else. */
+  /** Reads a web or SSH clone URL on this provider's instance into refs; `undefined` for anything else. */
   parseUrl: (url: string | URL) => ParsedForgeUrl | undefined
   /**
    * How to mention `ref` in Markdown on this forge (`#42`, `!42`,
@@ -671,7 +671,7 @@ export interface Forges {
   for: (ref: ForgeOrigin) => ForgeProvider | undefined
   /** The provider whose instance serves `url`. */
   forUrl: (url: string | URL) => ForgeProvider | undefined
-  /** Reads a web URL on any registered instance. */
+  /** Reads a web or SSH clone URL on any registered instance. */
   parseUrl: (url: string | URL) => (ParsedForgeUrl & { provider: ForgeProvider }) | undefined
   /** Notifications from every registered provider, provider by provider. */
   notifications: { list: (options?: NotificationListOptions) => ForgeIterable<Notification> }

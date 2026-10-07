@@ -137,13 +137,6 @@ export interface GitLabIssue {
   downvotes?: number
 }
 
-export interface GitLabPipeline {
-  id: number
-  status: string
-  web_url?: string
-  sha?: string
-}
-
 export interface GitLabJob {
   id: number
   name: string
@@ -233,6 +226,7 @@ export interface GitLabCommitStatus {
 export interface GitLabPipeline {
   id: number
   iid?: number
+  project_id?: number
   status: string
   source?: string
   ref?: string
