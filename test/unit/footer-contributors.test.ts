@@ -55,12 +55,15 @@ describe('footer contributors', () => {
       avatarUrl: 'https://avatars.githubusercontent.com/trueberryless?v=4',
       url: profileUrl,
     })
-    expect(await getFooterContributors(forge, list)).toEqual([
-      { login: 'danielroe', to: 'https://roe.dev/' },
-      { login: 'trueberryless', to: 'https://felixs.dev/' },
-      { login: 'antfu', to: 'https://github.com/antfu' },
-      { login: 'third', to: 'https://github.com/third' },
-    ])
+    expect(await getFooterContributors(forge, list)).toEqual({
+      contributors: [
+        { login: 'danielroe', to: 'https://roe.dev/' },
+        { login: 'trueberryless', to: 'https://felixs.dev/' },
+        { login: 'antfu', to: 'https://github.com/antfu' },
+        { login: 'third', to: 'https://github.com/third' },
+      ],
+      remaining: 1,
+    })
     expect(fetch).toHaveBeenCalledTimes(5)
   })
 
@@ -79,17 +82,38 @@ describe('footer contributors', () => {
         return new Response('Unavailable', { status: 503 })
       },
     }).create()
-    expect(await getFooterContributors(forge, await getContributors(forge))).toEqual([
-      { login: 'danielroe', to: 'https://github.com/danielroe' },
-      { login: 'trueberryless', to: profileUrl },
-    ])
+    expect(await getFooterContributors(forge, await getContributors(forge))).toEqual({
+      contributors: [
+        { login: 'danielroe', to: 'https://github.com/danielroe' },
+        { login: 'trueberryless', to: profileUrl },
+      ],
+      remaining: 0,
+    })
+  })
+
+  it.each([3, 5])('counts remaining contributors with %i other contributors and no danielroe entry', async (count) => {
+    const fetch = vi.fn(async () => new Response('Unavailable', { status: 503 }))
+    const forge = githubLite({ fetch }).create()
+    const list = Array.from({ length: count }, (_, index) => ({
+      login: `contributor${index}`,
+      contributions: count - index,
+      avatarUrl: '',
+      url: `https://github.com/contributor${index}`,
+    }))
+
+    const result = await getFooterContributors(forge, list)
+
+    expect(result.contributors.map(contributor => contributor.login)).toEqual(['danielroe', 'contributor0', 'contributor1', 'contributor2'])
+    expect(result.remaining).toBe(count - 3)
+    expect(fetch).toHaveBeenCalledTimes(4)
   })
 
   it('keeps danielroe when GitHub is unavailable', async () => {
     const forge = githubLite({ fetch: async () => new Response('Unavailable', { status: 503 }) }).create()
     const list = await getContributors(forge).catch(() => [])
-    expect(await getFooterContributors(forge, list)).toEqual([
-      { login: 'danielroe', to: 'https://github.com/danielroe' },
-    ])
+    expect(await getFooterContributors(forge, list)).toEqual({
+      contributors: [{ login: 'danielroe', to: 'https://github.com/danielroe' }],
+      remaining: 0,
+    })
   })
 })

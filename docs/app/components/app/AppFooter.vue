@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { data: contributors } = await useFetch('/api/footer-contributors', {
-  default: () => [{ login: 'danielroe', to: 'https://github.com/danielroe' }],
+const { data: attribution } = await useFetch('/api/footer-contributors', {
+  default: () => ({ contributors: [{ login: 'danielroe', to: 'https://github.com/danielroe' }], remaining: 0 }),
 })
 
 const links = [
@@ -56,11 +56,11 @@ const links = [
         </nav>
       </div>
 
-      <div class="mt-8 flex flex-col gap-4 border-t border-default/60 pt-5 sm:flex-row sm:items-center sm:justify-between">
+      <div class="mt-8 flex flex-col gap-0 border-t border-default/60 pt-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <p class="text-xs leading-6 text-muted">
           made with <span class="text-primary" role="img" aria-label="love">♥</span> by
           <template
-            v-for="(contributor, index) of contributors"
+            v-for="(contributor, index) of attribution.contributors"
             :key="contributor.login"
           >
             <ULink
@@ -68,26 +68,32 @@ const links = [
               class="underline decoration-default underline-offset-4 hover:text-highlighted hover:decoration-current transition-colors"
             >
               {{ contributor.login }}
-            </ULink>{{ index < contributors.length - 2 ? ', ' : index === contributors.length - 2 ? ' and ' : '' }}
+            </ULink>{{ index < attribution.contributors.length - 1 ? (attribution.remaining || index < attribution.contributors.length - 2 ? ', ' : ' and ') : '' }}
+          </template>
+          <template v-if="attribution.remaining">
+            and
+            <ULink
+              to="/contributing/contributors"
+              class="underline decoration-default underline-offset-4 hover:text-highlighted hover:decoration-current transition-colors"
+            >
+              {{ attribution.remaining }} other {{ attribution.remaining === 1 ? 'contributor' : 'contributors' }}
+            </ULink>
           </template>
         </p>
 
-        <div class="flex shrink-0 items-center gap-5">
+        <div class="-ml-2 flex shrink-0 items-center gap-1 sm:ml-0">
           <ULink
             to="https://github.com/danielroe/forges/blob/main/LICENCE"
-            class="text-xs text-muted hover:text-highlighted transition-colors"
+            class="inline-flex min-h-11 items-center px-2 text-xs text-muted hover:text-highlighted transition-colors"
           >
             MIT licence
           </ULink>
           <ULink
             to="https://github.com/danielroe/forges"
-            class="text-xs text-muted hover:text-highlighted transition-colors"
+            class="inline-flex min-h-11 items-center px-2 text-xs text-muted hover:text-highlighted transition-colors"
           >
             source
           </ULink>
-          <div class="flex items-center gap-1 border-l border-default pl-4">
-            <AppFooterRight />
-          </div>
         </div>
       </div>
     </UContainer>

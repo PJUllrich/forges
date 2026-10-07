@@ -17,13 +17,17 @@ export function contributorHomepage(blog: string | null, profileUrl: string): st
 }
 
 export async function getFooterContributors(forge: Pick<ForgeProvider, 'users'>, contributors: Awaited<ReturnType<typeof getContributors>>) {
-  const topContributors = contributors
-    .filter(contributor => contributor.login.toLowerCase() !== 'danielroe')
-    .slice(0, 3)
+  const otherContributors = contributors.filter(contributor => contributor.login.toLowerCase() !== 'danielroe')
+  const topContributors = otherContributors.slice(0, 3)
 
-  return Promise.all(['danielroe', ...topContributors.map(contributor => contributor.login)].map(async (login) => {
+  const namedContributors = await Promise.all(['danielroe', ...topContributors.map(contributor => contributor.login)].map(async (login) => {
     const fallback = `https://github.com/${login}`
     const profile = await forge.users.get(login).catch(() => null)
     return { login, to: profile ? contributorHomepage(profile.websiteUrl ?? null, profile.url ?? fallback) : fallback }
   }))
+
+  return {
+    contributors: namedContributors,
+    remaining: otherContributors.length - topContributors.length,
+  }
 }
