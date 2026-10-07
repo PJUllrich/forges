@@ -44,6 +44,12 @@ export default defineAppConfig({
     },
   },
   ui: {
+    pageLinks: {
+      slots: {
+        linkLabel: 'truncate pe-4',
+        linkLabelExternalIcon: 'size-3 absolute top-0 end-0 text-dimmed',
+      },
+    },
     header: {
       slots: {
         // Translucent, so the hero shows through.
