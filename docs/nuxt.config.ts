@@ -1,6 +1,6 @@
 import process from 'node:process'
 
-// magic comment to trigger deployment until repo is public 👀
+// magic comment to trigger deployment until repo is public - abracadabra 👀
 
 // Vercel previews and branch deployments point at themselves.
 const previewUrl = process.env.VERCEL_ENV !== 'production' && process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined
