@@ -33,6 +33,7 @@ import type {
   Thread,
   ThreadQuery,
   ThreadRef,
+  User,
 } from '../model.ts'
 import type {
   AnonymousAuth,
@@ -237,6 +238,11 @@ const GITLAB: ProviderDefinition<GitLabOptions> = {
 
     const list = createListing(fetcher, 'per_page')
 
+    async function readUser(path: string): Promise<User> {
+      const { data } = await fetcher.json<GitLabUser & { bio?: string, organization?: string, location?: string, website_url?: string, created_at?: string, followers?: number, following?: number }>(path)
+      return { ...toActor(instance, data)!, bio: data.bio || undefined, company: data.organization || undefined, location: data.location || undefined, websiteUrl: data.website_url || undefined, createdAt: toDate(data.created_at), followers: data.followers, following: data.following, raw: data }
+    }
+
     function projectPath(repo: RepoRef): string {
       return `/projects/${projectId(repo)}`
     }
@@ -341,7 +347,7 @@ const GITLAB: ProviderDefinition<GitLabOptions> = {
         const merges = kind === 'pull_request'
         const result = await fetcher.page<GitLabIssue>(`${projectPath(repo)}/${merges ? 'merge_requests' : 'issues'}`, {
           query: {
-            state: state === 'open' ? 'opened' : state === 'closed' && !merges ? 'closed' : undefined,
+            state: state === 'open' ? 'opened' : state === 'merged' ? 'merged' : state === 'closed' && !merges ? 'closed' : undefined,
             labels: query.labels?.join(','),
             author_username: query.author,
             assignee_username: query.assignee,
@@ -552,9 +558,9 @@ const GITLAB: ProviderDefinition<GitLabOptions> = {
           if (!matches?.[0]) {
             throw new NotFoundError(`No GitLab user named ${login}`, 404, '', context)
           }
-          const { data } = await fetcher.json<GitLabUser & { bio?: string, organization?: string, location?: string, website_url?: string, created_at?: string, followers?: number, following?: number }>(`/users/${matches[0].id}`)
-          return { ...toActor(instance, data)!, bio: data.bio || undefined, company: data.organization || undefined, location: data.location || undefined, websiteUrl: data.website_url || undefined, createdAt: toDate(data.created_at), followers: data.followers, following: data.following, raw: data }
+          return readUser(`/users/${matches[0].id}`)
         }),
+        me: verb(true, () => readUser('/user')),
       },
       repos: {
         get: verb(true, async (ref) => {

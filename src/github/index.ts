@@ -426,7 +426,28 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
         ...warnings.length ? { warnings } : {},
       }
     }
-    const result = await fetcher.page<GitHubIssue>(`${repoPath(repo)}/issues`, {
+    if (state === 'merged') {
+      const page = await searchThreadsPage({
+        repo,
+        kind: 'pull_request',
+        labels: query.labels,
+        author: query.author,
+        assignee: query.assignee,
+        involves: query.involves,
+        since: query.since,
+        queryRaw: `is:merged${query.createdAfter ? ` created:>=${query.createdAfter.toISOString()}` : ''}`,
+        sort: query.sort ?? 'created',
+        direction,
+        perPage: query.perPage,
+        cursor: query.cursor,
+        signal: query.signal,
+      })
+      await withPullChecks(page)
+      return page
+    }
+    // `/pulls` returns full pages but has no label, author, assignee or since filter.
+    const pullsOnly = query.kind === 'pull_request' && !query.labels?.length && !query.author && !query.assignee && !query.since && query.sort !== 'comments'
+    const result = await fetcher.page<GitHubIssue>(`${repoPath(repo)}/${pullsOnly ? 'pulls' : 'issues'}`, {
       query: {
         state,
         labels: query.labels?.join(','),
@@ -442,7 +463,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     })
     const older = (raw: GitHubIssue) => createdAfter !== undefined && (Date.parse(raw.created_at ?? '') || 0) < createdAfter
     const page = toPage(result, (raw) => {
-      const isPull = Boolean(raw.pull_request)
+      const isPull = Boolean(raw.pull_request || raw.head)
       if ((query.kind === 'issue' && isPull) || (query.kind === 'pull_request' && !isPull) || older(raw)) {
         return undefined
       }
@@ -453,7 +474,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     return ordered && (result.data ?? []).some(older) ? { ...page, cursor: undefined } : page
   }
 
-  /** Fills `checks` on every pull in the page with one batched rollup read. */
+  /** Fills `checks`, and a missing `commentCount`, on every pull in the page with one batched read. */
   async function withPullChecks(page: Page<Thread>): Promise<void> {
     const pulls = page.items.filter(thread => thread.kind === 'pull_request')
     if (!pulls.length || anonymous) {
@@ -462,8 +483,9 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     try {
       const results = await getMany(pulls.map(thread => thread.ref))
       for (const [index, result] of results.entries()) {
-        if (result.ok && result.thread.checks) {
-          pulls[index]!.checks = result.thread.checks
+        if (result.ok) {
+          pulls[index]!.checks = result.thread.checks ?? pulls[index]!.checks
+          pulls[index]!.commentCount ??= result.thread.commentCount
         }
       }
     }
@@ -812,6 +834,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     if (query.repo) {
       qualifiers.push(`repo:${query.repo.owner}/${query.repo.name}`)
     }
+    // GitHub rejects a search without a kind for some tokens, so `searchThreadsPage` always names one.
     if (query.kind) {
       qualifiers.push(query.kind === 'pull_request' ? 'is:pr' : 'is:issue')
     }
@@ -829,10 +852,21 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     if (query.since) {
       qualifiers.push(`updated:>=${query.since.toISOString()}`)
     }
+    if (query.queryRaw) {
+      qualifiers.push(query.queryRaw)
+    }
     return qualifiers
   }
 
+  /** Without a `kind`, issues then pull requests, as two searches: GitHub rejects one for both with a fine-grained token. */
   async function searchThreadsPage(query: SearchQuery): Promise<Page<Thread>> {
+    if (!query.kind) {
+      return phased((['issue', 'pull_request'] as const).map(kind => (cursor?: Cursor) => searchKindPage({ ...query, kind, cursor })), query.cursor)
+    }
+    return searchKindPage(query)
+  }
+
+  async function searchKindPage(query: SearchQuery): Promise<Page<Thread>> {
     const result = await fetcher.page<GitHubIssue>('/search/issues', {
       query: {
         q: searchQualifiers(query).join(' '),
@@ -857,7 +891,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
   const REPO_SEARCH_SORTS: Partial<Record<NonNullable<RepoSearchQuery['sort']>, string>> = { updated: 'updated', stars: 'stars' }
 
   async function searchReposPage(query: RepoSearchQuery): Promise<Page<Repo>> {
-    const qualifiers = [query.text, query.owner && `user:${query.owner}`, query.language && `language:${query.language}`].filter(Boolean)
+    const qualifiers = [query.text, query.owner && `user:${query.owner}`, query.language && `language:${query.language}`, query.queryRaw].filter(Boolean)
     const warnings: ForgeWarning[] = query.sort === 'created'
       ? [{ code: 'sort_unsupported', message: 'GitHub repository search cannot sort by creation time; sorted by relevance' }]
       : []
@@ -885,6 +919,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
       query.committer && `committer:${query.committer}`,
       query.since && `author-date:>=${query.since.toISOString()}`,
       query.until && `author-date:<=${query.until.toISOString()}`,
+      query.queryRaw,
     ].filter(Boolean)
     const result = await fetcher.page<GitHubCommitSearchItem>('/search/commits', {
       query: {
@@ -1186,6 +1221,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
       threadsPage: verb(true, searchThreadsPage),
       reposPage: verb(true, searchReposPage),
       commitsPage: verb(true, searchCommitsPage),
+      queryRaw: true,
     },
     releases: {
       listPage: verb(true, releasesPage),
@@ -1258,7 +1294,10 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
       }),
     },
     scopes: githubScopesFor,
-    users: { get: verb(true, async login => toUser(instance, (await fetcher.json<GitHubUserDetail>(`/users/${encodeURIComponent(login)}`)).data)) },
+    users: {
+      get: verb(true, async login => toUser(instance, (await fetcher.json<GitHubUserDetail>(`/users/${encodeURIComponent(login)}`)).data)),
+      me: verb(auth.type === 'token', async () => toUser(instance, (await fetcher.json<GitHubUserDetail>('/user')).data)),
+    },
     repos: {
       get: verb(true, async (ref) => {
         return toRepo(instance, (await fetcher.json<GitHubRepositoryDetail>(repoPath(ref))).data)
