@@ -343,7 +343,7 @@ const { copied, copy, message: copyMessage } = useCopyToClipboard(() => `${doten
             class="mb-2.5 flex items-center gap-2 font-mono text-xs font-medium text-highlighted"
           >
             <span class="size-1.5 bg-primary" />
-            Get started
+            get started
           </h3>
           <ol class="grid gap-2.5 text-sm text-default">
             <li

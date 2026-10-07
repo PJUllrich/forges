@@ -142,7 +142,7 @@ export default async function handler(request: Request) {
           variant="outline"
           trailing-icon="i-lucide-arrow-right"
         >
-          Read the full matrix
+          read the full matrix
         </UButton>
       </div>
     </UPageSection>
@@ -177,7 +177,7 @@ export default async function handler(request: Request) {
             color="neutral"
             trailing-icon="i-lucide-arrow-right"
           >
-            Quick start
+            quick start
           </UButton>
           <UButton
             to="https://npmx.dev/package/forges"
@@ -187,7 +187,7 @@ export default async function handler(request: Request) {
             variant="outline"
             icon="i-custom-npmx"
           >
-            View on npmx
+            view on npmx
           </UButton>
         </div>
       </div>
