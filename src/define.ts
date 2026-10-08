@@ -46,26 +46,46 @@ export interface CapabilityEnv {
 /** A fixed support level, or one computed from the instance version. */
 export type SupportInput = boolean | 'emulated' | 'experimental' | ((env: CapabilityEnv) => boolean | 'emulated' | 'experimental')
 
+/** The thread kinds that verbs can differ by. */
 export type VerbKind = Exclude<ThreadKind, 'other'>
 
+/** The security alert kinds that support can differ by. */
 export type AlertKind = Exclude<SecurityAlertKind, 'other'>
 
 /** A verb whose support does not depend on the thread kind. */
 export interface Verb<F> {
+  /** How well the verb is supported. */
   support: SupportInput
   run: F
 }
 
 /** A verb whose support depends on the thread kind it is called with. Kinds not listed are unsupported. */
 export interface KindVerb<F> {
+  /** How well each thread kind is supported. */
   kinds: Partial<Record<VerbKind, SupportInput>>
   run: F
 }
 
+/**
+ * Declares a verb whose support does not depend on the thread kind.
+ * @param support How well the verb is supported.
+ * @param run The function that implements the verb.
+ */
 export function verb<F>(support: SupportInput, run: F): Verb<F> {
   return { support, run }
 }
 
+/**
+ * Declares a verb whose support depends on the thread kind.
+ * @param kinds How well each thread kind is supported. Kinds that are left out are unsupported.
+ * @param run The function that implements the verb.
+ * @example
+ * ```ts
+ * const threads = {
+ *   get: perKind({ issue: true, pull_request: true }, getThread),
+ * }
+ * ```
+ */
 export function perKind<F>(kinds: Partial<Record<VerbKind, SupportInput>>, run: F): KindVerb<F> {
   return { kinds, run }
 }
@@ -78,8 +98,11 @@ export interface ProviderSpec {
   traits: {
     /** Whether notifications can be polled; usually the notifications list support. */
     poll: boolean | 'emulated' | 'experimental'
+    /** Whether event kinds come from the forge or are inferred from text. See `ForgeCapabilities.eventKinds`. */
     eventKinds: ForgeCapabilities['eventKinds']
+    /** The auth types the provider accepts. */
     authKinds: readonly AuthKind[]
+    /** Limits on the text the forge accepts. */
     limits?: TextLimits
   }
   /** Listings are declared as pages; core derives the iterables. */
@@ -141,55 +164,82 @@ export interface ProviderSpec {
   }
   /** Commit-level checks, beside the pull-level `threads.checks`. */
   checks?: {
+    /** The implementation of `provider.checks.list()`. */
     list?: Verb<ChecksApi['list']>
+    /** The implementation of `provider.checks.report()`. */
     report?: Verb<ChecksApi['report']>
+    /** The implementation of `provider.checks.rerun()`. */
     rerun?: Verb<ChecksApi['rerun']>
   }
   /** Read-only CI. Listings are declared as pages; core derives the iterables. */
   ci?: {
+    /** The implementation of `provider.ci.runs()` and `provider.ci.runsPage()`. */
     runsPage?: Verb<CiApi['runsPage']>
+    /** The implementation of `provider.ci.run()`. */
     run?: Verb<CiApi['run']>
+    /** The implementation of `provider.ci.jobs()` and `provider.ci.jobsPage()`. */
     jobsPage?: Verb<CiApi['jobsPage']>
+    /** The implementation of `provider.ci.log()`. */
     log?: Verb<CiApi['log']>
   }
   /** Repository contents. Listings are declared as pages; core derives the iterables. */
   contents?: {
+    /** The implementation of `provider.contents.file()`. */
     file?: Verb<ContentsApi['file']>
+    /** The implementation of `provider.contents.tree()` and `provider.contents.treePage()`. */
     treePage?: Verb<ContentsApi['treePage']>
+    /** The implementation of `provider.contents.branches()` and `provider.contents.branchesPage()`. */
     branchesPage?: Verb<ContentsApi['branchesPage']>
+    /** The implementation of `provider.contents.tags()` and `provider.contents.tagsPage()`. */
     tagsPage?: Verb<ContentsApi['tagsPage']>
     /** Omit where a sha lookup is impossible; core still short-circuits a 40-hex ref. */
     resolveRef?: Verb<ContentsApi['resolveRef']>
+    /** The implementation of `provider.contents.commits()` and `provider.contents.commitsPage()`. */
     commitsPage?: Verb<ContentsApi['commitsPage']>
+    /** The implementation of `provider.contents.commit()`. */
     commit?: Verb<ContentsApi['commit']>
+    /** The implementation of `provider.contents.compare()`. */
     compare?: Verb<ContentsApi['compare']>
   }
   /** Cross-repository search. Listings are declared as pages; core derives the iterables. */
   search?: {
+    /** The implementation of `provider.search.threads()` and `provider.search.threadsPage()`. */
     threadsPage?: Verb<SearchApi['threadsPage']>
+    /** The implementation of `provider.search.repos()` and `provider.search.reposPage()`. */
     reposPage?: Verb<SearchApi['reposPage']>
+    /** The implementation of `provider.search.commits()` and `provider.search.commitsPage()`. */
     commitsPage?: Verb<SearchApi['commitsPage']>
     /** The searches pass `queryRaw` on; without this, core drops it with a warning. */
     queryRaw?: boolean
   }
   releases?: {
+    /** The implementation of `provider.releases.list()` and `provider.releases.listPage()`. */
     listPage: Verb<ReleasesApi['listPage']>
+    /** The implementation of `provider.releases.get()`. */
     get: Verb<ReleasesApi['get']>
+    /** The implementation of `provider.releases.latest()`. */
     latest: Verb<ReleasesApi['latest']>
+    /** The implementation of `provider.releases.getByTag()`. */
     getByTag?: Verb<ReleasesApi['getByTag']>
+    /** The implementation of `provider.releases.downloadAsset()`. */
     downloadAsset?: Verb<ReleasesApi['downloadAsset']>
   }
   /** Support per alert kind; `listPage` is called with `kind` unset to list every supported kind. */
   securityAlerts?: {
+    /** The implementation of `provider.securityAlerts.kinds()`. */
     kinds: Partial<Record<AlertKind, SupportInput>>
+    /** The implementation of `provider.securityAlerts.list()` and `provider.securityAlerts.listPage()`. */
     listPage: SecurityAlertsApi['listPage']
   }
   /** Omit when the forge has no notifications. `list` is derived from `page`. */
   notifications?: {
     listPage: Verb<(options?: NotificationListOptions) => Promise<Page<Notification>>>
   } & { [K in Exclude<keyof NotificationsApi, 'list' | 'listPage'>]?: Verb<NonNullable<NotificationsApi[K]>> }
+  /** The implementation of `provider.installations`, except for `list()` and `repos()`, which core derives. */
   installations?: Verb<Omit<InstallationsApi, 'list' | 'repos'>>
-  sources?: { subscribe: Verb<(options?: SubscribeOptions) => AsyncIterable<{ event: ForgeEventInput, cursor: string }>> }
+  sources?: { /** The implementation of `provider.sources.subscribe()`. */
+    subscribe: Verb<(options?: SubscribeOptions) => AsyncIterable<{ event: ForgeEventInput, cursor: string }>>
+  }
   /** Managing registered hooks. Listings are declared as pages; core derives the iterables. */
   webhooks: {
     listPage?: Verb<WebhooksApi['listPage']>
@@ -202,6 +252,7 @@ export interface ProviderSpec {
   }
   /** Token scopes or app permissions per verb, for `provider.scopesFor()`. */
   scopes?: (verb: ForgeVerb) => VerbScopes
+  /** The implementation of `provider.normaliseMarkdown()`. Without it, Markdown is returned unchanged. */
   normaliseMarkdown?: (body: string) => string
   /** How the forge's web pages are laid out; omit when they have no stable pattern. */
   web?: WebLinks
@@ -211,24 +262,31 @@ export interface ProviderSpec {
   probeVersion?: () => Promise<string | undefined>
 }
 
+/** Hooks that a provider runs around a merge. */
 export interface MergeHooks {
+  /** Runs before the merge request is sent, for example to wait for a pending state. */
   beforeMerge?: () => Promise<void>
 }
 
+/** The options, the identity and the resolved URLs that provider hooks receive. */
 export interface ProviderBase<TOptions, TState> {
   options: TOptions
   forge: ForgeKind
   instance: ForgeInstance
   /** API base after defaults and the API path are applied. */
   baseUrl: string
-  /** Default headers: the definition's, plus `user-agent`. */
+  /** Default headers: the definition's, plus `user-agent` outside browsers or when the caller sets one. */
   headers: Record<string, string>
   /** Error context for this provider. */
-  origin: { forge: ForgeKind, instance: ForgeInstance }
+  origin: {
+    forge: ForgeKind
+    instance: ForgeInstance
+  }
   /** State passed to `derive()`, or created by `prepare()`. */
   state: TState
 }
 
+/** The argument of `setup()`: the base, the fetchers and `derive()`. */
 export interface ProviderContext<TOptions, TState> extends ProviderBase<TOptions, TState> {
   /** Authenticated with the definition's `authHeaders`. */
   fetcher: Fetcher
@@ -238,8 +296,10 @@ export interface ProviderContext<TOptions, TState> extends ProviderBase<TOptions
   derive: (options: TOptions, state?: TState) => ForgeProvider
 }
 
+/** The defaults, the authentication and the `setup()` of a forge. */
 export interface ProviderDefinition<TOptions extends ForgeOptionsBase, TState = undefined> {
   forge: ForgeKind
+  /** The provider has not reached parity yet. */
   experimental?: true
   /**
    * Accepts a missing `auth` as `{ type: 'anonymous' }`: core then sends no
@@ -256,9 +316,11 @@ export interface ProviderDefinition<TOptions extends ForgeOptionsBase, TState = 
   headers?: Record<string, string>
   /** Builds per-provider state once; receives the state given to `derive()`, if any. */
   prepare?: (base: ProviderBase<TOptions, TState | undefined>) => TState
+  /** Resolves the credential headers of each request. */
   authHeaders?: (base: ProviderBase<TOptions, TState>) => FetcherOptions['authHeaders']
   /** Query parameters for every request, such as an API version; see `FetcherOptions.query`. */
   query?: Record<string, string>
+  /** Declares the verbs and the web links of one provider. */
   setup: (ctx: ProviderContext<TOptions, TState>) => ProviderSpec
   /** Delivery verification and translation. Omit it and `webhooks.ingest()` is unsupported. */
   webhooks?: WebhookHandlers<TOptions>
@@ -339,7 +401,10 @@ function createProvider<TOptions extends ForgeOptionsBase, TState>(
   const host = instanceHost(baseUrl, definition.forge)
   const instance = options.instance ?? definition.instance?.(host) ?? host
   const origin = { forge: definition.forge, instance }
-  const headers = { ...definition.headers, 'user-agent': options.userAgent ?? 'forges' }
+  // Browsers send their own user agent, and setting one can trigger a CORS preflight that some forges reject.
+  const browser = 'document' in globalThis || 'WorkerGlobalScope' in globalThis
+  const userAgent = options.userAgent ?? (browser ? undefined : 'forges')
+  const headers = { ...definition.headers, ...userAgent ? { 'user-agent': userAgent } : {} }
   const prepared = { options, forge: definition.forge, instance, baseUrl, headers, origin, state: givenState }
   const state = (definition.prepare ? definition.prepare(prepared) : givenState) as TState
   const base: ProviderBase<TOptions, TState> = { ...prepared, state }
@@ -554,6 +619,7 @@ function createProvider<TOptions extends ForgeOptionsBase, TState>(
 /**
  * Defines a forge provider. Returns the factory end users call, for example
  * `github({ auth })`. Nothing touches the network until `create()`.
+ * @param definition The defaults, authentication and setup of the forge.
  */
 export function defineForgeProvider<TOptions extends ForgeOptionsBase, TState = undefined>(
   definition: ProviderDefinition<TOptions, TState>,

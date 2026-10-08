@@ -16,10 +16,17 @@ import { giteeWebhooks } from './webhooks.ts'
 /** A personal access token or OAuth access token, sent as `Authorization: token`. */
 export type GiteeAuth = TokenAuth | AnonymousAuth
 
+/** Options for `gitee()`. */
 export interface GiteeOptions extends ForgeOptionsBase {
-  /** Defaults to `{ type: 'anonymous' }`: public reads only. */
+  /**
+   * How to authenticate. Without credentials, only public reads work.
+   * @default { type: 'anonymous' }
+   */
   auth?: GiteeAuth
-  /** Instance root. Defaults to `https://gitee.com`; `/api/v5` is appended. */
+  /**
+   * Instance root. `/api/v5` is appended.
+   * @default https://gitee.com
+   */
   baseUrl?: string
 }
 

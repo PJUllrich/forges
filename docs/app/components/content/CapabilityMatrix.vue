@@ -136,7 +136,7 @@ function limits(values?: Record<string, number>) {
           </colgroup>
           <thead
             role="rowgroup"
-            class="sticky top-(--ui-header-height) z-10 bg-default"
+            class="sticky top-(--ui-header-height) z-10 sticky-matrix-head"
           >
             <tr role="row">
               <th
@@ -369,7 +369,6 @@ function limits(values?: Record<string, number>) {
     </h3>
     <div
       class="overflow-x-auto rounded-md border border-default"
-      tabindex="0"
       role="region"
       aria-label="Authentication and limits"
     >

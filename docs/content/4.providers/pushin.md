@@ -1,7 +1,7 @@
 ---
-title: Pushin.eu
-description: "Use Pushin.eu, a European git host: repositories, issues, pull requests, labels and notifications."
-icon: i-lucide-send
+title: pushin.eu
+description: "Use pushin.eu, a European git host: repositories, issues, pull requests, labels and notifications."
+icon: i-custom-pushin
 ---
 
 The Pushin.eu provider covers [Pushin.eu](https://pushin.eu), a European git host with an API modelled on GitHub's. The provider reads repositories, labels, collaborators, issues, pull requests, comments and notifications. The API's [OpenAPI specification](https://pushin.eu/api/v1/openapi.json) documents its endpoints.

@@ -14,7 +14,7 @@
       "onFail": "download"
     }
   },
-  "description": "One API for every code forge: issues, pull requests, notifications, checks and webhooks",
+  "description": "One client, every forge: issues, pull requests, notifications, checks and webhooks",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -101,12 +101,14 @@
     "test:docs": "vitest run --project docs",
     "test:capabilities": "node scripts/check-capabilities.ts",
     "test:knip": "knip",
+    "test:links": "lychee --config lychee.toml --include-fragments docs/.output/public README.md CONTRIBUTING.md CODE_OF_CONDUCT.md docs/README.md docs/content examples test/fixtures",
     "test:versions": "installed-check -d --no-workspaces",
     "test:types": "tsc --noEmit",
     "dev:docs": "pnpm --filter forges-docs dev",
     "dev:playground": "pnpm --filter playground dev",
     "record-fixtures": "node --env-file-if-exists=.env scripts/record-fixtures.ts",
     "capability-matrix": "node scripts/capability-matrix.ts",
+    "docs:api": "node scripts/docs-api.ts",
     "test:size": "node scripts/bundle-size.ts"
   },
   "devDependencies": {

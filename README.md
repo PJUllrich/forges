@@ -5,9 +5,9 @@
 [![Github Actions][github-actions-src]][github-actions-href]
 [![Codecov][codecov-src]][codecov-href]
 
-One API for every code forge.
+One client, every forge.
 
-`forges` is a TypeScript library for working with issues, pull requests, notifications, checks and webhooks on GitHub, GitLab, Bitbucket, Forgejo, Gitea, Gitee, Azure DevOps, Cursor Origin, Tangled and Pushin.eu. Each provider normalises the forge's responses into one data model and declares which operations it supports.
+`forges` is a TypeScript library for working with issues, pull requests, notifications, checks and webhooks on ten forges: GitHub, GitLab, Bitbucket, Forgejo, Gitea, Gitee, Azure DevOps, Cursor Origin, Tangled and pushin.eu. A forge is a service that hosts Git repositories and the collaboration around them. Each provider normalises the forge's responses into one data model and declares which operations it supports.
 
 Read the documentation at [forges.link](https://forges.link).
 
@@ -42,7 +42,7 @@ The [quick start](https://forges.link/getting-started/quick-start) walks through
 - [Guides](https://forges.link/guides/authentication): authentication, several forges, environment variables, webhooks, capabilities, errors, pagination, browser bundles and testing.
 - [Concepts](https://forges.link/concepts/data-model): the data model, capabilities, providers and events.
 - [Providers](https://forges.link/providers): authentication and behaviour specific to each forge.
-- [Reference](https://forges.link/reference/provider-api): the provider API, the capability matrix, errors and JSON schemas.
+- [Reference](https://forges.link/reference/overview): the API, the capability matrix, errors and JSON schemas.
 - [Examples](https://forges.link/examples): small, tested projects that use `forges`.
 
 ## related projects

@@ -5,7 +5,7 @@ const { data: attribution } = await useFetch('/api/footer-contributors', {
 
 const links = [
   { label: 'Documentation', to: '/getting-started/introduction' },
-  { label: 'API reference', to: '/reference/provider-api' },
+  { label: 'API reference', to: '/reference/overview' },
   { label: 'Developers', to: '/developers' },
 ]
 </script>
@@ -32,7 +32,7 @@ const links = [
             <AppHeaderLogo />
           </NuxtLink>
           <p class="mt-3 text-sm text-muted">
-            one API for every code forge.
+            one client, every forge.
           </p>
         </div>
 
