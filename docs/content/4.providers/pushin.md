@@ -1,6 +1,6 @@
 ---
-title: pushin.eu
-description: "Use pushin.eu, a European git host: repositories, issues, pull requests, labels and notifications."
+title: Pushin.eu
+description: "Use Pushin.eu, a European git host: repositories, issues, pull requests, labels and notifications."
 icon: i-custom-pushin
 ---
 
