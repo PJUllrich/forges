@@ -38,10 +38,12 @@ const FIELDS = [
 
 type Field = typeof FIELDS[number]
 
+/** One set of variables that `providersFromEnv()` reads, and the provider factory it made from them. */
 export interface EnvProvider {
   forge: string
   /** The part after the field, for example `WORK` in `FORGES_GITHUB_TOKEN_WORK`. Empty for the unsuffixed set. */
   suffix: string
+  /** The factory to pass to `createForges()`. Missing when the set was skipped. */
   factory?: ForgeProviderFactory
   /** Instance host the factory's providers report, when the set was not skipped. */
   instance?: string
@@ -57,6 +59,7 @@ function parseRepo(value: string | undefined): { owner: string, name: string } |
   return path && slash > 0 ? { owner: path.slice(0, slash), name: path.slice(slash + 1) } : undefined
 }
 
+/** Options for `providersFromEnv()` and `forgesFromEnv()`. */
 export interface FromEnvOptions {
   /** Passed to every provider, for tests and runtimes without a global `fetch`. */
   fetch?: FetchLike
@@ -65,6 +68,8 @@ export interface FromEnvOptions {
 /**
  * Reads provider sets from `FORGES_<KIND>_<FIELD>[_<SUFFIX>]` variables. A
  * suffix starts another instance of the same forge.
+ * @param env The variables to read, such as `process.env`.
+ * @param options Options that every provider is created with.
  */
 export function providersFromEnv(env: Record<string, string | undefined>, options: FromEnvOptions = {}): EnvProvider[] {
   const sets = new Map<string, { kind: typeof KINDS[number], suffix: string, fields: Partial<Record<Field, string>> }>()
@@ -197,7 +202,18 @@ function isOn(value: string | undefined): boolean {
   return value === '1' || value === 'true'
 }
 
-/** Builds `Forges` from environment variables; see {@link providersFromEnv}. */
+/**
+ * Builds `Forges` from environment variables; see {@link providersFromEnv}.
+ * @param env The variables to read, such as `process.env`.
+ * @param options Options that every provider is created with.
+ * @example
+ * ```ts
+ * import { forgesFromEnv } from 'forges/env'
+ *
+ * // FORGES_GITHUB_TOKEN=... FORGES_GITLAB_TOKEN=...
+ * const forges = forgesFromEnv(process.env)
+ * ```
+ */
 export function forgesFromEnv(env: Record<string, string | undefined>, options: FromEnvOptions = {}): Forges {
   return createForges(providersFromEnv(env, options).flatMap(entry => entry.factory ? [entry.factory] : []))
 }

@@ -11,10 +11,17 @@ import { FORGE, toActor, toCollaborator, toComment, toLabel, toNotification, toR
 /** A personal access token created in Settings (`pun_pat_…`), sent as `Authorization: Bearer`. */
 export type PushinAuth = TokenAuth | AnonymousAuth
 
+/** Options for `pushin()`. */
 export interface PushinOptions extends ForgeOptionsBase {
-  /** Defaults to `{ type: 'anonymous' }`: public repository reads only. */
+  /**
+   * How to authenticate. Without credentials, only public reads work.
+   * @default { type: 'anonymous' }
+   */
   auth?: PushinAuth
-  /** Instance root. Defaults to `https://pushin.eu`; `/api/v1` is appended. */
+  /**
+   * Instance root. `/api/v1` is appended.
+   * @default https://pushin.eu
+   */
   baseUrl?: string
 }
 

@@ -2,13 +2,18 @@ import type { ForgeErrorContext } from './errors.ts'
 import type { Cursor, RateLimit } from './model.ts'
 import { AuthenticationRequiredError, ForbiddenError, forbiddenReason, ForgeApiError, ForgeNetworkError, ForgeTimeoutError, InsufficientScopeError, NotFoundError, RateLimitedError, TokenRevokedError } from './errors.ts'
 
+/** The subset of `fetch` that forges needs, so a test or a runtime without a global `fetch` can supply its own. */
 export type FetchLike = (input: string, init?: RequestInit) => Promise<Response>
 
+/** Options for `createFetcher()`. */
 export interface FetcherOptions {
   baseUrl: string
   /** Injected for tests and for runtimes with a non-global fetch. */
   fetch?: FetchLike
-  /** Timeout in milliseconds (headers only for streams). Defaults to 30000. */
+  /**
+   * Timeout in milliseconds (headers only for streams).
+   * @default 30000
+   */
   timeout?: number
   /** Default headers, sent only to the API origin. */
   headers?: Record<string, string>
@@ -18,6 +23,7 @@ export interface FetcherOptions {
   authenticated?: boolean
   /** API-origin query defaults; request parameters take precedence. */
   query?: Record<string, string>
+  /** Attached to every error the fetcher throws. */
   context?: ForgeErrorContext
   /**
    * Called before a request is retried. A secondary rate limit with a
@@ -26,7 +32,9 @@ export interface FetcherOptions {
   onRetry?: (retry: { url: string, method: string, wait: number }) => void
 }
 
+/** Options for one request of a fetcher. */
 export interface RequestOptions extends Omit<RequestInit, 'signal'> {
+  /** Query parameters. Parameters that are `undefined` are left out. */
   query?: Record<string, string | number | boolean | undefined>
   signal?: AbortSignal
   /** Send `If-None-Match`, and resolve with `notModified` instead of throwing. */
@@ -37,6 +45,7 @@ export interface RequestOptions extends Omit<RequestInit, 'signal'> {
   mapError?: (error: unknown) => unknown
 }
 
+/** Options for reading one page of a paginated endpoint. */
 export interface PaginateOptions extends RequestOptions {
   /**
    * Reads items and the next page URL from a response body, for APIs that
@@ -48,10 +57,13 @@ export interface PaginateOptions extends RequestOptions {
   select?: (body: unknown, linkNext?: string) => { items: unknown[], next?: string }
 }
 
+/** A parsed response. */
 export interface FetchResult<T> {
   data: T
   response: Response
+  /** The server answered `304 Not Modified` to the `etag` that the request sent. */
   notModified: boolean
+  /** Where the next page starts, when there is one. */
   cursor?: Cursor
 }
 
@@ -59,10 +71,13 @@ export interface FetchResult<T> {
 export interface RawResponse {
   status: number
   headers: Headers
+  /** The body, read as it arrives. */
   body: ReadableStream<Uint8Array>
 }
 
+/** A client for one forge API. It adds credentials, applies the timeout and retries, and maps failures to errors. */
 export interface Fetcher {
+  /** Sends a request and returns the response unparsed. */
   raw: (path: string, options?: RequestOptions) => Promise<Response>
   /**
    * Bytes as they arrive, through the same timeout and error mapping as
@@ -72,11 +87,13 @@ export interface Fetcher {
    * under its own header rules.
    */
   stream: (path: string, options?: RequestOptions) => Promise<RawResponse>
+  /** Sends a request and parses the JSON body. */
   json: <T>(path: string, options?: RequestOptions) => Promise<FetchResult<T>>
   /** One page: `path` with its query, or `cursor.nextUrl` when given. */
   page: <T>(path: string, options?: PaginateOptions & { cursor?: Cursor }) => Promise<FetchResult<T[]>>
   /** Every item across every page, in order. */
   items: <T>(path: string, options?: PaginateOptions) => AsyncGenerator<T>
+  /** The absolute URL of a path and query, without sending a request. */
   resolve: (path: string, query?: RequestOptions['query']) => string
 }
 
@@ -259,6 +276,10 @@ export function sleep(ms: number, signal: AbortSignal | undefined): Promise<void
   })
 }
 
+/**
+ * Creates a fetcher for one forge API.
+ * @param options The base URL and the credentials, timeout and error context of every request.
+ */
 export function createFetcher(options: FetcherOptions): Fetcher {
   const timeout = options.timeout ?? 30_000
   const doFetch: FetchLike = options.fetch ?? ((input, init) => globalThis.fetch(input, init))
@@ -523,20 +544,26 @@ function emptyStream(): ReadableStream<Uint8Array> {
   return new Blob([]).stream()
 }
 
+/** Options for `provider.request()`. */
 export interface ForgeRequestOptions {
+  /** Query parameters. Parameters that are `undefined` are left out. */
   query?: RequestOptions['query']
   /** Native fetch bodies and strings are sent as-is; other values are sent as JSON. */
   body?: unknown
+  /** Headers to send. They add to the provider's default headers. */
   headers?: Record<string, string>
   signal?: AbortSignal
   /** Caller-declared mutation. Defaults to `false` for GET/HEAD/OPTIONS, otherwise `true`. */
   mutates?: boolean
 }
 
+/** The result of `provider.request()`. */
 export interface ForgeResponse<T> {
   status: number
+  /** The parsed JSON body, or the text of a body that is not JSON. */
   data: T
   headers: Headers
+  /** The rate limit that the response headers report, when there is one. */
   rateLimit?: RateLimit
 }
 
@@ -545,11 +572,15 @@ export interface ForgeRawRequestOptions extends ForgeRequestOptions {
   raw: true
 }
 
+/**
+ * `provider.request()`: sends a request with the provider's credentials, for endpoints that the model does not cover.
+ */
 export interface ForgeRequest {
   (method: string, path: string, options: ForgeRawRequestOptions): Promise<RawResponse>
   <T = unknown>(method: string, path: string, options?: ForgeRequestOptions): Promise<ForgeResponse<T>>
 }
 
+/** Options for `createRequest()`. */
 export interface CreateRequestOptions {
   /** Error for mutating requests. */
   readOnly?: (method: string, path: string) => Error
@@ -557,8 +588,13 @@ export interface CreateRequestOptions {
 
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS'])
 
-/** Builds a provider's `request()` escape hatch on top of its fetcher. */
-export function createRequest(fetcher: Fetcher, { readOnly }: CreateRequestOptions = {}): ForgeRequest {
+/**
+ * Builds a provider's `request()` escape hatch on top of its fetcher.
+ * @param fetcher The fetcher to send requests with.
+ * @param createOptions Where to reject writes, for a read-only provider.
+ */
+export function createRequest(fetcher: Fetcher, createOptions: CreateRequestOptions = {}): ForgeRequest {
+  const { readOnly } = createOptions
   return (async <T>(method: string, path: string, options: ForgeRequestOptions | ForgeRawRequestOptions = {}): Promise<ForgeResponse<T> | RawResponse> => {
     const upperMethod = method.toUpperCase()
     if (readOnly && (options.mutates ?? !SAFE_METHODS.has(upperMethod))) {
