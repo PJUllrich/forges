@@ -12,7 +12,7 @@ const forges = [
     { name: 'Gitea', icon: 'i-simple-icons-gitea', to: '/providers/gitea' },
     { name: 'Gitee', icon: 'i-simple-icons-gitee', to: '/providers/gitee' },
     { name: 'Cursor Origin', icon: 'i-simple-icons-cursor', to: '/providers/cursor-origin' },
-    { name: 'pushin.eu', icon: 'i-lucide-send', to: '/providers/pushin' },
+    { name: 'Pushin.eu', icon: 'i-lucide-send', to: '/providers/pushin' },
   ],
 ]
 

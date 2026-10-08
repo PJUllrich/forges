@@ -7,7 +7,7 @@
 
 One API for every code forge.
 
-`forges` is a TypeScript library for working with issues, pull requests, notifications, checks and webhooks on GitHub, GitLab, Bitbucket, Forgejo, Gitea, Gitee, Azure DevOps, Cursor Origin, Tangled and pushin.eu. Each provider normalises the forge's responses into one data model and declares which operations it supports.
+`forges` is a TypeScript library for working with issues, pull requests, notifications, checks and webhooks on GitHub, GitLab, Bitbucket, Forgejo, Gitea, Gitee, Azure DevOps, Cursor Origin, Tangled and Pushin.eu. Each provider normalises the forge's responses into one data model and declares which operations it supports.
 
 Read the documentation at [forges.link](https://forges.link).
 
