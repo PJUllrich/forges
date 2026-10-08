@@ -154,7 +154,7 @@ export interface Repo {
 
 /**
  * Kind of thread. `'other'` holds forge-specific subjects with no shared kind
- * yet (check suites, epics); `typeRaw` names them.
+ * (check suites, epics); `typeRaw` names them.
  */
 export type ThreadKind = 'issue' | 'pull_request' | 'discussion' | 'commit' | 'other'
 
