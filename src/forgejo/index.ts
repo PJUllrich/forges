@@ -1,7 +1,9 @@
-import type { MergeHooks, ProviderContext, ProviderDefinition, ProviderFactoryFunction, ProviderSpec } from '../define.ts'
+import type { MergeHooks, ProviderContext, ProviderDefinition, ProviderFactoryFunction, ProviderSpec, SupportInput } from '../define.ts'
 import type {
   Check,
   CheckState,
+  CiRun,
+  CiRunQuery,
   Comment,
   CommentRef,
   ForgeEventInput,
@@ -41,6 +43,8 @@ import type {
 } from '../provider.ts'
 import type { ForgeVerb } from '../supports.ts'
 import type {
+  ForgejoActionRun,
+  ForgejoActionRunJob,
   ForgejoCombinedStatus,
   ForgejoComment,
   ForgejoCommit,
@@ -66,11 +70,11 @@ import { fromBase64, toFileContent } from '../contents.ts'
 import { defineForgeProvider, perKind, verb } from '../define.ts'
 import { ForgeError, NotFoundError, soleMergeMethod, toMergeError, UnsupportedOperationError } from '../errors.ts'
 import { isNamespaceRef, reactionContent } from '../model.ts'
-import { actorLogin, createListing, getManyConcurrently, hasEveryLabel, hexColour, memo, memoBy, milestoneId, requireIssueOrPull, requireThread, resolveToken, summariseChecks, toDate, toPage, toWarning } from '../utils.ts'
+import { actorLogin, createListing, getManyConcurrently, hasEveryLabel, hexColour, hostOf, memo, memoBy, milestoneId, requireIssueOrPull, requireThread, resolveToken, summariseChecks, toDate, toPage, toWarning, versionAtLeast } from '../utils.ts'
 import { githubShapedWeb } from '../web.ts'
 import { nativeEventsFor } from '../webhooks.ts'
-import { numberFromUrl, toActor, toBranch, toChangedFile, toComment, toCommit, toEvent, toLabel, toMilestone, toNotification, toRelease, toRepo, toReview, toReviewComment, toRole, toStatusCheck, toStatusChecks, toTag, toThread, toThreadKind, toTreeEntry, toWebhook } from './normalise.ts'
-import { countedPages } from './pages.ts'
+import { ACTION_STATES, actionBranch, numberFromUrl, toActionJob, toActionRun, toActor, toBranch, toChangedFile, toComment, toCommit, toEvent, toLabel, toMilestone, toNotification, toRelease, toRepo, toReview, toReviewComment, toRole, toStatusCheck, toStatusChecks, toTag, toThread, toThreadKind, toTreeEntry, toWebhook } from './normalise.ts'
+import { countedNextUrl, countedPages } from './pages.ts'
 import { FORGEJO_HEADERS, FORGEJO_NATIVE_EVENTS } from './webhook-events.ts'
 import { forgejoWebhooks } from './webhooks.ts'
 
@@ -102,6 +106,10 @@ export const FORGEJO_PROFILE: ForgejoProfile = {
 }
 
 const ISSUE_AND_PULL = { issue: true, pull_request: true } as const
+
+/** Forgejo versions with the Actions runs API, and with run jobs and job logs. */
+const FORGEJO_ACTION_RUNS = '12.0'
+const FORGEJO_ACTION_JOBS = '16.0'
 
 /** Timelines send no usable count, so only a full page of an explicit size shows that another follows. */
 const TIMELINE_PAGE_SIZE = 50
@@ -438,6 +446,35 @@ function setupForgejo({ origin, fetcher: baseFetcher, baseUrl }: ProviderContext
     }, warnings)
   }
 
+  /** Codeberg runs the latest Forgejo, so only a self-hosted instance waits for its version. Gitea's Actions API has another shape. */
+  function actions(minimum: string, support: true | 'experimental' = true): SupportInput {
+    if (profile.forge !== 'forgejo') {
+      return false
+    }
+    return hostOf(baseUrl) === hostOf(profile.defaultBaseUrl) ? support : ({ version }) => versionAtLeast(version, minimum) && support
+  }
+
+  async function runsPage(repo: RepoRef, query: CiRunQuery = {}): Promise<Page<CiRun>> {
+    const statuses = query.state ? `?${ACTION_STATES[query.state].map(status => `status=${status}`).join('&')}` : ''
+    const path = `${repoPath(repo)}/actions/runs${statuses}`
+    // Without `page`, Forgejo ignores `limit` and sends the whole run history.
+    const pageQuery = { ref: query.branch ? `refs/heads/${query.branch}` : undefined, page: 1, limit: query.perPage ?? 50 }
+    const url = query.cursor?.nextUrl ? fetcher.resolve(query.cursor.nextUrl) : fetcher.resolve(path, pageQuery)
+    const result = await fetcher.page<ForgejoActionRun>(path, {
+      query: pageQuery,
+      cursor: query.cursor,
+      signal: query.signal,
+      // Forgejo caps `limit` at its maximum page size and reports the total only in the body.
+      select: (body, next) => {
+        const { workflow_runs, total_count } = body as { workflow_runs: ForgejoActionRun[] | null, total_count?: number }
+        const items = workflow_runs ?? []
+        return { items, next: next ?? countedNextUrl(url, items.length, total_count === undefined ? null : String(total_count)) }
+      },
+    })
+    // Forgejo before 15.0 ignores `ref`, so the branch is checked here too.
+    return toPage(result, raw => query.branch && actionBranch(raw) !== query.branch ? undefined : toActionRun(repo, raw))
+  }
+
   async function searchReposPage(query: RepoSearchQuery): Promise<Page<Repo>> {
     const result = await fetcher.page<ForgejoRepositoryDetail>('/repos/search', {
       query: {
@@ -510,6 +547,16 @@ function setupForgejo({ origin, fetcher: baseFetcher, baseUrl }: ProviderContext
         method: 'POST',
         json: { state: STATUS_STATES[input.state], context: input.name, description: input.description, target_url: input.url },
       })).data)),
+    },
+    ci: {
+      runsPage: verb(actions(FORGEJO_ACTION_RUNS), runsPage),
+      run: verb(actions(FORGEJO_ACTION_RUNS), async ref => toActionRun(ref.repo, (await fetcher.json<ForgejoActionRun>(`${repoPath(ref.repo)}/actions/runs/${encodeURIComponent(ref.id)}`)).data)),
+      // The jobs of a run come back in one response, whatever the page size.
+      jobsPage: verb(actions(FORGEJO_ACTION_JOBS), async (ref, listOptions = {}) => {
+        const { data } = await fetcher.json<ForgejoActionRunJob[] | null>(`${repoPath(ref.repo)}/actions/runs/${encodeURIComponent(ref.id)}/jobs`, { signal: listOptions.signal })
+        return { items: (data ?? []).map(raw => toActionJob(ref, raw)) }
+      }),
+      log: verb(actions(FORGEJO_ACTION_JOBS, 'experimental'), async ref => (await fetcher.stream(`${repoPath(ref.repo)}/actions/jobs/${encodeURIComponent(ref.id)}/logs`)).body),
     },
     contents: {
       file: verb(true, async (repo, path, fileOptions = {}) => {

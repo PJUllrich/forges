@@ -254,3 +254,60 @@ describe('forgejo label webhooks', () => {
     expect(provider.webhooks.events).toContainEqual({ kind: 'label', action: expected })
   })
 })
+
+describe('forgejo actions', () => {
+  const auth = { type: 'token', token: 't' } as const
+  const repo = { forge: 'forgejo', instance: 'git.example.org', owner: 'acme', name: 'widgets' }
+
+  it('reads Actions on Codeberg and gates a self-hosted instance on its version', () => {
+    const ci = (options: { baseUrl?: string, instanceVersion?: string }) => forgejo({ auth, ...options }).create().capabilities.ci
+
+    expect(ci({})).toEqual({ runs: true, run: true, jobs: true, log: 'experimental' })
+    expect(ci({ baseUrl: 'https://git.example.org' })).toEqual({ runs: false, run: false, jobs: false, log: false })
+    expect(ci({ baseUrl: 'https://git.example.org', instanceVersion: '15.0.2+gitea-1.22.0' })).toEqual({ runs: true, run: true, jobs: false, log: false })
+    expect(ci({ baseUrl: 'https://git.example.org', instanceVersion: '16.0.0+gitea-1.22.0' })).toEqual({ runs: true, run: true, jobs: true, log: 'experimental' })
+    expect(gitea({ auth }).create().capabilities.ci).toEqual({ runs: false, run: false, jobs: false, log: false })
+  })
+
+  it('pages runs explicitly and keeps the branch where Forgejo ignores `ref`', async () => {
+    const urls: string[] = []
+    const run = (id: number, prettyref: string, status: string) => ({ id, workflow_id: 'test.yml', index_in_repo: id, prettyref, commit_sha: 'c4a92ff', status, started: '1970-01-01T00:00:00Z', stopped: '2026-10-02T03:42:02Z' })
+    const provider = forgejo({ auth, baseUrl: 'https://git.example.org', instanceVersion: '14.0.5', fetch: async (url) => {
+      urls.push(String(url))
+      return Response.json({ total_count: 3, workflow_runs: [run(3, 'main', 'cancelled'), run(2, '#9', 'failure'), run(1, 'c4a92ff', 'failure')] })
+    } }).create()
+
+    const page = await provider.ci.runsPage(repo, { branch: 'main', state: 'failure' })
+
+    expect(urls).toEqual(['https://git.example.org/api/v1/repos/acme/widgets/actions/runs?status=failure&status=cancelled&ref=refs%2Fheads%2Fmain&page=1&limit=50'])
+    expect(page.items).toMatchObject([{ number: '3', branch: 'main', state: 'failure', stateRaw: 'cancelled', startedAt: undefined }])
+  })
+
+  it('continues runs past a page that Forgejo capped below `perPage`', async () => {
+    const urls: string[] = []
+    const provider = forgejo({ auth, baseUrl: 'https://git.example.org', instanceVersion: '16.0.0', fetch: async (url) => {
+      urls.push(String(url))
+      const first = new URL(String(url)).searchParams.get('page') === '1' ? 120 : 70
+      return Response.json({ total_count: 120, workflow_runs: Array.from({ length: 50 }, (_, index) => ({ id: first - index, status: 'success' })) })
+    } }).create()
+
+    const first = await provider.ci.runsPage(repo, { perPage: 100 })
+    const second = await provider.ci.runsPage(repo, { perPage: 100, cursor: first.cursor })
+
+    expect(first.items).toHaveLength(50)
+    expect(urls).toEqual([
+      'https://git.example.org/api/v1/repos/acme/widgets/actions/runs?page=1&limit=100',
+      'https://git.example.org/api/v1/repos/acme/widgets/actions/runs?page=2&limit=50',
+    ])
+    expect(second.items[0]!.ref.id).toBe('70')
+    expect(second.cursor?.nextUrl).toBe('https://git.example.org/api/v1/repos/acme/widgets/actions/runs?page=3&limit=50')
+  })
+
+  it('streams a job log', async () => {
+    const provider = forgejo({ auth, baseUrl: 'https://git.example.org', instanceVersion: '16.0.0', fetch: async url => new Response(String(url).endsWith('/actions/jobs/404013/logs') ? 'workflow prepared\n' : null, { status: 200 }) }).create()
+
+    const log = await provider.ci.log({ forge: 'forgejo', instance: 'git.example.org', repo, id: '404013' })
+
+    expect(await new Response(log).text()).toBe('workflow prepared\n')
+  })
+})

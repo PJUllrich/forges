@@ -4,6 +4,9 @@ import type {
   ChangedFile,
   Check,
   CheckState,
+  CiJob,
+  CiRun,
+  CiRunRef,
   Comment,
   Commit,
   EventDetail,
@@ -31,6 +34,8 @@ import type {
   Webhook,
 } from '../model.ts'
 import type {
+  ForgejoActionRun,
+  ForgejoActionRunJob,
   ForgejoBranch,
   ForgejoChangedFile,
   ForgejoCombinedStatus,
@@ -58,6 +63,9 @@ import { toDate, toFileStatus } from '../utils.ts'
 import { eventKindsOf } from '../webhooks.ts'
 import { FORGEJO_NATIVE_EVENTS } from './webhook-events.ts'
 
+/** The id of the built-in user that Forgejo and Gitea Actions act as. */
+const ACTIONS_USER_ID = -2
+
 /** Normalisers take the origin because they serve both Forgejo and Gitea. */
 export function toActor(origin: ForgeOrigin, user: ForgejoUser | undefined | null): Actor | undefined {
   if (!user) {
@@ -71,7 +79,7 @@ export function toActor(origin: ForgeOrigin, user: ForgejoUser | undefined | nul
     avatarUrl: user.avatar_url,
     url: user.html_url,
     typeRaw: user.is_bot === undefined ? undefined : user.is_bot ? 'bot' : 'user',
-    isBotHint: user.is_bot === true || user.login.endsWith('[bot]'),
+    isBotHint: user.is_bot === true || user.id === ACTIONS_USER_ID || user.login.endsWith('[bot]'),
   }
 }
 
@@ -406,6 +414,56 @@ export function toStatusCheck(repo: RepoRef, raw: ForgejoCommitStatus): Check {
 
 export function toStatusChecks(repo: RepoRef, raw: ForgejoCombinedStatus): Check[] {
   return (raw.statuses ?? []).map(status => toStatusCheck(repo, status))
+}
+
+/** Every Actions run and job status behind each normalised state, as the repeated `status` filter takes them. */
+export const ACTION_STATES: Record<Exclude<CheckState, 'unknown'>, string[]> = { pending: ['waiting', 'running', 'blocked'], success: ['success'], failure: ['failure', 'cancelled'], neutral: ['skipped'] }
+
+function actionState(status: string): CheckState {
+  return (Object.keys(ACTION_STATES) as Array<keyof typeof ACTION_STATES>).find(state => ACTION_STATES[state].includes(status)) ?? 'unknown'
+}
+
+/** Forgejo writes the zero Unix time for a run that never started or stopped. */
+function actionTime(value: string | undefined): Date | undefined {
+  const date = toDate(value)
+  return date && date.getTime() > 0 ? date : undefined
+}
+
+/** `prettyref` is the short ref; pull request runs carry `#<number>` or a bare sha instead of a branch. */
+export function actionBranch(raw: ForgejoActionRun): string | undefined {
+  const ref = raw.prettyref
+  return ref && !ref.startsWith('#') && ref !== raw.commit_sha ? ref : undefined
+}
+
+export function toActionRun(repo: RepoRef, raw: ForgejoActionRun): CiRun {
+  const state = actionState(raw.status)
+  return {
+    ref: { forge: repo.forge, instance: repo.instance, repo, id: String(raw.id) },
+    name: raw.workflow_id || raw.title || String(raw.id),
+    state,
+    stateRaw: raw.status,
+    number: raw.index_in_repo === undefined ? undefined : String(raw.index_in_repo),
+    eventRaw: raw.trigger_event || raw.event,
+    branch: actionBranch(raw),
+    sha: raw.commit_sha || undefined,
+    url: raw.html_url || undefined,
+    actor: toActor({ forge: repo.forge, instance: repo.instance }, raw.trigger_user),
+    createdAt: toDate(raw.created),
+    startedAt: actionTime(raw.started),
+    completedAt: state === 'pending' ? undefined : actionTime(raw.stopped),
+    raw,
+  }
+}
+
+export function toActionJob(run: CiRunRef, raw: ForgejoActionRunJob): CiJob {
+  return {
+    ref: { forge: run.forge, instance: run.instance, repo: run.repo, id: String(raw.id), run },
+    name: raw.name,
+    state: actionState(raw.status),
+    stateRaw: raw.status,
+    url: raw.html_url || undefined,
+    raw,
+  }
 }
 
 export function toRelease(repo: RepoRef, raw: ForgejoRelease): Release {
