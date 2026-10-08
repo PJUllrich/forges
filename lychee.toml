@@ -1,0 +1,18 @@
+# Link checking for the Markdown in this repository and the built documentation site.
+# Run `pnpm test:links` after `pnpm --filter forges-docs build`.
+
+# Resolves root-relative links (such as `/guides/authentication`) against the built site.
+root_dir = "docs/.output/public"
+fallback_extensions = [ "html" ]
+no_progress = true
+max_retries = 3
+# Some hosts, such as npm.chart.dev, do not answer requests without a browser user agent.
+user_agent = "Mozilla/5.0 (compatible; lychee)"
+exclude = [
+  # "Edit this page" links redirect anonymous requests to a login page.
+  "^https://github\\.com/[^/]+/[^/]+/edit/",
+  # The live site lags behind a pull request, and its own pages are checked through the build.
+  "^https://forges\\.link/",
+  # A placeholder base URL that only answers real API routes.
+  "^https://api\\.bitbucket\\.org/2\\.0$",
+]
