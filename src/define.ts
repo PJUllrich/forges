@@ -26,7 +26,7 @@ import type {
 } from './provider.ts'
 import type { ForgeVerb } from './supports.ts'
 import type { WebLinks } from './web.ts'
-import { ALERT_KINDS, approveAndMergeSupport, capabilitiesOf, KINDS, resolve, restrict, upsertKinds, WRITE_VERBS } from './capabilities.ts'
+import { ALERT_KINDS, approveAndMergeSupport, capabilitiesOf, KINDS, resolve, restrict, threadEventKinds, upsertKinds, WRITE_VERBS } from './capabilities.ts'
 import { CAPABILITY_TABLE } from './capability-table.ts'
 import { isSha } from './contents.ts'
 import { ReadOnlyError, UnsupportedOperationError, WebhookVerificationError } from './errors.ts'
@@ -96,8 +96,6 @@ type ThreadVerb<K extends keyof ThreadsApi> = KindVerb<NonNullable<ThreadsApi[K]
 export interface ProviderSpec {
   /** Capabilities that no single verb carries. */
   traits: {
-    /** Whether notifications can be polled; usually the notifications list support. */
-    poll: boolean | 'emulated' | 'experimental'
     /** Whether event kinds come from the forge or are inferred from text. See `ForgeCapabilities.eventKinds`. */
     eventKinds: ForgeCapabilities['eventKinds']
     /** The auth types the provider accepts. */
@@ -304,9 +302,11 @@ export interface ProviderDefinition<TOptions extends ForgeOptionsBase, TState = 
   /**
    * Accepts a missing `auth` as `{ type: 'anonymous' }`: core then sends no
    * credentials and marks writes, notifications, subscriptions, installations
-   * and the account's repository list unsupported.
+   * and the account's repository list unsupported. `'webhooks'` marks every
+   * verb unsupported, for a forge whose API needs credentials but whose
+   * webhook deliveries can be verified without them.
    */
-  anonymous?: true
+  anonymous?: true | 'webhooks'
   /** Default `baseUrl` when the caller passes none. */
   baseUrl: string
   /** Appended to `baseUrl` unless already present, for example `/api/v4`. */
@@ -426,7 +426,7 @@ function createProvider<TOptions extends ForgeOptionsBase, TState>(
   }
   const declaredSpec = definition.setup(ctx)
   const handlers = definition.webhooks?.(ctx)
-  const spec = anonymous || options.readOnly ? restrict(declaredSpec, anonymous) : declaredSpec
+  const spec = anonymous || options.readOnly ? restrict(declaredSpec, anonymous, definition.anonymous === 'webhooks') : declaredSpec
   const authKind = anonymous ? 'anonymous' : (givenAuth?.type ?? spec.traits.authKinds[0] ?? 'anonymous') as AuthKind
 
   const env: CapabilityEnv = { version: options.instanceVersion }
@@ -483,6 +483,7 @@ function createProvider<TOptions extends ForgeOptionsBase, TState>(
   const installationsSupported = () => Boolean(declaredInstallations && resolve(declaredInstallations.support, env))
 
   const listThreads = kindGate('threads.listPage', spec.threads.listPage.kinds, spec.threads.listPage.run)
+  const listEvents = kindGate('threads.eventsPage', Object.fromEntries(KINDS.map(kind => [kind, (kindEnv: CapabilityEnv) => threadEventKinds(spec, kindEnv)[kind]])), spec.threads.eventsPage.run)
   const native = spec.search?.queryRaw
   const search = (name: 'threadsPage' | 'reposPage' | 'commitsPage') => {
     const run = gate(`search.${name}`, spec.search?.[name]?.support, spec.search?.[name]?.run)
@@ -503,7 +504,7 @@ function createProvider<TOptions extends ForgeOptionsBase, TState>(
       return nonEmptyPage(run, query.cursor)
     },
     'threads.eventsPage': async (ref: ThreadRef, listOptions?: ListOptions) => {
-      const page = await gate('threads.eventsPage', spec.threads.eventsPage.support, spec.threads.eventsPage.run)(ref, listOptions) as Page<ForgeEventInput>
+      const page = await listEvents(ref, listOptions) as Page<ForgeEventInput>
       return { ...page, items: page.items.map(completeEvent) }
     },
     'threads.upsertComment': kindGate(

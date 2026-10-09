@@ -108,7 +108,7 @@ import { actorLogin, createListing, forgeIterable, getManyConcurrently, hostOf, 
 import { githubShapedWeb } from '../web.ts'
 import { nativeEventsFor } from '../webhooks.ts'
 import { createAppCredentials, createAuthHeaders } from './auth.ts'
-import { createGraphQLClient, graphqlUrl } from './graphql-client.ts'
+import { createGraphQLClient, graphqlError, graphqlUrl } from './graphql-client.ts'
 import {
   FORGE,
   repoRefFromApiUrl,
@@ -364,7 +364,9 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
 
   async function getMany(refs: ThreadRef[]): Promise<GetManyResult[]> {
     if (anonymous) {
-      return getManyConcurrently(refs, get)
+      return getManyConcurrently(refs, ref => ref.kind === 'discussion'
+        ? Promise.reject(new UnsupportedOperationError('github does not read discussions without credentials', context))
+        : get(ref))
     }
     const results: GetManyResult[] = Array.from({ length: refs.length })
     const batchable: Array<{ index: number, ref: ResolvedThreadRef }> = []
@@ -391,17 +393,27 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     for (let start = 0; start < batchable.length; start += GRAPHQL_BATCH) {
       const chunk = batchable.slice(start, start + GRAPHQL_BATCH)
       const { query, variables } = g.threadsBatchQuery(chunk.map(item => item.ref))
-      const { data } = await fetcher.json<{ data?: ThreadsBatchResult, errors?: Array<{ message: string, path?: Array<string | number> }> }>(graphqlUrl(baseUrl), {
+      const url = graphqlUrl(baseUrl)
+      const { data } = await fetcher.json<{ data?: ThreadsBatchResult, errors?: Array<{ message: string, type?: string, path?: Array<string | number> }> }>(url, {
         method: 'POST',
         json: { query, variables, operationName: 'ThreadsBatch' },
       })
+      const failure = data.data ? undefined : graphqlError('ThreadsBatch', data.errors, url, { instance })
       chunk.forEach(({ index, ref }, offset) => {
         const node = data.data?.[`t${offset}`]
         const discussion = ref.kind === 'discussion' ? node?.discussion : undefined
         const issueOrPullRequest = ref.kind === 'discussion' ? undefined : node?.issueOrPullRequest
+        if (failure) {
+          results[index] = { ok: false, ref, warning: toWarning(failure instanceof InsufficientScopeError ? 'insufficient_scope' : 'thread_unreadable', failure, ref.number) }
+          return
+        }
         if (!discussion && !issueOrPullRequest) {
-          const message = data.errors?.find(error => error.path?.[0] === `t${offset}`)?.message ?? 'Not found'
-          results[index] = { ok: false, ref, warning: { code: 'thread_unreadable', message, subject: ref.number } }
+          const error = data.errors?.find(error => error.path?.[0] === `t${offset}`)
+          if (error?.type === 'INSUFFICIENT_SCOPES') {
+            results[index] = { ok: false, ref, warning: toWarning('insufficient_scope', graphqlError('ThreadsBatch', [error], url, { instance }), ref.number) }
+            return
+          }
+          results[index] = { ok: false, ref, warning: { code: 'thread_unreadable', message: error?.message ?? 'Not found', subject: ref.number } }
           return
         }
         results[index] = { ok: true, ref, thread: discussion ? g.toDiscussionThread(ref, discussion) : g.toGraphQLThread(ref, issueOrPullRequest!) }
@@ -1273,13 +1285,13 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
     },
     securityAlerts: {
       kinds: {
-        dependency: enterprise ? ({ version }) => versionAtLeast(version, GHES_DEPENDABOT_ALERTS) && 'experimental' : 'experimental',
-        code_scanning: 'experimental',
-        secret: 'experimental',
+        dependency: !anonymous && (enterprise ? ({ version }) => versionAtLeast(version, GHES_DEPENDABOT_ALERTS) && 'experimental' : 'experimental'),
+        code_scanning: !anonymous && 'experimental',
+        secret: !anonymous && 'experimental',
       },
       listPage: alertsPage,
     },
-    traits: { poll: true, eventKinds: 'native', authKinds: ['token', 'app', 'anonymous'], limits: { bodyLength: 65536, commentLength: 65536, labelLength: 50 } },
+    traits: { eventKinds: 'native', authKinds: ['token', 'app', 'anonymous'], limits: { bodyLength: 65536, commentLength: 65536, labelLength: 50 } },
     probeVersion: enterprise ? async () => (await fetcher.json<{ installed_version?: string }>('/meta')).data.installed_version : undefined,
     installations: credentials ? verb(true, createInstallationsApi(credentials)) : undefined,
     web: githubShapedWeb(enterprise ? baseUrl.replace(/\/api\/v3$/, '') : `https://${webHost(host)}`, { pull: 'pull', discussions: true, commentFragment: 'issuecomment-', file: at => `/blob/${encodeURIComponent(at)}`, lineFragment: line => `L${line}`, reserved: GITHUB_RESERVED_PATHS }),
@@ -1345,8 +1357,8 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
         json: { name: label.name, color: label.colour, description: label.description },
       })).data)),
       milestonesPage: verb(true, milestonesPage),
-      collaboratorsPage: verb(true, (repo, listOptions = {}) => list(`${repoPath(repo)}/collaborators`, listOptions, (raw: GitHubCollaborator) => toCollaborator(instance, raw))),
-      permissionFor: verb(true, async (repo, actor) => {
+      collaboratorsPage: verb(!anonymous, (repo, listOptions = {}) => list(`${repoPath(repo)}/collaborators`, listOptions, (raw: GitHubCollaborator) => toCollaborator(instance, raw))),
+      permissionFor: verb(!anonymous, async (repo, actor) => {
         const { data } = await fetcher.json<{ permission?: string, role_name?: string, user?: GitHubCollaborator }>(
           `${repoPath(repo)}/collaborators/${encodeURIComponent(actorLogin(actor))}/permission`,
         )
@@ -1356,7 +1368,7 @@ function setupGitHub({ options, baseUrl, instance, origin: context, fetcher, cre
         await fetcher.raw(`${repoPath(repo)}/collaborators/${encodeURIComponent(actorLogin(actor))}`, { method: 'PUT', json: { permission: role } })
       }),
       assignableUsersPage: verb(true, (repo, listOptions = {}) => list(`${repoPath(repo)}/assignees`, listOptions, (raw: GitHubUserDetail) => toActor(instance, raw)!)),
-      reviewerCandidatesPage: verb('emulated', async (thread, listOptions = {}) => {
+      reviewerCandidatesPage: verb(!anonymous && 'emulated', async (thread, listOptions = {}) => {
         const ref = requireThread(thread, context)
         const page = await fetcher.page<GitHubCollaborator>(`${repoPath(ref.repo)}/collaborators`, {
           query: { per_page: listOptions.perPage },

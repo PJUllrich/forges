@@ -626,6 +626,16 @@ describe('github release assets', () => {
     expect(calls.at(-1)!.headers.get('authorization')).toBeNull()
     expect(calls.at(-2)!.headers.get('accept')).toBe('application/octet-stream')
   })
+
+  it('streams an asset without credentials', async () => {
+    const { fetch } = fixtureFetch('github')
+    const provider = github({ fetch }).create()
+
+    const release = await provider.releases.getByTag(repo, 'v1.2.0')
+    const downloaded = await new Response(await provider.releases.downloadAsset(release.assets![0]!.ref!)).json() as { bytes: string }
+
+    expect(downloaded.bytes).toBe('asset bytes')
+  })
 })
 
 describe('github search', () => {
@@ -714,6 +724,34 @@ describe('github checks, releases and security alerts', () => {
     const [result] = await provider.threads.getMany([{ forge: 'github', instance: 'github.com', repo: widgets, kind: 'pull_request', number: '42' }])
 
     expect(result?.ok && result.thread.checks).toEqual({ state: 'failure', stateRaw: 'failure', total: 3, failed: 1, url: 'https://github.com/acme/widgets/pull/42/checks' })
+  })
+
+  it('reports a token missing a GraphQL scope on every thread it could not read', async () => {
+    const message = 'Your token has not been granted the required scopes to execute this query.'
+    const provider = github({
+      auth: { type: 'token', token: 't' },
+      fetch: async () => Response.json({ errors: [{ type: 'INSUFFICIENT_SCOPES', message }] }),
+    }).create()
+    const results = await provider.threads.getMany([{ forge: 'github', instance: 'github.com', repo: widgets, kind: 'pull_request', number: '42' }, { forge: 'github', instance: 'github.com', repo: widgets, kind: 'issue', number: '7' }])
+
+    expect(results.map(result => !result.ok && result.warning)).toEqual(Array.from({ length: 2 }, () => expect.objectContaining({ code: 'insufficient_scope', message: `GraphQL ThreadsBatch failed: ${message}`, cause: expect.objectContaining({ name: 'InsufficientScopeError' }) })))
+  })
+
+  it('reports a missing GraphQL scope only on the thread whose alias was denied', async () => {
+    const message = 'Your token has not been granted the required scopes to execute this query.'
+    const provider = github({
+      auth: { type: 'token', token: 't' },
+      fetch: async () => Response.json({
+        data: { t0: null, t1: null },
+        errors: [{ type: 'INSUFFICIENT_SCOPES', message, path: ['t0'] }, { type: 'NOT_FOUND', message: 'Could not resolve to an Issue with the number of 7.', path: ['t1'] }],
+      }),
+    }).create()
+    const results = await provider.threads.getMany([{ forge: 'github', instance: 'github.com', repo: widgets, kind: 'pull_request', number: '42' }, { forge: 'github', instance: 'github.com', repo: widgets, kind: 'issue', number: '7' }])
+
+    expect(results.map(result => !result.ok && result.warning)).toEqual([
+      expect.objectContaining({ code: 'insufficient_scope', subject: '42', cause: expect.objectContaining({ name: 'InsufficientScopeError' }) }),
+      expect.objectContaining({ code: 'thread_unreadable', message: 'Could not resolve to an Issue with the number of 7.', subject: '7' }),
+    ])
   })
 
   it('reports an unreadable alert kind as a warning when listing every kind, and throws when asked for it', async () => {

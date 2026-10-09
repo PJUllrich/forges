@@ -15,6 +15,13 @@ export function resolveKinds(kinds: Partial<Record<VerbKind, SupportInput>> | un
   return Object.fromEntries(KINDS.map(kind => [kind, resolve(kinds?.[kind], env)])) as Record<VerbKind, boolean | 'emulated' | 'experimental'>
 }
 
+/** A thread's events are read for each kind the provider reads threads of, at the weaker of the two levels. */
+export function threadEventKinds(spec: ProviderSpec, env: CapabilityEnv): Record<VerbKind, boolean | 'emulated' | 'experimental'> {
+  const events = resolve(spec.threads.eventsPage.support, env)
+  const threads = resolveKinds(spec.threads.get.kinds, env)
+  return Object.fromEntries(KINDS.map(kind => [kind, events && threads[kind] && (events === true ? threads[kind] : events)])) as Record<VerbKind, boolean | 'emulated' | 'experimental'>
+}
+
 /** `upsertComment` is composed of listing, creating and editing a comment, so it needs all three for the kind. */
 export function upsertKinds(spec: ProviderSpec, env: CapabilityEnv): Record<VerbKind, boolean | 'emulated' | 'experimental'> {
   const parts = [spec.threads.commentsPage, spec.threads.comment, spec.threads.editComment]
@@ -50,9 +57,11 @@ function valueFor(entry: CapabilityEntry, spec: ProviderSpec, env: CapabilityEnv
     case 'experimental':
       return undefined
     case 'poll':
-      return spec.traits.poll
+      return resolve(spec.notifications?.listPage.support, env)
     case 'webhook':
       return flags.webhook
+    case 'threadEvents':
+      return threadEventKinds(spec, env)
     case 'upsertComment':
       return upsertKinds(spec, env)
     case 'subscriptionSet':
@@ -90,9 +99,6 @@ export function capabilitiesOf(spec: ProviderSpec, env: CapabilityEnv, flags: Ca
     ...flags.experimental ? { experimental: true as const } : {},
   }
   for (const entry of CAPABILITY_TABLE) {
-    if (entry.alias) {
-      continue
-    }
     const value = valueFor(entry, spec, env, flags)
     if (value !== undefined) {
       write(capabilities, entry.capability, value)
@@ -119,14 +125,17 @@ function update(target: unknown, path: string, change: (value: unknown) => unkno
 const unsupported = (declared: unknown) => declared && { ...declared as object, support: false }
 const unsupportedKinds = (declared: unknown) => declared && { ...declared as object, kinds: {} }
 
-/** Marks writes unsupported, and with `anonymous` everything that needs an account. */
-export function restrict(spec: ProviderSpec, anonymous: boolean): ProviderSpec {
+/**
+ * Marks writes unsupported, with `anonymous` everything that needs an account,
+ * and with `webhooksOnly` every declared verb, leaving only webhook ingestion.
+ */
+export function restrict(spec: ProviderSpec, anonymous: boolean, webhooksOnly = false): ProviderSpec {
   let restricted: unknown = spec
   for (const entry of CAPABILITY_TABLE) {
-    if (entry.spec && (entry.write || (anonymous && entry.account))) {
+    if (entry.spec && (entry.write || (anonymous && (entry.account || webhooksOnly)))) {
       restricted = update(restricted, entry.spec, entry.perKind ? unsupportedKinds : unsupported)
     }
   }
   const result = restricted as ProviderSpec
-  return anonymous ? { ...result, traits: { ...result.traits, poll: false } } : result
+  return anonymous && webhooksOnly ? { ...result, securityAlerts: undefined } : result
 }

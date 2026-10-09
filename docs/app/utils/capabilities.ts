@@ -1,4 +1,14 @@
-import type { CapabilityRow, SupportCell, SupportLevel } from '#capabilities'
+import type { CapabilityProvider, CapabilityRow, SupportCell, SupportLevel } from '#capabilities'
+
+/** A row's cells with credentials, or as each forge's anonymous provider reports them. */
+export function cellsFor(row: CapabilityRow, anonymous: boolean): SupportCell[] {
+  return anonymous ? row.anonymousCells : row.cells
+}
+
+/** A provider's summary with credentials, or without. */
+export function summaryFor(provider: CapabilityProvider, anonymous: boolean): Record<SupportLevel, number> {
+  return anonymous ? provider.anonymousSummary : provider.summary
+}
 
 export const supportLevels: SupportLevel[] = ['native', 'experimental', 'emulated', 'none']
 

@@ -90,7 +90,7 @@ describe('capability table', () => {
   })
 
   it('produces every capability leaf exactly once', () => {
-    const produced = table.filter(entry => !entry.alias).map(entry => entry.capability)
+    const produced = table.map(entry => entry.capability)
 
     expect(new Set(produced).size).toBe(produced.length)
     for (const [name, create] of providers) {
@@ -109,11 +109,12 @@ describe('capability table', () => {
     expect([...declared].sort()).toEqual([...declared].filter(path => paths.includes(path)).sort())
   })
 
-  it('names a capability every alias entry shares', () => {
-    const produced = new Set(table.filter(entry => !entry.alias).map(entry => entry.capability))
+  it('reads thread events for every kind a signed-in provider reads threads of', () => {
+    const kinds = ['issue', 'pull_request', 'discussion', 'commit'] as const
 
-    for (const entry of table.filter(entry => entry.alias)) {
-      expect(produced).toContain(entry.capability)
+    for (const [name, create] of providers.filter(([name]) => name.endsWith('token'))) {
+      const provider = create()
+      expect([name, kinds.map(kind => provider.can('threads.events', kind))]).toEqual([name, kinds.map(kind => provider.can('threads.get', kind))])
     }
   })
 
